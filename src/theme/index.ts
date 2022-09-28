@@ -1,5 +1,4 @@
-import { extendTheme } from "native-base";
-export const myTheme = extendTheme({
+export const dsxTheme = {
   colors: {
     primary: {
       "50": "#619dff",
@@ -61,18 +60,6 @@ export const myTheme = extendTheme({
       "800": "#007aa5",
       "900": "#006487",
     },
-    // text: {
-    //   "50": "#191919",
-    //   "100": "#171717",
-    //   "200": "#161616",
-    //   "300": "#141414",
-    //   "400": "#121212",
-    //   "500": "#111111",
-    //   "600": "#0f0f0f",
-    //   "700": "#0d0d0d",
-    //   "800": "#0b0b0b",
-    //   "900": "#090909",
-    // },
   },
   components: {},
-});
+};

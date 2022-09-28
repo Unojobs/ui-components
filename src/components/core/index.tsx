@@ -1,1 +1,1 @@
-export { NativeBaseProvider } from "./NativebaseProvider";
+export { AppProvider } from "./AppProvider";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider, StorybookSliderArgs, Box } from "my-com-lib";
+import { Slider, StorybookSliderArgs, Box } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const SliderComponent = ({ ...args }) => {

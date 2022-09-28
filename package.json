@@ -1,5 +1,5 @@
 {
-  "name": "comp-lib-template",
+  "name": "@uno-jobs/components",
   "version": "0.1.79",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

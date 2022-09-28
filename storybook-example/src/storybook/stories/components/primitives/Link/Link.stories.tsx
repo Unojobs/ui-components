@@ -1,5 +1,5 @@
 import React from "react";
-import { NativeBaseProvider, Link, StorybookLinkArgs, Box } from "my-com-lib";
+import { Link, StorybookLinkArgs, Box } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const LinkComponent = ({ ...args }) => {

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  NativeBaseProvider,
   Heading,
   StorybookHeadingArgs,
   Box,
@@ -8,7 +7,7 @@ import {
   StorybookIconArgs,
   TextArea,
   StorybookTextAreaArgs,
-} from "my-com-lib";
+} from "components";
 import { Wrapper } from "../../Wrapper";
 
 const TextAreaComponent = ({ ...args }) => {

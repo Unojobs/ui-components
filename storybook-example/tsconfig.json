@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "my-com-lib": ["../src/index"]
+      "components": ["../src/index"]
     },
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",

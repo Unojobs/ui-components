@@ -1,11 +1,5 @@
 import React from "react";
-// import { NativeBaseProvider, Heading, Box } from "native-base";
-import {
-  StorybookHeadingArgs,
-  NativeBaseProvider,
-  Heading,
-  Box,
-} from "my-com-lib";
+import { StorybookHeadingArgs, Heading, Box } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const HeadingComponent = ({ ...args }) => {

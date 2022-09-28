@@ -12,7 +12,7 @@ import {
   StorybookTextArgs,
   // StorybookTextArgs,
 } from "./components/primitives";
-import { myTheme } from "./theme";
+// import { dsxTheme } from "./theme";
 
 export const config = {
   components: {
@@ -240,7 +240,7 @@ export const config = {
   foundation: {
     Colors: {},
   },
-  theme: myTheme,
+  // theme: myTheme,
   metaData: {},
   hooks: {},
 };

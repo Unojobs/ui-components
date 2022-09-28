@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  NativeBaseProvider,
-  InputGroup,
-  Box,
-  StorybookInputGroupArgs,
-} from "my-com-lib";
+import { InputGroup, Box, StorybookInputGroupArgs } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const InputGroupTest = ({ ...args }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Radio, StorybookRadioArgs } from "my-com-lib";
+import { Radio, StorybookRadioArgs } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const RadioComponent = ({ ...args }) => {
