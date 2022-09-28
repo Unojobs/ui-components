@@ -58,11 +58,11 @@ export const Example = () => {
     );
   };
   
-  export const Accordion = AccordionTest.bind({});
+  export const AccordionComponent = AccordionTest.bind({});
   
   export default {
     title: "Accordion",
-    component: Accordion,
+    component: AccordionComponent,
     argTypes: StorybookArgs,
   };
   

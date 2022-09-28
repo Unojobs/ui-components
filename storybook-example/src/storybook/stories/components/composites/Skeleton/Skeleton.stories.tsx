@@ -34,11 +34,11 @@ export const Example = () => {
     );
   };
   
-  export const Skeleton = SkeletonTest.bind({});
+  export const SkeletonComponent = SkeletonTest.bind({});
   
   export default {
     title: "Skeleton",
-    component: Skeleton,
+    component: SkeletonComponent,
     argTypes: StorybookArgs,
   };
   

@@ -29,11 +29,11 @@ export const Example = () => {
     );
   };
   
-  export const Fab = FabTest.bind({});
+  export const FabComponent = FabTest.bind({});
   
   export default {
     title: "Fab",
-    component: Fab,
+    component: FabComponent,
     argTypes: StorybookArgs,
   };
   

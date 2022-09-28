@@ -32,11 +32,11 @@ export const Example = () => {
     );
   };
   
-  export const Toast = ToastTest.bind({});
+  export const ToastComponent = ToastTest.bind({});
   
   export default {
     title: "Toast",
-    component: Toast,
+    component: ToastComponent,
     argTypes: StorybookArgs,
   };
   

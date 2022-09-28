@@ -43,11 +43,11 @@ export const Example = () => {
     );
   };
   
-  export const Breadcrumb = BreadcrumbTest.bind({});
+  export const BreadcrumbComponent = BreadcrumbTest.bind({});
   
   export default {
     title: "Breadcrumb",
-    component: Breadcrumb,
+    component: BreadcrumbComponent,
     argTypes: StorybookArgs,
   };
   

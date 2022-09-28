@@ -28,11 +28,11 @@ export function Example() {
     );
   };
   
-  export const Center = CenterTest.bind({});
+  export const CenterComponent = CenterTest.bind({});
   
   export default {
     title: "Center",
-    component: Center,
+    component: CenterComponent,
     argTypes: StorybookArgs,
   };
   

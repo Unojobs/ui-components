@@ -22,11 +22,11 @@ export const Example = () => {
     );
   };
   
-  export const AspectRatio = AspectRatioTest.bind({});
+  export const AspectRatioComponent = AspectRatioTest.bind({});
   
   export default {
     title: "AspectRatio",
-    component: AspectRatio,
+    component: AspectRatioComponent,
     argTypes: StorybookArgs,
   };
   

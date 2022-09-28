@@ -57,11 +57,11 @@ export const Example = () => {
     );
   };
   
-  export const Avatar = AvatarTest.bind({});
+  export const AvatarComponent = AvatarTest.bind({});
   
   export default {
     title: "Avatar",
-    component: Avatar,
+    component: AvatarComponent,
     argTypes: StorybookArgs,
   };
   

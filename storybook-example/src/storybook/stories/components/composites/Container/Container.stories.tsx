@@ -30,11 +30,11 @@ export function Example() {
     );
   };
   
-  export const Container = ContainerTest.bind({});
+  export const ContainerComponent = ContainerTest.bind({});
   
   export default {
     title: "Container",
-    component: Container,
+    component: ContainerComponent,
     argTypes: StorybookArgs,
   };
   

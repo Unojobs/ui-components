@@ -25,11 +25,11 @@ export const Example = () => {
     );
   };
   
-  export const PinInput = PinInputTest.bind({});
+  export const PinInputComponent = PinInputTest.bind({});
   
   export default {
     title: "PinInput",
-    component: PinInput,
+    component: PinInputComponent,
     argTypes: StorybookArgs,
   };
   

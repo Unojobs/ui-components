@@ -48,11 +48,11 @@ export function Example() {
     );
   };
   
-  export const Popover = PopoverTest.bind({});
+  export const PopoverComponent = PopoverTest.bind({});
   
   export default {
     title: "Popover",
-    component: Popover,
+    component: PopoverComponent,
     argTypes: StorybookArgs,
   };
   

@@ -57,11 +57,11 @@ export const Example = () => {
     );
   };
   
-  export const Alert = AlertTest.bind({});
+  export const AlertComponent = AlertTest.bind({});
   
   export default {
     title: "Alert",
-    component: Alert,
+    component: AlertComponent,
     argTypes: StorybookArgs,
   };
   

@@ -33,11 +33,11 @@ export const Example = () => {
     );
   };
   
-  export const Collapse = CollapseTest.bind({});
+  export const CollapseComponent = CollapseTest.bind({});
   
   export default {
     title: "Collapse",
-    component: Collapse,
+    component: CollapseComponent,
     argTypes: StorybookArgs,
   };
   

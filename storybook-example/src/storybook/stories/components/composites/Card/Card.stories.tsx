@@ -42,11 +42,11 @@ export function Example() {
     );
   };
   
-  export const Card = CardTest.bind({});
+  export const CardComponent = CardTest.bind({});
   
   export default {
     title: "Card",
-    component: Card,
+    component: CardComponent,
     argTypes: StorybookArgs,
   };
   

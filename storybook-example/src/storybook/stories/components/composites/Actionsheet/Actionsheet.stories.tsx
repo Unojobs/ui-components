@@ -44,11 +44,11 @@ export function Example() {
     );
   };
   
-  export const Actionsheet = ActionsheetTest.bind({});
+  export const ActionsheetComponent = ActionsheetTest.bind({});
   
   export default {
     title: "Actionsheet",
-    component: Actionsheet,
+    component: ActionsheetComponent,
     argTypes: StorybookArgs,
   };
   

@@ -35,11 +35,11 @@ export const Example = () => {
     );
   };
   
-  export const NumberInput = NumberInputTest.bind({});
+  export const NumberInputComponent = NumberInputTest.bind({});
   
   export default {
     title: "NumberInput",
-    component: NumberInput,
+    component: NumberInputComponent,
     argTypes: StorybookArgs,
   };
   

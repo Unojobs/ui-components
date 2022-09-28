@@ -22,11 +22,11 @@ export function Example() {
     );
   };
   
-  export const Badge = BadgeTest.bind({});
+  export const BadgeComponent = BadgeTest.bind({});
   
   export default {
     title: "Badge",
-    component: Badge,
+    component: BadgeComponent,
     argTypes: StorybookArgs,
   };
   

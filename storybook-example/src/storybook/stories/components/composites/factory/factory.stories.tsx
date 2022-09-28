@@ -20,11 +20,11 @@ export const Example = () => {
     );
   };
   
-  export const factory = factoryTest.bind({});
+  export const factoryComponent = factoryTest.bind({});
   
   export default {
     title: "factory",
-    component: factory,
+    component: factoryComponent,
     argTypes: StorybookArgs,
   };
   

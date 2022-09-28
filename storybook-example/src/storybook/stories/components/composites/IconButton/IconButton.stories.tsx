@@ -40,11 +40,11 @@ export const Example = () => {
     );
   };
   
-  export const IconButton = IconButtonTest.bind({});
+  export const IconButtonComponent = IconButtonTest.bind({});
   
   export default {
     title: "IconButton",
-    component: IconButton,
+    component: IconButtonComponent,
     argTypes: StorybookArgs,
   };
   

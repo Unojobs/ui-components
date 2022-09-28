@@ -22,11 +22,11 @@ export const Example = () => {
     );
   };
   
-  export const CircularProgress = CircularProgressTest.bind({});
+  export const CircularProgressComponent = CircularProgressTest.bind({});
   
   export default {
     title: "CircularProgress",
-    component: CircularProgress,
+    component: CircularProgressComponent,
     argTypes: StorybookArgs,
   };
   

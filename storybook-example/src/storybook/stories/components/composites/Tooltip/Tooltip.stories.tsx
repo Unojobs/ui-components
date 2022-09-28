@@ -24,11 +24,11 @@ export function Example() {
     );
   };
   
-  export const Tooltip = TooltipTest.bind({});
+  export const TooltipComponent = TooltipTest.bind({});
   
   export default {
     title: "Tooltip",
-    component: Tooltip,
+    component: TooltipComponent,
     argTypes: StorybookArgs,
   };
   

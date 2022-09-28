@@ -17,11 +17,11 @@ export const Example = () => {
     );
   };
   
-  export const CloseButton = CloseButtonTest.bind({});
+  export const CloseButtonComponent = CloseButtonTest.bind({});
   
   export default {
     title: "CloseButton",
-    component: CloseButton,
+    component: CloseButtonComponent,
     argTypes: StorybookArgs,
   };
   

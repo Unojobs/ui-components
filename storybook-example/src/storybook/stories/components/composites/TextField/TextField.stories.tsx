@@ -18,11 +18,11 @@ export const Example = () => {
     );
   };
   
-  export const TextField = TextFieldTest.bind({});
+  export const TextFieldComponent = TextFieldTest.bind({});
   
   export default {
     title: "TextField",
-    component: TextField,
+    component: TextFieldComponent,
     argTypes: StorybookArgs,
   };
   

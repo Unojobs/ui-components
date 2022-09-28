@@ -40,11 +40,11 @@ export function Example() {
     );
   };
   
-  export const Menu = MenuTest.bind({});
+  export const MenuComponent = MenuTest.bind({});
   
   export default {
     title: "Menu",
-    component: Menu,
+    component: MenuComponent,
     argTypes: StorybookArgs,
   };
   

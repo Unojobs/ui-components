@@ -34,11 +34,11 @@ export const Example = () => {
     );
   };
   
-  export const Divider = DividerTest.bind({});
+  export const DividerComponent = DividerTest.bind({});
   
   export default {
     title: "Divider",
-    component: Divider,
+    component: DividerComponent,
     argTypes: StorybookArgs,
   };
   

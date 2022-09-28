@@ -36,11 +36,11 @@ export const Example = () => {
     );
   };
   
-  export const Kbd = KbdTest.bind({});
+  export const KbdComponent = KbdTest.bind({});
   
   export default {
     title: "Kbd",
-    component: Kbd,
+    component: KbdComponent,
     argTypes: StorybookArgs,
   };
   

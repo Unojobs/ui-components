@@ -47,11 +47,11 @@ export const Example = () => {
     );
   };
   
-  export const Wrap = WrapTest.bind({});
+  export const WrapComponent = WrapTest.bind({});
   
   export default {
     title: "Wrap",
-    component: Wrap,
+    component: WrapComponent,
     argTypes: StorybookArgs,
   };
   

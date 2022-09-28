@@ -24,11 +24,11 @@ export const Example = () => {
     );
   };
   
-  export const Progress = ProgressTest.bind({});
+  export const ProgressComponent = ProgressTest.bind({});
   
   export default {
     title: "Progress",
-    component: Progress,
+    component: ProgressComponent,
     argTypes: StorybookArgs,
   };
   

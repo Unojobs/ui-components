@@ -18,11 +18,11 @@ export const Example = () => {
     );
   };
   
-  export const Tag = TagTest.bind({});
+  export const TagComponent = TagTest.bind({});
   
   export default {
     title: "Tag",
-    component: Tag,
+    component: TagComponent,
     argTypes: StorybookArgs,
   };
   

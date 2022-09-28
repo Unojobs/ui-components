@@ -29,11 +29,11 @@ export const Example = () => {
     );
   };
   
-  export const Tabs = TabsTest.bind({});
+  export const TabsComponent = TabsTest.bind({});
   
   export default {
     title: "Tabs",
-    component: Tabs,
+    component: TabsComponent,
     argTypes: StorybookArgs,
   };
   

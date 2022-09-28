@@ -56,11 +56,11 @@ export const Example = () => {
     );
   };
   
-  export const AlertDialog = AlertDialogTest.bind({});
+  export const AlertDialogComponent = AlertDialogTest.bind({});
   
   export default {
     title: "AlertDialog",
-    component: AlertDialog,
+    component: AlertDialogComponent,
     argTypes: StorybookArgs,
   };
   

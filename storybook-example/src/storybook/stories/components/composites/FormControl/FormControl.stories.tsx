@@ -47,11 +47,11 @@ export const Example = () => {
     );
   };
   
-  export const FormControl = FormControlTest.bind({});
+  export const FormControlComponent = FormControlTest.bind({});
   
   export default {
     title: "FormControl",
-    component: FormControl,
+    component: FormControlComponent,
     argTypes: StorybookArgs,
   };
   

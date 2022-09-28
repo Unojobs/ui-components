@@ -61,11 +61,11 @@ export const Example = () => {
     );
   };
   
-  export const Modal = ModalTest.bind({});
+  export const ModalComponent = ModalTest.bind({});
   
   export default {
     title: "Modal",
-    component: Modal,
+    component: ModalComponent,
     argTypes: StorybookArgs,
   };
   

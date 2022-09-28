@@ -17,11 +17,11 @@ export const Example = () => {
     );
   };
   
-  export const Code = CodeTest.bind({});
+  export const CodeComponent = CodeTest.bind({});
   
   export default {
     title: "Code",
-    component: Code,
+    component: CodeComponent,
     argTypes: StorybookArgs,
   };
   
