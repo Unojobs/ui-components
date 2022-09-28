@@ -4,13 +4,14 @@ import { StorybookArgs } from './Select.args';
 import React from 'react';
 import { Select, Box, CheckIcon, Center } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   const [service, setService] = React.useState('');
 
   return (
     <Center>
       <Box maxW="300">
         <Select
+          {...args}
           selectedValue={service}
           minWidth="200"
           accessibilityLabel="Choose Service"

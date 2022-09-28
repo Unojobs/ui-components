@@ -9,7 +9,7 @@ const RadioComponent = ({ ...args }) => {
         name="exampleGroup"
         accessibilityLabel="Pick your favorite number"
       >
-        <Radio value="test" my={1} {...args}>
+        <Radio {...args} value="test" my={1}>
           Radio
         </Radio>
       </Radio.Group>

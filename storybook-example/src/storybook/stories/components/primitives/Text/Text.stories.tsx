@@ -4,8 +4,8 @@ import { StorybookArgs } from './Text.args';
 import React from 'react';
 import { Text } from 'components';
 
-const Example = () => {
-  return <Text>This is Text.</Text>;
+const Example = ({ ...args }) => {
+  return <Text {...args}>This is Text.</Text>;
 };
 
 const TextTest = ({ ...args }) => {

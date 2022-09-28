@@ -4,8 +4,8 @@ import { StorybookArgs } from './Heading.args';
 import React from 'react';
 import { Heading } from 'components';
 
-function Example() {
-  return <Heading>I'm a Heading</Heading>;
+function Example({ ...args }) {
+  return <Heading {...args}>I'm a Heading</Heading>;
 }
 
 const HeadingTest = ({ ...args }) => {

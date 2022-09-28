@@ -9,8 +9,10 @@ const Example = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <Center>
-      <Button onPress={() => setShowModal(true)}>Button</Button>
+    <>
+      <Center>
+        <Button onPress={() => setShowModal(true)}>Button</Button>
+      </Center>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
@@ -47,7 +49,7 @@ const Example = () => {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-    </Center>
+    </>
   );
 };
 

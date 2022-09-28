@@ -4,13 +4,13 @@ import { StorybookArgs } from './Hidden.args';
 import React from 'react';
 import { Hidden, Text, Stack, Box } from 'components';
 
-function Example() {
+function Example({ ...args }) {
   return (
     <Stack>
       <Box bg="orange.300" p={2}>
         <Text>This text will be always visible.</Text>
       </Box>
-      <Hidden>
+      <Hidden {...args}>
         <Box bg="red.400" p={2}>
           <Text>This text will be always hidden.</Text>
         </Box>

@@ -4,10 +4,10 @@ import { StorybookArgs } from './Input.args';
 import React from 'react';
 import { Input, Box } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <Box alignItems="center">
-      <Input mx="3" placeholder="Input" w="100%" />
+      <Input {...args} mx="3" placeholder="Input" w="100%" />
     </Box>
   );
 };

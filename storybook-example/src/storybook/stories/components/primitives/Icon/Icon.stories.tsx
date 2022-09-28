@@ -4,10 +4,10 @@ import { StorybookArgs } from './Icon.args';
 import React from 'react';
 import { CheckIcon, HStack, Text } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <HStack space={2}>
-      <CheckIcon mt="0.5" color="emerald.500" />
+      <CheckIcon {...args} mt="0.5" color="emerald.500" />
       <Text color="emerald.500" fontSize="md">
         Order Placed Successfully
       </Text>
