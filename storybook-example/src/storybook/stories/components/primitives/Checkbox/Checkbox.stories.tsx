@@ -1,27 +1,36 @@
-import React from "react";
-import {
-  Heading,
-  StorybookHeadingArgs,
-  Box,
-  Icon,
-  StorybookIconArgs,
-  Checkbox,
-  StorybookCheckboxArgs,
-} from "components";
-import { Wrapper } from "../../Wrapper";
 
-const CheckboxComponent = ({ ...args }) => {
+  import { Wrapper } from "../../Wrapper";
+  import { StorybookArgs } from "./Checkbox.args";
+
+  import React from 'react';
+import { HStack, Checkbox } from 'components';
+
+export const Example = () => {
   return (
-    <Wrapper>
-      <Checkbox {...args} />
-    </Wrapper>
+    <HStack space={6}>
+      <Checkbox
+        value="test"
+        accessibilityLabel="This is a dummy checkbox"
+        defaultIsChecked
+      />
+    </HStack>
   );
 };
 
-export const Basic = CheckboxComponent.bind({});
 
-export default {
-  title: "Checkbox",
-  component: Basic,
-  argTypes: StorybookCheckboxArgs,
-};
+  const CheckboxTest = ({ ...args }) => {
+    return (
+      <Wrapper>
+        <Example {...args}/>
+      </Wrapper>
+    );
+  };
+  
+  export const CheckboxComponent = CheckboxTest.bind({});
+  
+  export default {
+    title: "Checkbox",
+    component: CheckboxComponent,
+    argTypes: StorybookArgs,
+  };
+  

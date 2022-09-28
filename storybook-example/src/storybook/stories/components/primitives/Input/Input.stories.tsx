@@ -1,27 +1,32 @@
-import React from "react";
-import {
-  Heading,
-  StorybookHeadingArgs,
-  Box,
-  Icon,
-  StorybookIconArgs,
-  Input,
-  StorybookInputArgs,
-} from "components";
-import { Wrapper } from "../../Wrapper";
 
-const InputComponent = ({ ...args }) => {
+  import { Wrapper } from "../../Wrapper";
+  import { StorybookArgs } from "./Input.args";
+
+  import React from 'react';
+import { Input, Box } from 'components';
+
+export const Example = () => {
   return (
-    <Wrapper>
-      <Input {...args} w="40%" />
-    </Wrapper>
+    <Box alignItems="center">
+      <Input mx="3" placeholder="Input" w="100%" />
+    </Box>
   );
 };
 
-export const Basic = InputComponent.bind({});
 
-export default {
-  title: "Input",
-  component: Basic,
-  argTypes: StorybookInputArgs,
-};
+  const InputTest = ({ ...args }) => {
+    return (
+      <Wrapper>
+        <Example {...args}/>
+      </Wrapper>
+    );
+  };
+  
+  export const InputComponent = InputTest.bind({});
+  
+  export default {
+    title: "Input",
+    component: InputComponent,
+    argTypes: StorybookArgs,
+  };
+  

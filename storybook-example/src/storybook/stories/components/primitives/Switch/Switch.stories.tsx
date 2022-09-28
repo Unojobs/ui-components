@@ -1,19 +1,33 @@
-import React from "react";
-import { Switch, StorybookSwitchArgs, Box } from "components";
-import { Wrapper } from "../../Wrapper";
 
-const SwitchComponent = ({ ...args }) => {
+  import { Wrapper } from "../../Wrapper";
+  import { StorybookArgs } from "./Switch.args";
+
+  import React from 'react';
+import { Switch, HStack, Text } from 'components';
+
+export const Example = () => {
   return (
-    <Wrapper>
-      <Switch {...args}></Switch>
-    </Wrapper>
+    <HStack alignItems="center" space={4}>
+      <Text>Bluetooth</Text>
+      <Switch size="sm" />
+    </HStack>
   );
 };
 
-export const Basic = SwitchComponent.bind({});
 
-export default {
-  title: "Switch",
-  component: Basic,
-  argTypes: StorybookSwitchArgs,
-};
+  const SwitchTest = ({ ...args }) => {
+    return (
+      <Wrapper>
+        <Example {...args}/>
+      </Wrapper>
+    );
+  };
+  
+  export const SwitchComponent = SwitchTest.bind({});
+  
+  export default {
+    title: "Switch",
+    component: SwitchComponent,
+    argTypes: StorybookArgs,
+  };
+  
