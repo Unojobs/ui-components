@@ -10,7 +10,7 @@ export const StorybookArgs = {
     control: {
       type: 'select',
     },
-    options: Object.keys(theme.components.Checkbox.sizes).reverse(),
+    options: Object.keys(theme.components.Radio.sizes).reverse(),
   },
   colorScheme: {
     name: 'colorScheme',

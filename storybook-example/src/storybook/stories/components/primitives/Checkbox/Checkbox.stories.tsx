@@ -4,10 +4,11 @@ import { StorybookArgs } from './Checkbox.args';
 import React from 'react';
 import { HStack, Checkbox } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <HStack space={6}>
       <Checkbox
+        {...args}
         value="test"
         accessibilityLabel="This is a dummy checkbox"
         defaultIsChecked

@@ -4,10 +4,11 @@ import { StorybookArgs } from './Slider.args';
 import React from 'react';
 import { Slider, Box } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <Box alignItems="center" w="100%">
       <Slider
+        {...args}
         w="3/4"
         maxW="300"
         defaultValue={70}

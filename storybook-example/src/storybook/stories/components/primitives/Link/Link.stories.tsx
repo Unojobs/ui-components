@@ -4,10 +4,10 @@ import { StorybookArgs } from './Link.args';
 import React from 'react';
 import { Link, Box } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <Box alignItems="center">
-      <Link href="https://nativebase.io">
+      <Link {...args} href="https://nativebase.io">
         Click here to open documentation.
       </Link>
     </Box>

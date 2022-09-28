@@ -4,10 +4,16 @@ import { StorybookArgs } from './TextArea.args';
 import React from 'react';
 import { TextArea, Box } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <Box alignItems="center" w="100%">
-      <TextArea h={20} placeholder="Text Area Placeholder" w="75%" maxW="300" />
+      <TextArea
+        {...args}
+        h={20}
+        placeholder="Text Area Placeholder"
+        w="75%"
+        maxW="300"
+      />
     </Box>
   );
 };

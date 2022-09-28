@@ -4,10 +4,12 @@ import { StorybookArgs } from './Button.args';
 import React from 'react';
 import { Button, Box } from 'components';
 
-const Example = () => {
+const Example = ({ ...args }) => {
   return (
     <Box alignItems="center">
-      <Button onPress={() => console.log('hello world')}>Click Me</Button>
+      <Button {...args} onPress={() => console.log('hello world')}>
+        Click Me
+      </Button>
     </Box>
   );
 };
