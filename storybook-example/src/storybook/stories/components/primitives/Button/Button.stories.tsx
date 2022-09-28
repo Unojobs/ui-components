@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  NativeBaseProvider,
-  Button,
-  StorybookButtonArgs,
-  Box,
-} from "my-com-lib";
+import { Button, StorybookButtonArgs, Box } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const ButtonTest = ({ ...args }) => {

@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  NativeBaseProvider,
-  Switch,
-  StorybookSwitchArgs,
-  Box,
-} from "my-com-lib";
+import { Switch, StorybookSwitchArgs, Box } from "components";
 import { Wrapper } from "../../Wrapper";
 
 const SwitchComponent = ({ ...args }) => {

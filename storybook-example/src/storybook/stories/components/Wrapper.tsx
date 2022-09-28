@@ -1,12 +1,12 @@
 import React from "react";
-import { NativeBaseProvider, Box } from "my-com-lib";
+import { AppProvider, Box } from "components";
 
 export const Wrapper = (props: any) => {
   return (
-    <NativeBaseProvider>
+    <AppProvider>
       <Box alignItems={"center"} justifyContent="center">
         {props.children}
       </Box>
-    </NativeBaseProvider>
+    </AppProvider>
   );
 };

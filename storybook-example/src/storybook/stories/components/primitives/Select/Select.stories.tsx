@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, StorybookSelectArgs } from "my-com-lib";
+import { Select, StorybookSelectArgs } from "components"
 import { Wrapper } from "../../Wrapper";
 
 const SelectComponent = ({ ...args }) => {

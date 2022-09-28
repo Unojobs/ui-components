@@ -35,7 +35,7 @@ module.exports = {
 
     config.resolve.alias["react-native$"] = "react-native-web";
     // config.resolve.alias["native-base"] = path.resolve("../src");
-    config.resolve.alias["my-com-lib"] = path.resolve("../src");
+    config.resolve.alias["components"] = path.resolve("../src");
     // webpackConfig.module.rules[6].oneOf[1].include.push(path.resolve(__dirname, "../package"))
 
     config.module.rules.push({

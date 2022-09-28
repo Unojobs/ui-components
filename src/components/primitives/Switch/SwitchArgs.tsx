@@ -1,4 +1,4 @@
-import { myTheme as theme } from "../../../theme";
+import { appTheme as theme } from "../../core/AppProvider";
 
 // const {
 //   contrastThreshold,
