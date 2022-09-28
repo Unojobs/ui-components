@@ -1,5 +1,5 @@
-import React from "react";
-import { Slider as NBSlider } from "native-base";
+import React from 'react';
+import { Slider as NBSlider } from 'native-base';
 
 const SliderTemp: any = ({ children, ...props }: any) => {
   return <NBSlider {...props}>{children}</NBSlider>;
