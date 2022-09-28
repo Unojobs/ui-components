@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Link.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Link.args";
-
-  import React from 'react';
+import React from 'react';
 import { Link, Box } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Box alignItems="center">
       <Link href="https://nativebase.io">
@@ -15,20 +14,18 @@ export const Example = () => {
   );
 };
 
+const LinkTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const LinkTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const LinkComponent = LinkTest.bind({});
-  
-  export default {
-    title: "primitives/Link",
-    component: LinkComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const LinkComponent = LinkTest.bind({});
+
+export default {
+  title: 'primitives/Link',
+  component: LinkComponent,
+  argTypes: StorybookArgs,
+};

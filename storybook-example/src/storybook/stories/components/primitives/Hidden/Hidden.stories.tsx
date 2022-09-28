@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Hidden.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Hidden.args";
-
-  import React from 'react';
+import React from 'react';
 import { Hidden, Text, Stack, Box } from 'components';
 
-export function Example() {
+function Example() {
   return (
     <Stack>
       <Box bg="orange.300" p={2}>
@@ -20,20 +19,18 @@ export function Example() {
   );
 }
 
+const HiddenTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const HiddenTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const HiddenComponent = HiddenTest.bind({});
-  
-  export default {
-    title: "primitives/Hidden",
-    component: HiddenComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const HiddenComponent = HiddenTest.bind({});
+
+export default {
+  title: 'primitives/Hidden',
+  component: HiddenComponent,
+  argTypes: StorybookArgs,
+};

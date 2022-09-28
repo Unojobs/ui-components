@@ -1,8 +1,7 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Accordion.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Accordion.args";
-
-  import React from 'react';
+import React from 'react';
 import { Accordion, Box } from 'components';
 export const Example = () => {
   return (
@@ -49,20 +48,18 @@ export const Example = () => {
   );
 };
 
+const AccordionTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const AccordionTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const AccordionComponent = AccordionTest.bind({});
-  
-  export default {
-    title: "composites/Accordion",
-    component: AccordionComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const AccordionComponent = AccordionTest.bind({});
+
+export default {
+  title: 'composites/Accordion',
+  component: AccordionComponent,
+  argTypes: StorybookArgs,
+};

@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Switch.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Switch.args";
-
-  import React from 'react';
+import React from 'react';
 import { Switch, HStack, Text } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <HStack alignItems="center" space={4}>
       <Text>Bluetooth</Text>
@@ -14,20 +13,18 @@ export const Example = () => {
   );
 };
 
+const SwitchTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const SwitchTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const SwitchComponent = SwitchTest.bind({});
-  
-  export default {
-    title: "primitives/Switch",
-    component: SwitchComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const SwitchComponent = SwitchTest.bind({});
+
+export default {
+  title: 'primitives/Switch',
+  component: SwitchComponent,
+  argTypes: StorybookArgs,
+};

@@ -1,10 +1,9 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Box.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Box.args";
-
-  import React from 'react';
+import React from 'react';
 import { Box } from 'components';
-export const Example = () => {
+const Example = () => {
   return (
     <Box>
       <Box
@@ -23,20 +22,18 @@ export const Example = () => {
   );
 };
 
+const BoxTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const BoxTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const BoxComponent = BoxTest.bind({});
-  
-  export default {
-    title: "primitives/Box",
-    component: BoxComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const BoxComponent = BoxTest.bind({});
+
+export default {
+  title: 'primitives/Box',
+  component: BoxComponent,
+  argTypes: StorybookArgs,
+};

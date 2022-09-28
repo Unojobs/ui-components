@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Row.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Row.args";
-
-  import React from 'react';
+import React from 'react';
 import { Center, Row } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Row space={2}>
       <Center
@@ -39,20 +38,18 @@ export const Example = () => {
   );
 };
 
+const RowTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const RowTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const RowComponent = RowTest.bind({});
-  
-  export default {
-    title: "primitives/Row",
-    component: RowComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const RowComponent = RowTest.bind({});
+
+export default {
+  title: 'primitives/Row',
+  component: RowComponent,
+  argTypes: StorybookArgs,
+};

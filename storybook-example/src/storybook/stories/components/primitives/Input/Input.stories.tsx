@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Input.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Input.args";
-
-  import React from 'react';
+import React from 'react';
 import { Input, Box } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Box alignItems="center">
       <Input mx="3" placeholder="Input" w="100%" />
@@ -13,20 +12,18 @@ export const Example = () => {
   );
 };
 
+const InputTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const InputTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const InputComponent = InputTest.bind({});
-  
-  export default {
-    title: "primitives/Input",
-    component: InputComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const InputComponent = InputTest.bind({});
+
+export default {
+  title: 'primitives/Input',
+  component: InputComponent,
+  argTypes: StorybookArgs,
+};

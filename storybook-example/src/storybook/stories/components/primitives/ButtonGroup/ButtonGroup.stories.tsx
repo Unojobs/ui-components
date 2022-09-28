@@ -1,13 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './ButtonGroup.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./ButtonGroup.args";
+import React from 'react';
+import { ButtonGroup } from 'components';
 
-  import React from 'react';
-import { Button } from 'components';
-
-export const Example = () => {
+const Example = () => {
   return (
-    <Button.Group
+    <ButtonGroup
       isAttached
       colorScheme="blue"
       mx={{ base: 'auto', md: 0 }}
@@ -15,24 +14,22 @@ export const Example = () => {
     >
       <Button>Edit</Button>
       <Button variant="outline">Save</Button>
-    </Button.Group>
+    </ButtonGroup>
   );
 };
 
+const ButtonGroupTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const ButtonGroupTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ButtonGroupComponent = ButtonGroupTest.bind({});
-  
-  export default {
-    title: "primitives/ButtonGroup",
-    component: ButtonGroupComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const ButtonGroupComponent = ButtonGroupTest.bind({});
+
+export default {
+  title: 'primitives/ButtonGroup',
+  component: ButtonGroupComponent,
+  argTypes: StorybookArgs,
+};

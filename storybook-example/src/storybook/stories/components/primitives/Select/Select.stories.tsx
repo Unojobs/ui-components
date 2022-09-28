@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Select.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Select.args";
-
-  import React from 'react';
+import React from 'react';
 import { Select, Box, CheckIcon, Center } from 'components';
 
-export const Example = () => {
+const Example = () => {
   const [service, setService] = React.useState('');
 
   return (
@@ -21,7 +20,7 @@ export const Example = () => {
             endIcon: <CheckIcon size="5" />,
           }}
           mt={1}
-          onValueChange={(itemValue) => setService(itemValue)}
+          onValueChange={(itemValue: any) => setService(itemValue)}
         >
           <Select.Item label="UX Research" value="ux" />
           <Select.Item label="Web Development" value="web" />
@@ -34,20 +33,18 @@ export const Example = () => {
   );
 };
 
+const SelectTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const SelectTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const SelectComponent = SelectTest.bind({});
-  
-  export default {
-    title: "primitives/Select",
-    component: SelectComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const SelectComponent = SelectTest.bind({});
+
+export default {
+  title: 'primitives/Select',
+  component: SelectComponent,
+  argTypes: StorybookArgs,
+};

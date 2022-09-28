@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './View.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./View.args";
-
-  import React from 'react';
+import React from 'react';
 import { Box, Heading, Text } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Box>
       <Heading>
@@ -20,20 +19,18 @@ export const Example = () => {
   );
 };
 
+const ViewTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const ViewTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ViewComponent = ViewTest.bind({});
-  
-  export default {
-    title: "primitives/View",
-    component: ViewComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const ViewComponent = ViewTest.bind({});
+
+export default {
+  title: 'primitives/View',
+  component: ViewComponent,
+  argTypes: StorybookArgs,
+};

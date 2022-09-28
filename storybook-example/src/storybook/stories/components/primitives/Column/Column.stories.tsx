@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Column.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Column.args";
-
-  import React from 'react';
+import React from 'react';
 import { Column, Box } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Column>
       <Box h="100px" w="100px" bg="green.500" />
@@ -15,20 +14,18 @@ export const Example = () => {
   );
 };
 
+const ColumnTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const ColumnTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ColumnComponent = ColumnTest.bind({});
-  
-  export default {
-    title: "primitives/Column",
-    component: ColumnComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const ColumnComponent = ColumnTest.bind({});
+
+export default {
+  title: 'primitives/Column',
+  component: ColumnComponent,
+  argTypes: StorybookArgs,
+};

@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Slider.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Slider.args";
-
-  import React from 'react';
+import React from 'react';
 import { Slider, Box } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Box alignItems="center" w="100%">
       <Slider
@@ -26,20 +25,18 @@ export const Example = () => {
   );
 };
 
+const SliderTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const SliderTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const SliderComponent = SliderTest.bind({});
-  
-  export default {
-    title: "primitives/Slider",
-    component: SliderComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const SliderComponent = SliderTest.bind({});
+
+export default {
+  title: 'primitives/Slider',
+  component: SliderComponent,
+  argTypes: StorybookArgs,
+};

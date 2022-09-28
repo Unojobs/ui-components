@@ -1,28 +1,25 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Heading.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Heading.args";
-
-  import React from 'react';
+import React from 'react';
 import { Heading } from 'components';
 
-export function Example() {
+function Example() {
   return <Heading>I'm a Heading</Heading>;
 }
 
+const HeadingTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const HeadingTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const HeadingComponent = HeadingTest.bind({});
-  
-  export default {
-    title: "primitives/Heading",
-    component: HeadingComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const HeadingComponent = HeadingTest.bind({});
+
+export default {
+  title: 'primitives/Heading',
+  component: HeadingComponent,
+  argTypes: StorybookArgs,
+};

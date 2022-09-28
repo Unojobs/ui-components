@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Button.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Button.args";
-
-  import React from 'react';
+import React from 'react';
 import { Button, Box } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <Box alignItems="center">
       <Button onPress={() => console.log('hello world')}>Click Me</Button>
@@ -13,20 +12,18 @@ export const Example = () => {
   );
 };
 
+const ButtonTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const ButtonTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ButtonComponent = ButtonTest.bind({});
-  
-  export default {
-    title: "primitives/Button",
-    component: ButtonComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const ButtonComponent = ButtonTest.bind({});
+
+export default {
+  title: 'primitives/Button',
+  component: ButtonComponent,
+  argTypes: StorybookArgs,
+};

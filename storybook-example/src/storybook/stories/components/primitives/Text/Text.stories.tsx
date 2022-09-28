@@ -1,28 +1,25 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Text.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Text.args";
-
-  import React from 'react';
+import React from 'react';
 import { Text } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return <Text>This is Text.</Text>;
 };
 
+const TextTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const TextTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const TextComponent = TextTest.bind({});
-  
-  export default {
-    title: "primitives/Text",
-    component: TextComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const TextComponent = TextTest.bind({});
+
+export default {
+  title: 'primitives/Text',
+  component: TextComponent,
+  argTypes: StorybookArgs,
+};

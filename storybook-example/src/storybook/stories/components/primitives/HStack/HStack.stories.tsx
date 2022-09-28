@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './HStack.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./HStack.args";
-
-  import React from 'react';
+import React from 'react';
 import { HStack, Center } from 'components';
 
-export function Example() {
+function Example() {
   return (
     <HStack space={10} justifyContent="center">
       <Center h="80" w="20" bg="primary.300" rounded="md" shadow={3} />
@@ -15,20 +14,18 @@ export function Example() {
   );
 }
 
+const HStackTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const HStackTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const HStackComponent = HStackTest.bind({});
-  
-  export default {
-    title: "primitives/HStack",
-    component: HStackComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const HStackComponent = HStackTest.bind({});
+
+export default {
+  title: 'primitives/HStack',
+  component: HStackComponent,
+  argTypes: StorybookArgs,
+};

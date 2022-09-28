@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Icon.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Icon.args";
-
-  import React from 'react';
+import React from 'react';
 import { CheckIcon, HStack, Text } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <HStack space={2}>
       <CheckIcon mt="0.5" color="emerald.500" />
@@ -16,20 +15,18 @@ export const Example = () => {
   );
 };
 
+const IconTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const IconTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const IconComponent = IconTest.bind({});
-  
-  export default {
-    title: "primitives/Icon",
-    component: IconComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const IconComponent = IconTest.bind({});
+
+export default {
+  title: 'primitives/Icon',
+  component: IconComponent,
+  argTypes: StorybookArgs,
+};

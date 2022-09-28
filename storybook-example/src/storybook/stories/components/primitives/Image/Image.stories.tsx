@@ -1,10 +1,9 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Image.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Image.args";
-
-  import React from 'react';
+import React from 'react';
 import { Center, Image } from 'components';
-export function Example() {
+function Example() {
   return (
     <Center>
       <Image
@@ -18,20 +17,18 @@ export function Example() {
   );
 }
 
+const ImageTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const ImageTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ImageComponent = ImageTest.bind({});
-  
-  export default {
-    title: "primitives/Image",
-    component: ImageComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const ImageComponent = ImageTest.bind({});
+
+export default {
+  title: 'primitives/Image',
+  component: ImageComponent,
+  argTypes: StorybookArgs,
+};

@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Checkbox.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Checkbox.args";
-
-  import React from 'react';
+import React from 'react';
 import { HStack, Checkbox } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <HStack space={6}>
       <Checkbox
@@ -17,20 +16,18 @@ export const Example = () => {
   );
 };
 
+const CheckboxTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const CheckboxTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const CheckboxComponent = CheckboxTest.bind({});
-  
-  export default {
-    title: "primitives/Checkbox",
-    component: CheckboxComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const CheckboxComponent = CheckboxTest.bind({});
+
+export default {
+  title: 'primitives/Checkbox',
+  component: CheckboxComponent,
+  argTypes: StorybookArgs,
+};

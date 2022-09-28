@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Spinner.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Spinner.args";
-
-  import React from 'react';
+import React from 'react';
 import { Spinner, HStack, Heading } from 'components';
 
-export const Example = () => {
+const Example = () => {
   return (
     <HStack space={2} justifyContent="center">
       <Spinner accessibilityLabel="Loading posts" />
@@ -16,20 +15,18 @@ export const Example = () => {
   );
 };
 
+const SpinnerTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const SpinnerTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const SpinnerComponent = SpinnerTest.bind({});
-  
-  export default {
-    title: "primitives/Spinner",
-    component: SpinnerComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const SpinnerComponent = SpinnerTest.bind({});
+
+export default {
+  title: 'primitives/Spinner',
+  component: SpinnerComponent,
+  argTypes: StorybookArgs,
+};

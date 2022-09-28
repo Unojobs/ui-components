@@ -1,11 +1,10 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Pressable.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Pressable.args";
+import React from 'react';
+import { Pressable, Text, Box, HStack, Flex, Badge } from 'components';
 
-  import React from 'react';
-import { Pressable, Text, Box, HStack, Spacer, Flex, Badge } from 'components';
-
-export function Example() {
+function Example() {
   return (
     <Box alignItems="center">
       <Pressable
@@ -29,7 +28,7 @@ export function Example() {
             >
               Business
             </Badge>
-            <Spacer />
+            {/* <Spacer /> */}
             <Text fontSize={10} color="coolGray.800">
               1 month ago
             </Text>
@@ -52,20 +51,18 @@ export function Example() {
   );
 }
 
+const PressableTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const PressableTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const PressableComponent = PressableTest.bind({});
-  
-  export default {
-    title: "primitives/Pressable",
-    component: PressableComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const PressableComponent = PressableTest.bind({});
+
+export default {
+  title: 'primitives/Pressable',
+  component: PressableComponent,
+  argTypes: StorybookArgs,
+};
