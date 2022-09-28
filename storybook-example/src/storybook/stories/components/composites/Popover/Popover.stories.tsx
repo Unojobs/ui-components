@@ -5,7 +5,7 @@
   import React from 'react';
 import { Popover, Button, Box } from 'components';
 
-export function Example() {
+ function Example() {
   return (
     <Box w="100%" alignItems="center">
       <Popover

@@ -4,7 +4,7 @@
 
   import React from 'react';
 import { Center } from 'components';
-export function Example() {
+ function Example() {
   return (
     <Center>
       <Center

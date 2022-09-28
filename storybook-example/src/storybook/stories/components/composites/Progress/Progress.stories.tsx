@@ -5,7 +5,7 @@
   import React from 'react';
 import { Box, Progress, Center } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <Center w="100%">
       <Box w="90%" maxW="400">

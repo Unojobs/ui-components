@@ -12,7 +12,7 @@ import {
   NumberDecrementStepper,
 } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <Stack w="90%">
       <NumberInput>

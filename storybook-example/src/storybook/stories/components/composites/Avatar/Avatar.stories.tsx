@@ -5,7 +5,7 @@
   import React from 'react';
 import { Avatar, HStack } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <HStack justifyContent="center" space={2}>
       <Avatar

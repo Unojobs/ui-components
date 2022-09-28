@@ -5,7 +5,7 @@
   import React from 'react';
 import { Button, useToast, Center } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   const toast = useToast();
 
   return (

@@ -5,7 +5,7 @@
   import React from 'react';
 import { AlertDialog, Button, Center } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef(null);

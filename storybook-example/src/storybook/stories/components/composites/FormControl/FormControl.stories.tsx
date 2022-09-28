@@ -11,7 +11,7 @@ import {
   Box,
 } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <Box alignItems="center">
       <Box w="100%" maxWidth="300px">

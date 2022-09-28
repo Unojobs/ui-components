@@ -5,7 +5,7 @@
   import React from 'react';
 import { Tag } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return <Tag>NativeBase</Tag>;
 };
 

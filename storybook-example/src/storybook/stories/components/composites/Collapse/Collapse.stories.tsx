@@ -4,7 +4,7 @@
 
   import React from 'react';
 import { Collapse, Stack, Heading, Button, Text } from 'components';
-export const Example = () => {
+ const Example = () => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   return (

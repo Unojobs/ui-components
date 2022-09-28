@@ -1,12 +1,11 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Modal.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Modal.args";
-
-  import React from 'react';
+import React from 'react';
 import { Button, Modal, FormControl, Input, Center } from 'components';
 import { useState } from 'react';
 
-export const Example = () => {
+const Example = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -27,24 +26,24 @@ export const Example = () => {
             </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            <Button.Group space={2}>
-              <Button
-                variant="ghost"
-                colorScheme="blueGray"
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Save
-              </Button>
-            </Button.Group>
+            {/* <Button.Group space={2}> */}
+            <Button
+              variant="ghost"
+              colorScheme="blueGray"
+              onPress={() => {
+                setShowModal(false);
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              onPress={() => {
+                setShowModal(false);
+              }}
+            >
+              Save
+            </Button>
+            {/* </Button.Group> */}
           </Modal.Footer>
         </Modal.Content>
       </Modal>
@@ -52,20 +51,18 @@ export const Example = () => {
   );
 };
 
+const ModalTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const ModalTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ModalComponent = ModalTest.bind({});
-  
-  export default {
-    title: "composites/Modal",
-    component: ModalComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const ModalComponent = ModalTest.bind({});
+
+export default {
+  title: 'composites/Modal',
+  component: ModalComponent,
+  argTypes: StorybookArgs,
+};

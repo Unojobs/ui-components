@@ -5,7 +5,7 @@
   import React from 'react';
 import { Tooltip, Button, Center } from 'components';
 
-export function Example() {
+ function Example() {
   return (
     <Center>
       <Tooltip label="Click here to read more" openDelay={500}>

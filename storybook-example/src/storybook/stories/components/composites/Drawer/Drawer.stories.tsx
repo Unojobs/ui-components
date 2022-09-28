@@ -1,13 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Drawer.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Drawer.args";
-
-  import React from 'react';
+import React from 'react';
 import { Box, Button, Drawer } from 'components';
 import { useState } from 'react';
 import { Dimensions } from 'react-native';
 
-const Basic = () => {
+const Example = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -29,22 +28,18 @@ const Basic = () => {
   );
 };
 
+const DrawerTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
+export const DrawerComponent = DrawerTest.bind({});
 
-
-  const DrawerTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const DrawerComponent = DrawerTest.bind({});
-  
-  export default {
-    title: "composites/Drawer",
-    component: DrawerComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Drawer',
+  component: DrawerComponent,
+  argTypes: StorybookArgs,
+};

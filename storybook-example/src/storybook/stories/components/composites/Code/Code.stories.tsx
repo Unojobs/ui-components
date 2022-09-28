@@ -4,7 +4,7 @@
 
   import React from 'react';
 import { Code } from 'components';
-export const Example = () => {
+ const Example = () => {
   return <Code>Hello World!</Code>;
 };
 

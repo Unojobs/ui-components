@@ -5,7 +5,7 @@
   import React from 'react';
 import { VStack, HStack, Kbd, Text } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <VStack space={8}>
       <HStack>

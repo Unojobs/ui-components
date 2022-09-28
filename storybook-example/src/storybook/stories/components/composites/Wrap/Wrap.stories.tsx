@@ -4,7 +4,7 @@
 
   import React from 'react';
 import { Wrap, Center } from 'components';
-export const Example = () => {
+ const Example = () => {
   return (
     <Wrap direction="row" space={10} mx={4}>
       <Center

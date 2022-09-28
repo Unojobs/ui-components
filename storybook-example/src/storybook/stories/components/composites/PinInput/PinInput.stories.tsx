@@ -5,7 +5,7 @@
   import React from 'react';
 import { PinInput } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <PinInput>
       <PinInput.Field />

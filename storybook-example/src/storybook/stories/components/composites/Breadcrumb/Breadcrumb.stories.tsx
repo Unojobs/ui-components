@@ -4,7 +4,7 @@
 
   import React from 'react';
 import { Breadcrumb, Box, Heading } from 'components';
-export const Example = () => {
+ const Example = () => {
   return (
     <Box>
       <Heading mb={4}>Default Breadcrumb</Heading>

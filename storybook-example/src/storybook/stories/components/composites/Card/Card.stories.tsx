@@ -1,18 +1,16 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Card.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Card.args";
+import React from 'react';
+import { Card, HStack, Heading, Text, Flex } from 'components';
 
-  import React from 'react';
-import { Card, HStack, Heading, Text, Spacer, Flex } from 'components';
-
-export function Example() {
+function Example() {
   return (
     <Card bg="cyan.700" w="296">
       <HStack alignItems="flex-start">
         <Text fontSize="xs" color="cyan.50" fontWeight="medium">
           Open Source
         </Text>
-        <Spacer />
         <Text fontSize="2xs" color="cyan.100">
           1 month ago
         </Text>
@@ -33,20 +31,18 @@ export function Example() {
   );
 }
 
+const CardTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const CardTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const CardComponent = CardTest.bind({});
-  
-  export default {
-    title: "composites/Card",
-    component: CardComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const CardComponent = CardTest.bind({});
+
+export default {
+  title: 'composites/Card',
+  component: CardComponent,
+  argTypes: StorybookArgs,
+};

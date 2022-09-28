@@ -6,7 +6,7 @@
 import { IconButton, Icon, Box } from 'components';
 import { Entypo } from '@expo/vector-icons';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <Box alignItems="center">
       <IconButton

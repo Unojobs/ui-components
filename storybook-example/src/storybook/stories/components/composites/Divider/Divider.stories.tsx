@@ -5,7 +5,7 @@
   import React from 'react';
 import { Divider, Heading, Box } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <Box alignItems="center">
       <Box w="140">

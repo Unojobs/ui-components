@@ -5,7 +5,7 @@
   import React from 'react';
 import { Menu, HamburgerIcon, Box, Pressable } from 'components';
 
-export function Example() {
+ function Example() {
   return (
     <Box w="90%" alignItems="center">
       <Menu

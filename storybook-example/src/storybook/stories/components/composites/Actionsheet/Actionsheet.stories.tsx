@@ -12,7 +12,7 @@ import {
   Center,
 } from 'components';
 
-export function Example() {
+ function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
     <Center>

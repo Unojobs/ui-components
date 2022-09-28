@@ -1,10 +1,9 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './CircularProgress.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./CircularProgress.args";
-
-  import React from 'react';
+import React from 'react';
 import { CircularProgress, Heading, Center } from 'components';
-export const Example = () => {
+const Example = () => {
   return (
     <Center>
       <Heading mb={6}>Default CircularProgress</Heading>
@@ -13,20 +12,18 @@ export const Example = () => {
   );
 };
 
+const CircularProgressTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Example {...args} />
+    </Wrapper>
+  );
+};
 
-  const CircularProgressTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const CircularProgressComponent = CircularProgressTest.bind({});
-  
-  export default {
-    title: "composites/CircularProgress",
-    component: CircularProgressComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export const CircularProgressComponent = CircularProgressTest.bind({});
+
+export default {
+  title: 'composites/CircularProgress',
+  component: CircularProgressComponent,
+  argTypes: StorybookArgs,
+};

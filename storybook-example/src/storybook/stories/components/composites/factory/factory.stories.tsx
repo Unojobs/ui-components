@@ -6,7 +6,7 @@
 import { Factory } from 'components';
 import { View } from 'react-native';
 
-export const Example = () => {
+ const Example = () => {
   const FactoryView = Factory(View);
   return <FactoryView bg="emerald.400" borderRadius={4} size={16} />;
 };

@@ -14,7 +14,7 @@ import {
   Center,
 } from 'components';
 
-export const Example = () => {
+ const Example = () => {
   return (
     <Center>
       <Alert maxW="400" colorScheme="info">

@@ -4,7 +4,7 @@
 
   import React from 'react';
 import { Skeleton, VStack, Center } from 'components';
-export const Example = () => {
+ const Example = () => {
   return (
     <Center w="100%">
       <VStack
