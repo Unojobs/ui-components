@@ -1,6 +1,6 @@
-import React from "react";
-import { Radio, StorybookRadioArgs } from "components";
-import { Wrapper } from "../../Wrapper";
+import React from 'react';
+import { Radio, StorybookRadioArgs } from 'components';
+import { Wrapper } from '../../Wrapper';
 
 const RadioComponent = ({ ...args }) => {
   return (
@@ -20,7 +20,7 @@ const RadioComponent = ({ ...args }) => {
 export const Basic = RadioComponent.bind({});
 
 export default {
-  title: "Radio",
+  title: 'primitives/Radio',
   component: Basic,
   argTypes: StorybookRadioArgs,
 };

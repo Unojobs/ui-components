@@ -1,6 +1,6 @@
-import React from "react";
-import { Icon, StorybookIconArgs, Box } from "components";
-import { Wrapper } from "../../Wrapper";
+import React from 'react';
+import { Icon, StorybookIconArgs, Box } from 'components';
+import { Wrapper } from '../../Wrapper';
 
 const IconComponent = ({ ...args }) => {
   return (
@@ -13,7 +13,7 @@ const IconComponent = ({ ...args }) => {
 export const Basic = IconComponent.bind({});
 
 export default {
-  title: "Icon",
+  title: 'primitives/Icon',
   component: Basic,
   argTypes: StorybookIconArgs,
 };
