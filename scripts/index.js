@@ -1,8 +1,8 @@
-const shell = require("./shellHelper");
-const path = require("path");
-const { readdirSync } = require("fs");
-var fs = require("fs");
-const { spawn, exec } = require("child_process");
+const shell = require('./shellHelper');
+const path = require('path');
+const { readdirSync } = require('fs');
+var fs = require('fs');
+const { spawn, exec } = require('child_process');
 let exportedComp;
 let template =
   'import React from "react";import { Button as NBButton } from "native-base";export const Button = ({ ...props }: any) => {return <NBButton {...props}></NBButton>;};';
@@ -11,18 +11,18 @@ cloneNB();
 function cloneNB() {
   shell.series(
     [
-      "ls -a",
+      'ls -a',
       // "git clone git@github.com:GeekyAnts/NativeBase.git"
     ],
     async function(err) {
       if (err) {
-        console.log("Build Failed", err);
+        console.log('Build Failed', err);
         reject(err);
       } else {
-        let storiesPath = "NativeBase/src/components/composites/";
+        let storiesPath = 'NativeBase/src/components/primitives/';
         let dir = getDirectories(storiesPath);
         // console.log(dir);
-        exportedComp = getExportedStories("NativeBase/src/index.tsx");
+        exportedComp = getExportedStories('NativeBase/src/index.tsx');
         exportedComp = manipulateArr();
         console.log(exportedComp);
         await createFiles(dir);
@@ -35,7 +35,7 @@ function manipulateArr() {
   const finalArr = [];
   let i = 0;
   while (i < exportedComp.length) {
-    if (exportedComp[i] == "import") {
+    if (exportedComp[i] == 'import') {
       i++;
     }
     if (exportedComp[i] == "} from './components/composites'") i++;
@@ -46,25 +46,25 @@ function manipulateArr() {
   return finalArr;
 }
 
-const getDirectories = (source) =>
-  readdirSync(source, { withFileTypes: true }).map((dirent) => {
+const getDirectories = source =>
+  readdirSync(source, { withFileTypes: true }).map(dirent => {
     if (dirent.isDirectory()) {
-      return getDirectories(source + dirent.name + "/");
+      return getDirectories(source + dirent.name + '/');
     } else {
-      return source + dirent.name + "/";
+      return source + dirent.name + '/';
     }
   });
 
 function getExportedStories(path) {
   let finalArray = [];
   try {
-    const data = fs.readFileSync(path, "utf8");
+    const data = fs.readFileSync(path, 'utf8');
     let finalData = removeCommentsFromTSXFile(data);
-    let exportedData = finalData.split("\n");
+    let exportedData = finalData.split('\n');
     for (let i = 0; i < exportedData.length; i++) {
       if (
-        exportedData[i].slice(0, -1) !== "" &&
-        !exportedData[i].slice(0, -1).includes("Props")
+        exportedData[i].slice(0, -1) !== '' &&
+        !exportedData[i].slice(0, -1).includes('Props')
       ) {
         finalArray.push(exportedData[i].slice(0, -1).trim());
       }
@@ -74,9 +74,9 @@ function getExportedStories(path) {
     console.error(err);
   }
 }
-var getDirName = require("path").dirname;
-const removeCommentsFromTSXFile = (file) => {
-  return file.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "");
+var getDirName = require('path').dirname;
+const removeCommentsFromTSXFile = file => {
+  return file.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
 };
 
 function checkIfPathIsExported(exportedComp, currentPath) {
@@ -96,14 +96,14 @@ async function createFiles(dir, flag) {
         await createFiles(dir[i], 1);
       } else {
         if (checkIfPathIsExported(exportedComp, dir[i])) {
-          if (!dir[i].includes("Tab")) {
+          if (!dir[i].includes('Tab')) {
             // continue;
             await createFileSync(dir[i]);
           }
         }
       }
     }
-    resolve("All files created!");
+    resolve('All files created!');
   });
 }
 
@@ -114,15 +114,15 @@ async function createFileSync(dir) {
     // );
 
     try {
-      let regex = /\/composites(.*)\.tsx/g;
-      let regex1 = /\/composites(.*)\.ts/g;
+      let regex = /\/primitives(.*)\.tsx/g;
+      let regex1 = /\/primitives(.*)\.ts/g;
 
       let compName;
-      if (dir.includes(".tsx")) compName = dir.match(regex)[0];
+      if (dir.includes('.tsx')) compName = dir.match(regex)[0];
       else compName = dir.match(regex1)[0];
       // console.log(getModifiedData(compName, dir));
 
-      writeFile("src/components" + compName, getModifiedData(compName, dir));
+      writeFile('src/components' + compName, getModifiedData(compName, dir));
       // const data = fs.readFileSync(dir.slice(0, -1), "utf8");
       // if (dir.includes("index.tsx")) {
       //   let fileName = dir.split("/");
@@ -137,30 +137,30 @@ async function createFileSync(dir) {
       // } else {
       //   writeFile(path, getData(data), () => {});
       // }
-      resolve("Files created");
+      resolve('Files created');
     } catch (err) {
       console.error(err);
-      resolve("Files not created");
+      resolve('Files not created');
       reject(err);
     }
   });
 }
 
 function getModifiedData(compName, dir) {
-  let data = "";
+  let data = '';
   if (
-    compName.includes("index") ||
-    compName.includes("types") ||
-    compName.includes("utils")
+    // compName.includes('index') ||
+    compName.includes('types') ||
+    compName.includes('utils')
   ) {
-    data = fs.readFileSync(dir.slice(0, -1), "utf8");
+    data = fs.readFileSync(dir.slice(0, -1), 'utf8');
   } else {
     // console.log(
     //   compName.split("/")[compName.split("/").length - 1].split(".")[0]
     // );
     data = template.replaceAll(
-      "Button",
-      compName.split("/")[compName.split("/").length - 1].split(".")[0]
+      'Button',
+      compName.split('/')[compName.split('/').length - 1].split('.')[0]
     );
   }
   return data;
@@ -169,8 +169,8 @@ async function writeFile(path, contents) {
   // console.log(path);
   try {
     fs.mkdirSync(getDirName(path), { recursive: true });
-    fs.writeFileSync(path, contents);
+    if (!fs.existsSync(path)) fs.writeFileSync(path, contents);
   } catch (err) {
-    throw "Parameter is not a number!";
+    throw 'Parameter is not a number!';
   }
 }

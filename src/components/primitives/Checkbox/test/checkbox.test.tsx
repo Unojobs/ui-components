@@ -1,0 +1,1 @@
+import React from "react";import { checkbox as NBcheckbox } from "native-base";export const checkbox = ({ ...props }: any) => {return <NBcheckbox {...props}></NBcheckbox>;};

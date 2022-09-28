@@ -1,6 +1,8 @@
-import React from "react";
-import { Checkbox as NBCheckbox } from "native-base";
+import React from 'react';
+import { Checkbox as NBCheckbox } from 'native-base';
 
 export const Checkbox = ({ ...props }: any) => {
   return <NBCheckbox {...props}>Checkbox</NBCheckbox>;
 };
+
+export { CheckboxGroup } from './CheckboxGroup';

@@ -12,7 +12,7 @@
 /build
 /lib
 /dist
-
+/scripts
 # misc
 .DS_Store
 .env.local

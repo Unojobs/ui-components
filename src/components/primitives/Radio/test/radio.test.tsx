@@ -1,0 +1,1 @@
+import React from "react";import { radio as NBradio } from "native-base";export const radio = ({ ...props }: any) => {return <NBradio {...props}></NBradio>;};
