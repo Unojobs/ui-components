@@ -25,7 +25,7 @@ export const Example = () => {
   export const InputComponent = InputTest.bind({});
   
   export default {
-    title: "Input",
+    title: "primitives/Input",
     component: InputComponent,
     argTypes: StorybookArgs,
   };

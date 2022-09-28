@@ -31,7 +31,7 @@ export const Example = () => {
   export const ListComponent = ListTest.bind({});
   
   export default {
-    title: "List",
+    title: "primitives/List",
     component: ListComponent,
     argTypes: StorybookArgs,
   };

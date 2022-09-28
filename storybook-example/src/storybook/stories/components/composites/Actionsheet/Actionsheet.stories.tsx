@@ -47,7 +47,7 @@ export function Example() {
   export const ActionsheetComponent = ActionsheetTest.bind({});
   
   export default {
-    title: "Actionsheet",
+    title: "composites/Actionsheet",
     component: ActionsheetComponent,
     argTypes: StorybookArgs,
   };

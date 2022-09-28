@@ -50,7 +50,7 @@ export const Example = () => {
   export const WrapComponent = WrapTest.bind({});
   
   export default {
-    title: "Wrap",
+    title: "composites/Wrap",
     component: WrapComponent,
     argTypes: StorybookArgs,
   };

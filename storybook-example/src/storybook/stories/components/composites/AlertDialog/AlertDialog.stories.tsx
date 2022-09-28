@@ -59,7 +59,7 @@ export const Example = () => {
   export const AlertDialogComponent = AlertDialogTest.bind({});
   
   export default {
-    title: "AlertDialog",
+    title: "composites/AlertDialog",
     component: AlertDialogComponent,
     argTypes: StorybookArgs,
   };

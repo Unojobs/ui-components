@@ -28,7 +28,7 @@ export const Example = () => {
   export const PinInputComponent = PinInputTest.bind({});
   
   export default {
-    title: "PinInput",
+    title: "composites/PinInput",
     component: PinInputComponent,
     argTypes: StorybookArgs,
   };

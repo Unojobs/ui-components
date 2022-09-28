@@ -25,7 +25,7 @@ export const Example = () => {
   export const CircularProgressComponent = CircularProgressTest.bind({});
   
   export default {
-    title: "CircularProgress",
+    title: "composites/CircularProgress",
     component: CircularProgressComponent,
     argTypes: StorybookArgs,
   };

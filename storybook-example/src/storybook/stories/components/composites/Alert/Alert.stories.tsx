@@ -60,7 +60,7 @@ export const Example = () => {
   export const AlertComponent = AlertTest.bind({});
   
   export default {
-    title: "Alert",
+    title: "composites/Alert",
     component: AlertComponent,
     argTypes: StorybookArgs,
   };

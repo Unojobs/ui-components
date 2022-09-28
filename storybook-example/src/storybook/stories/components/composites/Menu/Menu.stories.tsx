@@ -43,7 +43,7 @@ export function Example() {
   export const MenuComponent = MenuTest.bind({});
   
   export default {
-    title: "Menu",
+    title: "composites/Menu",
     component: MenuComponent,
     argTypes: StorybookArgs,
   };

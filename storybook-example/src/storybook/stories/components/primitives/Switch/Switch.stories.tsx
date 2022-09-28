@@ -26,7 +26,7 @@ export const Example = () => {
   export const SwitchComponent = SwitchTest.bind({});
   
   export default {
-    title: "Switch",
+    title: "primitives/Switch",
     component: SwitchComponent,
     argTypes: StorybookArgs,
   };

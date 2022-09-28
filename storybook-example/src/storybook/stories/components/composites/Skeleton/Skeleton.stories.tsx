@@ -37,7 +37,7 @@ export const Example = () => {
   export const SkeletonComponent = SkeletonTest.bind({});
   
   export default {
-    title: "Skeleton",
+    title: "composites/Skeleton",
     component: SkeletonComponent,
     argTypes: StorybookArgs,
   };

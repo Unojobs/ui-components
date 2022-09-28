@@ -32,7 +32,7 @@ export const Example = () => {
   export const TabsComponent = TabsTest.bind({});
   
   export default {
-    title: "Tabs",
+    title: "composites/Tabs",
     component: TabsComponent,
     argTypes: StorybookArgs,
   };

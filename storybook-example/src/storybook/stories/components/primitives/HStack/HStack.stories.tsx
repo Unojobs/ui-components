@@ -27,7 +27,7 @@ export function Example() {
   export const HStackComponent = HStackTest.bind({});
   
   export default {
-    title: "HStack",
+    title: "primitives/HStack",
     component: HStackComponent,
     argTypes: StorybookArgs,
   };

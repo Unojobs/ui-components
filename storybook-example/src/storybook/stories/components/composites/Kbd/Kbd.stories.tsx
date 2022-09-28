@@ -39,7 +39,7 @@ export const Example = () => {
   export const KbdComponent = KbdTest.bind({});
   
   export default {
-    title: "Kbd",
+    title: "composites/Kbd",
     component: KbdComponent,
     argTypes: StorybookArgs,
   };

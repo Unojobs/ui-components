@@ -33,7 +33,7 @@ export function Example() {
   export const ContainerComponent = ContainerTest.bind({});
   
   export default {
-    title: "Container",
+    title: "composites/Container",
     component: ContainerComponent,
     argTypes: StorybookArgs,
   };

@@ -61,7 +61,7 @@ export const Example = () => {
   export const AccordionComponent = AccordionTest.bind({});
   
   export default {
-    title: "Accordion",
+    title: "composites/Accordion",
     component: AccordionComponent,
     argTypes: StorybookArgs,
   };

@@ -32,7 +32,7 @@ export const Example = () => {
   export const FabComponent = FabTest.bind({});
   
   export default {
-    title: "Fab",
+    title: "composites/Fab",
     component: FabComponent,
     argTypes: StorybookArgs,
   };

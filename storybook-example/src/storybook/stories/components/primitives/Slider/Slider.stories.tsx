@@ -38,7 +38,7 @@ export const Example = () => {
   export const SliderComponent = SliderTest.bind({});
   
   export default {
-    title: "Slider",
+    title: "primitives/Slider",
     component: SliderComponent,
     argTypes: StorybookArgs,
   };

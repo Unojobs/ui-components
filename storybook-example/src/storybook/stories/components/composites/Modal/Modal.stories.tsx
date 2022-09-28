@@ -64,7 +64,7 @@ export const Example = () => {
   export const ModalComponent = ModalTest.bind({});
   
   export default {
-    title: "Modal",
+    title: "composites/Modal",
     component: ModalComponent,
     argTypes: StorybookArgs,
   };

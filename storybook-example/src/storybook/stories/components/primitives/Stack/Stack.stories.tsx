@@ -194,7 +194,7 @@ export function Example() {
   export const StackComponent = StackTest.bind({});
   
   export default {
-    title: "Stack",
+    title: "primitives/Stack",
     component: StackComponent,
     argTypes: StorybookArgs,
   };

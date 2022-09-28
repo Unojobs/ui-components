@@ -60,7 +60,7 @@ export const Example = () => {
   export const AvatarComponent = AvatarTest.bind({});
   
   export default {
-    title: "Avatar",
+    title: "composites/Avatar",
     component: AvatarComponent,
     argTypes: StorybookArgs,
   };

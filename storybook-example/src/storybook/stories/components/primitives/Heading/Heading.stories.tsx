@@ -21,7 +21,7 @@ export function Example() {
   export const HeadingComponent = HeadingTest.bind({});
   
   export default {
-    title: "Heading",
+    title: "primitives/Heading",
     component: HeadingComponent,
     argTypes: StorybookArgs,
   };

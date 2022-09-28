@@ -35,7 +35,7 @@ export const Example = () => {
   export const ToastComponent = ToastTest.bind({});
   
   export default {
-    title: "Toast",
+    title: "composites/Toast",
     component: ToastComponent,
     argTypes: StorybookArgs,
   };

@@ -27,7 +27,7 @@ export const Example = () => {
   export const LinkComponent = LinkTest.bind({});
   
   export default {
-    title: "Link",
+    title: "primitives/Link",
     component: LinkComponent,
     argTypes: StorybookArgs,
   };

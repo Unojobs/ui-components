@@ -51,7 +51,7 @@ export const Example = () => {
   export const RowComponent = RowTest.bind({});
   
   export default {
-    title: "Row",
+    title: "primitives/Row",
     component: RowComponent,
     argTypes: StorybookArgs,
   };

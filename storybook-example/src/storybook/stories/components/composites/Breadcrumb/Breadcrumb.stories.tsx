@@ -46,7 +46,7 @@ export const Example = () => {
   export const BreadcrumbComponent = BreadcrumbTest.bind({});
   
   export default {
-    title: "Breadcrumb",
+    title: "composites/Breadcrumb",
     component: BreadcrumbComponent,
     argTypes: StorybookArgs,
   };

@@ -23,7 +23,7 @@ export const Example = () => {
   export const factoryComponent = factoryTest.bind({});
   
   export default {
-    title: "factory",
+    title: "composites/factory",
     component: factoryComponent,
     argTypes: StorybookArgs,
   };

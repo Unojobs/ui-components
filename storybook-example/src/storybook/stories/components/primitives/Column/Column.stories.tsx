@@ -27,7 +27,7 @@ export const Example = () => {
   export const ColumnComponent = ColumnTest.bind({});
   
   export default {
-    title: "Column",
+    title: "primitives/Column",
     component: ColumnComponent,
     argTypes: StorybookArgs,
   };

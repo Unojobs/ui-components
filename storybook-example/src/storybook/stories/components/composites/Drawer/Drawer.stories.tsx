@@ -43,7 +43,7 @@ const Basic = () => {
   export const DrawerComponent = DrawerTest.bind({});
   
   export default {
-    title: "Drawer",
+    title: "composites/Drawer",
     component: DrawerComponent,
     argTypes: StorybookArgs,
   };

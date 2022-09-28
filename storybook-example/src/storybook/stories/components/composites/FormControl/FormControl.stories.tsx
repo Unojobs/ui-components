@@ -50,7 +50,7 @@ export const Example = () => {
   export const FormControlComponent = FormControlTest.bind({});
   
   export default {
-    title: "FormControl",
+    title: "composites/FormControl",
     component: FormControlComponent,
     argTypes: StorybookArgs,
   };

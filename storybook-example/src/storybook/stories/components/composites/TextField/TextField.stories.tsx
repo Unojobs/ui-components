@@ -21,7 +21,7 @@ export const Example = () => {
   export const TextFieldComponent = TextFieldTest.bind({});
   
   export default {
-    title: "TextField",
+    title: "composites/TextField",
     component: TextFieldComponent,
     argTypes: StorybookArgs,
   };

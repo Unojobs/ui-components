@@ -27,7 +27,7 @@ export const Example = () => {
   export const ProgressComponent = ProgressTest.bind({});
   
   export default {
-    title: "Progress",
+    title: "composites/Progress",
     component: ProgressComponent,
     argTypes: StorybookArgs,
   };

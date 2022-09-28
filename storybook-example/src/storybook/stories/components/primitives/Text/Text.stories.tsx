@@ -21,7 +21,7 @@ export const Example = () => {
   export const TextComponent = TextTest.bind({});
   
   export default {
-    title: "Text",
+    title: "primitives/Text",
     component: TextComponent,
     argTypes: StorybookArgs,
   };

@@ -25,7 +25,7 @@ export const Example = () => {
   export const AspectRatioComponent = AspectRatioTest.bind({});
   
   export default {
-    title: "AspectRatio",
+    title: "composites/AspectRatio",
     component: AspectRatioComponent,
     argTypes: StorybookArgs,
   };

@@ -20,7 +20,7 @@ export const Example = () => {
   export const CodeComponent = CodeTest.bind({});
   
   export default {
-    title: "Code",
+    title: "composites/Code",
     component: CodeComponent,
     argTypes: StorybookArgs,
   };

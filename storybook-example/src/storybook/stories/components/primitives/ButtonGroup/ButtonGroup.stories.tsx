@@ -31,7 +31,7 @@ export const Example = () => {
   export const ButtonGroupComponent = ButtonGroupTest.bind({});
   
   export default {
-    title: "ButtonGroup",
+    title: "primitives/ButtonGroup",
     component: ButtonGroupComponent,
     argTypes: StorybookArgs,
   };

@@ -201,7 +201,7 @@ export function Example() {
   export const FlexComponent = FlexTest.bind({});
   
   export default {
-    title: "Flex",
+    title: "primitives/Flex",
     component: FlexComponent,
     argTypes: StorybookArgs,
   };

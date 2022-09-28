@@ -25,7 +25,7 @@ export const Example = () => {
   export const TextAreaComponent = TextAreaTest.bind({});
   
   export default {
-    title: "TextArea",
+    title: "primitives/TextArea",
     component: TextAreaComponent,
     argTypes: StorybookArgs,
   };

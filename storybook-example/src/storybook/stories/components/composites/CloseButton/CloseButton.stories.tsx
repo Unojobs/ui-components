@@ -20,7 +20,7 @@ export const Example = () => {
   export const CloseButtonComponent = CloseButtonTest.bind({});
   
   export default {
-    title: "CloseButton",
+    title: "composites/CloseButton",
     component: CloseButtonComponent,
     argTypes: StorybookArgs,
   };

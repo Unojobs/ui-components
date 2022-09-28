@@ -27,7 +27,7 @@ export function Example() {
   export const VStackComponent = VStackTest.bind({});
   
   export default {
-    title: "VStack",
+    title: "primitives/VStack",
     component: VStackComponent,
     argTypes: StorybookArgs,
   };

@@ -43,7 +43,7 @@ export const Example = () => {
   export const IconButtonComponent = IconButtonTest.bind({});
   
   export default {
-    title: "IconButton",
+    title: "composites/IconButton",
     component: IconButtonComponent,
     argTypes: StorybookArgs,
   };

@@ -51,7 +51,7 @@ export function Example() {
   export const PopoverComponent = PopoverTest.bind({});
   
   export default {
-    title: "Popover",
+    title: "composites/Popover",
     component: PopoverComponent,
     argTypes: StorybookArgs,
   };

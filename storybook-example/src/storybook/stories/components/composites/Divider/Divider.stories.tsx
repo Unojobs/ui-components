@@ -37,7 +37,7 @@ export const Example = () => {
   export const DividerComponent = DividerTest.bind({});
   
   export default {
-    title: "Divider",
+    title: "composites/Divider",
     component: DividerComponent,
     argTypes: StorybookArgs,
   };

@@ -28,7 +28,7 @@ export const Example = () => {
   export const IconComponent = IconTest.bind({});
   
   export default {
-    title: "Icon",
+    title: "primitives/Icon",
     component: IconComponent,
     argTypes: StorybookArgs,
   };

@@ -32,7 +32,7 @@ export function Example() {
   export const HiddenComponent = HiddenTest.bind({});
   
   export default {
-    title: "Hidden",
+    title: "primitives/Hidden",
     component: HiddenComponent,
     argTypes: StorybookArgs,
   };

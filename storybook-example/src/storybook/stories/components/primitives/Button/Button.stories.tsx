@@ -25,7 +25,7 @@ export const Example = () => {
   export const ButtonComponent = ButtonTest.bind({});
   
   export default {
-    title: "Button",
+    title: "primitives/Button",
     component: ButtonComponent,
     argTypes: StorybookArgs,
   };

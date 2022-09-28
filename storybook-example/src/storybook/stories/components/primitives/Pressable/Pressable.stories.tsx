@@ -64,7 +64,7 @@ export function Example() {
   export const PressableComponent = PressableTest.bind({});
   
   export default {
-    title: "Pressable",
+    title: "primitives/Pressable",
     component: PressableComponent,
     argTypes: StorybookArgs,
   };

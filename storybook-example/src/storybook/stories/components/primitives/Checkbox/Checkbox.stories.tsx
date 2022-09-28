@@ -29,7 +29,7 @@ export const Example = () => {
   export const CheckboxComponent = CheckboxTest.bind({});
   
   export default {
-    title: "Checkbox",
+    title: "primitives/Checkbox",
     component: CheckboxComponent,
     argTypes: StorybookArgs,
   };

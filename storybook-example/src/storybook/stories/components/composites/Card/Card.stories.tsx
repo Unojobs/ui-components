@@ -45,7 +45,7 @@ export function Example() {
   export const CardComponent = CardTest.bind({});
   
   export default {
-    title: "Card",
+    title: "composites/Card",
     component: CardComponent,
     argTypes: StorybookArgs,
   };

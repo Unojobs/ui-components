@@ -32,7 +32,7 @@ export const Example = () => {
   export const ViewComponent = ViewTest.bind({});
   
   export default {
-    title: "View",
+    title: "primitives/View",
     component: ViewComponent,
     argTypes: StorybookArgs,
   };

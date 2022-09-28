@@ -21,7 +21,7 @@ export const Example = () => {
   export const TagComponent = TagTest.bind({});
   
   export default {
-    title: "Tag",
+    title: "composites/Tag",
     component: TagComponent,
     argTypes: StorybookArgs,
   };

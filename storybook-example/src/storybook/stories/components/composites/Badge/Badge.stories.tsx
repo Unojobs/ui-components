@@ -25,7 +25,7 @@ export function Example() {
   export const BadgeComponent = BadgeTest.bind({});
   
   export default {
-    title: "Badge",
+    title: "composites/Badge",
     component: BadgeComponent,
     argTypes: StorybookArgs,
   };

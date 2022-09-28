@@ -28,7 +28,7 @@ export const Example = () => {
   export const SpinnerComponent = SpinnerTest.bind({});
   
   export default {
-    title: "Spinner",
+    title: "primitives/Spinner",
     component: SpinnerComponent,
     argTypes: StorybookArgs,
   };

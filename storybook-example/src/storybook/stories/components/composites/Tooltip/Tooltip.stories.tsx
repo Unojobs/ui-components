@@ -27,7 +27,7 @@ export function Example() {
   export const TooltipComponent = TooltipTest.bind({});
   
   export default {
-    title: "Tooltip",
+    title: "composites/Tooltip",
     component: TooltipComponent,
     argTypes: StorybookArgs,
   };

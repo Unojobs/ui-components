@@ -31,7 +31,7 @@ export function Example() {
   export const CenterComponent = CenterTest.bind({});
   
   export default {
-    title: "Center",
+    title: "composites/Center",
     component: CenterComponent,
     argTypes: StorybookArgs,
   };

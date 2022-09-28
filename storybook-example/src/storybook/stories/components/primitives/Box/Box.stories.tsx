@@ -35,7 +35,7 @@ export const Example = () => {
   export const BoxComponent = BoxTest.bind({});
   
   export default {
-    title: "Box",
+    title: "primitives/Box",
     component: BoxComponent,
     argTypes: StorybookArgs,
   };

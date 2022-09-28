@@ -46,7 +46,7 @@ export const Example = () => {
   export const SelectComponent = SelectTest.bind({});
   
   export default {
-    title: "Select",
+    title: "primitives/Select",
     component: SelectComponent,
     argTypes: StorybookArgs,
   };

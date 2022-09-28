@@ -30,7 +30,7 @@ export function Example() {
   export const ImageComponent = ImageTest.bind({});
   
   export default {
-    title: "Image",
+    title: "primitives/Image",
     component: ImageComponent,
     argTypes: StorybookArgs,
   };

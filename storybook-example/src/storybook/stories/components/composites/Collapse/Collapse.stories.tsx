@@ -36,7 +36,7 @@ export const Example = () => {
   export const CollapseComponent = CollapseTest.bind({});
   
   export default {
-    title: "Collapse",
+    title: "composites/Collapse",
     component: CollapseComponent,
     argTypes: StorybookArgs,
   };
