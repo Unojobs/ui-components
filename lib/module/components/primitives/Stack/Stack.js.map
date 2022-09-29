@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["Stack.tsx"],"sourcesContent":["export { Stack } from \"native-base\";\n"],"mappings":"gKAAA"}

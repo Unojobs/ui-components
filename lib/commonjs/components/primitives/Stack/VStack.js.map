@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["VStack.tsx"],"sourcesContent":["export { VStack } from \"native-base\";\n"],"mappings":"kKAAA"}

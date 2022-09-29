@@ -1,0 +1,1 @@
+{"version":3,"names":["Kbd","props"],"sources":["index.tsx"],"sourcesContent":["import React from 'react';\nimport { Kbd as NBKbd } from 'native-base';\n\nexport const Kbd = ({ ...props }: any) => {\n  return <NBKbd {...props}></NBKbd>;\n};\n"],"mappings":"+JAAA,oDACA,uC,sKAEO,GAAMA,IAAG,CAAG,QAANA,IAAM,MAAuB,IAAjBC,MAAiB,wBACxC,MAAO,oBAAC,eAAD,kBAAWA,KAAX,EAAP,CACD,CAFM,C"}

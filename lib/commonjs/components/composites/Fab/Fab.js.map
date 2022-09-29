@@ -1,0 +1,1 @@
+{"version":3,"names":["Fab","props"],"sources":["Fab.tsx"],"sourcesContent":["import React from \"react\";\nimport { Fab as NBFab } from \"native-base\";\nexport const Fab = ({ ...props }: any) => {\n  return <NBFab {...props}></NBFab>;\n};\n"],"mappings":"+JAAA,oDACA,uC,oKACO,GAAMA,IAAG,CAAG,QAANA,IAAM,MAAuB,IAAjBC,MAAiB,wBACxC,MAAO,oBAAC,eAAD,kBAAWA,KAAX,EAAP,CACD,CAFM,C"}

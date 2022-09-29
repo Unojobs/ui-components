@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["types.tsx"],"sourcesContent":["\n\nexport type { IFabProps } from 'native-base';\n"],"mappings":""}

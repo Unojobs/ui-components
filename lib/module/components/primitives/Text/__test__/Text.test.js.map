@@ -1,0 +1,1 @@
+{"version":3,"names":["Text","props"],"sources":["Text.test.tsx"],"sourcesContent":["import React from \"react\";import { Text as NBText } from \"native-base\";export const Text = ({ ...props }: any) => {return <NBText {...props}></NBText>;};"],"mappings":"gKAAA,oDAA0B,uC,oLAAoD,GAAMA,KAAI,CAAG,QAAPA,KAAO,MAAuB,IAAjBC,MAAiB,wBAAC,MAAO,oBAAC,gBAAD,kBAAYA,KAAZ,EAAP,CAAqC,CAA1E,C"}

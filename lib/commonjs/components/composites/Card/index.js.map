@@ -1,0 +1,1 @@
+{"version":3,"names":["Card"],"sources":["index.tsx"],"sourcesContent":["import { Card } from './Card';\nimport type { ICardProps } from './types';\n\nexport default Card;\nexport type { ICardProps };\n"],"mappings":"gFAAA,4B,aAGeA,U"}

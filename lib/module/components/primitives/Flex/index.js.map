@@ -1,0 +1,1 @@
+{"version":3,"names":["Flex","props"],"sources":["index.tsx"],"sourcesContent":["import React from 'react';\nimport { Flex as NBFlex } from 'native-base';\nexport const Flex = ({ ...props }: any) => {\n  return <NBFlex {...props}></NBFlex>;\n};\n"],"mappings":"gKAAA,oDACA,uC,uKACO,GAAMA,KAAI,CAAG,QAAPA,KAAO,MAAuB,IAAjBC,MAAiB,wBACzC,MAAO,oBAAC,gBAAD,kBAAYA,KAAZ,EAAP,CACD,CAFM,C"}

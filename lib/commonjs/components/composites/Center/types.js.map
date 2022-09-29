@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["types.ts"],"sourcesContent":["\nexport type { ICircleProps } from \"native-base\"\nexport type { ISquareProps } from \"native-base\"\n\nexport type { ICenterProps } from \"native-base\";\n"],"mappings":""}

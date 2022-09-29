@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["index.tsx"],"sourcesContent":["export { Text } from \"native-base\";\n"],"mappings":"8JAAA"}
