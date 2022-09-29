@@ -1,1 +1,0 @@
-{"version":3,"names":[],"sources":["types.tsx"],"sourcesContent":["\n\nexport type { IBadgeProps } from \"native-base\";\n"],"mappings":""}

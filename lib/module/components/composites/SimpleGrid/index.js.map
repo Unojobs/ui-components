@@ -1,1 +1,0 @@
-{"version":3,"names":[],"sources":["index.tsx"],"sourcesContent":["export { SimpleGrid } from './SimpleGrid';\nexport type { ISimpleGridProps } from './types';\n"],"mappings":"0KAAA"}

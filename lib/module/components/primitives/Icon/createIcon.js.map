@@ -1,1 +1,0 @@
-{"version":3,"names":[],"sources":["createIcon.tsx"],"sourcesContent":["export { createIcon } from 'native-base';\n"],"mappings":"0KAAA"}

@@ -1,1 +1,0 @@
-{"version":3,"names":["Row","props"],"sources":["index.tsx"],"sourcesContent":["import React from 'react';\nimport { Row as NBRow } from 'native-base';\nexport const Row = ({ ...props }: any) => {\n  return <NBRow {...props}></NBRow>;\n};\n"],"mappings":"+JAAA,oDACA,uC,sKACO,GAAMA,IAAG,CAAG,QAANA,IAAM,MAAuB,IAAjBC,MAAiB,wBACxC,MAAO,oBAAC,eAAD,kBAAWA,KAAX,EAAP,CACD,CAFM,C"}

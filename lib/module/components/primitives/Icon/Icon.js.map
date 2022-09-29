@@ -1,1 +1,0 @@
-{"version":3,"names":["Icon","props"],"sources":["Icon.tsx"],"sourcesContent":["import React from 'react';\nimport { Icon as NBIcon } from 'native-base';\nexport const Icon = ({ ...props }: any) => {\n  return <NBIcon {...props}></NBIcon>;\n};\n"],"mappings":"gKAAA,oDACA,uC,sKACO,GAAMA,KAAI,CAAG,QAAPA,KAAO,MAAuB,IAAjBC,MAAiB,wBACzC,MAAO,oBAAC,gBAAD,kBAAYA,KAAZ,EAAP,CACD,CAFM,C"}

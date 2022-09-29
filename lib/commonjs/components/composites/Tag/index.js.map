@@ -1,1 +1,0 @@
-{"version":3,"names":["Tag","props"],"sources":["index.tsx"],"sourcesContent":["import React from \"react\";\nimport { Tag as NBTag } from \"native-base\";\n\nexport const Tag = ({ ...props }: any) => {\n  return <NBTag {...props}></NBTag>;\n};\n"],"mappings":"+JAAA,oDACA,uC,sKAEO,GAAMA,IAAG,CAAG,QAANA,IAAM,MAAuB,IAAjBC,MAAiB,wBACxC,MAAO,oBAAC,eAAD,kBAAWA,KAAX,EAAP,CACD,CAFM,C"}

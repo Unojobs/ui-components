@@ -1,1 +1,0 @@
-{"version":3,"names":[],"sources":["index.tsx"],"sourcesContent":["export { Center } from './Center';\nexport { Circle } from './Circle';\nexport { Square } from './Square';\nexport type { ICenterProps, ICircleProps, ISquareProps } from './types';\n"],"mappings":"wWAAA,gCACA,gCACA"}
