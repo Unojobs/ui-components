@@ -1,6 +1,6 @@
 {
   "name": "@uno-jobs/components",
-  "version": "0.1.79",
+  "version": "0.1.8",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
