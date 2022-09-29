@@ -1,20 +1,13 @@
-import React from "react";
-import { NativeBaseProvider, extendTheme } from "native-base";
-import { dsxTheme } from "../../theme";
-import { customTheme } from "../../theme/customTheme";
+import React from 'react';
+import { NativeBaseProvider, extendTheme } from 'native-base';
+import { theme as defaultTheme } from '../../theme';
+import { custom } from '../../theme/custom';
 
-export const appTheme = extendTheme(dsxTheme, customTheme);
+export const appTheme = extendTheme(defaultTheme, custom);
 export const AppProvider = ({ children, theme, ...props }: any) => {
-  let themeArr = [appTheme];
-  if (theme) {
-    //TODO: if theme is array it might break
-    themeArr.push(theme);
-  }
-
   return (
-    <NativeBaseProvider theme={appTheme} {...props}>
+    <NativeBaseProvider theme={extendTheme(appTheme, theme)} {...props}>
       {children}
     </NativeBaseProvider>
   );
 };
-// export { NativeBaseProvider } from "native-base";

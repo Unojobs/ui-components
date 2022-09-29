@@ -1,27 +1,35 @@
-import React from "react";
-import {
-  Heading,
-  StorybookHeadingArgs,
-  Box,
-  Icon,
-  StorybookIconArgs,
-  TextArea,
-  StorybookTextAreaArgs,
-} from "components";
-import { Wrapper } from "../../Wrapper";
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './TextArea.args';
 
-const TextAreaComponent = ({ ...args }) => {
+import React from 'react';
+import { TextArea, Box } from 'components';
+
+const Example = ({ ...args }) => {
+  return (
+    <Box alignItems="center" w="100%">
+      <TextArea
+        {...args}
+        h={20}
+        placeholder="Text Area Placeholder"
+        w="75%"
+        maxW="300"
+      />
+    </Box>
+  );
+};
+
+const TextAreaTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <TextArea {...args} w="40%" />
+      <Example {...args} />
     </Wrapper>
   );
 };
 
-export const Basic = TextAreaComponent.bind({});
+export const TextAreaComponent = TextAreaTest.bind({});
 
 export default {
-  title: "TextArea",
-  component: Basic,
-  argTypes: StorybookTextAreaArgs,
+  title: 'primitives/TextArea',
+  component: TextAreaComponent,
+  argTypes: StorybookArgs,
 };

@@ -1,53 +1,51 @@
-import React from "react";
-import { Select, StorybookSelectArgs } from "components"
-import { Wrapper } from "../../Wrapper";
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Select.args';
 
-const SelectComponent = ({ ...args }) => {
+import React from 'react';
+import { Select, Box, CheckIcon, Center } from 'components';
+
+const Example = ({ ...args }) => {
+  const [service, setService] = React.useState('');
+
+  return (
+    <Center>
+      <Box maxW="300">
+        <Select
+          {...args}
+          selectedValue={service}
+          minWidth="200"
+          accessibilityLabel="Choose Service"
+          placeholder="Choose Service"
+          _selectedItem={{
+            bg: 'teal.600',
+            endIcon: <CheckIcon size="5" />,
+          }}
+          mt={1}
+          onValueChange={(itemValue: any) => setService(itemValue)}
+        >
+          <Select.Item label="UX Research" value="ux" />
+          <Select.Item label="Web Development" value="web" />
+          <Select.Item label="Cross Platform Development" value="cross" />
+          <Select.Item label="UI Designing" value="ui" />
+          <Select.Item label="Backend Development" value="backend" />
+        </Select>
+      </Box>
+    </Center>
+  );
+};
+
+const SelectTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Select
-        minWidth="200"
-        accessibilityLabel="Choose Service"
-        placeholder="Choose Service"
-        mt={1}
-        {...args}
-      >
-        <Select.Item label="UX Research" value="ux" />
-        <Select.Item label="Web Development" value="web" />
-        <Select.Item label="Cross Platform Development" value="cross" />
-        <Select.Item label="UI Designing" value="ui" />
-        <Select.Item label="Backend Development" value="backend" />
-      </Select>
+      <Example {...args} />
     </Wrapper>
   );
 };
 
-export const Basic = SelectComponent.bind({});
+export const SelectComponent = SelectTest.bind({});
 
 export default {
-  title: "Select",
-  component: Basic,
-  argTypes: StorybookSelectArgs,
+  title: 'primitives/Select',
+  component: SelectComponent,
+  argTypes: StorybookArgs,
 };
-
-// const RadioGroupComponent = (args: any) => {
-//   return (
-//     <Wrapper>
-//       <Radio.Group
-//         name="exampleGroup"
-//         {...args}
-//         accessibilityLabel="Pick your favorite number"
-//       >
-//         <Radio value="test" my={1}>
-//           Radio
-//         </Radio>
-//       </Radio.Group>
-//     </Wrapper>
-//   );
-// };
-
-// export const RadioGroup = RadioGroupComponent.bind({
-//   args: {
-//     StorybookRadioArgs,
-//   },
-// });

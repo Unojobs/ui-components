@@ -1,13 +1,13 @@
-import React from "react";
-import { InputGroup, Box, StorybookInputGroupArgs } from "components";
-import { Wrapper } from "../../Wrapper";
+import React from 'react';
+import { InputGroup, Box, StorybookInputGroupArgs } from 'components';
+import { Wrapper } from '../../Wrapper';
 
 const InputGroupTest = ({ ...args }) => {
   return (
     <Wrapper>
       <InputGroup
         {...args}
-        onPress={() => console.log("hello world")}
+        onPress={() => console.log('hello world')}
       ></InputGroup>
     </Wrapper>
   );
@@ -16,7 +16,7 @@ const InputGroupTest = ({ ...args }) => {
 export const Primary = InputGroupTest.bind({});
 
 export default {
-  title: "InputGroup",
+  title: 'composites/InputGroup',
   component: Primary,
   argTypes: StorybookInputGroupArgs,
 };

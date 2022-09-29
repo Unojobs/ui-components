@@ -1,48 +1,43 @@
-import React from "react";
-import { Slider, StorybookSliderArgs, Box } from "components";
-import { Wrapper } from "../../Wrapper";
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Slider.args';
 
-const SliderComponent = ({ ...args }) => {
+import React from 'react';
+import { Slider, Box } from 'components';
+
+const Example = ({ ...args }) => {
+  return (
+    <Box alignItems="center" w="100%">
+      <Slider
+        {...args}
+        w="3/4"
+        maxW="300"
+        defaultValue={70}
+        minValue={0}
+        maxValue={100}
+        accessibilityLabel="hello world"
+        step={10}
+      >
+        <Slider.Track>
+          <Slider.FilledTrack />
+        </Slider.Track>
+        <Slider.Thumb />
+      </Slider>
+    </Box>
+  );
+};
+
+const SliderTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Box w="50%">
-        <Slider defaultValue={70} colorScheme="emerald" {...args}>
-          <Slider.Track>
-            <Slider.FilledTrack />
-          </Slider.Track>
-          <Slider.Thumb />
-        </Slider>
-      </Box>
+      <Example {...args} />
     </Wrapper>
   );
 };
 
-export const Basic = SliderComponent.bind({});
+export const SliderComponent = SliderTest.bind({});
 
 export default {
-  title: "Slider",
-  component: Basic,
-  argTypes: StorybookSliderArgs,
+  title: 'primitives/Slider',
+  component: SliderComponent,
+  argTypes: StorybookArgs,
 };
-
-// const RadioGroupComponent = (args: any) => {
-//   return (
-//     <Wrapper>
-//       <Radio.Group
-//         name="exampleGroup"
-//         {...args}
-//         accessibilityLabel="Pick your favorite number"
-//       >
-//         <Radio value="test" my={1}>
-//           Radio
-//         </Radio>
-//       </Radio.Group>
-//     </Wrapper>
-//   );
-// };
-
-// export const RadioGroup = RadioGroupComponent.bind({
-//   args: {
-//     StorybookRadioArgs,
-//   },
-// });

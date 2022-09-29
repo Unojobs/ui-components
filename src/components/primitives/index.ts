@@ -6,7 +6,7 @@ export { StorybookButtonArgs } from './Button/ButtonArgs';
 export { Box } from './Box';
 export { Icon } from './Icon';
 export { Text } from './Text';
-export { default as Heading } from './Heading';
+export { Heading } from './Heading';
 export { Stack, HStack, VStack } from './Stack';
 export { StorybookTextArgs, TextArgs } from './Text/TextArgs';
 export { StorybookHeadingArgs } from './Heading/HeadingArgs';
@@ -29,8 +29,6 @@ export { Slider };
 export { StorybookSliderArgs } from './Slider/SliderArgs';
 export * from './Icon/Icons';
 
-
-
 export { createIcon } from './Icon';
 
 export { Column } from './Column';
@@ -39,21 +37,14 @@ export { Row } from './Row';
 export { Image } from './Image';
 export { Spinner } from './Spinner';
 
-export type { IHeadingProps } from './Heading';
+// export type { IHeadingProps } from './Heading';
 
 export { Pressable } from './Pressable';
 
 export { Flex } from './Flex';
 
-
-
-
-
-
 export { Hidden } from './Hidden';
-
 
 export { ZStack } from './ZStack';
 
 export { Overlay } from './Overlay';
-

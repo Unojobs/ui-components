@@ -1,1 +1,0 @@
-import React from "react";import { switch as NBswitch } from "native-base";export const switch = ({ ...props }: any) => {return <NBswitch {...props}></NBswitch>;};
