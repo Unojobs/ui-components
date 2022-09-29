@@ -16,6 +16,11 @@
     "react-native-web": "0.17.1",
     "web-vitals": "^2.1.4"
   },
+  "peerDependencies": {
+    "native-base": "3.4.17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build:bob": "bob build",
@@ -162,6 +167,9 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "native-base": "3.4.17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   }
 }
