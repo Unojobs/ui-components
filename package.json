@@ -10,9 +10,6 @@
   "private": false,
   "dependencies": {
     "lodash.isempty": "^4.4.0",
-    "native-base": "3.4.17",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
     "react-native-vector-icons": "^9.2.0",
