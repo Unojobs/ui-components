@@ -2,11 +2,11 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './TextArea.args';
 
 import React from 'react';
-import { TextArea, Box } from 'components';
+import { TextArea } from 'components';
 
-const Example = ({ ...args }) => {
+const TextAreaTest = ({ ...args }) => {
   return (
-    <Box alignItems="center" w="100%">
+    <Wrapper>
       <TextArea
         {...args}
         h={20}
@@ -14,14 +14,6 @@ const Example = ({ ...args }) => {
         w="75%"
         maxW="300"
       />
-    </Box>
-  );
-};
-
-const TextAreaTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

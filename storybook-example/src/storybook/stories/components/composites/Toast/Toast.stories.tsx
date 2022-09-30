@@ -1,15 +1,14 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Toast.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Toast.args";
-
-  import React from 'react';
+import React from 'react';
 import { Button, useToast, Center } from 'components';
 
- const Example = () => {
+const ToastTest = ({ ...args }) => {
   const toast = useToast();
 
   return (
-    <Center>
+    <Wrapper>
       <Button
         onPress={() =>
           toast.show({
@@ -19,24 +18,14 @@ import { Button, useToast, Center } from 'components';
       >
         Show Toast
       </Button>
-    </Center>
+    </Wrapper>
   );
 };
 
+export const ToastComponent = ToastTest.bind({});
 
-  const ToastTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ToastComponent = ToastTest.bind({});
-  
-  export default {
-    title: "composites/Toast",
-    component: ToastComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Toast',
+  component: ToastComponent,
+  argTypes: StorybookArgs,
+};

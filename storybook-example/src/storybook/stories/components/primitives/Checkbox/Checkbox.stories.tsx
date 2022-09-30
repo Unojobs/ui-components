@@ -2,25 +2,17 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Checkbox.args';
 
 import React from 'react';
-import { HStack, Checkbox } from 'components';
+import { Checkbox } from 'components';
 
-const Example = ({ ...args }) => {
+const CheckboxTest = ({ ...args }) => {
   return (
-    <HStack space={6}>
+    <Wrapper>
       <Checkbox
         {...args}
         value="test"
         accessibilityLabel="This is a dummy checkbox"
         defaultIsChecked
       />
-    </HStack>
-  );
-};
-
-const CheckboxTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

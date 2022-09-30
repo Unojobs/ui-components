@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonGroup as NBButtonGroup } from 'native-base';
+import { Button } from 'native-base';
 export const ButtonGroup = ({ ...props }: any) => {
-  return <NBButtonGroup {...props}></NBButtonGroup>;
+  return <Button.Group {...props}></Button.Group>;
 };

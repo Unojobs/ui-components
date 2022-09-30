@@ -4,14 +4,10 @@ import { StorybookArgs } from './Heading.args';
 import React from 'react';
 import { Heading } from 'components';
 
-function Example({ ...args }) {
-  return <Heading {...args}>I'm a Heading</Heading>;
-}
-
 const HeadingTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <Heading {...args}>I'm a Heading</Heading>
     </Wrapper>
   );
 };

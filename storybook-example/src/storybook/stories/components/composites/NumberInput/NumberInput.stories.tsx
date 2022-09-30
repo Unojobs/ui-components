@@ -1,8 +1,7 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './NumberInput.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./NumberInput.args";
-
-  import React from 'react';
+import React from 'react';
 import {
   Stack,
   NumberInput,
@@ -12,9 +11,9 @@ import {
   NumberDecrementStepper,
 } from 'components';
 
- const Example = () => {
+const NumberInputTest = ({ ...args }) => {
   return (
-    <Stack w="90%">
+    <Wrapper>
       <NumberInput>
         <NumberInputField />
         <NumberInputStepper>
@@ -22,24 +21,14 @@ import {
           <NumberDecrementStepper />
         </NumberInputStepper>
       </NumberInput>
-    </Stack>
+    </Wrapper>
   );
 };
 
+export const NumberInputComponent = NumberInputTest.bind({});
 
-  const NumberInputTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const NumberInputComponent = NumberInputTest.bind({});
-  
-  export default {
-    title: "composites/NumberInput",
-    component: NumberInputComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/NumberInput',
+  component: NumberInputComponent,
+  argTypes: StorybookArgs,
+};

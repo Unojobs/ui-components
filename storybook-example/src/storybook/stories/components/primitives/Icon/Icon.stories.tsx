@@ -4,21 +4,15 @@ import { StorybookArgs } from './Icon.args';
 import React from 'react';
 import { CheckIcon, HStack, Text } from 'components';
 
-const Example = ({ ...args }) => {
-  return (
-    <HStack space={2}>
-      <CheckIcon {...args} mt="0.5" color="emerald.500" />
-      <Text color="emerald.500" fontSize="md">
-        Order Placed Successfully
-      </Text>
-    </HStack>
-  );
-};
-
 const IconTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <HStack space={2}>
+        <CheckIcon {...args} mt="0.5" color="emerald.500" />
+        <Text color="emerald.500" fontSize="md">
+          Order Placed Successfully
+        </Text>
+      </HStack>
     </Wrapper>
   );
 };

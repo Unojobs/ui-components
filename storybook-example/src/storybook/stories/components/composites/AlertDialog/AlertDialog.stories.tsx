@@ -1,16 +1,15 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './AlertDialog.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./AlertDialog.args";
-
-  import React from 'react';
+import React from 'react';
 import { AlertDialog, Button, Center } from 'components';
 
- const Example = () => {
+const AlertDialogTest = ({ ...args }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const cancelRef = React.useRef(null);
   return (
-    <Center>
+    <Wrapper>
       <Button colorScheme="danger" onPress={() => setIsOpen(!isOpen)}>
         Delete Customer
       </Button>
@@ -43,24 +42,14 @@ import { AlertDialog, Button, Center } from 'components';
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
-    </Center>
+    </Wrapper>
   );
 };
 
+export const AlertDialogComponent = AlertDialogTest.bind({});
 
-  const AlertDialogTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const AlertDialogComponent = AlertDialogTest.bind({});
-  
-  export default {
-    title: "composites/AlertDialog",
-    component: AlertDialogComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/AlertDialog',
+  component: AlertDialogComponent,
+  argTypes: StorybookArgs,
+};

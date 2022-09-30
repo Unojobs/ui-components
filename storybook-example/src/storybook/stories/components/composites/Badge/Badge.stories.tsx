@@ -1,32 +1,21 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Badge.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Badge.args";
+import React from 'react';
+import { Badge } from 'components';
 
-  import React from 'react';
-import { Badge, Box } from 'components';
-
- function Example() {
+const BadgeTest = ({ ...args }) => {
   return (
-    <Box alignItems="center">
+    <Wrapper>
       <Badge>NEW FEATURE</Badge>
-    </Box>
+    </Wrapper>
   );
-}
+};
 
+export const BadgeComponent = BadgeTest.bind({});
 
-  const BadgeTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const BadgeComponent = BadgeTest.bind({});
-  
-  export default {
-    title: "composites/Badge",
-    component: BadgeComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Badge',
+  component: BadgeComponent,
+  argTypes: StorybookArgs,
+};

@@ -4,19 +4,13 @@ import { StorybookArgs } from './Switch.args';
 import React from 'react';
 import { Switch, HStack, Text } from 'components';
 
-const Example = ({ ...args }) => {
-  return (
-    <HStack alignItems="center" space={4}>
-      <Text>Bluetooth</Text>
-      <Switch {...args} size="sm" />
-    </HStack>
-  );
-};
-
 const SwitchTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <HStack alignItems="center" space={4}>
+        <Text>Bluetooth</Text>
+        <Switch {...args} size="sm" />
+      </HStack>
     </Wrapper>
   );
 };

@@ -1,13 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Menu.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Menu.args";
-
-  import React from 'react';
+import React from 'react';
 import { Menu, HamburgerIcon, Box, Pressable } from 'components';
 
- function Example() {
+const MenuTest = ({ ...args }) => {
   return (
-    <Box w="90%" alignItems="center">
+    <Wrapper>
       <Menu
         w="190"
         trigger={(triggerProps) => {
@@ -27,24 +26,14 @@ import { Menu, HamburgerIcon, Box, Pressable } from 'components';
         <Menu.Item isDisabled>Sofia</Menu.Item>
         <Menu.Item>Cookie</Menu.Item>
       </Menu>
-    </Box>
+    </Wrapper>
   );
-}
+};
 
+export const MenuComponent = MenuTest.bind({});
 
-  const MenuTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const MenuComponent = MenuTest.bind({});
-  
-  export default {
-    title: "composites/Menu",
-    component: MenuComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Menu',
+  component: MenuComponent,
+  argTypes: StorybookArgs,
+};

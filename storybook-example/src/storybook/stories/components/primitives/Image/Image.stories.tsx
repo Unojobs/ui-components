@@ -2,10 +2,11 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Image.args';
 
 import React from 'react';
-import { Center, Image } from 'components';
-function Example() {
+import { Image } from 'components';
+
+const ImageTest = ({ ...args }) => {
   return (
-    <Center>
+    <Wrapper>
       <Image
         source={{
           uri: 'https://wallpaperaccess.com/full/317501.jpg',
@@ -13,14 +14,6 @@ function Example() {
         alt="Alternate Text"
         size="xl"
       />
-    </Center>
-  );
-}
-
-const ImageTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

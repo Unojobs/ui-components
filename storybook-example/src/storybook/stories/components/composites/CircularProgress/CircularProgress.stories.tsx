@@ -3,19 +3,12 @@ import { StorybookArgs } from './CircularProgress.args';
 
 import React from 'react';
 import { CircularProgress, Heading, Center } from 'components';
-const Example = () => {
-  return (
-    <Center>
-      <Heading mb={6}>Default CircularProgress</Heading>
-      <CircularProgress value={60} />
-    </Center>
-  );
-};
 
 const CircularProgressTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <Heading mb={6}>Default CircularProgress</Heading>
+      <CircularProgress value={60} />
     </Wrapper>
   );
 };

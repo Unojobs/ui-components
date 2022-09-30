@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITextFieldProps, TextField as NBTextField } from 'native-base';
-export const TextField = ({ ...props }: ITextFieldProps) => {
+import { IInputProps, Input as NBTextField } from 'native-base';
+export const TextField = ({ ...props }: IInputProps) => {
   return <NBTextField {...props}></NBTextField>;
 };

@@ -1,12 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Breadcrumb.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Breadcrumb.args";
+import React from 'react';
+import { Breadcrumb, Heading } from 'components';
 
-  import React from 'react';
-import { Breadcrumb, Box, Heading } from 'components';
- const Example = () => {
+const BreadcrumbTest = ({ ...args }) => {
   return (
-    <Box>
+    <Wrapper>
       <Heading mb={4}>Default Breadcrumb</Heading>
       <Breadcrumb>
         <Breadcrumb.Item isCurrent>
@@ -30,24 +30,14 @@ import { Breadcrumb, Box, Heading } from 'components';
           </Breadcrumb.Link>
         </Breadcrumb.Item>
       </Breadcrumb>
-    </Box>
+    </Wrapper>
   );
 };
 
+export const BreadcrumbComponent = BreadcrumbTest.bind({});
 
-  const BreadcrumbTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const BreadcrumbComponent = BreadcrumbTest.bind({});
-  
-  export default {
-    title: "composites/Breadcrumb",
-    component: BreadcrumbComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Breadcrumb',
+  component: BreadcrumbComponent,
+  argTypes: StorybookArgs,
+};
