@@ -1,7 +1,6 @@
-import React from "react";
-import { Collapse as NBCollapse } from "native-base";
-import type { ICollapseProps } from "native-base/lib/typescript/components/composites/Collapse";
+import React from 'react';
+import { Collapse as NBCollapse } from 'native-base';
 
-export const Collapse = ({ ...props }: ICollapseProps) => {
+export const Collapse = ({ ...props }: any) => {
   return <NBCollapse {...props}></NBCollapse>;
 };

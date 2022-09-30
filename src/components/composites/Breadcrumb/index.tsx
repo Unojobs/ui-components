@@ -11,6 +11,14 @@ BreadcrumbTemp.Link = BreadcrumbLink;
 BreadcrumbTemp.Text = BreadcrumbText;
 BreadcrumbTemp.Icon = BreadcrumbIcon;
 
+// @ts-ignore
+BreadcrumbItem.displayName = "Breadcrumb.Item"
+// @ts-ignore
+BreadcrumbLink.displayName = "Breadcrumb.Link"
+// @ts-ignore
+BreadcrumbText.displayName = "Breadcrumb.Text"
+// @ts-ignore
+BreadcrumbIcon.displyName = "Breadcrumb.Icon"
 // To add typings
 const Breadcrumb = BreadcrumbTemp as IBreadcrumbProps;
 export { Breadcrumb };

@@ -1,5 +1,5 @@
-import React from "react";
-import { Breadcrumb as NBBreadcrumb } from "native-base";
-export const BreadcrumbItem = ({ ...props }: any) => {
+import React from 'react';
+import { Breadcrumb as NBBreadcrumb, IBoxProps } from 'native-base';
+export const BreadcrumbItem = ({ ...props }: IBoxProps) => {
   return <NBBreadcrumb.Item {...props}></NBBreadcrumb.Item>;
 };

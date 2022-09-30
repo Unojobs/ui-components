@@ -8,7 +8,7 @@ const PopoverTest = ({ ...args }) => {
   return (
     <Wrapper>
       <Popover
-        trigger={(triggerProps) => {
+        trigger={(triggerProps: any) => {
           return (
             <Button {...triggerProps} colorScheme="danger">
               Delete Customer

@@ -6,7 +6,7 @@ import { Collapse, Stack, Heading, Button, Text } from 'components';
 
 const CollapseTest = ({ ...args }) => {
   const [show, setShow] = React.useState(false);
-
+  const handleToggle = () => setShow(!show);
   return (
     <Wrapper>
       <Stack space={4} mx={8}>

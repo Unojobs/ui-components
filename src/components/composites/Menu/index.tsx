@@ -11,6 +11,16 @@ MenuTemp.Group = MenuGroup;
 MenuTemp.ItemOption = MenuItemOption;
 MenuTemp.OptionGroup = MenuOptionGroup;
 
+// @ts-ignore
+MenuItem.displayName="Menu.Item"
+// @ts-ignore
+MenuGroup.displayName="Menu.Group"
+// @ts-ignore
+MenuItemOption.displayName="Menu.ItemOption"
+// @ts-ignore
+MenuOptionGroup.displayName="Menu.OptionGroup"
+
+
 // To add typings
 const Menu = MenuTemp as IMenuProps ;
 

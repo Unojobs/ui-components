@@ -1,7 +1,6 @@
-import React from "react";
-import { Code as NBCode } from "native-base";
-import type { ICodeProps } from "native-base/lib/typescript/components/composites/Code";
+import React from 'react';
+import { Code as NBCode } from 'native-base';
 
-export const Code = ({ ...props }: ICodeProps) => {
+export const Code = ({ ...props }: any) => {
   return <NBCode {...props}></NBCode>;
 };

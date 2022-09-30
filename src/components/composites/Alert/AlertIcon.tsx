@@ -1,5 +1,5 @@
-import React from "react";
-import { Alert as NBAlert } from "native-base";
-export const AlertIcon = ({ ...props }: any) => {
+import React from 'react';
+import { Alert as NBAlert, IIconProps } from 'native-base';
+export const AlertIcon = ({ ...props }: IIconProps) => {
   return <NBAlert.Icon {...props}></NBAlert.Icon>;
 };

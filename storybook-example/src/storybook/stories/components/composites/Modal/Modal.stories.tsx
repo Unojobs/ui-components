@@ -1,7 +1,5 @@
 import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Modal.args';
-
-import React from 'react';
 import {
   Button,
   Modal,
@@ -10,15 +8,16 @@ import {
   Center,
   ButtonGroup,
 } from 'components';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const ModalTest = ({ ...args }) => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Wrapper>
       <Center>
         <Button onPress={() => setShowModal(true)}>Button</Button>
       </Center>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header>Contact Us</Modal.Header>

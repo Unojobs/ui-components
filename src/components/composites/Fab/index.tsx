@@ -1,2 +1,3 @@
-export { Fab } from './Fab';
+import { default as Fab } from './Fab';
 export type { IFabProps } from './types';
+export { Fab }
