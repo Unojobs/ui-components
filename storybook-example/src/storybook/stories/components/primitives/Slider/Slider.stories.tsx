@@ -2,11 +2,11 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Slider.args';
 
 import React from 'react';
-import { Slider, Box } from 'components';
+import { Slider } from 'components';
 
-const Example = ({ ...args }) => {
+const SliderTest = ({ ...args }) => {
   return (
-    <Box alignItems="center" w="100%">
+    <Wrapper>
       <Slider
         {...args}
         w="3/4"
@@ -22,14 +22,6 @@ const Example = ({ ...args }) => {
         </Slider.Track>
         <Slider.Thumb />
       </Slider>
-    </Box>
-  );
-};
-
-const SliderTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

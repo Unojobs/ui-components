@@ -1,13 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Divider.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Divider.args";
-
-  import React from 'react';
+import React from 'react';
 import { Divider, Heading, Box } from 'components';
 
- const Example = () => {
+const DividerTest = ({ ...args }) => {
   return (
-    <Box alignItems="center">
+    <Wrapper>
       <Box w="140">
         <Heading mx="3" alignItems="center" flexDirection="row">
           Chrome
@@ -21,24 +20,14 @@ import { Divider, Heading, Box } from 'components';
           Firefox
         </Heading>
       </Box>
-    </Box>
+    </Wrapper>
   );
 };
 
+export const DividerComponent = DividerTest.bind({});
 
-  const DividerTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const DividerComponent = DividerTest.bind({});
-  
-  export default {
-    title: "composites/Divider",
-    component: DividerComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Divider',
+  component: DividerComponent,
+  argTypes: StorybookArgs,
+};

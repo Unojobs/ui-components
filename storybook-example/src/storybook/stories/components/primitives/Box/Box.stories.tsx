@@ -3,9 +3,10 @@ import { StorybookArgs } from './Box.args';
 
 import React from 'react';
 import { Box } from 'components';
-const Example = () => {
+
+const BoxTest = ({ ...args }) => {
   return (
-    <Box>
+    <Wrapper>
       <Box
         alignSelf="center"
         bg="primary.500"
@@ -18,14 +19,6 @@ const Example = () => {
       >
         This is a Box
       </Box>
-    </Box>
-  );
-};
-
-const BoxTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

@@ -1,12 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Container.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Container.args";
-
-  import React from 'react';
+import React from 'react';
 import { Container, Text, Heading, Center } from 'components';
- function Example() {
+
+const ContainerTest = ({ ...args }) => {
   return (
-    <Center>
+    <Wrapper>
       <Container>
         <Heading>
           A component library for the
@@ -17,24 +17,14 @@ import { Container, Text, Heading, Center } from 'components';
           gives you building blocks to build you React applications.
         </Text>
       </Container>
-    </Center>
+    </Wrapper>
   );
-}
+};
 
+export const ContainerComponent = ContainerTest.bind({});
 
-  const ContainerTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ContainerComponent = ContainerTest.bind({});
-  
-  export default {
-    title: "composites/Container",
-    component: ContainerComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Container',
+  component: ContainerComponent,
+  argTypes: StorybookArgs,
+};

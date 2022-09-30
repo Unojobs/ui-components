@@ -12,11 +12,9 @@ import {
 } from 'components';
 import { useState } from 'react';
 
-const Example = () => {
-  const [showModal, setShowModal] = useState(false);
-
+const ModalTest = ({ ...args }) => {
   return (
-    <>
+    <Wrapper>
       <Center>
         <Button onPress={() => setShowModal(true)}>Button</Button>
       </Center>
@@ -56,14 +54,6 @@ const Example = () => {
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-    </>
-  );
-};
-
-const ModalTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

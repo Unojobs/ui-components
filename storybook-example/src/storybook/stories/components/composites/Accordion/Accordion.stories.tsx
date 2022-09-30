@@ -1,12 +1,15 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Accordion.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Accordion.args";
-
-  import React from 'react';
+import React from 'react';
 import { Accordion, Box } from 'components';
- const Example = () => {
+const Example = () => {
+  return <Box m={3}></Box>;
+};
+
+const AccordionTest = ({ ...args }) => {
   return (
-    <Box m={3}>
+    <Wrapper>
       <Accordion index={[0, 1]}>
         <Accordion.Item>
           <Accordion.Summary>
@@ -45,24 +48,14 @@ import { Accordion, Box } from 'components';
           </Accordion.Details>
         </Accordion.Item>
       </Accordion>
-    </Box>
+    </Wrapper>
   );
 };
 
+export const AccordionComponent = AccordionTest.bind({});
 
-  const AccordionTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const AccordionComponent = AccordionTest.bind({});
-  
-  export default {
-    title: "composites/Accordion",
-    component: AccordionComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Accordion',
+  component: AccordionComponent,
+  argTypes: StorybookArgs,
+};

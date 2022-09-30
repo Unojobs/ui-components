@@ -1,12 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Skeleton.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Skeleton.args";
-
-  import React from 'react';
+import React from 'react';
 import { Skeleton, VStack, Center } from 'components';
- const Example = () => {
+
+const SkeletonTest = ({ ...args }) => {
   return (
-    <Center w="100%">
+    <Wrapper>
       <VStack
         w="90%"
         maxW="400"
@@ -21,24 +21,14 @@ import { Skeleton, VStack, Center } from 'components';
         <Skeleton.Text px="4" />
         <Skeleton px="4" my="4" rounded="md" startColor="primary.100" />
       </VStack>
-    </Center>
+    </Wrapper>
   );
 };
 
+export const SkeletonComponent = SkeletonTest.bind({});
 
-  const SkeletonTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const SkeletonComponent = SkeletonTest.bind({});
-  
-  export default {
-    title: "composites/Skeleton",
-    component: SkeletonComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Skeleton',
+  component: SkeletonComponent,
+  argTypes: StorybookArgs,
+};

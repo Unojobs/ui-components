@@ -1,14 +1,13 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './IconButton.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./IconButton.args";
-
-  import React from 'react';
+import React from 'react';
 import { IconButton, Icon, Box } from 'components';
 import { Entypo } from '@expo/vector-icons';
 
- const Example = () => {
+const IconButtonTest = ({ ...args }) => {
   return (
-    <Box alignItems="center">
+    <Wrapper>
       <IconButton
         icon={<Icon as={Entypo} name="emoji-happy" />}
         borderRadius="full"
@@ -27,24 +26,14 @@ import { Entypo } from '@expo/vector-icons';
           },
         }}
       />
-    </Box>
+    </Wrapper>
   );
 };
 
+export const IconButtonComponent = IconButtonTest.bind({});
 
-  const IconButtonTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const IconButtonComponent = IconButtonTest.bind({});
-  
-  export default {
-    title: "composites/IconButton",
-    component: IconButtonComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/IconButton',
+  component: IconButtonComponent,
+  argTypes: StorybookArgs,
+};

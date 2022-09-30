@@ -1,1 +1,1 @@
-export { Heading } from "native-base";
+export { Heading } from 'native-base';

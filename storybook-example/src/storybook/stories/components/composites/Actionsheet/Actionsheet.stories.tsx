@@ -1,8 +1,7 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Actionsheet.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Actionsheet.args";
-
-  import React from 'react';
+import React from 'react';
 import {
   Button,
   Actionsheet,
@@ -12,10 +11,11 @@ import {
   Center,
 } from 'components';
 
- function Example() {
+const ActionsheetTest = ({ ...args }) => {
   const { isOpen, onOpen, onClose } = useDisclose();
+
   return (
-    <Center>
+    <Wrapper>
       <Button onPress={onOpen}>Actionsheet</Button>
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
@@ -31,24 +31,14 @@ import {
           <Actionsheet.Item>Cancel</Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
-    </Center>
+    </Wrapper>
   );
-}
+};
 
+export const ActionsheetComponent = ActionsheetTest.bind({});
 
-  const ActionsheetTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const ActionsheetComponent = ActionsheetTest.bind({});
-  
-  export default {
-    title: "composites/Actionsheet",
-    component: ActionsheetComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Actionsheet',
+  component: ActionsheetComponent,
+  argTypes: StorybookArgs,
+};
