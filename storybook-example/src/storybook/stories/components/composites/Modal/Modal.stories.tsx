@@ -2,7 +2,14 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Modal.args';
 
 import React from 'react';
-import { Button, Modal, FormControl, Input, Center } from 'components';
+import {
+  Button,
+  Modal,
+  FormControl,
+  Input,
+  Center,
+  ButtonGroup,
+} from 'components';
 import { useState } from 'react';
 
 const Example = () => {
@@ -28,24 +35,24 @@ const Example = () => {
             </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            {/* <Button.Group space={2}> */}
-            <Button
-              variant="ghost"
-              colorScheme="blueGray"
-              onPress={() => {
-                setShowModal(false);
-              }}
-            >
-              Cancel
-            </Button>
-            <Button
-              onPress={() => {
-                setShowModal(false);
-              }}
-            >
-              Save
-            </Button>
-            {/* </Button.Group> */}
+            <ButtonGroup space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="blueGray"
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Save
+              </Button>
+            </ButtonGroup>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

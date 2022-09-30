@@ -17,7 +17,9 @@ const Example = ({ ...args }) => {
 const ButtonTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <Button {...args} onPress={() => console.log('hello world')}>
+        Click Me ddd
+      </Button>
     </Wrapper>
   );
 };
