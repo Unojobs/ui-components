@@ -1,6 +1,6 @@
-import React from "react";
-import { AspectRatio as NBAspectRatio } from "native-base";
+import React from 'react';
+import { AspectRatio as NBAspectRatio, IAspectRatioProps } from 'native-base';
 
-export const AspectRatio = ({ ...props }: any) => {
+export const AspectRatio = ({ ...props }: IAspectRatioProps) => {
   return <NBAspectRatio {...props}></NBAspectRatio>;
 };

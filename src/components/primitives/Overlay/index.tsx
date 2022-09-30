@@ -1,5 +1,5 @@
 import React from 'react';
-import { Overlay as NBOverlay } from 'native-base';
-export const Overlay = ({ ...props }: any) => {
+import { IOverlayProps, Overlay as NBOverlay } from 'native-base';
+export const Overlay = ({ ...props }: IOverlayProps) => {
   return <NBOverlay {...props}></NBOverlay>;
 };

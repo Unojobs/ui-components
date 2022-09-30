@@ -4,9 +4,10 @@ import { AlertDialogBody } from "./AlertDialogBody";
 import { AlertDialogCloseButton } from "./AlertDialogCloseButton";
 import { AlertDialogFooter } from "./AlertDialogFooter";
 import { AlertDialogHeader } from "./AlertDialogHeader";
+import type { IAlertDialogProps } from "native-base/lib/typescript/components/composites";
 // import type { IAlertDialogComponentType } from "native-base";
 
-const AlertDialogTemp: any = AlertDialog;
+const AlertDialogTemp:any = AlertDialog;
 
 AlertDialogTemp.Content = AlertDialogContent;
 AlertDialogTemp.CloseButton = AlertDialogCloseButton;
@@ -14,7 +15,7 @@ AlertDialogTemp.Header = AlertDialogHeader;
 AlertDialogTemp.Footer = AlertDialogFooter;
 AlertDialogTemp.Body = AlertDialogBody;
 
-const AlertDialogMain = AlertDialogTemp;
+const AlertDialogMain = AlertDialogTemp as IAlertDialogProps;
 
 export { AlertDialogMain as AlertDialog };
 // export type { IAlertDialogProps } from "native-base";

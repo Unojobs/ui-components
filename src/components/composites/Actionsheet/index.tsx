@@ -3,6 +3,7 @@ import {ActionsheetItem} from './ActionsheetItem';
 // import ActionsheetHeader from './ActionsheetHeader';
 // import ActionsheetFooter from './ActionsheetFooter';
 import {ActionsheetContent} from './ActionsheetContent';
+import type { IActionsheetProps } from 'native-base';
 
 
 const ActionsheetTemp: any = ActionsheetMain;
@@ -12,7 +13,7 @@ ActionsheetTemp.Item = ActionsheetItem;
 // ActionsheetTemp.Footer = ActionsheetFooter;
 
 // To add typings
-const Actionsheet = ActionsheetTemp ;
+const Actionsheet: IActionsheetProps = ActionsheetTemp ;
 
 export { Actionsheet };
 

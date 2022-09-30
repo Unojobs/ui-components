@@ -1,6 +1,6 @@
-import React from "react";
-import { IconButton as NBIconButton } from "native-base";
+import React from 'react';
+import { IconButton as NBIconButton, IIconButtonProps } from 'native-base';
 
-export const IconButton = ({ ...props }: any) => {
+export const IconButton = ({ ...props }: IIconButtonProps) => {
   return <NBIconButton {...props}></NBIconButton>;
 };

@@ -1,10 +1,11 @@
 import {AlertIcon} from './AlertIcon';
 import {Alert as AlertMain} from './Alert';
+import type { IAlertProps } from 'native-base';
 
 export type { IAlertProps } from 'native-base';
 
 const AlertTemp: any = AlertMain;
-AlertTemp.Icon = AlertIcon;
+AlertTemp.Icon  = AlertIcon;
 // To add typings
-const Alert = AlertTemp ;
+const Alert = AlertTemp as IAlertProps;
 export { Alert };

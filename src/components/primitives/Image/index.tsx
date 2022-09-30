@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image as NBImage } from 'native-base';
-export const Image = ({ ...props }: any) => {
+import { IImageProps, Image as NBImage } from 'native-base';
+export const Image = ({ ...props }: IImageProps) => {
   return <NBImage {...props}></NBImage>;
 };

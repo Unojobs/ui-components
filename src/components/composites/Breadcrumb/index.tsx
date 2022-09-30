@@ -3,6 +3,7 @@ import { BreadcrumbLink } from "./BreadcrumbLink";
 import { BreadcrumbItem } from "./BreadcrumbItem";
 import { BreadcrumbText } from "./BreadcrumbText";
 import { BreadcrumbIcon } from "./BreadcrumbIcon";
+import type { IBreadcrumbProps } from "native-base";
 
 let BreadcrumbTemp: any = BreadcrumbMain;
 BreadcrumbTemp.Item = BreadcrumbItem;
@@ -11,5 +12,5 @@ BreadcrumbTemp.Text = BreadcrumbText;
 BreadcrumbTemp.Icon = BreadcrumbIcon;
 
 // To add typings
-const Breadcrumb = BreadcrumbTemp;
+const Breadcrumb = BreadcrumbTemp as IBreadcrumbProps;
 export { Breadcrumb };

@@ -1,6 +1,7 @@
-import React from "react";
-import { TextArea as NBTextArea } from "native-base";
+import React from 'react';
+import { ITextAreaProps, TextArea as NBTextArea } from 'native-base';
 
-export const TextArea = ({ ...props }: any) => {
+export const TextArea = ({ ...props }: ITextAreaProps) => {
+  //@ts-ignore
   return <NBTextArea {...props}></NBTextArea>;
 };

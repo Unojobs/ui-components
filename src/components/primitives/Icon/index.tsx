@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { Icon as NBIcon } from 'native-base';
+import { Icon as NBIcon, IIconProps } from 'native-base';
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import Entypo from 'react-native-vector-icons/dist/Entypo';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
@@ -15,7 +15,7 @@ import Zocial from 'react-native-vector-icons/dist/Zocial';
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import SimpleLineIcons from 'react-native-vector-icons/dist/SimpleLineIcons';
 
-export const Icon = ({ as, ...props }: any) => {
+export const Icon = ({ as, ...props }: IIconProps) => {
   const map = {
     AntDesign: AntDesign,
     Entypo: Entypo,

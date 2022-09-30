@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner as NBSpinner } from 'native-base';
-export const Spinner = ({ ...props }: any) => {
+import { ISpinnerProps, Spinner as NBSpinner } from 'native-base';
+export const Spinner = ({ ...props }: ISpinnerProps) => {
   return <NBSpinner {...props}></NBSpinner>;
 };

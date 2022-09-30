@@ -1,6 +1,6 @@
-import React from "react";
-import { Drawer as NBDrawer } from "native-base";
+import React from 'react';
+import { Drawer as NBDrawer, IDrawerProps } from 'native-base';
 
-export const Drawer = ({ ...props }: any) => {
+export const Drawer = ({ ...props }: IDrawerProps) => {
   return <NBDrawer {...props}></NBDrawer>;
 };
