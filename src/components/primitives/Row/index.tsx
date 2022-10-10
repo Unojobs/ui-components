@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row as NBRow } from 'native-base';
-export const Row = ({ ...props }: any) => {
+import { IStackProps, Row as NBRow } from 'native-base';
+export const Row = ({ ...props }: IStackProps) => {
   return <NBRow {...props}></NBRow>;
 };

@@ -1,5 +1,5 @@
-import React from "react";
-import { SlideFade as NBSlideFade } from "native-base";
-export const SlideFade = ({ ...props }: any) => {
+import React from 'react';
+import { ISlideFadeProps, SlideFade as NBSlideFade } from 'native-base';
+export const SlideFade = ({ ...props }: ISlideFadeProps) => {
   return <NBSlideFade {...props}></NBSlideFade>;
 };

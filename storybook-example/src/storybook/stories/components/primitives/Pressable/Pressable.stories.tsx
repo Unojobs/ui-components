@@ -4,9 +4,9 @@ import { StorybookArgs } from './Pressable.args';
 import React from 'react';
 import { Pressable, Text, Box, HStack, Flex, Badge } from 'components';
 
-function Example() {
+const PressableTest = ({ ...args }) => {
   return (
-    <Box alignItems="center">
+    <Wrapper>
       <Pressable
         onPress={() => console.log("I'm Pressed")}
         rounded="8"
@@ -47,14 +47,6 @@ function Example() {
           </Flex>
         </Box>
       </Pressable>
-    </Box>
-  );
-}
-
-const PressableTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

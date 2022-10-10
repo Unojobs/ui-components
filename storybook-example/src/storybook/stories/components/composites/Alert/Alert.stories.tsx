@@ -1,8 +1,7 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Alert.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Alert.args";
-
-  import React from 'react';
+import React from 'react';
 import {
   Alert,
   VStack,
@@ -14,9 +13,9 @@ import {
   Center,
 } from 'components';
 
- const Example = () => {
+const AlertTest = ({ ...args }) => {
   return (
-    <Center>
+    <Wrapper>
       <Alert maxW="400" colorScheme="info">
         <VStack space={1} flexShrink={1} w="100%">
           <HStack
@@ -44,24 +43,14 @@ import {
           </Box>
         </VStack>
       </Alert>
-    </Center>
+    </Wrapper>
   );
 };
 
+export const AlertComponent = AlertTest.bind({});
 
-  const AlertTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const AlertComponent = AlertTest.bind({});
-  
-  export default {
-    title: "composites/Alert",
-    component: AlertComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Alert',
+  component: AlertComponent,
+  argTypes: StorybookArgs,
+};

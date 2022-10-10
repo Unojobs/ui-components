@@ -2,13 +2,13 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Select.args';
 
 import React from 'react';
-import { Select, Box, CheckIcon, Center } from 'components';
+import { Select, Box, CheckIcon } from 'components';
 
-const Example = ({ ...args }) => {
+const SelectTest = ({ ...args }) => {
   const [service, setService] = React.useState('');
 
   return (
-    <Center>
+    <Wrapper>
       <Box maxW="300">
         <Select
           {...args}
@@ -30,14 +30,6 @@ const Example = ({ ...args }) => {
           <Select.Item label="Backend Development" value="backend" />
         </Select>
       </Box>
-    </Center>
-  );
-};
-
-const SelectTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

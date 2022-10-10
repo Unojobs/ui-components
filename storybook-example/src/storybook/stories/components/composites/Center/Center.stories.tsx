@@ -1,12 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Center.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Center.args";
-
-  import React from 'react';
+import React from 'react';
 import { Center } from 'components';
- function Example() {
+
+const CenterTest = ({ ...args }) => {
   return (
-    <Center>
+    <Wrapper>
       <Center
         bg="primary.400"
         _text={{ color: 'white', fontWeight: 'bold' }}
@@ -15,24 +15,14 @@ import { Center } from 'components';
       >
         This is the Center
       </Center>
-    </Center>
+    </Wrapper>
   );
-}
+};
 
+export const CenterComponent = CenterTest.bind({});
 
-  const CenterTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const CenterComponent = CenterTest.bind({});
-  
-  export default {
-    title: "composites/Center",
-    component: CenterComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Center',
+  component: CenterComponent,
+  argTypes: StorybookArgs,
+};

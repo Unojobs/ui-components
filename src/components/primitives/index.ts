@@ -1,4 +1,5 @@
 export { Button } from './Button';
+export { ButtonGroup } from './Button';
 import Radio from './Radio';
 import Select from './Select';
 import Slider from './Slider';

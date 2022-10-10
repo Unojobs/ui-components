@@ -1,6 +1,6 @@
-import React from "react";
-import { Tag as NBTag } from "native-base";
+import React from 'react';
+import { ITagProps, Tag as NBTag } from 'native-base';
 
-export const Tag = ({ ...props }: any) => {
+export const Tag = ({ ...props }: ITagProps) => {
   return <NBTag {...props}></NBTag>;
 };

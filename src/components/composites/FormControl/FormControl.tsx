@@ -1,5 +1,5 @@
-import React from "react";
-import { FormControl as NBFormControl } from "native-base";
-export const FormControl = ({ ...props }: any) => {
+import React from 'react';
+import { FormControl as NBFormControl, IFormControlProps } from 'native-base';
+export const FormControl = ({ ...props }: IFormControlProps) => {
   return <NBFormControl {...props}></NBFormControl>;
 };

@@ -2,22 +2,14 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Button.args';
 
 import React from 'react';
-import { Button, Box } from 'components';
-
-const Example = ({ ...args }) => {
-  return (
-    <Box alignItems="center">
-      <Button {...args} onPress={() => console.log('hello world')}>
-        Click Me
-      </Button>
-    </Box>
-  );
-};
+import { Button } from 'components';
 
 const ButtonTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <Button {...args} onPress={() => console.log('hello world')}>
+        Click Me
+      </Button>
     </Wrapper>
   );
 };

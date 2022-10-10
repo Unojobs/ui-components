@@ -1,28 +1,21 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Tag.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Tag.args";
-
-  import React from 'react';
+import React from 'react';
 import { Tag } from 'components';
 
- const Example = () => {
-  return <Tag>NativeBase</Tag>;
+const TagTest = ({ ...args }) => {
+  return (
+    <Wrapper>
+      <Tag>NativeBase</Tag>
+    </Wrapper>
+  );
 };
 
+export const TagComponent = TagTest.bind({});
 
-  const TagTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const TagComponent = TagTest.bind({});
-  
-  export default {
-    title: "composites/Tag",
-    component: TagComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Tag',
+  component: TagComponent,
+  argTypes: StorybookArgs,
+};

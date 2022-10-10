@@ -1,19 +1,23 @@
 import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Modal.args';
+import {
+  Button,
+  Modal,
+  FormControl,
+  Input,
+  Center,
+  ButtonGroup,
+} from 'components';
+import React, { useState } from 'react';
 
-import React from 'react';
-import { Button, Modal, FormControl, Input, Center } from 'components';
-import { useState } from 'react';
-
-const Example = () => {
+const ModalTest = ({ ...args }) => {
   const [showModal, setShowModal] = useState(false);
-
   return (
-    <>
+    <Wrapper>
       <Center>
         <Button onPress={() => setShowModal(true)}>Button</Button>
       </Center>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header>Contact Us</Modal.Header>
@@ -28,35 +32,27 @@ const Example = () => {
             </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            {/* <Button.Group space={2}> */}
-            <Button
-              variant="ghost"
-              colorScheme="blueGray"
-              onPress={() => {
-                setShowModal(false);
-              }}
-            >
-              Cancel
-            </Button>
-            <Button
-              onPress={() => {
-                setShowModal(false);
-              }}
-            >
-              Save
-            </Button>
-            {/* </Button.Group> */}
+            <ButtonGroup space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="blueGray"
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Save
+              </Button>
+            </ButtonGroup>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
-    </>
-  );
-};
-
-const ModalTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

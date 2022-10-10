@@ -6,11 +6,11 @@ import { Box, Button, Drawer } from 'components';
 import { useState } from 'react';
 import { Dimensions } from 'react-native';
 
-const Example = () => {
+const DrawerTest = ({ ...args }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <Wrapper>
       <Button onPress={() => setShowModal(true)}>Button</Button>
       <Drawer
         isOpen={showModal}
@@ -24,14 +24,6 @@ const Example = () => {
           minW={Dimensions.get('window').width / 2}
         ></Box>
       </Drawer>
-    </>
-  );
-};
-
-const DrawerTest = ({ ...args }) => {
-  return (
-    <Wrapper>
-      <Example {...args} />
     </Wrapper>
   );
 };

@@ -1,3 +1,6 @@
-import { Box } from "native-base";
+import React from 'react';
+import { Box as NBBox, IBoxProps } from 'native-base';
 
-export { Box };
+export const Box = ({ ...props }: IBoxProps) => {
+  return <NBBox {...props}></NBBox>;
+};

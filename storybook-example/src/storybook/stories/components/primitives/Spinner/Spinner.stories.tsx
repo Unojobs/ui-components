@@ -4,21 +4,15 @@ import { StorybookArgs } from './Spinner.args';
 import React from 'react';
 import { Spinner, HStack, Heading } from 'components';
 
-const Example = () => {
-  return (
-    <HStack space={2} justifyContent="center">
-      <Spinner accessibilityLabel="Loading posts" />
-      <Heading color="primary.500" fontSize="md">
-        Loading
-      </Heading>
-    </HStack>
-  );
-};
-
 const SpinnerTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Example {...args} />
+      <HStack space={2} justifyContent="center">
+        <Spinner accessibilityLabel="Loading posts" />
+        <Heading color="primary.500" fontSize="md">
+          Loading
+        </Heading>
+      </HStack>
     </Wrapper>
   );
 };

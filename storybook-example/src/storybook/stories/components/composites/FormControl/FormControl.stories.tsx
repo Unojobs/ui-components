@@ -1,19 +1,12 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './FormControl.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./FormControl.args";
+import React from 'react';
+import { FormControl, Input, Stack, WarningOutlineIcon, Box } from 'components';
 
-  import React from 'react';
-import {
-  FormControl,
-  Input,
-  Stack,
-  WarningOutlineIcon,
-  Box,
-} from 'components';
-
- const Example = () => {
+const FormControlTest = ({ ...args }) => {
   return (
-    <Box alignItems="center">
+    <Wrapper>
       <Box w="100%" maxWidth="300px">
         <FormControl isRequired>
           <Stack mx="4">
@@ -34,24 +27,14 @@ import {
           </Stack>
         </FormControl>
       </Box>
-    </Box>
+    </Wrapper>
   );
 };
 
+export const FormControlComponent = FormControlTest.bind({});
 
-  const FormControlTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const FormControlComponent = FormControlTest.bind({});
-  
-  export default {
-    title: "composites/FormControl",
-    component: FormControlComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/FormControl',
+  component: FormControlComponent,
+  argTypes: StorybookArgs,
+};

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link as NBLink } from "native-base";
+import React from 'react';
+import { ILinkProps, Link as NBLink } from 'native-base';
 
-export const Link = ({ ...props }: any) => {
+export const Link = ({ ...props }: ILinkProps) => {
   return <NBLink isUnderlined={false} {...props}></NBLink>;
 };

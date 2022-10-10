@@ -1,6 +1,6 @@
-import React from "react";
-import { Wrap as NBWrap } from "native-base";
+import React from 'react';
+import { IWrapProps, Wrap as NBWrap } from 'native-base';
 
-export const Wrap = ({ ...props }: any) => {
+export const Wrap = ({ ...props }: IWrapProps) => {
   return <NBWrap {...props}></NBWrap>;
 };

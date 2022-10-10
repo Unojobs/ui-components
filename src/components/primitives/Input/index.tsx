@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input as NBInput } from 'native-base';
+import { IInputProps, Input as NBInput } from 'native-base';
 
-export const Input = ({ ...props }: any) => {
+export const Input = ({ ...props }: IInputProps) => {
   return <NBInput {...props}></NBInput>;
 };

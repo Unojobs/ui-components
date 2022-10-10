@@ -1,15 +1,14 @@
+import { Wrapper } from '../../Wrapper';
+import { StorybookArgs } from './Popover.args';
 
-  import { Wrapper } from "../../Wrapper";
-  import { StorybookArgs } from "./Popover.args";
-
-  import React from 'react';
+import React from 'react';
 import { Popover, Button, Box } from 'components';
 
- function Example() {
+const PopoverTest = ({ ...args }) => {
   return (
-    <Box w="100%" alignItems="center">
+    <Wrapper>
       <Popover
-        trigger={(triggerProps) => {
+        trigger={(triggerProps: any) => {
           return (
             <Button {...triggerProps} colorScheme="danger">
               Delete Customer
@@ -35,24 +34,14 @@ import { Popover, Button, Box } from 'components';
           </Popover.Footer>
         </Popover.Content>
       </Popover>
-    </Box>
+    </Wrapper>
   );
-}
+};
 
+export const PopoverComponent = PopoverTest.bind({});
 
-  const PopoverTest = ({ ...args }) => {
-    return (
-      <Wrapper>
-        <Example {...args}/>
-      </Wrapper>
-    );
-  };
-  
-  export const PopoverComponent = PopoverTest.bind({});
-  
-  export default {
-    title: "composites/Popover",
-    component: PopoverComponent,
-    argTypes: StorybookArgs,
-  };
-  
+export default {
+  title: 'composites/Popover',
+  component: PopoverComponent,
+  argTypes: StorybookArgs,
+};

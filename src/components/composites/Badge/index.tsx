@@ -1,6 +1,6 @@
-import React from "react";
-import { Badge as NBBadge } from "native-base";
+import React from 'react';
+import { Badge as NBBadge, IBadgeProps } from 'native-base';
 
-export const Badge = ({ ...props }: any) => {
+export const Badge = ({ ...props }: IBadgeProps) => {
   return <NBBadge {...props}></NBBadge>;
 };
