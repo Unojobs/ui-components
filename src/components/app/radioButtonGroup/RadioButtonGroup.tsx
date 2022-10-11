@@ -4,8 +4,10 @@ import type { RadioButtonGroupProps } from './types';
 import './style.css';
 
 export const RadioButtonGroup = (props: RadioButtonGroupProps): JSX.Element => {
-  const { list, onChange, size, space } = props;
-  const [selectedValue, setSelectedValue] = useState<string>('');
+  const { list, onChange, size, space, initialValue } = props;
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    initialValue
+  );
 
   const handleButtonSelection = (value: string) => {
     setSelectedValue(value);
@@ -13,20 +15,24 @@ export const RadioButtonGroup = (props: RadioButtonGroupProps): JSX.Element => {
   };
 
   const createButtons = () => {
-    const radioButtons = list?.map((value: string, index: number) => {
-      return (
-        <div key={index}>
-          <label
-            className={`button-common ${
-              value === selectedValue ? 'button-selected' : 'button-un-selected'
-            } button-${size ? size : 'medium'}`}
-          >
-            {value}
-            <Radio value={value} marginLeft="30px" />
-          </label>
-        </div>
-      );
-    });
+    const radioButtons =
+      list?.length &&
+      list?.map((value: string, index: number) => {
+        return (
+          <div key={`${value}_${index}`}>
+            <label
+              className={`button-common ${
+                value === selectedValue
+                  ? 'button-selected'
+                  : 'button-un-selected'
+              } button-${size ? size : 'medium'}`}
+            >
+              {value}
+              <Radio value={value} marginLeft="30px" />
+            </label>
+          </div>
+        );
+      });
 
     return radioButtons;
   };
@@ -47,9 +53,10 @@ export const RadioButtonGroup = (props: RadioButtonGroupProps): JSX.Element => {
 };
 
 RadioButtonGroup.DefaultProps = {
-  list: ['Employer', 'Candidate'],
+  list: [],
   onChange: undefined,
   size: 'medium',
   label: 'RadioButtonGroup',
   sapce: '20.5px',
+  initialValue: undefined,
 };
