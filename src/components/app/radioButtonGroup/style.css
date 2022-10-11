@@ -1,0 +1,44 @@
+.button-common {
+  background-color: #ffffff;
+  color: #111111 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 8px !important;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+
+.button-un-selected {
+  border: 1px solid #f3f3f3;
+}
+
+.button-selected {
+  border: 1px solid #4169e0;
+}
+
+.button-extraLarge {
+  height: 45px !important;
+  width: 400px;
+}
+
+.button-large {
+  height: 110px !important;
+  width: 240px;
+  padding: 24px 40px 24px 16px;
+  overflow-wrap: anywhere;
+}
+
+.button-medium {
+  height: 45px;
+  width: 190px;
+}
+
+.button-small {
+  height: 45px;
+  width: 153px;
+}
