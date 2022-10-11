@@ -17,5 +17,5 @@ PopoverTemp.Body = PopoverBody;
 PopoverTemp.Arrow = PopoverArrow;
 
 // To add typings
-const Popover = PopoverTemp as IPopoverProps;
+const Popover: any = PopoverTemp as IPopoverProps;
 export { Popover };
