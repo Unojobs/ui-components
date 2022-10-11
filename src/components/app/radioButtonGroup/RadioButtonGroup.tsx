@@ -22,7 +22,7 @@ export const RadioButtonGroup = (props: RadioButtonGroupProps): JSX.Element => {
             } button-${size ? size : 'medium'}`}
           >
             {value}
-            <Radio value={value} />
+            <Radio value={value} marginLeft="30px" />
           </label>
         </div>
       );
