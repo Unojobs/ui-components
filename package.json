@@ -9,6 +9,7 @@
   "typings": "lib/typescript/index.d.ts",
   "private": false,
   "dependencies": {
+    "native-base": "3.4.17",
     "lodash.isempty": "^4.4.0",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
