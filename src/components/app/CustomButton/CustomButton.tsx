@@ -13,7 +13,10 @@ export const CustomButton = (props: CustomButtonProps) => {
     children,
     color,
     disabled,
-    // htmlType,
+    textMarginLeft,
+    borderWidth,
+    borderColor,
+    borderStyle,
   } = props;
 
   return (
@@ -24,10 +27,20 @@ export const CustomButton = (props: CustomButtonProps) => {
       backgroundColor={backgroundColor}
       borderRadius={borderRadius}
       isDisabled={disabled}
+      paddingLeft={'24px'}
+      paddingRight={'24px'}
+      paddingTop={13}
+      paddingBottom={13}
+      borderWidth={borderWidth}
+      borderColor={borderColor}
+      borderStyle={borderStyle}
       onPress={onClick}
+      fontSize={'16px'}
+      _text={{ color: color, marginLeft: textMarginLeft }}
     >
-      <span style={{ color: color }}>{children}</span>
+      {children}
     </Button>
+    // </div>
   );
 };
 
@@ -38,4 +51,10 @@ CustomButton.defaultProps = {
   borderRadius: '5px',
   color: '#ffffff',
   disabled: false,
+  onclick: undefined,
+  textMarginLeft: undefined,
+  icon: undefined,
+  borderWidth: undefined,
+  borderColor: undefined,
+  borderStyle: undefined,
 };

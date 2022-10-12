@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof CustomButton> = (args) => (
   <Wrapper>
-    <CustomButton {...args}>Employer</CustomButton>
+    <CustomButton {...args}>Login</CustomButton>
   </Wrapper>
 );
 export const Variants = Template.bind({});
