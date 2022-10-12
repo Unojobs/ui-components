@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const UnjobsLogo = () => {
+export const UnojobsLogo = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 50 50">
             <rect width="50" height="50" fill="#4169E0" rx="5"></rect>

@@ -6,7 +6,7 @@ import './LoginStyle.css';
 import { CustomButton } from 'src';
 // import { SelectableButton } from '../../components/selectableButton/SelectableButton';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { UnjobsLogo } from '../../icons/UnojosLogo';
+import { UnojobsLogo } from 'src';
 export interface ILoginProps {
   type?:
     | 'login-home'
@@ -74,7 +74,7 @@ export const Login = (props: ILoginProps) => {
           <Card className="cardStyle">
             <div className="formParent">
               <div className="topContent">
-                <UnjobsLogo></UnjobsLogo>
+                <UnojobsLogo></UnojobsLogo>
                 <h1 className="mainHeading">{heading}</h1>
                 <Text>{subHeading}</Text>
               </div>

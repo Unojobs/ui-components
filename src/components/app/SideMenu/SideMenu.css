@@ -1,0 +1,96 @@
+.sidermenu * {
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+.sidermenu {
+  max-height: 100vh;
+  max-width: 300px;
+  width: 100%;
+  overflow-y: scroll;
+  user-select: none;
+  background-color: white;
+}
+
+.sidermenu .menuItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font: 14px;
+  gap: 12px;
+  padding: 16px 32px;
+  font-weight: 500;
+}
+
+.sidermenu .menuItem > svg,
+.sidermenu .empty-placeholder-svg {
+  height: 16px;
+  width: 16px;
+}
+
+.sidermenu .menuItem .itemTitle {
+  flex-grow: 1;
+}
+
+.sidermenu .menuItem:hover {
+  cursor: pointer;
+  color: #4169e0;
+  background-color: rgb(254, 254, 254);
+  transition: all 0.6s;
+}
+
+.sidermenu .selectedItem.menuItem::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  width: 4px;
+  left: 0px;
+  border-radius: 0px 4px 4px 0px;
+  background-color: #4169e0;
+}
+
+.sidermenu .selectedItem.menuItem {
+  color: #4169e0;
+  font-weight: 600;
+  background-color: #d9e6fd;
+  transition: all 0.4s;
+}
+
+.sidermenu .selectedItem.menuItem > svg,
+.sidermenu .menuItem:hover svg {
+  color: #4169e0;
+  transition: all 0.4s;
+}
+
+.sidermenu .parentSelection,
+.parentSelection svg {
+  color: #4169e0;
+}
+
+/** Animations **/
+
+.sidermenu .open {
+  max-height: 60vh;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.6s;
+}
+
+.sidermenu .close {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  transition: all 0.6s;
+}
+
+.sidermenu .downAnim {
+  transform: rotate(0deg);
+  transition-duration: 0.6s;
+}
+
+.sidermenu .upAnim {
+  transform: rotate(180deg);
+  transition-duration: 0.6s;
+}
