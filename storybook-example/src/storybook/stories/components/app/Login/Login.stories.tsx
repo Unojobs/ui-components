@@ -1,11 +1,13 @@
 import React from 'react';
-import { Login } from 'components';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-const LoginTest = () => {
-  return <Login />;
-};
-export const LoginComponent = LoginTest.bind({});
+import { Login } from 'components';
 export default {
   title: 'Login',
-  component: LoginComponent,
-};
+  component: Login,
+} as ComponentMeta<typeof Login>;
+
+const Template: ComponentStory<typeof Login> = (args) => (
+  <Login {...args}></Login>
+);
+export const Variants = Template.bind({});

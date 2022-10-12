@@ -37,6 +37,7 @@
 }
 .cardDiv {
   width: 50%;
+
 }
 .cardStyle {
   height: 100%;
@@ -74,7 +75,7 @@
 }
 .otpInput {
   height: 45px;
-  width: 90;
+  width: 80px;
 }
 .createActop {
   display: flex;
@@ -91,4 +92,17 @@
   flex-direction: column;
   gap: 10px;
   min-width: 350px;
+}
+.newPwDesc{
+  max-width: 300px;
+}
+.cardDivCreateAc {
+  width: 50%;
+  overflow-y: scroll;
+
+}
+.cardStyleCreateAc {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
