@@ -17,7 +17,7 @@ export const Variants = Template.bind({});
 
 Variants.args = {
   onClick: (event) => {
-    console.warn(event);
+    console.log('Manually clicked', event);
   },
   children: 10,
 };

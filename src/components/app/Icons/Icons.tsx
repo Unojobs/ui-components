@@ -181,8 +181,10 @@ export const NumberIcon: React.FC<NumberIconProps> = (props) => {
         alignItems: 'center',
         fontSize: '12px',
         fontWeight: '600',
+        cursor: 'pointer',
         backgroundColor: `${props.fade === false ? '#4169E0' : '#B4CBFB'}`,
       }}
+      onClick={props.onClick}
     >
       {props.children}
     </div>
