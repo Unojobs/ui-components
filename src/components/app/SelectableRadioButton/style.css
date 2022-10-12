@@ -1,0 +1,67 @@
+.radio-button-conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  position: relative;
+}
+
+.button-common {
+  background-color: #ffffff;
+  color: #111111 !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 1px;
+  border-radius: 8px !important;
+  padding: 6px 20px;
+  border: none !important;
+}
+
+.button-un-selected {
+  border: 1px solid #f3f3f3 !important;
+}
+
+.button-selected {
+  border: 1px solid #4169e0 !important;
+}
+
+.button-extraLarge {
+  height: 45px !important;
+  width: 400px;
+}
+
+.button-large {
+  height: 66px !important;
+  width: 240px;
+  padding: 13px 20px 13px 20px;
+  overflow-wrap: anywhere;
+}
+
+.button-medium {
+  height: 45px;
+  width: 190px;
+}
+
+.button-small {
+  height: 45px;
+  width: 153px;
+}
+
+.radio-common {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+  z-index: 1;
+}
+
+.radio-un-checked {
+  border: 3px solid #f3f3f3;
+}
+
+.radio-checked {
+  border: 6px solid #4169e0 !important;
+}
