@@ -9,6 +9,7 @@
   "typings": "lib/typescript/index.d.ts",
   "private": false,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "antd": "^4.23.5",
     "lodash.isempty": "^4.4.0",
     "native-base": "3.4.17",
