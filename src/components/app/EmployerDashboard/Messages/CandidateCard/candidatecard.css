@@ -1,0 +1,43 @@
+.container {
+  height: 126px;
+  width: 326px;
+}
+
+.inner-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar-text {
+  background-color: '#4199';
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.name-message-container {
+  margin-bottom: 8px;
+}
+
+.latest-message-text {
+  font-size: 12px;
+}
+
+.job-text {
+  margin-bottom: 6px;
+  font-size: 12px;
+  background-color: '#E7E7E7';
+}
+
+.date-text {
+  margin-right: 40px;
+  font-size: 12px;
+}
+
+.time-text {
+  margin: 0px;
+  font-size: 12px;
+}
