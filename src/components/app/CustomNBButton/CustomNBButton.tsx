@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Icon } from 'native-base';
 import type { CustomButtonProps } from './types';
 
-export const CustomButton = (props: CustomButtonProps) => {
+export const CustomNBButton = (props: CustomButtonProps) => {
   const {
     onClick,
     backgroundColor,
@@ -44,7 +44,7 @@ export const CustomButton = (props: CustomButtonProps) => {
   );
 };
 
-CustomButton.defaultProps = {
+CustomNBButton.defaultProps = {
   width: '160px',
   height: '48px',
   backgroundColor: '#4169E0',

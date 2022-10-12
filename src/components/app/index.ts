@@ -1,2 +1,2 @@
 export * from './radioButtonGroup';
-export * from './CustomButton';
+export * from './CustomNBButton';
