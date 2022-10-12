@@ -52,7 +52,7 @@ export const RadioButtonGroup = (props: RadioButtonGroupProps): JSX.Element => {
   );
 };
 
-RadioButtonGroup.DefaultProps = {
+RadioButtonGroup.defaultProps = {
   list: [],
   onChange: undefined,
   size: 'medium',
