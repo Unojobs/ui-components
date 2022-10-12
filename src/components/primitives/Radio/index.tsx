@@ -5,9 +5,11 @@ const RadioTemp: any = ({ children, ...props }: IRadioProps) => {
   return <NBRadio {...props}>{children}</NBRadio>;
 };
 
-const RadioTempGroup = ({ children, ...props }: IRadioGroupProps) => {
+const RadioGroup = ({ children, ...props }: IRadioGroupProps) => {
   return <NBRadio.Group {...props}>{children}</NBRadio.Group>;
 };
-const Radio: any = RadioTemp;
-Radio.Group = RadioTempGroup;
+const Radio: any = RadioTemp as IRadioProps;
+Radio.displayName = 'Radio';
+RadioGroup.displayName = 'Radio.Group';
+Radio.Group = RadioGroup;
 export default Radio;

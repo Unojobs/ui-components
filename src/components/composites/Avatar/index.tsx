@@ -8,7 +8,7 @@ AvatarTemp.Badge = AvatarBadge;
 AvatarTemp.Group = AvatarGroup;
 
 // To add typings
-const Avatar = AvatarTemp as IAvatarProps;
+const Avatar: any = AvatarTemp as IAvatarProps;
 
 export { Avatar };
 export type { IAvatarProps } from 'native-base';

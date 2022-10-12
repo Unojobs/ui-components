@@ -1,5 +1,5 @@
-import React from "react";
-import { Modal as NBModal } from "native-base";
-export const Modal = ({ ...props }: any) => {
+import React from 'react';
+import { IModalProps, Modal as NBModal } from 'native-base';
+export const Modal = ({ ...props }: IModalProps) => {
   return <NBModal {...props}></NBModal>;
 };
