@@ -1,13 +1,6 @@
 import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './Modal.args';
-import {
-  Button,
-  Modal,
-  FormControl,
-  Input,
-  Center,
-  ButtonGroup,
-} from 'components';
+import { Button, Modal, FormControl, Input, Center } from 'components';
 import React, { useState } from 'react';
 
 const ModalTest = ({ ...args }) => {
@@ -32,7 +25,7 @@ const ModalTest = ({ ...args }) => {
             </FormControl>
           </Modal.Body>
           <Modal.Footer>
-            <ButtonGroup space={2}>
+            <Button.Group space={2}>
               <Button
                 variant="ghost"
                 colorScheme="blueGray"
@@ -49,7 +42,7 @@ const ModalTest = ({ ...args }) => {
               >
                 Save
               </Button>
-            </ButtonGroup>
+            </Button.Group>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

@@ -6,6 +6,6 @@ const SkeletonTemp: any = SkeletonMain;
 SkeletonTemp.Text = SkeletonText;
 
 // To add typings
-const Skeleton = SkeletonTemp as ISkeletonProps;
+const Skeleton: any = SkeletonTemp as ISkeletonProps;
 export { Skeleton };
 export type { ISkeletonProps } from './types';

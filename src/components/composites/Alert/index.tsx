@@ -7,7 +7,7 @@ export type { IAlertProps } from 'native-base';
 const AlertTemp: any = AlertMain;
 AlertTemp.Icon = AlertIcon;
 // @ts-ignore
-AlertIcon.displayName="Alert.Icon"
+AlertIcon.displayName = 'Alert.Icon';
 // To add typings
-const Alert = AlertTemp as IAlertProps;
+const Alert: any = AlertTemp as IAlertProps;
 export { Alert };
