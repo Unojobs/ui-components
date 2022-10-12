@@ -3,8 +3,7 @@ import 'antd/dist/antd.css';
 import { Card, Carousel, Typography, Form, Input, Image, Checkbox } from 'antd';
 import { GoogleOutlined, LinkedinFilled } from '@ant-design/icons';
 import './LoginStyle.css';
-import { CustomButton } from 'src';
-// import { SelectableButton } from '../../components/selectableButton/SelectableButton';
+import { CustomButton, SelectableRadioButton } from 'src';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { UnojobsLogo } from 'src';
 export interface ILoginProps {
@@ -88,13 +87,15 @@ export const Login = (props: ILoginProps) => {
                 >
                   <Form.Item name="user type" rules={[{ required: true }]}>
                     <div>
-                      {/* <SelectableButton
-                                                onChange={(e: string) => {
-                                                    console.log(e);
-                                                }}
-                                                type="small"
-                                                list={['Employer', 'Candidate']}
-                                            ></SelectableButton> */}
+                      <SelectableRadioButton
+                        onChange={(e: string) => {
+                          console.log(e);
+                        }}
+                        size="small"
+                        space={30}
+                        list={['Employer', 'Candidate']}
+                        initialValue="Employer"
+                      ></SelectableRadioButton>
                     </div>
                   </Form.Item>
 
