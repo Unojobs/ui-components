@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Radio, HStack, VStack } from 'native-base';
+import { Radio, HStack, VStack } from '../../primitives';
 import type { RadioButtonGroupProps } from './types';
 import './style.css';
 

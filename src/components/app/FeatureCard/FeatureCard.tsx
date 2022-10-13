@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FeatureCardProps } from './types';
-import { Box, Heading, Image, Text, VStack } from 'src/components/primitives';
-import { Badge } from 'src/components/composites';
+import { Box, Heading, Image, Text, VStack } from '../../primitives';
+import { Badge } from '../../composites';
 
 export const FeatureCard = (props: FeatureCardProps): JSX.Element => {
   const { badgeText, title, description, imgSrc, imgAltText, direction } =
