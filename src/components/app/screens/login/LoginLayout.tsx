@@ -3,9 +3,8 @@ import 'antd/dist/antd.css';
 import { Card, Carousel, Typography, Form, Input, Image, Checkbox } from 'antd';
 import { GoogleOutlined, LinkedinFilled } from '@ant-design/icons';
 import './LoginStyle.css';
-import { CustomButton, SelectableRadioButton } from 'src';
+import { CustomButton, SelectableRadioButton, UnojobsLogo } from '../../../app';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { UnojobsLogo } from 'src';
 export interface ILoginProps {
   type?:
     | 'login-home'
