@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { ChevronDownIcon } from '../../primitives';
 import { MenuItem } from './MenuItem';
 import type { MenuDataType } from './SideMenu';
-import { ChevronDownIcon } from 'native-base';
 import './SideMenu.css';
 
 /** Props for subMenu */
