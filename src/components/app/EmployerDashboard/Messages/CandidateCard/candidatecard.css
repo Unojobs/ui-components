@@ -1,5 +1,5 @@
 .container {
-  height: 126px;
+  height: 148px;
   width: 326px;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .date-text {
-  margin-right: 40px;
+  margin-right: 80px;
   font-size: 12px;
 }
 
