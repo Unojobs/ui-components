@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from 'native-base';
+import { Button, Icon } from '../../..';
 import type { CustomButtonProps } from './types';
 
 export const CustomNBButton = (props: CustomButtonProps) => {

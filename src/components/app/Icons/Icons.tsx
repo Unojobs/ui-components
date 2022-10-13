@@ -36,12 +36,12 @@ const DeleteSvg: React.FC = () => {
   );
 };
 /** Delete component where we are passing the DeleteSvg component as prop to ant design's Icon component  */
-export const DeleteIcon: React.FC<IconProps> = (props) => (
+export const UnoJobsDeleteIcon: React.FC<IconProps> = (props) => (
   <Icon component={DeleteSvg} {...props} />
 );
 
 /** default props for DeleteIcon */
-DeleteIcon.defaultProps = {
+UnoJobsDeleteIcon.defaultProps = {
   onClick: undefined,
 };
 

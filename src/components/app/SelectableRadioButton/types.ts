@@ -8,7 +8,7 @@
  */
 
 export type SelectableRadioButtonProps = {
-  onChange?: (value: string) => {};
+  onChange?: (value: string) => void;
   list: string[];
   size: 'extraLarge' | 'large' | 'medium' | 'small';
   label: string;
