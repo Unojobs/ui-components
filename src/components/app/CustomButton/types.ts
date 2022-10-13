@@ -20,4 +20,5 @@ export interface CustomButtonProps {
   icon?: React.ReactNode;
   htmlType?: 'button' | 'submit' | 'reset';
   border: string;
+  fontFamily?:string
 }

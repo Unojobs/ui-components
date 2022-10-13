@@ -2,6 +2,9 @@
   font-size: 14px;
   font-family: Urbanist;
   padding-bottom: 10px;
+  font-weight: 400;
+  color: #111111;
+  cursor: pointer;
 }
 .forgetPasswordDiv {
   display: flex;
@@ -11,10 +14,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 .register {
   color: #4169e0;
+  cursor: pointer;
 }
 .socialLogin {
   display: flex;
@@ -37,7 +41,6 @@
 }
 .cardDiv {
   width: 50%;
-
 }
 .cardStyle {
   height: 100%;
@@ -49,6 +52,8 @@
   height: 30px;
   font-weight: 600px;
   font-size: 36px;
+  font-family: 'Urbanist';
+  color: #111111;
 }
 .mainContent {
   height: 100%;
@@ -56,10 +61,15 @@
 .username {
   height: 45px;
   font-weight: 14px;
+  width: 400px;
+  font-family: 'Urbanist';
+  color: #b7b7b7;
 }
 .password {
   height: 45px;
   font-weight: 14px;
+  width: 400px;
+  font-family: 'Urbanist';
 }
 .ant-image-preview-operations-operation:not(:first-child) {
   display: none;
@@ -72,10 +82,12 @@
 .otpLable {
   font-weight: 500;
   color: #111111;
+  font-family: 'Urbanist';
+  font-size: 14px;
 }
 .otpInput {
   height: 45px;
-  width: 80px;
+  width: 90px;
 }
 .createActop {
   display: flex;
@@ -93,16 +105,111 @@
   gap: 10px;
   min-width: 350px;
 }
-.newPwDesc{
+.newPwDesc {
   max-width: 300px;
 }
 .cardDivCreateAc {
   width: 50%;
   overflow-y: scroll;
-
+  overflow-x: hidden;
+}
+.cardDivLoginHome {
+  width: 50%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .cardStyleCreateAc {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+.subHeading {
+  font-family: 'Urbanist';
+  font-size: 16px;
+  color: #111111;
+}
+
+.ant-form-item-required {
+  font-family: 'Urbanist';
+  color: #111111;
+}
+.loginWith {
+  color: #111111;
+  font-family: 'Urbanist';
+  font-size: 14px;
+  font-style: 'Regular';
+  cursor: pointer;
+}
+.dontHaveAc {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.socialMeadiaText {
+  position: relative;
+  bottom: 3px;
+  left: 3px;
+}
+
+.otpFormParent {
+  padding-top: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  min-width: 350px;
+}
+.agreement {
+  font-family: 'Urbanist';
+  font-size: 14px;
+}
+.haveAc {
+  font-family: 'Urbanist';
+}
+
+@media screen and (max-width: 1200px) {
+  .username {
+    width: 100%;
+  }
+  .password {
+    width: 100%;
+  }
+  .formParent {
+    width: 350px;
+  }
+  .formParentCreateAc {
+    width: 350px;
+  }
+  .socialLogin {
+    width: 100%;
+  }
+  .ant-space-item {
+    width: 170px;
+  }
+  .radio-button-conatiner {
+    width: 170px;
+  }
+  .cardStyleCreateAc {
+    /* height: 100%; */
+    height: 141%
+  }
+  .cardDivLoginHome {
+    overflow-y: hidden;
+  }
+}
+@media screen and (max-width: 1000px){
+  .carouselDiv{
+    display: none;
+  }
+  .cardDivLoginHome{
+    width: 100%;
+  }
+  .cardDiv{
+    width: 100%;
+  }
+  .cardDivCreateAc{
+    width: 100%;
+    height: fit-content;
+  
+  }
+}
+

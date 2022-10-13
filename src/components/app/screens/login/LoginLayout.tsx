@@ -1,26 +1,12 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card, Carousel, Typography, Form, Input, Image, Checkbox } from 'antd';
-import { GoogleOutlined, LinkedinFilled } from '@ant-design/icons';
 import './LoginStyle.css';
 import { CustomButton, SelectableRadioButton } from 'src';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { UnojobsLogo } from 'src';
-export interface ILoginProps {
-  type?:
-    | 'login-home'
-    | 'forget-password'
-    | 'OTP-verification'
-    | 'new-password'
-    | 'create-account';
-  loginButton(): string;
-  loginWithGoogle(): string;
-  loginWithLinkedin(): string;
-  heading: string;
-  subHeading: string;
-  backButton(): string;
-}
-export const Login = (props: ILoginProps) => {
+import { UnojobsLogo, Linkedin, Google } from 'src';
+import type { LoginProps } from './types';
+export const Login = (props: LoginProps) => {
   const {
     heading,
     type,
@@ -29,6 +15,10 @@ export const Login = (props: ILoginProps) => {
     loginButton,
     loginWithGoogle,
     loginWithLinkedin,
+    forgetPassword,
+    registerUser,
+    login,
+    images,
   } = props;
   const [userName, setUserName] = useState();
   const [userNameType, setUserNameType] = useState('');
@@ -46,36 +36,23 @@ export const Login = (props: ILoginProps) => {
   const { Text } = Typography;
   return (
     <div className="parent">
-      <div className="carouselDiv" style={{}}>
-        <Carousel autoplay>
-          <Image
-            preview={false}
-            height="100vh"
-            width="100%"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          />
-          <Image
-            preview={false}
-            height="100vh"
-            width="100%"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          />
-          <Image
-            preview={false}
-            height="100vh"
-            width="100%"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          />
+      <div className="carouselDiv">
+        <Carousel>
+          {images.map((image: string) => {
+            return (
+               <Image preview={false} height="100vh" width="100%" src={image} />
+            );
+          })}
         </Carousel>
       </div>
       {type === 'login-home' ? (
-        <div className="cardDiv">
-          <Card className="cardStyle">
+        <div className="cardDivLoginHome">
+          <Card className="cardStyleCreateAc">
             <div className="formParent">
               <div className="topContent">
-                <UnojobsLogo></UnojobsLogo>
+                <UnojobsLogo />
                 <h1 className="mainHeading">{heading}</h1>
-                <Text>{subHeading}</Text>
+                <Text className="subHeading">{subHeading}</Text>
               </div>
               <div className="mainContent">
                 <Form
@@ -85,17 +62,21 @@ export const Login = (props: ILoginProps) => {
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
-                  <Form.Item name="user type" rules={[{ required: true }]}>
-                    <div>
+                  <Form.Item
+                    name="user type"
+                    rules={[{ required: true }]}
+                    initialValue="Employer"
+                  >
+                    <div style={{ paddingBottom: 30, width: '100%' }}>
                       <SelectableRadioButton
                         onChange={(e: string) => {
                           console.log(e);
                         }}
-                        size="small"
-                        space={30}
+                        size="medium"
+                        space={10}
                         list={['Employer', 'Candidate']}
                         initialValue="Employer"
-                      ></SelectableRadioButton>
+                      />
                     </div>
                   </Form.Item>
 
@@ -131,13 +112,18 @@ export const Login = (props: ILoginProps) => {
                     />
                   </Form.Item>
                   <div className="forgetPasswordDiv">
-                    <span className="forgetPassword">Forget Password</span>
+                    <span
+                      className="forgetPassword"
+                      onClick={() => forgetPassword()}
+                    >
+                      Forget Password
+                    </span>
                   </div>
 
                   <Form.Item>
                     <CustomButton
                       htmlType="submit"
-                      width={'350px'}
+                      width={'100%'}
                       onClick={() => {
                         loginButton();
                       }}
@@ -148,30 +134,43 @@ export const Login = (props: ILoginProps) => {
                 </Form>
                 <div className="formFooter">
                   <div>
-                    <span>Or Login With</span>
+                    <span className="loginWith">Or Login With</span>
                   </div>
                   <div className="socialLogin">
                     <CustomButton
+                      height={'48px'}
+                      width={'190px'}
+                      border={'1px solid #D9E6FD'}
                       onClick={() => loginWithGoogle()}
-                      backgroundColor="#D9E6FD"
+                      backgroundColor="#F3F3F3"
                       color="#111111"
-                      icon={<GoogleOutlined color="blue" />}
+                      icon={<Google />}
                     >
-                      Gmail
+                      <span className="socialMeadiaText">Gmail</span>
                     </CustomButton>
 
                     <CustomButton
+                      height={'48px'}
+                      width={'190px'}
+                      border={'1px solid #D9E6FD'}
                       onClick={() => loginWithLinkedin()}
-                      backgroundColor="#D9E6FD"
+                      backgroundColor="#F3F3F3"
                       color="#111111"
-                      icon={<LinkedinFilled />}
+                      icon={<Linkedin />}
                     >
-                      Linedin
+                      <span className="socialMeadiaText">Linedin</span>
                     </CustomButton>
                   </div>
-                  <div>
+                  <div className="dontHaveAc">
                     <span>Don't have any account?</span>
-                    <span className="register">Register</span>
+                    <span
+                      className="register"
+                      onClick={() => {
+                        registerUser();
+                      }}
+                    >
+                      Register
+                    </span>
                   </div>
                 </div>
               </div>
@@ -182,16 +181,16 @@ export const Login = (props: ILoginProps) => {
         <div className="cardDiv">
           <Card className="cardStyle">
             <div
-              className="formParent"
+              className="otpFormParent"
               style={{ paddingTop: type === 'OTP-verification' ? '15%' : '5%' }}
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <h1 className="mainHeading">Verification-OTP</h1>
-                <Text>Please check your email</Text>
+                <Text className="subHeading">Please check your email</Text>
               </div>
               <div className="mainContent">
                 <Form
@@ -242,7 +241,7 @@ export const Login = (props: ILoginProps) => {
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <h1 className="mainHeading">Create New Password</h1>
@@ -266,7 +265,7 @@ export const Login = (props: ILoginProps) => {
                   >
                     <Input.Password
                       className="password"
-                      placeholder="Input your email or phone number"
+                      placeholder="Input your new password account"
                     />
                   </Form.Item>{' '}
                   <Form.Item
@@ -276,7 +275,7 @@ export const Login = (props: ILoginProps) => {
                   >
                     <Input.Password
                       className="password"
-                      placeholder="Input your email or phone number"
+                      placeholder="Input your new password account"
                     />
                   </Form.Item>
                   <Form.Item>
@@ -305,7 +304,7 @@ export const Login = (props: ILoginProps) => {
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <div className="createActop">
@@ -394,23 +393,23 @@ export const Login = (props: ILoginProps) => {
                     />
                   </Form.Item>
                   <Form.Item
-                    name="New Password"
-                    label="New Password"
+                    name="Password"
+                    label="Password"
                     rules={[{ required: true, min: 8 }]}
                   >
                     <Input.Password
                       className="password"
-                      placeholder="Input your email or phone number"
+                      placeholder="Input your password"
                     />
                   </Form.Item>{' '}
                   <Form.Item
-                    name="Confirm New Password"
-                    label="Confirm New Password"
+                    name="Confirm Password"
+                    label="Confirm Password"
                     rules={[{ required: true, min: 8 }]}
                   >
                     <Input.Password
                       className="password"
-                      placeholder="Input your email or phone number"
+                      placeholder="Input your password"
                     />
                   </Form.Item>
                   <Form.Item
@@ -427,7 +426,7 @@ export const Login = (props: ILoginProps) => {
                       },
                     ]}
                   >
-                    <Checkbox>
+                    <Checkbox className="agreement">
                       I agree to <a href="">Terms and Conditions</a>
                     </Checkbox>
                   </Form.Item>
@@ -444,30 +443,39 @@ export const Login = (props: ILoginProps) => {
                   </Form.Item>
                 </Form>
                 <div className="formFooter">
-                  <div>
+                  <div className="haveAc">
                     <span>Already have an account?</span>
-                    <span className="register"> Login</span>
+                    <span className="register" onClick={() => login()}>
+                      {' '}
+                      Login
+                    </span>
                   </div>
                   <div>
-                    <span>Or Login With</span>
+                    <span className="loginWith">Or Login With</span>
                   </div>
                   <div className="socialLogin">
                     <CustomButton
+                      height={'48px'}
+                      width={'190px'}
                       onClick={() => loginWithGoogle()}
-                      backgroundColor="#D9E6FD"
+                      backgroundColor="#F3F3F3"
                       color="#111111"
-                      icon={<GoogleOutlined color="blue" />}
+                      icon={<Google />}
+                      border={'1px solid #D9E6FD'}
                     >
-                      Gmail
+                      <span className="socialMeadiaText">Gmail</span>
                     </CustomButton>
 
                     <CustomButton
+                      height={'48px'}
+                      width={'190px'}
                       onClick={() => loginWithLinkedin()}
-                      backgroundColor="#D9E6FD"
+                      backgroundColor="#F3F3F3"
                       color="#111111"
-                      icon={<LinkedinFilled />}
+                      border={'1px solid #D9E6FD'}
+                      icon={<Linkedin />}
                     >
-                      Linedin
+                      <span className="socialMeadiaText">Linkedin</span>
                     </CustomButton>
                   </div>
                 </div>
@@ -479,16 +487,19 @@ export const Login = (props: ILoginProps) => {
         <div className="cardDiv">
           <Card className="cardStyle">
             <div
-              className="formParent"
+              className="otpFormParent"
               style={{ paddingTop: type === 'forget-password' ? '15%' : '5%' }}
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <h1 className="mainHeading">Forgot Password</h1>
-                <Text>{subHeading}</Text>
+                <p className="newPwDesc">
+                  Send us your email or phone number for us to give verification
+                  otp
+                </p>
               </div>
               <div className="mainContent">
                 <Form
@@ -523,7 +534,7 @@ export const Login = (props: ILoginProps) => {
                   <Form.Item>
                     <CustomButton
                       htmlType="submit"
-                      width={'350px'}
+                      width={'100%'}
                       onClick={() => {
                         loginButton();
                       }}
@@ -548,5 +559,12 @@ Login.defaultProps = {
   loginWithGoogle: () => alert('login with google'),
   loginWithLinkedin: () => alert('login with facebook'),
   backButton: () => alert('Back button'),
+  forgetPassword: () => alert('forget password'),
+  registerUser: () => alert('register'),
+  login: () => alert('login'),
   type: 'login-home',
+  images: [
+    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+  ],
 };

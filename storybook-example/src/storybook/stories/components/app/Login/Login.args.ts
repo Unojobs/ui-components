@@ -1,4 +1,4 @@
-export const StorybookArgs={
+export const loginStorybookArgs={
     heading: "Welcome to Unojob",
     subHeading: "Please first select you as what here?",
     loginButton: () => alert('logging'),
