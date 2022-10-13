@@ -12,6 +12,7 @@
     "antd": "^4.23.5",
     "lodash.isempty": "^4.4.0",
     "native-base": "3.4.17",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
