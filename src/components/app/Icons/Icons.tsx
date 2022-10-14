@@ -1,4 +1,5 @@
 import Icon from '@ant-design/icons';
+import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 import React from 'react';
 
 export interface IconProps {
@@ -257,3 +258,27 @@ export const DownArrowRoundIcon: React.FC<IconProps> = (props) => (
 DownArrowRoundIcon.defaultProps = {
   onClick: undefined,
 };
+
+/** DownArrow for sidemenu to expand items */
+const DownSvg = () => (
+  <svg
+    width="18"
+    height="8"
+    viewBox="0 0 11 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.62 5.77919L6.81667 1.97585C6.3675 1.52669 5.6325 1.52669 5.18334 1.97585L1.38 5.77919"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const DownIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={DownSvg} {...props} />
+);

@@ -35,6 +35,12 @@ export interface ISideMenuProps {
   onMenuItemClick: (value: string) => void;
   /** Data for side menu */
   menuData: MenuDataType[];
+  /** set text color for menu items */
+  textColor?: string;
+  /** set background color for side menu */
+  backgroundColor?: string;
+  /** set the selection color for item, which is selected */
+  selectionColor?: string;
   /** styles for overriding side menu */
   bodyStyles?: React.CSSProperties;
 }
@@ -47,6 +53,9 @@ export const SideMenu = (props: ISideMenuProps) => {
     width,
     onMenuItemClick,
     menuData,
+    textColor,
+    backgroundColor,
+    selectionColor,
     bodyStyles,
   } = props;
 
@@ -71,7 +80,16 @@ export const SideMenu = (props: ISideMenuProps) => {
   };
 
   return (
-    <div className="sidermenu" style={{ ...bodyStyles, maxWidth: width }}>
+    <div
+      className="sidermenu"
+      style={{
+        ...bodyStyles,
+        maxWidth: width,
+        backgroundColor: backgroundColor,
+        ['--selectionColor' as string]: selectionColor,
+        ['--itemTextColor' as string]: textColor,
+      }}
+    >
       {prefix}
       {menuData.map((data) => {
         if (data.childItems !== undefined) {
