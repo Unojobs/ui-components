@@ -1,0 +1,44 @@
+.modalTopContent{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 40px
+}
+.modalSocialMediaParent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px
+}
+.modalIconsDiv{
+    display: flex;
+    gap: 20px;
+}
+.r-maxWidth-17w48nw {
+    max-width: 434px;
+    /* padding: 50px; */
+}
+ .r-maxHeight-17jbmtj {
+    height: 700px;
+    max-height: 500px;
+}
+/* .r-paddingTop-95jzfe {
+    height: 100%;
+    padding: 50px;
+}   */
+.r-maxHeight-p74ah6{
+    width: 500px;
+} 
+.inputLable{
+    padding-bottom: 10px;
+}
+.headerParent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+/* .orText{
+    padding-top: 10px;
+    padding-bottom: 10px;
+} */

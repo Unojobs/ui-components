@@ -14,10 +14,12 @@ export const CustomButton = (props: CustomButtonProps) => {
     children,
     color,
     htmlType,
-    fontFamily
+    fontFamily,
+    pt,
+    p
   } = props;
   const defaultStyle = {
-    padding: '13px 24px',
+    padding: p,
     width: width,
     height: height,
     backgroundColor: backgroundColor,
@@ -25,7 +27,8 @@ export const CustomButton = (props: CustomButtonProps) => {
     border: border,
     borderRadius: borderRadius,
     fontSize: '16px',
-    fontFamily:fontFamily
+    fontFamily:fontFamily,
+    paddingTop:pt
   };
   return (
     <Button
@@ -49,4 +52,6 @@ CustomButton.defaultProps = {
   htmlType: 'button',
   onClick: undefined,
   border: 'none',
+  p:'13px 24px',
+  pt:'13px'
 };

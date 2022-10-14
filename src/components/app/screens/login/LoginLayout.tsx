@@ -144,6 +144,9 @@ export const Login = (props: LoginProps) => {
                       onClick={() => loginWithGoogle()}
                       backgroundColor="#F3F3F3"
                       color="#111111"
+                      p='13px 24px'
+                      pt="13px"
+                  
                       icon={<Google />}
                     >
                       <span className="socialMeadiaText">Gmail</span>
@@ -156,6 +159,8 @@ export const Login = (props: LoginProps) => {
                       onClick={() => loginWithLinkedin()}
                       backgroundColor="#F3F3F3"
                       color="#111111"
+                      p='13px 24px'
+                      pt="13px"
                       icon={<Linkedin />}
                     >
                       <span className="socialMeadiaText">Linedin</span>
@@ -462,6 +467,8 @@ export const Login = (props: LoginProps) => {
                       color="#111111"
                       icon={<Google />}
                       border={'1px solid #D9E6FD'}
+                      pt="13px"
+                  
                     >
                       <span className="socialMeadiaText">Gmail</span>
                     </CustomButton>
@@ -473,6 +480,7 @@ export const Login = (props: LoginProps) => {
                       backgroundColor="#F3F3F3"
                       color="#111111"
                       border={'1px solid #D9E6FD'}
+                      pt="13px"
                       icon={<Linkedin />}
                     >
                       <span className="socialMeadiaText">Linkedin</span>
