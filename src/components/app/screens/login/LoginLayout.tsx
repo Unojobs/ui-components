@@ -37,7 +37,7 @@ export const Login = (props: LoginProps) => {
   return (
     <div className="parent">
       <div className="carouselDiv">
-        <Carousel>
+        <Carousel autoplay>
           {images.map((image: string) => {
             return (
                <Image preview={false} height="100vh" width="100%" src={image} />
