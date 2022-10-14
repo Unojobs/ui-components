@@ -8,3 +8,4 @@ export * from './CustomButton';
 export * from './SelectableRadioButton';
 export * from './FeatureCard';
 export * from './SelectableRadioButton';
+export * from './FaqCard';
