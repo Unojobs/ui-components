@@ -11,6 +11,8 @@
   overflow-y: scroll;
   user-select: none;
   background-color: white;
+  --selectionColor: #4169e0;
+  --itemTextColor: #000;
 }
 
 .sidermenu .menuItem {
@@ -19,6 +21,7 @@
   align-items: center;
   font: 14px;
   gap: 12px;
+  color: #b7b7b7;
   padding: 16px 32px;
   font-weight: 500;
 }
@@ -30,14 +33,18 @@
 }
 
 .sidermenu .menuItem .itemTitle {
+  color: var(--itemTextColor);
   flex-grow: 1;
 }
 
 .sidermenu .menuItem:hover {
   cursor: pointer;
-  color: #4169e0;
+  color: var(--selectionColor);
   background-color: rgb(254, 254, 254);
   transition: all 0.6s;
+}
+.sidermenu .menuItem:hover .itemTitle {
+  color: var(--selectionColor) !important;
 }
 
 .sidermenu .selectedItem.menuItem::before {
@@ -45,28 +52,42 @@
   position: absolute;
   display: inline-block;
   height: 100%;
-  width: 4px;
+  width: 5px;
   left: 0px;
   border-radius: 0px 4px 4px 0px;
-  background-color: #4169e0;
+  background-color: var(--selectionColor);
+  animation: selectionAnimation 0.2s ease-in;
+}
+
+@keyframes selectionAnimation {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
 }
 
 .sidermenu .selectedItem.menuItem {
-  color: #4169e0;
+  color: var(--selectionColor);
   font-weight: 600;
   background-color: #d9e6fd;
-  transition: all 0.4s;
+  transition: all 0.6s;
+}
+.sidermenu .selectedItem.menuItem .itemTitle {
+  color: var(--selectionColor);
 }
 
 .sidermenu .selectedItem.menuItem > svg,
 .sidermenu .menuItem:hover svg {
-  color: #4169e0;
+  color: var(--selectionColor);
   transition: all 0.4s;
 }
 
 .sidermenu .parentSelection,
+.sidermenu .parentSelection .itemTitle,
 .parentSelection svg {
-  color: #4169e0;
+  color: var(--selectionColor);
 }
 
 /** Animations **/
@@ -86,11 +107,17 @@
 }
 
 .sidermenu .downAnim {
+  display: flex;
   transform: rotate(0deg);
   transition-duration: 0.6s;
 }
 
 .sidermenu .upAnim {
+  display: flex;
   transform: rotate(180deg);
   transition-duration: 0.6s;
+}
+
+.sidermenu::-webkit-scrollbar {
+  width: 0px;
 }

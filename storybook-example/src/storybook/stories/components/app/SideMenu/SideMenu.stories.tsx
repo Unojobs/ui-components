@@ -1,6 +1,6 @@
 import { Wrapper } from '../../Wrapper';
 import React from 'react';
-import { SideMenu } from 'components';
+import { NumberIcon, SideMenu } from 'components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
@@ -22,7 +22,7 @@ Variants.args = {
       title: 'Dashboard',
       icon: <p>&#9705;</p>,
       route: '/job',
-      //   suffixIcon: <CheckCircleIcon />,
+      // suffixIcon: <NumberIcon children={12} fade={false} />,
     },
     {
       title: 'Profiles',
@@ -37,6 +37,7 @@ Variants.args = {
           title: 'videos',
           route: '/vid',
           //   suffixIcon: <CheckCircleIcon />,
+          suffixIcon: <NumberIcon children={12} fade={false} />,
         },
         {
           title: 'secrets',
