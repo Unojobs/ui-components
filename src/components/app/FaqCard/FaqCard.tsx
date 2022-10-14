@@ -1,46 +1,30 @@
 import React from 'react';
-import { Accordion } from '../../composites';
+import { Collapse } from '../../composites';
 import { Text } from '../../primitives';
+import { UpArrowRoundIcon, DownArrowRoundIcon } from '../Icons';
 import type { FaqCardProps } from './types';
+import './style.css';
 
 export const FaqCard = (props: FaqCardProps): JSX.Element => {
   const { title, description } = props;
+  const [show, setShow] = React.useState(false);
+
   return (
-    <Accordion
-      w={580}
-      maxW="100%"
-      bgColor="#fafafa"
-      borderWidth={0}
-      borderRadius="lg"
-    >
-      <Accordion.Item>
-        <Accordion.Summary
-          _hover={{
-            bgColor: '#fafafa',
-          }}
-          _expanded={{
-            bgColor: '#fafafa',
-          }}
-        >
-          <Text fontWeight={600}>{title}</Text>
-          <Accordion.Icon
-            bgColor="#4169e066"
-            color="#4169e0"
-            borderRadius="full"
-            p="1"
-            size="6"
-          />
-        </Accordion.Summary>
-        <Accordion.Details>
-          <Text color="#707070">{description}</Text>
-        </Accordion.Details>
-      </Accordion.Item>
-    </Accordion>
+    <div className="faqCard-box" onClick={() => setShow(!show)}>
+      <div className="faqCard-question">
+        <Text fontWeight={600}>{title}</Text>
+        {show ? <DownArrowRoundIcon /> : <UpArrowRoundIcon />}
+      </div>
+      <Collapse isOpen={show}>
+        <Text color="#707070" mt={2}>
+          {description}
+        </Text>
+      </Collapse>
+    </div>
   );
 };
 
 FaqCard.defaultProps = {
-  title: 'Are workers background checked ?',
-  description:
-    'You have the option to background check the worker, once selected using our partner platform',
+  title: 'This is faq card question ?',
+  description: 'This is faq card answer',
 };
