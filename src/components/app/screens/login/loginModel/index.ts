@@ -1,1 +1,1 @@
-export * from './LoginModel';
+export * from './LoginModal';

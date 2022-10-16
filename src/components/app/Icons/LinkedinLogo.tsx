@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-export const Linkedin=()=> {
+export const Linkedin = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="20"
-    //   style={{paddingLeft:10}}
+      height="25"
+      width="35"
+      //   style={{paddingLeft:10}}
       viewBox="0 0 72 72"
     >
       <g fill="none" fillRule="evenodd">
@@ -18,4 +18,4 @@ export const Linkedin=()=> {
       </g>
     </svg>
   );
-}
+};

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card, Carousel, Typography, Form, Input, Image, Checkbox } from 'antd';
 import './LoginStyle.css';
-import { CustomButton, SelectableRadioButton } from 'src';
+import { CustomButton, LoginModal, SelectableRadioButton } from 'src';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { UnojobsLogo, Linkedin, Google } from 'src';
+import { UnojobsLogo, Linkedin, Google, FacebookLogo } from 'src';
 import type { LoginProps } from './types';
 export const Login = (props: LoginProps) => {
   const {
@@ -21,17 +21,30 @@ export const Login = (props: LoginProps) => {
     images,
   } = props;
   const [userName, setUserName] = useState();
+  const [emailCheck, setEmailCheck] = useState('');
+  const [userType, setUserType] = useState('Employer');
+  const [modalType, setModalType] = useState('register');
+  const [modalVisible, setModalVisible] = useState(false);
   const [userNameType, setUserNameType] = useState('');
   const validateMessages = {
     required: "'${name}' is required!",
   };
   const onFinish = (values: any) => {
     console.log('Success:', values);
+    
   };
-  console.log(userName);
-
+  const validateEmail = (val: string) => {
+    var re = /\S+@\S+\.\S+/;
+    if (re.test(val) === false) 
+    setEmailCheck('error');
+    else setEmailCheck('');
+  };
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
+    if((errorInfo.number===undefined&&errorInfo.Email===undefined))
+    setEmailCheck('empty')
+    else
+    setEmailCheck('')
   };
   const { Text } = Typography;
   return (
@@ -40,7 +53,7 @@ export const Login = (props: LoginProps) => {
         <Carousel autoplay>
           {images.map((image: string) => {
             return (
-               <Image preview={false} height="100vh" width="100%" src={image} />
+              <Image preview={false} height="100vh" width="100%" src={image} />
             );
           })}
         </Carousel>
@@ -70,7 +83,7 @@ export const Login = (props: LoginProps) => {
                     <div style={{ paddingBottom: 30, width: '100%' }}>
                       <SelectableRadioButton
                         onChange={(e: string) => {
-                          console.log(e);
+                          setUserType(e);
                         }}
                         size="medium"
                         space={10}
@@ -84,6 +97,18 @@ export const Login = (props: LoginProps) => {
                     name={userNameType === 'number' ? 'number' : 'email'}
                     label="Email/Phone Number"
                     rules={[{ required: true }]}
+                    validateStatus={
+                      emailCheck === 'error' || emailCheck === 'empty'
+                        ? 'error'
+                        : ''
+                    }
+                    help={
+                      emailCheck === 'error'
+                        ? 'Please enter valid email'
+                        : emailCheck === 'empty'
+                        ? "'Email' is required"
+                        : ''
+                    }
                   >
                     <Input
                       type={userNameType === 'number' ? 'number' : 'email'}
@@ -94,9 +119,13 @@ export const Login = (props: LoginProps) => {
                         setUserName(e.currentTarget.value);
                         if (isInnt) {
                           setUserNameType('number');
+                          setEmailCheck('')
                         } else {
                           setUserNameType('email');
+                          validateEmail(e.currentTarget.value);
                         }
+                          
+                      
                       }}
                       placeholder="Input your email or phone number"
                     />
@@ -139,44 +168,60 @@ export const Login = (props: LoginProps) => {
                   <div className="socialLogin">
                     <CustomButton
                       height={'48px'}
-                      width={'190px'}
+                      width={'46px'}
+                      p="0px"
+                      pt="10px"
                       border={'1px solid #D9E6FD'}
-                      onClick={() => loginWithGoogle()}
+                      onClick={() => alert('login with Google')}
                       backgroundColor="#F3F3F3"
                       color="#111111"
-                      p='13px 24px'
-                      pt="13px"
-                  
                       icon={<Google />}
-                    >
-                      <span className="socialMeadiaText">Gmail</span>
-                    </CustomButton>
+                    />
 
                     <CustomButton
                       height={'48px'}
-                      width={'190px'}
+                      width={'46px'}
+                      p="0px"
+                      pt="10px"
                       border={'1px solid #D9E6FD'}
-                      onClick={() => loginWithLinkedin()}
+                      onClick={() => alert('login with Linkedin')}
                       backgroundColor="#F3F3F3"
                       color="#111111"
-                      p='13px 24px'
-                      pt="13px"
                       icon={<Linkedin />}
-                    >
-                      <span className="socialMeadiaText">Linedin</span>
-                    </CustomButton>
+                    />
+                    {userType === 'Candidate' && (
+                      <CustomButton
+                        height={'48px'}
+                        width={'46px'}
+                        p="0px"
+                        pt="10px"
+                        border={'1px solid #D9E6FD'}
+                        onClick={() => alert('login with Facebook')}
+                        backgroundColor="#F3F3F3"
+                        color="#111111"
+                        icon={<FacebookLogo />}
+                      ></CustomButton>
+                    )}
                   </div>
                   <div className="dontHaveAc">
                     <span>Don't have any account?</span>
                     <span
                       className="register"
                       onClick={() => {
-                        registerUser();
+                        setModalVisible(!modalVisible);
                       }}
                     >
                       Register
                     </span>
                   </div>
+                  <LoginModal
+                    setModalType={setModalType}
+                    type={
+                      modalType === 'register' ? 'register' : 'OTP-verification'
+                    }
+                    isOpen={modalVisible}
+                    setModalVisible={setModalVisible}
+                  />
                 </div>
               </div>
             </div>
@@ -468,7 +513,6 @@ export const Login = (props: LoginProps) => {
                       icon={<Google />}
                       border={'1px solid #D9E6FD'}
                       pt="13px"
-                  
                     >
                       <span className="socialMeadiaText">Gmail</span>
                     </CustomButton>
@@ -572,7 +616,7 @@ Login.defaultProps = {
   login: () => alert('login'),
   type: 'login-home',
   images: [
-    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/800px-Black_colour.jpg',
     'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   ],
 };

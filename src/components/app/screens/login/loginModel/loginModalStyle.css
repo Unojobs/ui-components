@@ -1,44 +1,67 @@
-.modalTopContent{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding-top: 40px
+.modalTopContent {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  /* padding-top: 40px; */
 }
-.modalSocialMediaParent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding-top: 30px
+.modalSocialMediaParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 30px;
 }
-.modalIconsDiv{
-    display: flex;
-    gap: 20px;
+.modalIconsDiv {
+  display: flex;
+  gap: 20px;
 }
 .r-maxWidth-17w48nw {
-    max-width: 434px;
-    /* padding: 50px; */
+  max-width: 434px;
+  /* padding: 50px; */
 }
- .r-maxHeight-17jbmtj {
-    height: 700px;
-    max-height: 500px;
+.r-maxHeight-17jbmtj {
+  height: 700px;
+  max-height: 500px;
 }
 /* .r-paddingTop-95jzfe {
     height: 100%;
     padding: 50px;
 }   */
-.r-maxHeight-p74ah6{
-    width: 500px;
-} 
-.inputLable{
-    padding-bottom: 10px;
+.r-maxHeight-p74ah6 {
+  width: 500px;
 }
-.headerParent{
-    display: flex;
-    flex-direction: column;
-    gap: 20px
+.inputLable {
+  padding-bottom: 10px;
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
 }
-/* .orText{
-    padding-top: 10px;
-    padding-bottom: 10px;
-} */
+.headerParent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.orText {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.r-paddingBottom-1l7z4oj {
+  padding-bottom: 0px;
+}
+.verificationTopContent {
+  padding-bottom: 50px;
+}
+.modalVerificationOtpLable {
+  font-weight: 500;
+  color: #111111;
+  font-family: 'Urbanist';
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+.otpHeading {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+}

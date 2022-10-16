@@ -23,6 +23,7 @@
 .socialLogin {
   display: flex;
   gap: 30px;
+  justify-content: center;
 }
 .ant-card-bordered {
   border: 0px;
@@ -90,7 +91,7 @@
 }
 .otpInput {
   height: 45px;
-  width: 90px;
+  width: 4rem;
 }
 .createActop {
   display: flex;
