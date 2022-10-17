@@ -14,6 +14,9 @@ export const CustomButton = (props: CustomButtonProps) => {
     children,
     color,
     htmlType,
+    display,
+    justifyContent,
+    alignItems,
   } = props;
   const defaultStyle = {
     padding: '13px 24px',
@@ -24,6 +27,9 @@ export const CustomButton = (props: CustomButtonProps) => {
     border: border,
     borderRadius: borderRadius,
     fontSize: '16px',
+    display,
+    justifyContent,
+    alignItems,
   };
   return (
     <Button
@@ -46,4 +52,7 @@ CustomButton.defaultProps = {
   htmlType: 'button',
   onClick: undefined,
   border: 'none',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };

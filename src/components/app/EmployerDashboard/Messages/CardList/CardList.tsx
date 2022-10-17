@@ -8,7 +8,7 @@ import { CandidateCard, CandidateCardProps } from '../CandidateCard';
 import { ProjectCard, ProjectCardProps } from '../ProjectCard';
 import { Center } from 'src/components/composites';
 
-type Cards = CandidateCardProps | ProjectCardProps;
+export type Cards = CandidateCardProps | ProjectCardProps;
 export interface CardListProps {
   listType: 'jobs' | 'candidates';
   items: Cards[];
