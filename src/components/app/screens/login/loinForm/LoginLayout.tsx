@@ -53,7 +53,7 @@ export const Login = (props: LoginProps) => {
           })}
         </Carousel>
       </div>
-      {type === 'login-home' ? (
+      {type === 'login-home' || type === 'admin-dashboard' ? (
         <LoginHome
           setEmailCheck={setEmailCheck}
           setUserType={setUserType}
@@ -68,6 +68,7 @@ export const Login = (props: LoginProps) => {
           setModalType={setModalType}
           modalType={modalType}
           modalVisible={modalVisible}
+          type={type}
         />
       ) : type === 'OTP-verification' ? (
         <div className="cardDiv">

@@ -18,6 +18,7 @@ export const LoginHome = (props: any) => {
     setModalType,
     modalType,
     modalVisible,
+    type,
   } = props;
   const validateMessages = {
     required: "'${name}' is required!",
@@ -56,24 +57,28 @@ export const LoginHome = (props: any) => {
               onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
-              <Form.Item
-                name="user type"
-                rules={[{ required: true }]}
-                initialValue="Employer"
-              >
-                <div style={{ paddingBottom: 30, width: '100%' }}>
-                  <SelectableRadioButton
-                    onChange={(e: string) => {
-                      setUserType(e);
-                    }}
-                    size="medium"
-                    space={10}
-                    list={['Employer', 'Candidate']}
-                    initialValue="Employer"
-                  />
-                </div>
-              </Form.Item>
-
+              {' '}
+              {type !== 'admin-dashboard' ? (
+                <Form.Item
+                  name="user type"
+                  rules={[{ required: true }]}
+                  initialValue="Employer"
+                >
+                  <div style={{ paddingBottom: 30, width: '100%' }}>
+                    <SelectableRadioButton
+                      onChange={(e: string) => {
+                        setUserType(e);
+                      }}
+                      size="medium"
+                      space={10}
+                      list={['Employer', 'Candidate']}
+                      initialValue="Employer"
+                    />
+                  </div>
+                </Form.Item>
+              ) : (
+                ''
+              )}
               <Form.Item
                 name={userNameType === 'number' ? 'number' : 'email'}
                 label="Email/Phone Number"
@@ -127,7 +132,6 @@ export const LoginHome = (props: any) => {
                   Forget Password
                 </span>
               </div>
-
               <Form.Item>
                 <CustomButton
                   htmlType="submit"
@@ -140,68 +144,72 @@ export const LoginHome = (props: any) => {
                 </CustomButton>
               </Form.Item>
             </Form>
-            <div className="formFooter">
-              <div>
-                <span className="loginWith">Or Login With</span>
-              </div>
-              <div className="socialLogin">
-                <CustomButton
-                  height={'48px'}
-                  width={'46px'}
-                  p="0px"
-                  pt="10px"
-                  border={'1px solid #D9E6FD'}
-                  onClick={() => alert('login with Google')}
-                  backgroundColor="#F3F3F3"
-                  color="#111111"
-                  icon={<Google />}
-                />
-
-                <CustomButton
-                  height={'48px'}
-                  width={'46px'}
-                  p="0px"
-                  pt="10px"
-                  border={'1px solid #D9E6FD'}
-                  onClick={() => alert('login with Linkedin')}
-                  backgroundColor="#F3F3F3"
-                  color="#111111"
-                  icon={<Linkedin />}
-                />
-                {userType === 'Candidate' && (
+            {type !== 'admin-dashboard' ? (
+              <div className="formFooter">
+                <div>
+                  <span className="loginWith">Or Login With</span>
+                </div>
+                <div className="socialLogin">
                   <CustomButton
                     height={'48px'}
                     width={'46px'}
                     p="0px"
                     pt="10px"
                     border={'1px solid #D9E6FD'}
-                    onClick={() => alert('login with Facebook')}
+                    onClick={() => alert('login with Google')}
                     backgroundColor="#F3F3F3"
                     color="#111111"
-                    icon={<FacebookLogo />}
-                  ></CustomButton>
-                )}
+                    icon={<Google />}
+                  />
+
+                  <CustomButton
+                    height={'48px'}
+                    width={'46px'}
+                    p="0px"
+                    pt="10px"
+                    border={'1px solid #D9E6FD'}
+                    onClick={() => alert('login with Linkedin')}
+                    backgroundColor="#F3F3F3"
+                    color="#111111"
+                    icon={<Linkedin />}
+                  />
+                  {userType === 'Candidate' && (
+                    <CustomButton
+                      height={'48px'}
+                      width={'46px'}
+                      p="0px"
+                      pt="10px"
+                      border={'1px solid #D9E6FD'}
+                      onClick={() => alert('login with Facebook')}
+                      backgroundColor="#F3F3F3"
+                      color="#111111"
+                      icon={<FacebookLogo />}
+                    ></CustomButton>
+                  )}
+                </div>
+                <div className="dontHaveAc">
+                  <span>Don't have any account?</span>
+                  <span
+                    className="register"
+                    onClick={() => {
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    Register
+                  </span>
+                </div>
+                <LoginModal
+                  setModalType={setModalType}
+                  type={
+                    modalType === 'register' ? 'register' : 'OTP-verification'
+                  }
+                  isOpen={modalVisible}
+                  setModalVisible={setModalVisible}
+                />
               </div>
-              <div className="dontHaveAc">
-                <span>Don't have any account?</span>
-                <span
-                  className="register"
-                  onClick={() => {
-                    setModalVisible(!modalVisible);
-                  }}
-                >
-                  Register
-                </span>
-              </div>
-              <LoginModal
-                setModalType={setModalType}
-                type={
-                  modalType === 'register' ? 'register' : 'OTP-verification'
-                }
-                isOpen={modalVisible}
-                setModalVisible={setModalVisible}
-              />
-            </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </Card>
