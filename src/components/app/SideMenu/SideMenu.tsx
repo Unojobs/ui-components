@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { MenuItem } from './MenuItem';
 import { SubMenu } from './SubMenu';
 import './SideMenu.css';
@@ -71,6 +71,11 @@ export const SideMenu = (props: ISideMenuProps) => {
   const [selectedMenuItem, setSelectedMenuItem] =
     useState<string>(_selectedKey);
   const [parentSelection, setParentSelction] = useState<string>();
+
+  useEffect(() => {
+    setParentSelction(undefined);
+    setSelectedMenuItem(_selectedKey);
+  }, [_selectedKey]);
 
   const onMenuItemClickHandler = (id: string, parentId?: string) => {
     onMenuItemClick(id);
