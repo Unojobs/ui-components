@@ -1,7 +1,13 @@
 import { Wrapper } from '../../Wrapper';
 import React from 'react';
-import { SideMenu } from 'components';
+import { NumberIcon, SideMenu } from 'components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+  BuildFilled,
+  DashboardFilled,
+  HeartFilled,
+  UserOutlined,
+} from '@ant-design/icons';
 
 export default {
   title: 'SideMenu',
@@ -20,13 +26,13 @@ Variants.args = {
   menuData: [
     {
       title: 'Dashboard',
-      icon: <p>&#9705;</p>,
+      icon: <DashboardFilled />,
       route: '/job',
-      //   suffixIcon: <CheckCircleIcon />,
+      // suffixIcon: <NumberIcon children={12} fade={false} />,
     },
     {
       title: 'Profiles',
-      icon: <p>&#9705;</p>,
+      icon: <UserOutlined />,
       route: '/adib',
       childItems: [
         {
@@ -37,6 +43,7 @@ Variants.args = {
           title: 'videos',
           route: '/vid',
           //   suffixIcon: <CheckCircleIcon />,
+          suffixIcon: <NumberIcon children={12} fade={false} />,
         },
         {
           title: 'secrets',
@@ -46,12 +53,12 @@ Variants.args = {
     },
     {
       title: 'Settings',
-      icon: <p>&#9705;</p>,
+      icon: <BuildFilled />,
       route: '/small',
     },
     {
       title: 'Fruits',
-      icon: <p>&#9705;</p>,
+      icon: <HeartFilled />,
       route: '/sddd',
       childItems: [
         {

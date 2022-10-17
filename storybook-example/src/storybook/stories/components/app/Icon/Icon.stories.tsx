@@ -2,7 +2,7 @@ import { Wrapper } from '../../Wrapper';
 import React from 'react';
 import {
   ConfirmIcon,
-  DeleteIcon,
+  UnoJobsDeleteIcon,
   EditIcon,
   RejectIcon,
   ViewIcon,
@@ -16,7 +16,7 @@ export default {
 
 const Template: ComponentStory<typeof EditIcon> = (args) => (
   <Wrapper>
-    <DeleteIcon {...args} />
+    <UnoJobsDeleteIcon {...args} />
     <EditIcon {...args} />
     <ViewIcon {...args} />
     <RejectIcon {...args} />

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Modal, UnojobsLogo, Text, Google, CustomButton, Linkedin } from 'src';
 import './loginModalStyle.css';
 import { Form, Input as AntDInput } from 'antd';
-import { FacebookLogo } from 'src/components/app/icons/FacebookLogo';
+import { FacebookLogo } from 'src/components/app/Icons/FacebookLogo';
 import { VerificationModal } from './VerificationModal';
 interface IModalProps {
-  type: 'register' | 'OTP-verification';
-  isOpen: boolean;
-  setModalVisible: any;
-  setModalType: any;
+  type?: 'register' | 'OTP-verification';
+  isOpen?: boolean;
+  setModalVisible?: any;
+  setModalType?: any;
 }
 export const LoginModal = (props: IModalProps) => {
   const initialRef = React.useRef(null);

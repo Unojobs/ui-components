@@ -5,12 +5,12 @@
 }
 
 .sidermenu {
-  max-height: 100vh;
   max-width: 300px;
   width: 100%;
-  overflow-y: scroll;
   user-select: none;
   background-color: white;
+  --selectionColor: #4169e0;
+  --itemTextColor: #111111;
 }
 
 .sidermenu .menuItem {
@@ -19,7 +19,8 @@
   align-items: center;
   font: 14px;
   gap: 12px;
-  padding: 16px 32px;
+  color: #b7b7b7;
+  padding: 14px 32px;
   font-weight: 500;
 }
 
@@ -30,14 +31,18 @@
 }
 
 .sidermenu .menuItem .itemTitle {
+  color: var(--itemTextColor);
   flex-grow: 1;
 }
 
 .sidermenu .menuItem:hover {
   cursor: pointer;
-  color: #4169e0;
-  background-color: rgb(254, 254, 254);
+  color: var(--selectionColor);
+  background-color: rgba(254, 254, 254, 0.2);
   transition: all 0.6s;
+}
+.sidermenu .menuItem:hover .itemTitle {
+  color: var(--selectionColor) !important;
 }
 
 .sidermenu .selectedItem.menuItem::before {
@@ -45,52 +50,69 @@
   position: absolute;
   display: inline-block;
   height: 100%;
-  width: 4px;
+  width: 5px;
   left: 0px;
   border-radius: 0px 4px 4px 0px;
-  background-color: #4169e0;
+  background-color: var(--selectionColor);
+  animation: selectionAnimation 0.2s ease-in;
+}
+
+@keyframes selectionAnimation {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
 }
 
 .sidermenu .selectedItem.menuItem {
-  color: #4169e0;
+  color: var(--selectionColor);
   font-weight: 600;
-  background-color: #d9e6fd;
-  transition: all 0.4s;
+  /* background-color: #d9e6fd; */
+  background-color: rgb(217, 230, 253, 0.3);
+  transition: all 0.6s;
+}
+.sidermenu .selectedItem.menuItem .itemTitle {
+  color: var(--selectionColor);
 }
 
 .sidermenu .selectedItem.menuItem > svg,
 .sidermenu .menuItem:hover svg {
-  color: #4169e0;
+  color: var(--selectionColor);
   transition: all 0.4s;
 }
 
 .sidermenu .parentSelection,
+.sidermenu .parentSelection .itemTitle,
 .parentSelection svg {
-  color: #4169e0;
+  color: var(--selectionColor);
 }
 
 /** Animations **/
 
 .sidermenu .open {
-  max-height: 60vh;
+  max-height: 1800px;
   visibility: visible;
   opacity: 1;
-  transition: all 0.6s;
+  transition: all 0.6s ease-in;
 }
 
 .sidermenu .close {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
-  transition: all 0.6s;
+  transition: all 0.4s ease-out;
 }
 
 .sidermenu .downAnim {
+  display: flex;
   transform: rotate(0deg);
   transition-duration: 0.6s;
 }
 
 .sidermenu .upAnim {
+  display: flex;
   transform: rotate(180deg);
   transition-duration: 0.6s;
 }
