@@ -1,6 +1,4 @@
-
-
- export type LoginProps = {
+export type LoginProps = {
   type?:
     | 'login-home'
     | 'forget-password'
