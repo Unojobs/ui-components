@@ -18,8 +18,7 @@ export const LoginModal = (props: IModalProps) => {
   const { type, isOpen, setModalVisible, setModalType } = props;
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    if(values.Email===undefined)
-    setEmailCheck('error')
+    if (values.Email === undefined) setEmailCheck('error');
     setModalType('OTP-verification');
   };
   const validateMessages = {
@@ -27,10 +26,9 @@ export const LoginModal = (props: IModalProps) => {
   };
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
-    if(errorInfo.Email===undefined)
-    setEmailCheck('empty')
+    if (errorInfo.Email === undefined) setEmailCheck('empty');
   };
-   const validateEmail = (val: string) => {
+  const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
     console.log(re.test(val), 'rrr');
 
@@ -130,7 +128,6 @@ export const LoginModal = (props: IModalProps) => {
                     </div>
                   </div>
                 </div>
-                {/* <Modal.Body> */}
                 <div className="modalMainContent">
                   <Form
                     layout="vertical"
@@ -142,23 +139,25 @@ export const LoginModal = (props: IModalProps) => {
                     <Form.Item
                       name="Email"
                       label="Email"
-                     
                       required={true}
                       validateStatus={
-                        emailCheck === 'error'||emailCheck==='empty' ? 'error' : ''
+                        emailCheck === 'error' || emailCheck === 'empty'
+                          ? 'error'
+                          : ''
                       }
                       help={
-                        emailCheck === 'error' ? 'Please enter valid email' : "'Email' is required"
+                        emailCheck === 'error'
+                          ? 'Please enter valid email'
+                          : emailCheck === 'empty'
+                          ? "'Email' is required"
+                          : ''
                       }
-                      rules={[{ required: true , }]}
+                      rules={[{ required: true }]}
                     >
-                  
                       <AntDInput
-                      //  required={true}
+                        //  required={true}
                         className="username"
                         onChange={(e) => {
-                      
-
                           validateEmail(e.currentTarget.value);
                         }}
                         placeholder="Input your email"
@@ -169,7 +168,6 @@ export const LoginModal = (props: IModalProps) => {
                       label="Password"
                       rules={[{ required: true, min: 8 }]}
                     >
-                      
                       <AntDInput.Password
                         className="password"
                         placeholder="Input your password"

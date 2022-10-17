@@ -9,6 +9,6 @@ export default {
 } as ComponentMeta<typeof Login>;
 
 const Template: ComponentStory<typeof Login> = (args) => (
- <Wrapper> <Login ></Login></Wrapper>
+ <Wrapper> <Login {...args}></Login></Wrapper>
 );
 export const Variants = Template.bind({});

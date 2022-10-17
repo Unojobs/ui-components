@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   gap: 30px;
-  /* padding-top: 40px; */
 }
 .modalSocialMediaParent {
   display: flex;
@@ -23,10 +22,6 @@
   height: 700px;
   max-height: 500px;
 }
-/* .r-paddingTop-95jzfe {
-    height: 100%;
-    padding: 50px;
-}   */
 .r-maxHeight-p74ah6 {
   width: 500px;
 }
@@ -64,4 +59,11 @@
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
+}
+.r-maxHeight-e8v3qr {
+  max-height: fit-content;
+  height: fit-content;
+}
+.r-maxHeight-p74ah6 {
+  max-height: fit-content;
 }
