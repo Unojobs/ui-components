@@ -60,6 +60,7 @@ export const theme = {
       '800': '#007aa5',
       '900': '#006487',
     },
+    backgroundFillColor: '#f4f4f5',
   },
   components: {},
 };
