@@ -13,7 +13,8 @@ export const TitleModalBtn = (props: TitleModalBtnProps) => {
         display: 'flex',
         alignItems: 'baseline',
         justifyContent: 'space-between',
-        width: 269,
+        width: 326,
+        height: 40,
       }}
     >
       <Title level={4}>Message</Title>
