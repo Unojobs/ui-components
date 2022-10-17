@@ -1,13 +1,14 @@
 import { Wrapper } from '../../Wrapper';
 import React from 'react';
-import { NumberIcon, SideMenu } from 'components';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
-  BuildFilled,
-  DashboardFilled,
-  HeartFilled,
-  UserOutlined,
-} from '@ant-design/icons';
+  NumberIcon,
+  SettingsIcon,
+  SideMenu,
+  UserBoxIcon,
+  VideoCardStackIcon,
+  WindowFilledIcon,
+} from 'components';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'SideMenu',
@@ -26,13 +27,13 @@ Variants.args = {
   menuData: [
     {
       title: 'Dashboard',
-      icon: <DashboardFilled />,
+      icon: <WindowFilledIcon />,
       route: '/job',
       // suffixIcon: <NumberIcon children={12} fade={false} />,
     },
     {
       title: 'Profiles',
-      icon: <UserOutlined />,
+      icon: <UserBoxIcon />,
       route: '/adib',
       childItems: [
         {
@@ -53,12 +54,12 @@ Variants.args = {
     },
     {
       title: 'Settings',
-      icon: <BuildFilled />,
+      icon: <SettingsIcon />,
       route: '/small',
     },
     {
       title: 'Fruits',
-      icon: <HeartFilled />,
+      icon: <VideoCardStackIcon />,
       route: '/sddd',
       childItems: [
         {
