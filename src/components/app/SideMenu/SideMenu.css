@@ -5,14 +5,12 @@
 }
 
 .sidermenu {
-  max-height: 100vh;
   max-width: 300px;
   width: 100%;
-  overflow-y: scroll;
   user-select: none;
   background-color: white;
   --selectionColor: #4169e0;
-  --itemTextColor: #000;
+  --itemTextColor: #111111;
 }
 
 .sidermenu .menuItem {
@@ -22,7 +20,7 @@
   font: 14px;
   gap: 12px;
   color: #b7b7b7;
-  padding: 16px 32px;
+  padding: 14px 32px;
   font-weight: 500;
 }
 
@@ -40,7 +38,7 @@
 .sidermenu .menuItem:hover {
   cursor: pointer;
   color: var(--selectionColor);
-  background-color: rgb(254, 254, 254);
+  background-color: rgba(254, 254, 254, 0.2);
   transition: all 0.6s;
 }
 .sidermenu .menuItem:hover .itemTitle {
@@ -71,7 +69,8 @@
 .sidermenu .selectedItem.menuItem {
   color: var(--selectionColor);
   font-weight: 600;
-  background-color: #d9e6fd;
+  /* background-color: #d9e6fd; */
+  background-color: rgb(217, 230, 253, 0.3);
   transition: all 0.6s;
 }
 .sidermenu .selectedItem.menuItem .itemTitle {
@@ -93,17 +92,17 @@
 /** Animations **/
 
 .sidermenu .open {
-  max-height: 60vh;
+  max-height: 1800px;
   visibility: visible;
   opacity: 1;
-  transition: all 0.6s;
+  transition: all 0.6s ease-in;
 }
 
 .sidermenu .close {
   opacity: 0;
   visibility: hidden;
   max-height: 0;
-  transition: all 0.6s;
+  transition: all 0.4s ease-out;
 }
 
 .sidermenu .downAnim {
@@ -116,8 +115,4 @@
   display: flex;
   transform: rotate(180deg);
   transition-duration: 0.6s;
-}
-
-.sidermenu::-webkit-scrollbar {
-  width: 0px;
 }
