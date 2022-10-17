@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DownIcon } from '../Icons';
+import { DownArrowCurvedIcon } from '../Icons';
 import { MenuItem } from './MenuItem';
 import type { MenuDataType } from './SideMenu';
 import './SideMenu.css';
@@ -41,7 +41,7 @@ export const SubMenu = (props: ISubMenuProps) => {
         {menuData.icon}
         <p className="itemTitle">{menuData.title}</p>
         <div className={expanded ? 'downAnim' : 'upAnim'}>
-          <DownIcon />
+          <DownArrowCurvedIcon />
         </div>
       </div>
       <div className={`collapsableArea ${expanded ? 'open' : 'close'}`}>
