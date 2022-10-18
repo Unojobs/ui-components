@@ -3,3 +3,4 @@ export * from './CandidateCard';
 export * from './CardList';
 export * from './InputMessage';
 export * from './MessageSidebar';
+export * from './ChatBox';
