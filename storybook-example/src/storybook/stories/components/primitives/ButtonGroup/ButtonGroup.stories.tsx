@@ -2,12 +2,12 @@ import { Wrapper } from '../../Wrapper';
 import { StorybookArgs } from './ButtonGroup.args';
 
 import React from 'react';
-import { ButtonGroup, Button } from 'components';
+import { Button } from 'components';
 
 const ButtonGroupTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <ButtonGroup
+      <Button.Group
         isAttached
         colorScheme="blue"
         mx={{ base: 'auto', md: 0 }}
@@ -15,7 +15,7 @@ const ButtonGroupTest = ({ ...args }) => {
       >
         <Button>Edit</Button>
         <Button variant="outline">Save</Button>
-      </ButtonGroup>
+      </Button.Group>
     </Wrapper>
   );
 };

@@ -14,7 +14,7 @@ AlertDialogTemp.Header = AlertDialogHeader;
 AlertDialogTemp.Footer = AlertDialogFooter;
 AlertDialogTemp.Body = AlertDialogBody;
 
-const AlertDialogMain = AlertDialogTemp as any;
+const AlertDialogMain: any = AlertDialogTemp as any;
 
 export { AlertDialogMain as AlertDialog };
 // export type { IAlertDialogProps } from "native-base";
