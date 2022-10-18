@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from 'src/components/composites';
+import { Badge } from '../../composites';
 import {
   Box,
   Heading,
@@ -8,18 +8,9 @@ import {
   Image,
   HStack,
 } from 'src/components/primitives';
+import type { JobDetailCardProps } from './types';
+import { CandidateAvatars } from '../CandidateAvatars';
 
-type Candidate = {
-  name: string;
-  imageUrl: string;
-};
-export interface JobDetailCardProps {
-  jobTitle: string;
-  jobDescription: string;
-  jobImageLink: string;
-  jobTags: string[];
-  candidates: Candidate[];
-}
 export const JobDetailCard = (props: JobDetailCardProps) => {
   return (
     <Box alignItems="center">
@@ -29,14 +20,14 @@ export const JobDetailCard = (props: JobDetailCardProps) => {
         rounded="10px"
         overflow="hidden"
         borderColor="#F3F3F3"
-        borderWidth="1px"
+        borderWidth="0px"
         _dark={{
           borderColor: 'coolGray.600',
           backgroundColor: 'gray.700',
         }}
         _web={{
           shadow: 2,
-          borderWidth: '1px',
+          borderWidth: '0px',
           borderColor: '#F3F3F3',
         }}
         _light={{
@@ -70,6 +61,12 @@ export const JobDetailCard = (props: JobDetailCardProps) => {
                 </Badge>
               );
             })}
+          </HStack>
+          <HStack space={2} alignItems="center">
+            <CandidateAvatars candidates={props.candidates}></CandidateAvatars>
+            <Text color="#B7B7B7" fontSize="12px">
+              {props.candidates.length} Total Candidate
+            </Text>
           </HStack>
         </Stack>
       </Box>
