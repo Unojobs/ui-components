@@ -3,13 +3,14 @@
 import React from 'react';
 import { SelectSearch } from './SelectSearch';
 import { TitleModalBtn } from './TitleModalBtn';
-import { CardList, Cards } from '../CardList';
+import { CardList, Cards, ListType } from '../CardList';
 export interface MessageSidebarProps {
+  listType: ListType;
   options: string[];
   items: Cards[];
 }
 export const MessageSidebar = (props: MessageSidebarProps) => {
-  const { options, items } = props;
+  const { options, items, listType } = props;
   return (
     <div
       style={{
@@ -23,7 +24,7 @@ export const MessageSidebar = (props: MessageSidebarProps) => {
     >
       <TitleModalBtn />
       <SelectSearch options={options} />
-      <CardList listType="jobs" items={items} />
+      <CardList listType={listType} items={items} />
     </div>
   );
 };
