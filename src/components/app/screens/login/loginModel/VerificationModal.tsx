@@ -76,7 +76,7 @@ export const VerificationModal = (props: any) => {
             >
               <OtpInput
                 inputStyle={{
-                  width: '90px',
+                  width: '73px',
                   height: '45px',
                   border: '1px solid #F3F3F3',
                   borderRadius: '5px',
@@ -84,8 +84,8 @@ export const VerificationModal = (props: any) => {
                 onChange={(e: any) => {
                   console.log(e);
                 }}
-                separator={<span style={{ width: 13 }}></span>}
-                numInputs={4}
+                separator={<span style={{ width: 14 }}></span>}
+                numInputs={6}
                 hasErrored={true}
                 errorStyle={{ borderRadius: 'red' }}
               />

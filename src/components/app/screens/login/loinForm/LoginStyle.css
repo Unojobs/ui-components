@@ -215,3 +215,7 @@
     height: fit-content;
   }
 }
+.modalInput{
+  height: 45px;
+  width: 100%;
+}

@@ -14,17 +14,6 @@
   display: flex;
   gap: 20px;
 }
-.r-maxWidth-17w48nw {
-  max-width: 434px;
-  /* padding: 50px; */
-}
-.r-maxHeight-17jbmtj {
-  height: 700px;
-  max-height: 500px;
-}
-.r-maxHeight-p74ah6 {
-  width: 500px;
-}
 .inputLable {
   padding-bottom: 10px;
   font-family: 'Urbanist';
@@ -41,12 +30,6 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.r-paddingBottom-1l7z4oj {
-  padding-bottom: 0px;
-}
-.verificationTopContent {
-  padding-bottom: 50px;
-}
 .modalVerificationOtpLable {
   font-weight: 500;
   color: #111111;
@@ -59,11 +42,4 @@
   font-style: normal;
   font-weight: 600;
   font-size: 36px;
-}
-.r-maxHeight-e8v3qr {
-  max-height: fit-content;
-  height: fit-content;
-}
-.r-maxHeight-p74ah6 {
-  max-height: fit-content;
 }

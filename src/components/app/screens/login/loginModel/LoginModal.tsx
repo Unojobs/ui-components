@@ -43,9 +43,13 @@ export const LoginModal = (props: IModalProps) => {
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
       >
-        <Modal.Content>
+        <Modal.Content
+          minW={type !== 'register' ? '600px' : '500px'}
+          padding="40px"
+          maxH="min-content"
+        >
           <Modal.CloseButton />
-          <Modal.Body>
+          <Modal.Body padding="0px" h="fit-content">
             {type === 'register' ? (
               <div className="modalBody">
                 <div className="headerParent">
@@ -154,7 +158,7 @@ export const LoginModal = (props: IModalProps) => {
                       rules={[{ required: true }]}
                     >
                       <AntDInput
-                        className="username"
+                        className="modalInput"
                         onChange={(e) => {
                           validateEmail(e.currentTarget.value);
                         }}
@@ -167,14 +171,14 @@ export const LoginModal = (props: IModalProps) => {
                       rules={[{ required: true, min: 8 }]}
                     >
                       <AntDInput.Password
-                        className="password"
+                        className="modalInput"
                         placeholder="Input your password"
                       />
                     </Form.Item>
                     <Form.Item>
                       <CustomButton
                         htmlType="submit"
-                        width="400px"
+                        width="100%"
                         onClick={() => {
                           // loginButton();
                         }}
