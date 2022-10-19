@@ -1,3 +1,5 @@
+// Do not edit this theme, this theme is generated from DSX editor
+
 export const theme = {
   colors: {
     primary: {
