@@ -16,7 +16,7 @@ export const CustomButton = (props: CustomButtonProps) => {
     htmlType,
     fontFamily,
     pt,
-    p
+    p,disable
   } = props;
   const defaultStyle = {
     padding: p,
@@ -36,7 +36,7 @@ export const CustomButton = (props: CustomButtonProps) => {
       htmlType={htmlType}
       onClick={onClick}
       icon={icon}
-      
+      disabled={disable}
     >
       {children}
     </Button>
@@ -53,5 +53,6 @@ CustomButton.defaultProps = {
   onClick: undefined,
   border: 'none',
   p:'13px 24px',
-  pt:'13px'
+  pt:'13px',
+  
 };

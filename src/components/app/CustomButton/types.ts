@@ -23,4 +23,5 @@ export interface CustomButtonProps {
   fontFamily?:string,
   pt?:string;
   p?:string;
+  disable?:boolean
 }

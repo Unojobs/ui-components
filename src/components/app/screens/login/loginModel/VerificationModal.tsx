@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UnojobsLogo, Text, CustomButton } from 'src';
 import './loginModalStyle.css';
 import OtpInput from 'react-otp-input';
@@ -6,19 +6,15 @@ import { Form } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
 export const VerificationModal = (props: any) => {
-  const { setEmailCheck, setModalType } = props;
+  const [OTP, setOTP] = useState('');
+  const { setModalType } = props;
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    if (values.Email === undefined) setEmailCheck('error');
-    setModalType('OTP-verification');
   };
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-    if (errorInfo.Email === undefined) setEmailCheck('empty');
-  };
+
   return (
     <div className="modalBody">
       <div className="headerParent">
@@ -64,7 +60,6 @@ export const VerificationModal = (props: any) => {
           layout="vertical"
           validateMessages={validateMessages}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <div className="modalVerificationOtpLable">Input your OTP code</div>
@@ -80,20 +75,21 @@ export const VerificationModal = (props: any) => {
                   height: '45px',
                   border: '1px solid #F3F3F3',
                   borderRadius: '5px',
+                  required: true,
                 }}
-                onChange={(e: any) => {
-                  console.log(e);
+                onChange={(e: string) => {
+                  setOTP(e);
                 }}
                 separator={<span style={{ width: 14 }}></span>}
                 numInputs={6}
-                hasErrored={true}
-                errorStyle={{ borderRadius: 'red' }}
+                value={'number'}
               />
             </Form.Item>
           </div>
 
           <Form.Item>
             <CustomButton
+              disable={OTP.length < 6 && true}
               htmlType="submit"
               width={'100%'}
               onClick={() => {

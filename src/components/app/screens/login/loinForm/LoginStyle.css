@@ -197,7 +197,7 @@
     height: fit-content;
   }
   .cardDivLoginHome {
-    overflow-y: hidden;
+    overflow-y: auto;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -206,6 +206,7 @@
   }
   .cardDivLoginHome {
     width: 100%;
+    overflow-y: auto;
   }
   .cardDiv {
     width: 100%;
@@ -215,7 +216,7 @@
     height: fit-content;
   }
 }
-.modalInput{
+.modalInput {
   height: 45px;
   width: 100%;
 }

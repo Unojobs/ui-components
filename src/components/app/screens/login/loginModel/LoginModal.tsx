@@ -46,10 +46,9 @@ export const LoginModal = (props: IModalProps) => {
         <Modal.Content
           minW={type !== 'register' ? '600px' : '500px'}
           padding="40px"
-          maxH="min-content"
         >
           <Modal.CloseButton />
-          <Modal.Body padding="0px" h="fit-content">
+          <Modal.Body padding="0px">
             {type === 'register' ? (
               <div className="modalBody">
                 <div className="headerParent">
@@ -140,6 +139,40 @@ export const LoginModal = (props: IModalProps) => {
                     autoComplete="off"
                   >
                     <Form.Item
+                      name="Company Name"
+                      label="Company Name"
+                      rules={[{ required: true }]}
+                    >
+                      <AntDInput
+                        type="text"
+                        className="modalInput"
+                        placeholder="Input your company name"
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name="First Name"
+                      label="First Name"
+                      rules={[{ required: true }]}
+                    >
+                      <AntDInput
+                        type="text"
+                        className="modalInput"
+                        placeholder="Input your first name"
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name="Last Name"
+                      label="Last Name"
+                      rules={[{ required: true }]}
+                    >
+                      <AntDInput
+                        type="text"
+                        className="modalInput"
+                        placeholder="Input your last name"
+                      />
+                    </Form.Item>
+
+                    <Form.Item
                       name="Email"
                       label="Email"
                       required={true}
@@ -168,6 +201,16 @@ export const LoginModal = (props: IModalProps) => {
                     <Form.Item
                       name="Password"
                       label="Password"
+                      rules={[{ required: true, min: 8 }]}
+                    >
+                      <AntDInput.Password
+                        className="modalInput"
+                        placeholder="Input your password"
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name="Confirm Password"
+                      label="Confirm Password"
                       rules={[{ required: true, min: 8 }]}
                     >
                       <AntDInput.Password
