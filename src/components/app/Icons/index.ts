@@ -3,3 +3,8 @@ export * from './UnojobsLogo';
 export * from './LinkedinLogo';
 export * from './GoogleLogo';
 export * from './FacebookLogo';
+export * from './arrowIcon';
+export * from './cards';
+export * from './settingsIcon';
+export * from './user';
+export * from './window';
