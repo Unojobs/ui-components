@@ -14,12 +14,15 @@
     "expo-asset": "^8.6.1",
     "expo-font": "^10.2.1",
     "expo-modules-core": "^0.11.8",
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.23.5",
     "lodash.isempty": "^4.4.0",
     "native-base": "3.4.17",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
     "react-native-vector-icons": "^9.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
@@ -27,6 +30,8 @@
     "@types/react-native": "*",
     "react": "*",
     "react-dom": "*",
+    "antd": "^4.22.2",
+    "native-base": "3.4.17",
     "react-native": "*",
     "react-native-web": "0.17.1"
   },
