@@ -3,38 +3,39 @@ import { NativeBaseProvider, extendTheme } from 'native-base';
 import { theme as defaultTheme } from '../../theme';
 import { custom } from '../../theme/custom';
 import {
+  Urbanist_400Regular,
   Urbanist_500Medium,
-  // Urbanist_100Thin,
-  // Urbanist_200ExtraLight,
-  // Urbanist_300Light,
-  // Urbanist_400Regular,
-  // Urbanist_600SemiBold,
-  // Urbanist_700Bold,
-  // Urbanist_800ExtraBold,
-  // Urbanist_900Black,
-  // Urbanist_100Thin_Italic,
+  Urbanist_600SemiBold,
+  Urbanist_700Bold,
 } from '@expo-google-fonts/urbanist';
 import { useFonts } from 'expo-font';
 
 export const appTheme = extendTheme([defaultTheme, custom]);
 export const AppProvider = ({ children, theme, ...props }: any) => {
-  // const [] = useFonts({
-  //   Urbanist_500Medium,
-  // });
-  let [] = useFonts({ Urbanist_500Medium });
+  // Urbanist font configauration
+
+  const [] = useFonts({
+    Urbanist_400Regular,
+    Urbanist_500Medium,
+    Urbanist_600SemiBold,
+    Urbanist_700Bold,
+  });
 
   const fontConfig = {
     fontConfig: {
       Urbanist: {
-        200: {
+        400: {
+          normal: 'Urbanist_400Regular',
+        },
+        500: {
           normal: 'Urbanist_500Medium',
         },
-        300: {
+        600: {
+          normal: 'Urbanist_600SemiBold',
+        },
+        700: {
           normal: 'Urbanist_700Bold',
         },
-        // 900: {
-        //   normal: 'Inter_900Black',
-        // },
       },
     },
     fonts: {
@@ -43,9 +44,10 @@ export const AppProvider = ({ children, theme, ...props }: any) => {
       mono: 'Urbanist',
     },
   };
+
   return (
     <NativeBaseProvider
-      theme={extendTheme(appTheme, theme, fontConfig)}
+      theme={extendTheme(defaultTheme, custom, theme, fontConfig)}
       {...props}
     >
       {children}
