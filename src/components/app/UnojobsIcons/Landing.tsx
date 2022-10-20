@@ -8,7 +8,7 @@ type IconProps = {
 
 export const UnojobsUpArrowRoundIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 32 32',
+    viewBox: '0 0 24 25',
     path: (
       <>
         <path
@@ -23,17 +23,17 @@ export const UnojobsUpArrowRoundIcon = ({ fill, size }: IconProps) => {
       </>
     ),
   });
-  return <CustomIcon size={size ? size : 8} />;
+  return <CustomIcon size={size ? size : 6} />;
 };
 
 UnojobsUpArrowRoundIcon.defaultProps = {
   fill: '#4169E0',
-  size: 8,
+  size: 6,
 };
 
 export const UnojobsDownArrowRoundIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 32 32',
+    viewBox: '0 0 24 25',
     path: (
       <path
         d="M12 22.0713C6.49 22.0713 2 17.5813 2 12.0713C2 6.56129 6.49 2.07129 12 2.07129C17.51 2.07129 22 6.56129 22 12.0713C22 17.5813 17.51 22.0713 12 22.0713ZM16.06 12.8013L12.53 9.27129C12.38 9.12129 12.19 9.05129 12 9.05129C11.81 9.05129 11.62 9.12129 11.47 9.27129L7.94 12.8013C7.65 13.0913 7.65 13.5713 7.94 13.8613C8.23 14.1513 8.71 14.1513 9 13.8613L12 10.8613L15 13.8613C15.29 14.1513 15.77 14.1513 16.06 13.8613C16.35 13.5713 16.35 13.1013 16.06 12.8013Z"
@@ -41,12 +41,12 @@ export const UnojobsDownArrowRoundIcon = ({ fill, size }: IconProps) => {
       />
     ),
   });
-  return <CustomIcon size={size ? size : 8} />;
+  return <CustomIcon size={size ? size : 6} />;
 };
 
 UnojobsDownArrowRoundIcon.defaultProps = {
   fill: '#4169E0',
-  size: 8,
+  size: 6,
 };
 
 export const UnojobsAppLogo = ({ fill, size }: IconProps) => {

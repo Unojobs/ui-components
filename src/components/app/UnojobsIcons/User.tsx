@@ -7,7 +7,7 @@ type IconProps = {
 };
 export const UnojobsUserIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 36 36',
+    viewBox: '0 0 12 13',
     path: (
       <path
         d="M3 3.33331C3 4.98731 4.346 6.33331 6 6.33331C7.654 6.33331 9 4.98731 9 3.33331C9 1.67931 7.654 0.333313 6 0.333313C4.346 0.333313 3 1.67931 3 3.33331ZM11.3333 13H12V12.3333C12 9.76065 9.906 7.66665 7.33333 7.66665H4.66667C2.09333 7.66665 0 9.76065 0 12.3333V13H11.3333Z"
@@ -15,12 +15,12 @@ export const UnojobsUserIcon = ({ fill, size }: IconProps) => {
       />
     ),
   });
-  return <CustomIcon size={size ? size : 10} />;
+  return <CustomIcon size={size ? size : 3} />;
 };
 
 export const UnojobsUserBoxIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 36 36',
+    viewBox: '0 0 16 16',
     path: (
       <>
         <path
@@ -34,12 +34,12 @@ export const UnojobsUserBoxIcon = ({ fill, size }: IconProps) => {
       </>
     ),
   });
-  return <CustomIcon size={size ? size : 10} />;
+  return <CustomIcon size={size ? size : 4} />;
 };
 
 export const UnojobsUserGroupIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 36 36',
+    viewBox: '0 0 16 16',
     path: (
       <>
         <path
@@ -69,5 +69,5 @@ export const UnojobsUserGroupIcon = ({ fill, size }: IconProps) => {
       </>
     ),
   });
-  return <CustomIcon size={size ? size : 10} />;
+  return <CustomIcon size={size ? size : 4} />;
 };

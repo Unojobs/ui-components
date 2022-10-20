@@ -35,27 +35,26 @@ const UnojobsiconsTest = ({ ...args }) => {
           All UnoJobs NB Icons
         </Text>
         <VStack mt={4} space={3}>
-          <HStack space={3}>
+          <HStack space={3} alignItems="center">
             <Text>Arrows :</Text>
             <UnojobsDownArrowSharpIcon />
             <UnojobsRightArrowCurvedIcon />
             <UnojobsDownArrowCurvedIcon />
           </HStack>
-          <HStack space={3}>
+          <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
             <UnojobsCardStackIcon />
             <UnojobsCreditCardFilledIcon />
             <UnojobsVideoCardStackIcon />
           </HStack>
-          <HStack space={3}>
+          <HStack space={3} alignItems="center">
             <Text>Users :</Text>
             <UnojobsUserIcon />
             <UnojobsUserBoxIcon />
             <UnojobsUserGroupIcon />
           </HStack>
-          <HStack space={3}>
+          <HStack space={3} alignItems="center">
             <Text>Dashboard :</Text>
-
             <UnojobsEditIcon />
             <UnojobsDeleteIcon />
             <UnojobsViewIcon />
@@ -67,13 +66,12 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsSettingsIcon />
             <UnojobsWindowFilledIcon />
           </HStack>
-          <HStack space={3}>
+          <HStack space={3} alignItems="center">
             <Text>Landing :</Text>
-
             <UnojobsUpArrowRoundIcon />
             <UnojobsDownArrowRoundIcon />
           </HStack>
-          <HStack space={3}>
+          <HStack space={3} alignItems="center">
             <Text>AppLogo :</Text>
             <UnojobsAppLogo />
             <UnojobsAppLogo fill="#111" />
