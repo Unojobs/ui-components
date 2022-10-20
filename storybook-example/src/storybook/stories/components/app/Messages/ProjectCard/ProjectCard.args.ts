@@ -1,25 +1,11 @@
 export const StorybookArgs = {
   jobTitle: 'Software Engineer',
-  participants: [
-    {
-      name: 'John Smith',
-      avatarUri: 'https://joeschmoe.io/api/v1/random',
-    },
-    {
-      name: 'John Doe',
-    },
-    {
-      name: 'Kate Smith',
-      avatarUri: 'https://joeschmoe.io/api/v1/random',
-    },
-    {
-      name: 'Jane Smith',
-      avatarUri: 'https://joeschmoe.io/api/v1/random',
-    },
-    {
-      name: 'Roy Smith',
-    },
+  candidates: [
+    { username: 'John', avatarUri: 'https://joeschmoe.io/api/v1/random' },
+    { username: 'James', avatarUri: 'https://joeschmoe.io/api/v1/random' },
+    { username: 'Steve', avatarUri: 'https://joeschmoe.io/api/v1/random' },
+    { username: 'Ram', avatarUri: 'https://joeschmoe.io/api/v1/random' },
   ],
-  conversations: 5,
-  unseenMessages: 10,
+  conversations: [{ cid: 123 }, { cid: 222 }, { cid: 456 }],
+  unreadConversations: 10,
 };

@@ -1,8 +1,8 @@
-import { StorybookArgs } from './ProjectCard.args';
 import React from 'react';
-import { ProjectCard, ProjectCardProps } from 'components';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Wrapper } from '../../../Wrapper';
+import { ProjectCard, ProjectCardProps } from 'components';
+import { StorybookArgs } from './ProjectCard.args';
 
 export default {
   title: 'ProjectCard',
@@ -18,6 +18,7 @@ const Template: ComponentStory<typeof ProjectCard> = (
     </Wrapper>
   );
 };
+
 export const Variants = Template.bind({});
 
 Variants.args = StorybookArgs;

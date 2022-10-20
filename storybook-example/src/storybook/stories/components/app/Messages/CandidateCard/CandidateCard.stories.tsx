@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Wrapper } from '../../../Wrapper';
 import { CandidateCard, CandidateCardProps } from 'components';
 import { StorybookArgs } from './CandidateCard.args';
-import { Wrapper } from '../../../Wrapper';
 
 export default {
   title: 'CandidateCard',

@@ -1,12 +1,15 @@
 export const StorybookArgs = {
   candidate: {
+    username: 'John Smith',
     avatarUri: 'https://joeschmoe.io/api/v1/random',
-    name: 'John Smith',
+    activeApplications: [
+      { jid: 123, jobTitle: 'Software Engineer' },
+      { jid: 111, jobTitle: 'Sr. Software Engineer' },
+    ],
   },
-  latestMessage: 'Hi, can we connect?',
-  jobTitle: 'UI/UX Designer',
-  dateTime: {
-    date: '23 Dec 2022',
-    timestamp: '09:03PM',
+  latestMessage: {
+    msgBody: 'Hi there, any updates?',
+    date: '1 Jan 2022',
+    timestamp: '9:22PM',
   },
 };
