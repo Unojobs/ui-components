@@ -9,3 +9,4 @@ export * from './SelectableRadioButton';
 export * from './FeatureCard';
 export * from './SelectableRadioButton';
 export * from './FaqCard';
+export * from './StatusTag';
