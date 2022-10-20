@@ -13,7 +13,7 @@ const TypographyTest = ({ ...args }) => {
 export const TypographyComponent = TypographyTest.bind({});
 
 export default {
-  title: 'apptokens/Typography',
+  title: 'app-tokens/Typography',
   component: TypographyComponent,
   argTypes: {},
 };

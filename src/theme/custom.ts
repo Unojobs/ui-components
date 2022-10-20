@@ -1,6 +1,7 @@
 export const custom = {
   colors: {
     landingPrimary: {
+      '20': '#B4CBFB',
       '50': '#619dff',
       '100': '#5b93ff',
       '200': '#5488ff',

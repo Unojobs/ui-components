@@ -7,7 +7,7 @@ export const Typography = () => {
       <Text fontWeight="normal" fontSize="md">
         This is Urbanist
       </Text>
-      <Heading fontSize="8xl" color="landingPrimary.500">
+      <Heading fontSize="8xl" color="landingPrimary.700">
         Modren
       </Heading>
       <Text fontSize="appmedium">Hellloo</Text>
