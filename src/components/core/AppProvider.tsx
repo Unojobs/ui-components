@@ -16,7 +16,7 @@ import {
 } from '@expo-google-fonts/urbanist';
 import { useFonts } from 'expo-font';
 
-export const appTheme = extendTheme(defaultTheme, custom);
+export const appTheme = extendTheme([defaultTheme, custom]);
 export const AppProvider = ({ children, theme, ...props }: any) => {
   // const [] = useFonts({
   //   Urbanist_500Medium,
