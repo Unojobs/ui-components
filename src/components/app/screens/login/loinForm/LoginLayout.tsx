@@ -1,35 +1,28 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card, Carousel, Typography, Form, Input, Image, Checkbox } from 'antd';
-import { GoogleOutlined, LinkedinFilled } from '@ant-design/icons';
 import './LoginStyle.css';
-import { CustomButton, SelectableRadioButton, UnojobsLogo } from '../../../app';
+import { CustomButton } from 'src';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-export interface ILoginProps {
-  type?:
-    | 'login-home'
-    | 'forget-password'
-    | 'OTP-verification'
-    | 'new-password'
-    | 'create-account';
-  loginButton(): string;
-  loginWithGoogle(): string;
-  loginWithLinkedin(): string;
-  heading: string;
-  subHeading: string;
-  backButton(): string;
-}
-export const Login = (props: ILoginProps) => {
+import { Linkedin, Google } from 'src';
+import type { LoginProps } from './types';
+import { LoginHome } from './LoginHome';
+import { NewPassword } from './NewPassword';
+export const Login = (props: LoginProps) => {
   const {
-    heading,
     type,
     backButton,
-    subHeading,
     loginButton,
     loginWithGoogle,
     loginWithLinkedin,
+    forgetPassword,
+    login,
+    images,
   } = props;
-  const [userName, setUserName] = useState();
+  const [emailCheck, setEmailCheck] = useState('');
+  const [userType, setUserType] = useState('Employer');
+  const [modalType, setModalType] = useState('register');
+  const [modalVisible, setModalVisible] = useState(false);
   const [userNameType, setUserNameType] = useState('');
   const validateMessages = {
     required: "'${name}' is required!",
@@ -37,160 +30,60 @@ export const Login = (props: ILoginProps) => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
-  console.log(userName);
-
+  const validateEmail = (val: string) => {
+    var re = /\S+@\S+\.\S+/;
+    if (re.test(val) === false) setEmailCheck('error');
+    else setEmailCheck('');
+  };
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
+    if (errorInfo.number === undefined && errorInfo.Email === undefined)
+      setEmailCheck('empty');
+    else setEmailCheck('');
   };
   const { Text } = Typography;
   return (
     <div className="parent">
-      <div className="carouselDiv" style={{}}>
+      <div className="carouselDiv">
         <Carousel autoplay>
-          <Image
-            preview={false}
-            height="100vh"
-            width="100%"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          />
-          <Image
-            preview={false}
-            height="100vh"
-            width="100%"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          />
-          <Image
-            preview={false}
-            height="100vh"
-            width="100%"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          />
+          {images.map((image: string) => {
+            return (
+              <Image preview={false} height="100vh" width="100%" src={image} />
+            );
+          })}
         </Carousel>
       </div>
-      {type === 'login-home' ? (
-        <div className="cardDiv">
-          <Card className="cardStyle">
-            <div className="formParent">
-              <div className="topContent">
-                <UnojobsLogo></UnojobsLogo>
-                <h1 className="mainHeading">{heading}</h1>
-                <Text>{subHeading}</Text>
-              </div>
-              <div className="mainContent">
-                <Form
-                  layout="vertical"
-                  validateMessages={validateMessages}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
-                >
-                  <Form.Item name="user type" rules={[{ required: true }]}>
-                    <div>
-                      <SelectableRadioButton
-                        onChange={(e: string) => {
-                          console.log(e);
-                        }}
-                        size="small"
-                        space={30}
-                        list={['Employer', 'Candidate']}
-                        initialValue="Employer"
-                      ></SelectableRadioButton>
-                    </div>
-                  </Form.Item>
-
-                  <Form.Item
-                    name={userNameType === 'number' ? 'number' : 'email'}
-                    label="Email/Phone Number"
-                    rules={[{ required: true }]}
-                  >
-                    <Input
-                      type={userNameType === 'number' ? 'number' : 'email'}
-                      className="username"
-                      onChange={(e: any) => {
-                        const intVal: any = parseInt(e.currentTarget.value);
-                        const isInnt = Number.isInteger(intVal);
-                        setUserName(e.currentTarget.value);
-                        if (isInnt) {
-                          setUserNameType('number');
-                        } else {
-                          setUserNameType('email');
-                        }
-                      }}
-                      placeholder="Input your email or phone number"
-                    />
-                  </Form.Item>
-                  <Form.Item
-                    name="password"
-                    label="Password"
-                    rules={[{ required: true, min: 8 }]}
-                  >
-                    <Input.Password
-                      className="password"
-                      placeholder="Input your password"
-                    />
-                  </Form.Item>
-                  <div className="forgetPasswordDiv">
-                    <span className="forgetPassword">Forget Password</span>
-                  </div>
-
-                  <Form.Item>
-                    <CustomButton
-                      htmlType="submit"
-                      width={'350px'}
-                      onClick={() => {
-                        loginButton();
-                      }}
-                    >
-                      Login
-                    </CustomButton>
-                  </Form.Item>
-                </Form>
-                <div className="formFooter">
-                  <div>
-                    <span>Or Login With</span>
-                  </div>
-                  <div className="socialLogin">
-                    <CustomButton
-                      onClick={() => loginWithGoogle()}
-                      backgroundColor="#D9E6FD"
-                      color="#111111"
-                      icon={<GoogleOutlined color="blue" />}
-                    >
-                      Gmail
-                    </CustomButton>
-
-                    <CustomButton
-                      onClick={() => loginWithLinkedin()}
-                      backgroundColor="#D9E6FD"
-                      color="#111111"
-                      icon={<LinkedinFilled />}
-                    >
-                      Linedin
-                    </CustomButton>
-                  </div>
-                  <div>
-                    <span>Don't have any account?</span>
-                    <span className="register">Register</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
+      {type === 'login-home' || type === 'admin-dashboard' ? (
+        <LoginHome
+          setEmailCheck={setEmailCheck}
+          setUserType={setUserType}
+          userNameType={userNameType}
+          setUserNameType={setUserNameType}
+          emailCheck={emailCheck}
+          validateEmail={validateEmail}
+          forgetPassword={forgetPassword}
+          loginButton={loginButton}
+          userType={userType}
+          setModalVisible={setModalVisible}
+          setModalType={setModalType}
+          modalType={modalType}
+          modalVisible={modalVisible}
+          type={type}
+        />
       ) : type === 'OTP-verification' ? (
         <div className="cardDiv">
           <Card className="cardStyle">
             <div
-              className="formParent"
+              className="otpFormParent"
               style={{ paddingTop: type === 'OTP-verification' ? '15%' : '5%' }}
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <h1 className="mainHeading">Verification-OTP</h1>
-                <Text>Please check your email</Text>
+                <Text className="subHeading">Please check your email</Text>
               </div>
               <div className="mainContent">
                 <Form
@@ -233,67 +126,11 @@ export const Login = (props: ILoginProps) => {
           </Card>
         </div>
       ) : type === 'new-password' ? (
-        <div className="cardDiv">
-          <Card className="cardStyle">
-            <div
-              className="formParent"
-              style={{ paddingTop: type === 'new-password' ? '15%' : '5%' }}
-            >
-              <div className="topContent">
-                <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
-                  onClick={() => backButton()}
-                />
-                <h1 className="mainHeading">Create New Password</h1>
-                <p className="newPwDesc">
-                  The password must consist of 8 characters with a combination
-                  of letters and number.
-                </p>
-              </div>
-              <div className="mainContent">
-                <Form
-                  layout="vertical"
-                  validateMessages={validateMessages}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
-                >
-                  <Form.Item
-                    name="New Password"
-                    label="New Password"
-                    rules={[{ required: true, min: 8 }]}
-                  >
-                    <Input.Password
-                      className="password"
-                      placeholder="Input your email or phone number"
-                    />
-                  </Form.Item>{' '}
-                  <Form.Item
-                    name="Confirm New Password"
-                    label="Confirm New Password"
-                    rules={[{ required: true, min: 8 }]}
-                  >
-                    <Input.Password
-                      className="password"
-                      placeholder="Input your email or phone number"
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <CustomButton
-                      htmlType="submit"
-                      width={'100%'}
-                      onClick={() => {
-                        loginButton();
-                      }}
-                    >
-                      Submit
-                    </CustomButton>
-                  </Form.Item>
-                </Form>
-              </div>
-            </div>
-          </Card>
-        </div>
+        <NewPassword
+          type={type}
+          backButton={backButton}
+          loginButton={loginButton}
+        />
       ) : type === 'create-account' ? (
         <div className="cardDivCreateAc">
           <Card className="cardStyleCreateAc">
@@ -304,7 +141,7 @@ export const Login = (props: ILoginProps) => {
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <div className="createActop">
@@ -330,9 +167,6 @@ export const Login = (props: ILoginProps) => {
                     <Input
                       type="text"
                       className="username"
-                      onChange={(e: any) => {
-                        setUserName(e.currentTarget.value);
-                      }}
                       placeholder="Input your company name"
                     />
                   </Form.Item>
@@ -344,9 +178,6 @@ export const Login = (props: ILoginProps) => {
                     <Input
                       type="text"
                       className="username"
-                      onChange={(e: any) => {
-                        setUserName(e.currentTarget.value);
-                      }}
                       placeholder="Input your first name"
                     />
                   </Form.Item>
@@ -359,9 +190,6 @@ export const Login = (props: ILoginProps) => {
                       type="text"
                       className="username"
                       placeholder="Input your last name"
-                      onChange={(e: any) => {
-                        setUserName(e.currentTarget.value);
-                      }}
                     />
                   </Form.Item>
                   <Form.Item
@@ -372,9 +200,6 @@ export const Login = (props: ILoginProps) => {
                     <Input
                       type="email"
                       className="username"
-                      onChange={(e: any) => {
-                        setUserName(e.currentTarget.value);
-                      }}
                       placeholder="Input your email"
                     />
                   </Form.Item>
@@ -386,30 +211,27 @@ export const Login = (props: ILoginProps) => {
                     <Input
                       type="text"
                       className="username"
-                      onChange={(e: any) => {
-                        setUserName(e.currentTarget.value);
-                      }}
                       placeholder="Input your Phoen Number"
                     />
                   </Form.Item>
                   <Form.Item
-                    name="New Password"
-                    label="New Password"
+                    name="Password"
+                    label="Password"
                     rules={[{ required: true, min: 8 }]}
                   >
                     <Input.Password
                       className="password"
-                      placeholder="Input your email or phone number"
+                      placeholder="Input your password"
                     />
                   </Form.Item>{' '}
                   <Form.Item
-                    name="Confirm New Password"
-                    label="Confirm New Password"
+                    name="Confirm Password"
+                    label="Confirm Password"
                     rules={[{ required: true, min: 8 }]}
                   >
                     <Input.Password
                       className="password"
-                      placeholder="Input your email or phone number"
+                      placeholder="Input your password"
                     />
                   </Form.Item>
                   <Form.Item
@@ -426,7 +248,7 @@ export const Login = (props: ILoginProps) => {
                       },
                     ]}
                   >
-                    <Checkbox>
+                    <Checkbox className="agreement">
                       I agree to <a href="">Terms and Conditions</a>
                     </Checkbox>
                   </Form.Item>
@@ -443,30 +265,41 @@ export const Login = (props: ILoginProps) => {
                   </Form.Item>
                 </Form>
                 <div className="formFooter">
-                  <div>
+                  <div className="haveAc">
                     <span>Already have an account?</span>
-                    <span className="register"> Login</span>
+                    <span className="register" onClick={() => login()}>
+                      {' '}
+                      Login
+                    </span>
                   </div>
                   <div>
-                    <span>Or Login With</span>
+                    <span className="loginWith">Or Login With</span>
                   </div>
                   <div className="socialLogin">
                     <CustomButton
+                      height={'48px'}
+                      width={'190px'}
                       onClick={() => loginWithGoogle()}
-                      backgroundColor="#D9E6FD"
+                      backgroundColor="#F3F3F3"
                       color="#111111"
-                      icon={<GoogleOutlined color="blue" />}
+                      icon={<Google />}
+                      border={'1px solid #D9E6FD'}
+                      pt="13px"
                     >
-                      Gmail
+                      <span className="socialMeadiaText">Gmail</span>
                     </CustomButton>
 
                     <CustomButton
+                      height={'48px'}
+                      width={'190px'}
                       onClick={() => loginWithLinkedin()}
-                      backgroundColor="#D9E6FD"
+                      backgroundColor="#F3F3F3"
                       color="#111111"
-                      icon={<LinkedinFilled />}
+                      border={'1px solid #D9E6FD'}
+                      pt="13px"
+                      icon={<Linkedin />}
                     >
-                      Linedin
+                      <span className="socialMeadiaText">Linkedin</span>
                     </CustomButton>
                   </div>
                 </div>
@@ -478,16 +311,19 @@ export const Login = (props: ILoginProps) => {
         <div className="cardDiv">
           <Card className="cardStyle">
             <div
-              className="formParent"
+              className="otpFormParent"
               style={{ paddingTop: type === 'forget-password' ? '15%' : '5%' }}
             >
               <div className="topContent">
                 <ArrowLeftOutlined
-                  style={{ fontSize: '25px' }}
+                  style={{ fontSize: '25px', paddingBottom: 20 }}
                   onClick={() => backButton()}
                 />
                 <h1 className="mainHeading">Forgot Password</h1>
-                <Text>{subHeading}</Text>
+                <p className="newPwDesc">
+                  Send us your email or phone number for us to give verification
+                  otp
+                </p>
               </div>
               <div className="mainContent">
                 <Form
@@ -508,7 +344,7 @@ export const Login = (props: ILoginProps) => {
                       onChange={(e: any) => {
                         const intVal: any = parseInt(e.currentTarget.value);
                         const isInnt = Number.isInteger(intVal);
-                        setUserName(e.currentTarget.value);
+
                         if (isInnt) {
                           setUserNameType('number');
                         } else {
@@ -522,7 +358,7 @@ export const Login = (props: ILoginProps) => {
                   <Form.Item>
                     <CustomButton
                       htmlType="submit"
-                      width={'350px'}
+                      width={'100%'}
                       onClick={() => {
                         loginButton();
                       }}
@@ -547,5 +383,12 @@ Login.defaultProps = {
   loginWithGoogle: () => alert('login with google'),
   loginWithLinkedin: () => alert('login with facebook'),
   backButton: () => alert('Back button'),
+  forgetPassword: () => alert('forget password'),
+  registerUser: () => alert('register'),
+  login: () => alert('login'),
   type: 'login-home',
+  images: [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/800px-Black_colour.jpg',
+    'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+  ],
 };

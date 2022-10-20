@@ -1,0 +1,57 @@
+.modalTopContent {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.modalSocialMediaParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 30px;
+}
+.modalIconsDiv {
+  display: flex;
+  gap: 20px;
+}
+.inputLable {
+  padding-bottom: 10px;
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+.headerParent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.orText {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.modalVerificationOtpLable {
+  font-weight: 500;
+  color: #111111;
+  font-family: 'Urbanist';
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+.otpHeading {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+}
+.modalInput {
+  height: 45px;
+  width: 100%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
