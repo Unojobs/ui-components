@@ -1,6 +1,7 @@
-const path = require("path");
-const root = path.resolve(__dirname, "..");
-const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
+const path = require('path');
+const root = path.resolve(__dirname, '..');
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   // typescript: {
@@ -33,31 +34,37 @@ module.exports = {
 
     // Make whatever fine-grained changes you need
 
-    config.resolve.alias["react-native$"] = "react-native-web";
+    config.resolve.alias['react-native$'] = 'react-native-web';
     // config.resolve.alias["native-base"] = path.resolve("../src");
-    config.resolve.alias["components"] = path.resolve("../src");
+    config.resolve.alias['components'] = path.resolve('../src');
     // webpackConfig.module.rules[6].oneOf[1].include.push(path.resolve(__dirname, "../package"))
 
     config.module.rules.push({
       test: /\.(js|ts|tsx)$/,
-      include: path.resolve(root, "src"),
-      use: ["babel-loader"],
+      include: path.resolve(root, 'src'),
+      use: ['babel-loader'],
       exclude: /node_modules/,
     });
 
     config.module.rules.push({
       test: /\.ttf$/,
-      loader: "url-loader", // or directly file-loader
+      loader: 'url-loader', // or directly file-loader
       include: path.resolve(
         __dirname,
-        "node_modules/react-native-vector-icons"
+        'node_modules/react-native-vector-icons'
       ),
     });
 
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        __DEV__: process.env.NODE_ENV === 'development',
+      })
+    );
+
     config.module.rules.push({
       test: /\.(js|jsx|ts|tsx)$/,
-      include: path.resolve(root, "../src"),
-      use: ["babel-loader"],
+      include: path.resolve(root, '../src'),
+      use: ['babel-loader'],
       exclude: /node_modules/,
     });
     // // config.module.rules.push({
@@ -73,25 +80,25 @@ module.exports = {
     //     propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     //   },
     // },
-    config.resolve.alias["@expo/vector-icons"] =
-      "react-native-vector-icons/dist";
+    config.resolve.alias['@expo/vector-icons'] =
+      'react-native-vector-icons/dist';
     // Return the altered config
     return config;
   },
   stories: [
-    "../src/storybook/stories/**/**/**/*.stories.mdx",
-    "../src/storybook/stories/**/**/**/*.stories.@(js|jsx|ts|tsx)",
+    '../src/storybook/stories/**/**/**/*.stories.mdx',
+    '../src/storybook/stories/**/**/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/preset-create-react-app",
-    "@storybook/addon-knobs",
-    "@storybook/addon-docs",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/preset-create-react-app',
+    '@storybook/addon-knobs',
+    '@storybook/addon-docs',
   ],
-  framework: "@storybook/react",
+  framework: '@storybook/react',
   core: {
-    builder: "@storybook/builder-webpack5",
+    builder: '@storybook/builder-webpack5',
   },
 };
