@@ -1,3 +1,5 @@
+// Do not edit this theme, this theme is generated from DSX editor
+
 export const theme = {
   colors: {
     primary: {
@@ -60,6 +62,7 @@ export const theme = {
       '800': '#007aa5',
       '900': '#006487',
     },
+    backgroundFillColor: '#f4f4f5',
   },
   components: {},
 };

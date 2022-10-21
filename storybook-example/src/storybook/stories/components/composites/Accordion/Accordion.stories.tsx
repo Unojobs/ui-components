@@ -3,6 +3,7 @@ import { StorybookArgs } from './Accordion.args';
 
 import React from 'react';
 import { Accordion, Box } from 'components';
+
 const Example = () => {
   return <Box m={3}></Box>;
 };

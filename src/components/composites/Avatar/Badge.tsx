@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge as NBBadge, IAvatarProps } from 'native-base';
-export const Badge = ({ ...props }: IAvatarProps) => {
-  return <NBBadge {...props}></NBBadge>;
+import { Badge as NBBadge, IBadgeProps } from 'native-base';
+export const Badge = ({ ...props }: IBadgeProps) => {
+  return <NBBadge {...props} />;
 };

@@ -4,7 +4,7 @@ import { AppProvider, Box } from 'components';
 export const Wrapper = (props: any) => {
   return (
     <AppProvider>
-      <Box alignItems={'center'} justifyContent="center" height={'100vh'}>
+      <Box >
         {props.children}
       </Box>
     </AppProvider>
