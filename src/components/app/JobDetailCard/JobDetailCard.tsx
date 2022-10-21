@@ -7,7 +7,7 @@ import {
   Text,
   Image,
   HStack,
-} from 'src/components/primitives';
+} from '../../../';
 import type { JobDetailCardProps } from './types';
 import { CandidateAvatars } from '../CandidateAvatars';
 

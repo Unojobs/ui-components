@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UnojobsLogo, Text, CustomButton } from 'src';
+import { UnojobsLogo, Text, CustomButton } from '../../../../../';
 import './loginModalStyle.css';
 import OtpInput from 'react-otp-input';
 import { Form } from 'antd';

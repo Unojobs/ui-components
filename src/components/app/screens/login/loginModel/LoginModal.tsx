@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Modal, UnojobsLogo, Text, Google, CustomButton, Linkedin } from 'src';
+import { Modal, UnojobsLogo, Text, Google, CustomButton, Linkedin } from '../../../../../';
 import './loginModalStyle.css';
 import { Form, Input as AntDInput } from 'antd';
-import { FacebookLogo } from 'src/components/app/Icons/FacebookLogo';
+import { FacebookLogo } from '../../../../../';
 import { VerificationModal } from './VerificationModal';
 interface IModalProps {
   type?: 'register' | 'OTP-verification';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createIcon } from 'src/components/primitives';
+import { createIcon } from '../../primitives';
 
 type IconProps = {
   fill?: string;

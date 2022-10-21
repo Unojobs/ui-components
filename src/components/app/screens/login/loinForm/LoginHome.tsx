@@ -2,8 +2,8 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Card, Form, Input, Typography } from 'antd';
 import './LoginStyle.css';
-import { CustomButton, LoginModal, SelectableRadioButton } from 'src';
-import { UnojobsLogo, Linkedin, Google, FacebookLogo } from 'src';
+import { CustomButton, LoginModal, SelectableRadioButton } from '../../../../../';
+import { UnojobsLogo, Linkedin, Google, FacebookLogo } from '../../../../../';
 export const LoginHome = (props: any) => {
   const {
     setEmailCheck,
@@ -41,14 +41,19 @@ export const LoginHome = (props: any) => {
   return (
     <div className="cardDivLoginHome">
       <Card className="cardStyleCreateAc">
-        <div className="formParent">
-          <div className="topContent">
-            <UnojobsLogo />
-            <h1 className="mainHeading">Welcome to Unojob</h1>
-            <Text className="subHeading">
-              Please first select you as what here?
-            </Text>
-          </div>
+        <div
+          className="formParent"
+          style={{ paddingTop: type === 'admin-dashboard' ? '190px' : '5%' }}
+        >
+          {type !== 'admin-dashboard' && (
+            <div className="topContent">
+              <UnojobsLogo />
+              <h1 className="mainHeading">Welcome to Unojob</h1>
+              <Text className="subHeading">
+                Please first select you as what here?
+              </Text>
+            </div>
+          )}
           <div className="mainContent">
             <Form
               layout="vertical"
