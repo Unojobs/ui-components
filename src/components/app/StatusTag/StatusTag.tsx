@@ -17,7 +17,6 @@ export const StatusTag: React.FC<IStatusTagProps> = (props) => {
           color: textColor || '#00BAFB',
           fontWeight: 500,
           fontSize: 'sm',
-          fontFamily: 'Urbanist_500Medium',
         }}
         borderRadius="10px"
         paddingX="10px"

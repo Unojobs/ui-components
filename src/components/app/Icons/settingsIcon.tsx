@@ -57,7 +57,7 @@ const MoreIconSvg = () => (
   </svg>
 );
 
-export interface IconProps {
+interface IconProps {
   /** invoke onClick event function */
   onClick?: (event: React.MouseEvent) => void;
 }
