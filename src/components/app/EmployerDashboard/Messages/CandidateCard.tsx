@@ -4,7 +4,7 @@ import { Avatar } from 'antd';
 import { Box, HStack, VStack } from 'src/components/primitives';
 import { Text, Pressable } from 'src/components/primitives';
 import { makeRandomColor } from 'src/components/utils';
-type TApplication = { jid: number; jobTitle: string };
+type TApplication = { jid: number; jobTitle: string; status: string };
 type TMessage = { msgBody: any; date: string; timestamp: string };
 type TCandidate = {
   username: string;
