@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeBaseProvider, extendTheme, Box } from 'native-base';
+import { NativeBaseProvider, extendTheme } from 'native-base';
 import { theme as defaultTheme } from '../../theme';
 import { custom } from '../../theme/custom';
 import merge from 'lodash.merge';
@@ -11,7 +11,6 @@ declare module 'native-base' {
 export const AppProvider = ({ children, theme, ...props }: any) => {
   return (
     <NativeBaseProvider theme={extendTheme(appTheme, theme)} {...props}>
-      <Box></Box>
       {children}
     </NativeBaseProvider>
   );
