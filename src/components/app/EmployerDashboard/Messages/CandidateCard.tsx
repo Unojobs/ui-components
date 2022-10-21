@@ -32,7 +32,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
       backgroundColor={isActive ? '#4169E0' : '#fff'}
     >
       <Pressable onPress={handleClick}>
-        <HStack width={'100%'} alignItems={'flex-start'} space={2}>
+        <HStack width={'100%'} alignItems={'flex-start'} space={2.5}>
           {candidate?.avatarUri ? (
             <Avatar size={48} src={candidate.avatarUri} />
           ) : (
@@ -83,7 +83,11 @@ export const CandidateCard = (props: CandidateCardProps) => {
               )}
             </span>
 
-            <HStack justifyContent={'space-between'} alignItems={'center'}>
+            <HStack
+              marginTop={3}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
               <Text
                 color={isActive ? '#fff' : '#000304'}
                 fontSize={12}
