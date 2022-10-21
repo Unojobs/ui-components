@@ -149,18 +149,7 @@ export const UnoJobsSalesDepartment = ({ fill, size }: IconProps) => {
       </>
     ),
   });
-  return (
-    <div
-      style={{
-        borderRadius: '50%',
-        width: '40px',
-        height: '40px',
-        backgroundColor: 'black',
-      }}
-    >
-      <CustomIcon size={size ? size : 8} />
-    </div>
-  );
+  return <CustomIcon size={size ? size : 8} />;
 };
 
 UnoJobsSalesDepartment.defaultProps = {
