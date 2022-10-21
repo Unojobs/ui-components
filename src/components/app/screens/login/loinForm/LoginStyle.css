@@ -68,12 +68,14 @@
   width: 400px;
   font-family: 'Urbanist';
   color: #b7b7b7;
+  border-radius: 5px;
 }
 .password {
   height: 45px;
   font-weight: 14px;
   width: 400px;
   font-family: 'Urbanist';
+  border-radius: 5px;
 }
 .ant-image-preview-operations-operation:not(:first-child) {
   display: none;
@@ -219,4 +221,5 @@
 .modalInput {
   height: 45px;
   width: 100%;
+  border-radius: 5px;
 }
