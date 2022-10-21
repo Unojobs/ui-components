@@ -1,6 +1,6 @@
-import { Center } from 'native-base';
 import React from 'react';
 import { createIcon, Text } from '../../primitives';
+import { Center } from '../../composites';
 
 type IconProps = {
   fill?: string;
