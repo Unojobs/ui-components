@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Card, Form, Input } from 'antd';
 import './LoginStyle.css';
-import { CustomButton } from 'src';
+import { CustomButton } from '../../../../../';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 export const NewPassword = (props: any) => {
   const { backButton, loginButton, type } = props;
