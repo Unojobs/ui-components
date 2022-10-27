@@ -12,3 +12,4 @@ export * from './SelectableRadioButton';
 export * from './FaqCard';
 export * from './CandidateAvatars';
 export * from './UnojobsIcons';
+export * from './Authentication';
