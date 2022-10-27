@@ -5,6 +5,8 @@ import {
   StarFilled,
   EnvironmentFilled,
   FileTextFilled,
+  MailTwoTone,
+  PhoneTwoTone,
 } from '@ant-design/icons';
 import { Box, HStack, Text, VStack } from 'src/components/primitives';
 import { makeRandomColor } from 'src/components/utils';
@@ -22,38 +24,49 @@ type TCandidate = {
 export interface ChatTopMenuProps {
   candidate: TCandidate;
 }
+
 export const ChatTopMenu = (props: ChatTopMenuProps) => {
   const { candidate } = props;
+  const handleNotesClick = (event: any) => {
+    // eslint-disable-next-line no-console
+    console.log(event);
+  };
   return (
     <Box
       height={157}
       width={815}
-      borderColor={'amber.100'}
-      borderStyle={'solid'}
-      borderWidth={2}
+      display={'flex'}
+      flexDirection={'column'}
+      justifyContent={'space-between'}
     >
-      <VStack alignItems={'flex-start'} width={'100%'} height={'100%'}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
+      <HStack
+        width={'100%'}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+      >
+        <Box
+          display={'flex'}
+          flexDirection={'row'}
+          alignItems={'center'}
+          flexGrow={1}
         >
-          <HStack
-            borderColor={'amber.100'}
-            borderStyle={'solid'}
-            borderWidth={1}
-          >
-            {candidate?.avatarUri ? (
-              <Avatar size={48} src={candidate.avatarUri} />
-            ) : (
-              <Avatar size={48} style={{ backgroundColor: makeRandomColor() }}>
-                {candidate.username.slice(0, 1).toUpperCase()}
-              </Avatar>
-            )}
-            <VStack>
-              <Text>{candidate.username}</Text>
+          {candidate.avatarUri ? (
+            <Avatar
+              style={{ marginRight: 6 }}
+              size={48}
+              src={candidate.avatarUri}
+            />
+          ) : (
+            <Avatar
+              size={48}
+              style={{ marginRight: 6, backgroundColor: makeRandomColor() }}
+            >
+              {candidate.username.slice(0, 1).toUpperCase()}
+            </Avatar>
+          )}
+          <VStack space={0.5}>
+            <Text fontSize={16}>{candidate.username}</Text>
+            {candidate.rating ? (
               <span>
                 {new Array(candidate.rating).fill(0).map((_, idx) => (
                   <StarFilled
@@ -63,55 +76,60 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
                   />
                 ))}
               </span>
-              <Text>
-                <EnvironmentFilled size={12} /> {candidate.address}
-              </Text>
-            </VStack>
-          </HStack>
-
-          {/* {candidate.activeApplications.length === 1 ? (
-            <VStack>
-              <Text>Job:</Text>
-              <span>
-                <Text>{candidate.activeApplications[0].jobTitle}</Text>
-              </span>
-              <span>
-                <Text>{candidate.activeApplications[0].status}</Text>
-              </span>
-            </VStack>
-          ) : (
-            <Text>No Applications</Text>
-          )} */}
-          <HStack
-            space={5}
-            borderColor={'amber.100'}
-            borderStyle={'solid'}
-            borderWidth={1}
-            alignItems={'center'}
+            ) : (
+              <Text>No rating</Text>
+            )}
+            <Text>
+              <EnvironmentFilled /> {candidate.address}
+            </Text>
+          </VStack>
+        </Box>
+        <Box
+          display={'flex'}
+          flexDirection={'row'}
+          alignItems={'center'}
+          flexGrow={1}
+          justifyContent={'space-around'}
+        >
+          <CustomButton
+            backgroundColor="#fff"
+            color="#000"
+            width={'152'}
+            height={'40'}
+            onClick={handleNotesClick}
           >
-            <CustomButton backgroundColor="#fff">
-              <Text marginRight={2}>Notes</Text>
-              <FileTextFilled style={{ color: '#000' }} />
-            </CustomButton>
-            <span style={{ marginRight: 10 }}>
-              <Text>{candidate.activeApplications[0].status}</Text>
-            </span>
-            <VStack alignItems={'flex-start'} space={1}>
-              <Text>email</Text>
-              <Text>phoneNumber</Text>
-            </VStack>
-          </HStack>
-        </div>
-        {candidate.activeApplications.length && (
-          <Tabs
-            items={candidate.activeApplications.map((appl, idx) => ({
-              label: appl.jobTitle,
-              key: String(idx),
-              children: appl.jid,
-            }))}
-          />
-        )}
-      </VStack>
+            <FileTextFilled /> Notes
+          </CustomButton>
+          <span
+            style={{
+              backgroundColor: '#F3F3F3',
+              paddingTop: 16,
+              paddingRight: 10,
+              paddingBottom: 16,
+              paddingLeft: 16,
+            }}
+          >
+            <Text>{candidate.activeApplications[0].status}</Text>
+          </span>
+          <VStack space={0.5}>
+            <Text>
+              <MailTwoTone twoToneColor="#EB5757" /> {candidate.email}
+            </Text>
+            <Text>
+              <PhoneTwoTone twoToneColor="#66B949" /> {candidate.phoneNumber}
+            </Text>
+          </VStack>
+        </Box>
+      </HStack>
+      {candidate.activeApplications.length && (
+        <Tabs
+          items={candidate.activeApplications.map((appl, idx) => ({
+            label: appl.jobTitle,
+            key: String(idx),
+            children: appl.jid,
+          }))}
+        />
+      )}
     </Box>
   );
 };
