@@ -12,7 +12,6 @@
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/urbanist": "^0.2.2",
     "expo-asset": "^8.6.1",
-    "expo-font": "^10.2.1",
     "expo-modules-core": "^0.11.8",
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.23.5",
@@ -30,10 +29,10 @@
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-native": "*",
-    "react": "*",
-    "react-dom": "*",
     "antd": "^4.22.2",
     "native-base": "3.4.17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-native": "*",
     "react-native-web": "0.17.1"
   },

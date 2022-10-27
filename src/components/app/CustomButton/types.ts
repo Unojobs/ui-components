@@ -7,6 +7,7 @@
  * @param icon {string} - is for adding icon on left of text of button, undfined as default e.g, icon={icon}
  * @param htmlType {string} - is for setting up type of button, "button" as default e.g, htmlType="button" | htmlType="Submit" | htmlType="Reset"
  * @param border {string} - is for setting up border of button, "none" as default e.g, border="1px solid #4169E0"
+ * @param
  */
 
 export interface CustomButtonProps {
@@ -20,8 +21,11 @@ export interface CustomButtonProps {
   icon?: React.ReactNode;
   htmlType?: 'button' | 'submit' | 'reset';
   border: string;
-  fontFamily?:string,
-  pt?:string;
-  p?:string;
-  disable?:boolean
+  fontFamily?: string;
+  pt?: string;
+  p?: string;
+  disable?: boolean;
+  display?: string;
+  justifyContent?: string;
+  alignItems?: string;
 }
