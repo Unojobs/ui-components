@@ -16,7 +16,7 @@ export interface InputMessageFieldProps {
 }
 export const InputMessageField = (props: InputMessageFieldProps) => {
   const { avatarUri, username } = props;
-  const handleChange = (_event: React.KeyboardEvent<HTMLTextAreaElement>) => {};
+  const handleChange = (_event: any) => {};
   const handleEmojiPicker = () => {};
   const handleFileUpload = () => {};
   const handleMessageSubmit = (
