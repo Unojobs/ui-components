@@ -1,7 +1,7 @@
 import React from 'react';
 import { DashboardTableWrapper } from 'components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Wrapper } from '../../Wrapper';
+import { Wrapper } from '../../../Wrapper';
 import type { ColumnsType } from 'antd/es/table';
 
 import { Table } from 'antd';

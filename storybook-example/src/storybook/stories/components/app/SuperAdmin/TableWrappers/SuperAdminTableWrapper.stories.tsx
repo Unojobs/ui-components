@@ -1,14 +1,14 @@
 import React from 'react';
-import { RegistrationTableWrapper } from 'components';
+import { SuperAdminTableWrapper } from 'components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Wrapper } from '../../Wrapper';
+import { Wrapper } from '../../../Wrapper';
 
 import { Table } from 'antd';
 
 export default {
-  title: 'RegistrationTableWrapper',
-  component: RegistrationTableWrapper,
-} as ComponentMeta<typeof RegistrationTableWrapper>;
+  title: 'SuperAdminTableWrapper',
+  component: SuperAdminTableWrapper,
+} as ComponentMeta<typeof SuperAdminTableWrapper>;
 
 const dataSource = [
   {
@@ -43,11 +43,11 @@ const columns = [
   },
 ];
 
-const Template: ComponentStory<typeof RegistrationTableWrapper> = (args) => (
+const Template: ComponentStory<typeof SuperAdminTableWrapper> = (args) => (
   <Wrapper>
-    <RegistrationTableWrapper {...args}>
+    <SuperAdminTableWrapper {...args}>
       <Table columns={columns} dataSource={dataSource} />
-    </RegistrationTableWrapper>
+    </SuperAdminTableWrapper>
   </Wrapper>
 );
 export const Variants = Template.bind({});

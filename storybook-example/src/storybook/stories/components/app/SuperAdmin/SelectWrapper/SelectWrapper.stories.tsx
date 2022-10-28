@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownArrowCurvedIcon, SelectWrapper, Text } from 'components';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Wrapper } from '../../Wrapper';
+import { Wrapper } from '../../../Wrapper';
 
 import { Select } from 'antd';
 

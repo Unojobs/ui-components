@@ -13,5 +13,4 @@ export * from './FaqCard';
 export * from './StatusTag';
 export * from './CandidateAvatars';
 export * from './UnojobsIcons';
-export * from './SelectWrapper';
-export * from './TableWrappers';
+export * from './SuperAdmin';
