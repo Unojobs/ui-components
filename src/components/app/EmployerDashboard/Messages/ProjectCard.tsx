@@ -9,7 +9,7 @@ import {
   Pressable,
 } from '../../../primitives';
 import { Avatar, Badge } from 'antd';
-import { makeRandomColor } from 'src/components/utils';
+import { makeRandomColor } from '../../../utils';
 type TCandidates = { username: string; avatarUri: string };
 type TConversations = { cid: number };
 export interface ProjectCardProps {

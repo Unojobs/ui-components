@@ -7,7 +7,7 @@ import {
   SmileOutlined,
   SendOutlined,
 } from '@ant-design/icons';
-import { makeRandomColor } from 'src/components/utils';
+import { makeRandomColor } from '../../../utils';
 import { CustomButton } from '../../CustomButton';
 const { TextArea } = Input;
 export interface InputMessageFieldProps {
