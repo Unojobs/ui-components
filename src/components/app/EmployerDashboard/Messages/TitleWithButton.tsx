@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { HStack, Text, Heading } from 'src/components/primitives';
+import { HStack, Text, Heading } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { PlusOutlined } from '@ant-design/icons';
 export interface TitleWithBtnProps {

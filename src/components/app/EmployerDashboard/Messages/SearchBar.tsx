@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { Box, Input } from 'src/components/primitives';
+import { Box, Input } from '../../../primitives';
 import { SearchOutlined } from '@ant-design/icons';
 export interface SearchBarProps {}
 export const SearchBar = (props: SearchBarProps) => {

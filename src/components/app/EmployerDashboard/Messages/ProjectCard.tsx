@@ -7,7 +7,7 @@ import {
   Text,
   Heading,
   Pressable,
-} from 'src/components/primitives';
+} from '../../../primitives';
 import { Avatar, Badge } from 'antd';
 import { makeRandomColor } from 'src/components/utils';
 type TCandidates = { username: string; avatarUri: string };

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Select } from 'antd';
 import React from 'react';
-import { Box } from 'src/components/primitives';
+import { Box } from '../../../primitives';
 const { Option } = Select;
 export interface ConversationCategoryDropdownProps {
   categories: string[];

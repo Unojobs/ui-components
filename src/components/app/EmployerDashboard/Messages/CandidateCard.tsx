@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Avatar } from 'antd';
-import { Box, HStack, VStack } from 'src/components/primitives';
-import { Text, Pressable } from 'src/components/primitives';
-import { makeRandomColor } from 'src/components/utils';
+import { Box, HStack, VStack } from '../../../primitives';
+import { Text, Pressable } from '../../../primitives';
+import { makeRandomColor } from '../../../utils';
 type TApplication = { jid: number; jobTitle: string; status: string };
 type TMessage = { msgBody: any; date: string; timestamp: string };
 type TCandidate = {

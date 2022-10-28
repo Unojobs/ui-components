@@ -8,8 +8,8 @@ import {
   MailTwoTone,
   PhoneTwoTone,
 } from '@ant-design/icons';
-import { Box, HStack, Text, VStack } from 'src/components/primitives';
-import { makeRandomColor } from 'src/components/utils';
+import { Box, HStack, Text, VStack } from '../../../primitives';
+import { makeRandomColor } from '../../../utils';
 import { CustomButton } from '../../CustomButton';
 type TApplication = { jid: number; jobTitle: string; status: string };
 type TCandidate = {

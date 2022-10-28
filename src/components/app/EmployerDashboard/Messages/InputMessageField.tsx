@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Avatar, Input } from 'antd';
 import React from 'react';
-import { HStack } from 'src/components/primitives';
+import { HStack } from '../../../primitives';
 import {
   FileAddOutlined,
   SmileOutlined,
