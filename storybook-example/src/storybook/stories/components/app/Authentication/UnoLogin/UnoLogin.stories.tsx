@@ -12,7 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof UnoLogin> = (args) => (
   <Wrapper>
-    <UnoLogin />
+    <UnoLogin {...args} />
   </Wrapper>
 );
 export const Variants = Template.bind({});
