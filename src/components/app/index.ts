@@ -13,3 +13,4 @@ export * from './FaqCard';
 export * from './CandidateAvatars';
 export * from './UnojobsIcons';
 export * from './EmployerDashboard';
+export * from './TopMatches';
