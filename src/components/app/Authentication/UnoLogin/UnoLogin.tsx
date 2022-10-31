@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Input } from 'antd';
 import { HStack, Text, VStack } from '../../../primitives';
 import { style } from '../style.authentication';
@@ -8,6 +8,7 @@ import {
   FacebookLogo,
   Google as GoogleLogo,
   Linkedin as LinkedInLogo,
+  UnojobsLogo,
 } from '../../Icons';
 import { IconButton } from '../../../composites';
 import type { IUnoLoginProps } from './types';
@@ -15,14 +16,6 @@ import '../styles.authentication.css';
 import { preventCopyPaste } from '../helper.authentication';
 
 export const UnoLogin = (props: IUnoLoginProps) => {
-  const [isAdmin] = useState<boolean>(props.isAdmin);
-  const [isCandidate, setIsCandidate] = useState<boolean>(false);
-
-  //form submit success
-  const onFinish = (values: any) => {
-    console.warn('Success:', values);
-  };
-
   //form submit fail
   const onFinishFailed = (errorInfo: any) => {
     console.warn('Failed:', errorInfo);
@@ -30,16 +23,21 @@ export const UnoLogin = (props: IUnoLoginProps) => {
 
   return (
     <VStack {...style.mainContainer}>
-      <Text {...style.heading}>{props.heading}</Text>
+      <VStack>
+        {props.unoLogo}
+        <Text {...style.heading} fontFamily={'body'}>
+          {props.heading}
+        </Text>
+      </VStack>
       <Form
         layout="vertical"
-        onFinish={onFinish}
+        onFinish={props.onLogin}
         onFinishFailed={onFinishFailed}
         scrollToFirstError={true}
         requiredMark={false}
         autoComplete={'off'}
       >
-        {!isAdmin && (
+        {!props.isAdmin && (
           <Form.Item
             label="Please first select you as what here?"
             name="userType"
@@ -60,9 +58,9 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               initialValue={'Employer'}
               onChange={(value: string) => {
                 if (value.toLowerCase() === 'candidate') {
-                  setIsCandidate(true);
+                  props.setIsCandidate(true);
                 } else {
-                  setIsCandidate(false);
+                  props.setIsCandidate(false);
                 }
               }}
             />
@@ -106,7 +104,6 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               required: true,
               whitespace: true,
               message: '',
-              min: 10,
             },
           ]}
         >
@@ -128,11 +125,12 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           Login
         </CustomButton>
       </Form>
-      {!isAdmin && (
+      {!props.isAdmin && (
         <>
           <Text {...style.commonText}>
             Don't have any account?
             <Text {...style.registerText} onPress={props.onRegister}>
+              {' '}
               Register
             </Text>
           </Text>
@@ -149,7 +147,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               {...style.iconButton}
             />
 
-            {isCandidate && (
+            {props.isCandidate && (
               <IconButton
                 icon={<FacebookLogo />}
                 onPress={props.onFacebookLogin}
@@ -172,4 +170,7 @@ UnoLogin.defaultProps = {
   onLinkedInLogin: undefined,
   onFacebookLogin: undefined,
   onLogin: undefined,
+  unoLogo: <UnojobsLogo />,
+  isCandidate: false,
+  setIsCandidate: undefined,
 };

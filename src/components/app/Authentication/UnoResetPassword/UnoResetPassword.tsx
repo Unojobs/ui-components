@@ -11,11 +11,6 @@ import type { IUnoResetPasswordProps } from './types';
 import { passwordValidator, preventCopyPaste } from '../helper.authentication';
 
 export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
-  //form submit success
-  const onFinish = (values: any) => {
-    console.warn('Success:', values);
-  };
-
   //form submit fail
   const onFinishFailed = (errorInfo: any) => {
     console.warn('Failed:', errorInfo);
@@ -29,15 +24,20 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
         _hover={{
           backgroundColor: '#ffffff',
         }}
+        {...style.backIconButton}
         {...style.backArrowIcon}
       />
-      <div>
-        <Text {...style.heading}>{props.heading}</Text>
-        <Text {...style.subHeading}>{props.subHeading} </Text>
-      </div>
+      {(props.heading || props.subHeading) && (
+        <VStack>
+          {props.heading && <Text {...style.heading}>{props.heading}</Text>}
+          {props.subHeading && (
+            <Text {...style.subHeading}>{props.subHeading} </Text>
+          )}
+        </VStack>
+      )}
       <Form
         layout="vertical"
-        onFinish={onFinish}
+        onFinish={props.onSubmit}
         onFinishFailed={onFinishFailed}
         scrollToFirstError={true}
         requiredMark={false}

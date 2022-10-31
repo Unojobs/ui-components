@@ -16,7 +16,8 @@ export interface IUnoLoginProps {
   onFacebookLogin?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
   ) => void | undefined;
-  onLogin?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
-  ) => void | undefined;
+  onLogin?: (values: any) => void | undefined;
+  unoLogo: React.FC;
+  isCandidate: boolean;
+  setIsCandidate: React.Dispatch<React.SetStateAction<boolean>>;
 }

@@ -75,12 +75,42 @@ export const style = {
     alignItems: 'center',
     space: '30px',
   },
-  backArrowIcon: {
+  backIconButton: {
     width: '0px',
     height: '0px',
     fontSize: '50px',
     cursor: 'pointer',
     marginRight: 'auto',
+  },
+  backArrowIcon: {
     marginTop: '30px',
+  },
+  backArrowModalIcon: {
+    marginTop: '15px',
+    marginLeft: '15px',
+  },
+  modalPosition: {
+    maxWidth: '430px',
+    backgroundColor: '#FFFFFF',
+    maxHeight: 'auto',
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    marginTop: 'auto',
+    marginLeft: '-215px',
+    marginRight: '0px',
+    marginBottom: '0px',
+  },
+  otpInputStyle: {
+    width: '60px',
+    height: '40px',
+    border: '1px solid #F3F3F3',
+    borderRadius: '5px',
+  },
+  otpErrorInput: {
+    border: '1px solid red',
+  },
+  otpSeperatorStyle: {
+    width: '8px',
   },
 };
