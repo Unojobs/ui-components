@@ -5,7 +5,7 @@ import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import OtpInput from 'react-otp-input';
 import { style } from '../style.authentication';
-import { BackArrowIcon, UnojobsLogo } from '../../Icons';
+import { BackArrowIcon } from '../../Icons';
 import type { IUnoOTPModalProps } from './types';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
@@ -38,12 +38,14 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
           />
           <Modal.Body>
             <VStack {...style.mainContainer}>
-              <Text {...style.heading} textAlign="center" fontFamily={'body'}>
-                <HStack space={8}>
-                  {props.unoLogo}
-                  {props.title}
-                </HStack>
-              </Text>
+              {(props.title || props.unoLogo) && (
+                <Text {...style.heading} textAlign="center">
+                  <HStack space={8}>
+                    {props.unoLogo}
+                    {props.title}
+                  </HStack>
+                </Text>
+              )}
 
               {(props.heading || props.subHeading) && (
                 <VStack>
@@ -97,5 +99,5 @@ UnoOTPModal.defaultProps = {
   title: '',
   label: '',
   onSubmit: undefined,
-  unoLogo: <UnojobsLogo />,
+  unoLogo: undefined,
 };

@@ -10,7 +10,7 @@ export interface IUnoOTPModalProps {
   onSubmit?: (values: any) => void | undefined;
   isOpened: boolean;
   setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  unoLogo: React.FC;
+  unoLogo?: React.FC;
 }
 
 export interface IUnoForgetPasswordModalProps {
@@ -20,7 +20,7 @@ export interface IUnoForgetPasswordModalProps {
   onSubmit?: (values: any) => void | undefined;
   isOpened: boolean;
   setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  unoLogo: React.FC;
+  unoLogo?: React.FC;
 }
 
 export interface IUnoUserRegisterProps {
@@ -38,5 +38,5 @@ export interface IUnoUserRegisterProps {
   onFacebookLogin?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
   ) => void | undefined;
-  unoLogo: React.FC;
+  unoLogo?: React.FC;
 }
