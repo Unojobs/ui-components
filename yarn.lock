@@ -12986,7 +12986,7 @@ inline-style-parser@0.1.1:
   resolved "https://registry.yarnpkg.com/inline-style-parser/-/inline-style-parser-0.1.1.tgz#ec8a3b429274e9c0a1f1c4ffa9453a7fef72cea1"
   integrity sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==
 
-inline-style-prefixer@^6.0.0:
+inline-style-prefixer@^6.0.0, inline-style-prefixer@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-6.0.1.tgz#c5c0e43ba8831707afc5f5bbfd97edf45c1fa7ae"
   integrity sha512-AsqazZ8KcRzJ9YPN1wMH2aNM7lkWQ8tSPrW5uDk1ziYwiAPWSZnUsC7lfZq+BDqLqz0B4Pho5wscWcJzVvRzDQ==
@@ -16642,10 +16642,10 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-native-base@3.4.17:
-  version "3.4.17"
-  resolved "https://registry.yarnpkg.com/native-base/-/native-base-3.4.17.tgz#d2ce41cc43175b9d6df6c63c9eb7e0e88b83bf8e"
-  integrity sha512-tAySi0e42xRTEJcNWH61+B8FS+OyC1891joSBivE3DjZQLxbMHnhYbY7BXIqJnisIuNs1RFjl5MLWzTRxB4RZA==
+native-base@3.4.20:
+  version "3.4.20"
+  resolved "https://registry.yarnpkg.com/native-base/-/native-base-3.4.20.tgz#8487e9fdfa5ed11e80b96199f65f68d504fbb5d0"
+  integrity sha512-0KP509NVGQTGWte9IFMs5vi3IPDG5O+oJsun/51wJeQMVYWVqmTFPcuB1vOd70yalWlPXb+HM4muoJbFYQlS6A==
   dependencies:
     "@react-aria/focus" "3.2.3"
     "@react-aria/utils" "^3.6.0"
@@ -16670,6 +16670,7 @@ native-base@3.4.17:
     "@react-stately/toggle" "3.2.1"
     "@types/lodash.has" "^4.5.6"
     "@types/use-subscription" "^1.0.0"
+    inline-style-prefixer "^6.0.1"
     lodash.clonedeep "^4.5.0"
     lodash.get "^4.4.2"
     lodash.has "^4.5.2"
