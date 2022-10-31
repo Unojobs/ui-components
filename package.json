@@ -29,7 +29,7 @@
     "@types/react": "*",
     "@types/react-native": "*",
     "antd": "^4.22.2",
-    "native-base": "3.4.17",
+    "native-base": "3.4.20",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
