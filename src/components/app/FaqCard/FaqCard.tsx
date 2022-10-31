@@ -3,7 +3,7 @@ import { Collapse } from '../../composites';
 import { Text } from '../../primitives';
 import { UpArrowRoundIcon, DownArrowRoundIcon } from '../Icons';
 import type { FaqCardProps } from './types';
-import './style.css';
+// import './style.css';
 
 export const FaqCard = (props: FaqCardProps): JSX.Element => {
   const { title, description } = props;
