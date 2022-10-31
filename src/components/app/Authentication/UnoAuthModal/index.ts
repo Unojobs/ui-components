@@ -1,1 +1,3 @@
-export * from './UnoAuthModal';
+export * from './UnoRegisterModal';
+export * from './UnoForgetPasswordModal';
+export * from './UnoOTPModal';
