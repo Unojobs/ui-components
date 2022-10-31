@@ -13,16 +13,15 @@ export const SearchBar = (props: SearchBarProps) => {
     <Box
       width={'327px'}
       height={'45px'}
-      alignItems={'center'}
-      justifyContent={'center'}
       paddingX={'13px'}
       paddingY={'20px'}
+      justifyContent={'center'}
     >
       <Input
         placeholder="Search Message"
         onChange={handleChange}
         // value={searchVal}
-        style={{ width: '100%', fontSize: 12 }}
+        style={{ width: '100%', height: '100%', fontSize: 12 }}
         InputRightElement={<SearchOutlined />}
         variant={'unstyled'}
       />
