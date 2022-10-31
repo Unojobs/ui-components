@@ -44,6 +44,7 @@ import {
   UnoJobsHospitalityDepartment,
   UnoJobsWellnessDepartment,
   UnoJobsAviationDepartment,
+  UnojobsTickIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -85,10 +86,11 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsSettingsIcon />
             <UnojobsWindowFilledIcon />
           </HStack>
-          <HStack space={3} alignItems="center">
+          <HStack space={3} alignItems="center" flexWrap="wrap">
             <Text>Landing :</Text>
             <UnojobsUpArrowRoundIcon />
             <UnojobsDownArrowRoundIcon />
+            <UnojobsTickIcon></UnojobsTickIcon>
             <UnoJobsTechDepartment></UnoJobsTechDepartment>
             <UnoJobsDataAnalysis></UnoJobsDataAnalysis>
             <UnoJobsDesign></UnoJobsDesign>
