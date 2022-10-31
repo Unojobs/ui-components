@@ -14,3 +14,4 @@ export * from './CandidateAvatars';
 export * from './UnojobsIcons';
 export * from './EmployerDashboard';
 export * from './TopMatches';
+export * from './VideoCallPlatform';

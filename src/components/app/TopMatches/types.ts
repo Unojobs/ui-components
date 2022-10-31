@@ -8,4 +8,5 @@ export type ITopmatches = {
   buttonText?: string;
   jobSave?(): string;
   type: 'default' | 'no-event';
+  applyJob?():string
 };
