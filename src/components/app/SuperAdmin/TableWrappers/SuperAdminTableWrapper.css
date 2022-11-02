@@ -31,6 +31,7 @@
 .registration-table-wrapper {
   border: 1px solid #e7e7e7 !important;
   border-radius: 5px !important;
+  overflow: hidden;
 }
 
 .registration-table-wrapper .ant-table-tbody > tr > td {

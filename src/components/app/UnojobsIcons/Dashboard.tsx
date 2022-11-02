@@ -229,3 +229,21 @@ UnojobsWindowFilledIcon.defaultProps = {
   fill: '#b7b7b7',
   size: 3,
 };
+
+export const UnojobsRoundedSearchIcon = ({ fill, size }: IconProps) => {
+  const CustomIcon = createIcon({
+    viewBox: '0 0 18 18',
+    path: (
+      <path
+        fill={fill ? fill : 'currentColor'}
+        d="M13.662 14.545l2.44 2.441a.625.625 0 00.884-.884l-2.441-2.44a8.125 8.125 0 10-.884.883h.002zm1.588-6.17a6.875 6.875 0 11-13.75 0 6.875 6.875 0 0113.75 0z"
+      />
+    ),
+  });
+  return <CustomIcon size={size ? size : 3} />;
+};
+
+UnojobsRoundedSearchIcon.defaultProps = {
+  fill: '#b7b7b7',
+  size: 3,
+};
