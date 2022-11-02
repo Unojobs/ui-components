@@ -4,18 +4,12 @@ import { Text, VStack } from '../../../primitives';
 import { style } from '../style.authentication';
 import { CustomButton } from '../../CustomButton';
 import { IconButton } from '../../../composites';
-
 import '../styles.authentication.css';
 import { BackArrowIcon } from '../../Icons';
 import type { IUnoResetPasswordProps } from './types';
 import { passwordValidator, preventCopyPaste } from '../helper.authentication';
 
 export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
-  //form submit fail
-  const onFinishFailed = (errorInfo: any) => {
-    console.warn('Failed:', errorInfo);
-  };
-
   return (
     <VStack {...style.mainContainer}>
       <IconButton
@@ -37,16 +31,16 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
       )}
       <Form
         layout="vertical"
-        onFinish={props.onSubmit}
-        onFinishFailed={onFinishFailed}
+        onFinish={props.onCreate}
         scrollToFirstError={true}
         requiredMark={false}
         autoComplete={'off'}
+        className="ant-form-wrapper-ui"
       >
         <Form.Item
           label="Password"
           name="password"
-          tooltip="must contain uppercase, lowercase, number, special & min length of 10 characters"
+          tooltip={props.tooltip?.password}
           rules={[
             {
               required: true,
@@ -59,7 +53,7 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
           ]}
         >
           <Input.Password
-            placeholder="Enter your password"
+            placeholder={props.placeholder?.password}
             style={style.input}
             onPaste={preventCopyPaste}
             onCopy={preventCopyPaste}
@@ -69,6 +63,7 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
           name="confirmPassword"
           label="Confirm Password"
           dependencies={['password']}
+          tooltip={props.tooltip?.confirmPassword}
           hasFeedback
           rules={[
             {
@@ -88,14 +83,14 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
           ]}
         >
           <Input.Password
-            placeholder="Please confirm your password"
+            placeholder={props.placeholder?.confirmPassword}
             style={style.input}
             onPaste={preventCopyPaste}
             onCopy={preventCopyPaste}
           />
         </Form.Item>
         <CustomButton {...style.submitButton} htmlType="submit">
-          Submit
+          {props.buttonText}
         </CustomButton>
       </Form>
     </VStack>
@@ -105,6 +100,15 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
 UnoResetPassword.defaultProps = {
   heading: '',
   subHeading: '',
-  onSubmit: undefined,
+  onCreate: undefined,
   onBackArrow: undefined,
+  tooltip: {
+    password: 'Required',
+    confirmPassword: 'Required',
+  },
+  buttonText: 'Create New Password',
+  placeholder: {
+    password: '',
+    confirmPassword: '',
+  },
 };

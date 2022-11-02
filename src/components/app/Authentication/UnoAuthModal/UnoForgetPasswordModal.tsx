@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
@@ -7,18 +6,10 @@ import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
 import { BackArrowIcon } from '../../Icons';
 import type { IUnoForgetPasswordModalProps } from './types';
+import { emailValidator } from '../helper.authentication';
+import '../styles.authentication.css';
 
 export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
-  // const [visible, setVisible] = useState<boolean>(false);
-  // const onFinish = (values: any) => {
-  //   console.warn('Success:', values);
-  //   setVisible(false);
-  // };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.warn('Failed:', errorInfo);
-  };
-
   return (
     <>
       <Modal
@@ -28,15 +19,14 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
         closeOnOverlayClick={false}
       >
         <Modal.Content {...style.modalPosition}>
-          {/* <Modal.CloseButton /> */}
           <IconButton
             icon={<BackArrowIcon />}
             onPress={() => props.setIsOpened(false)}
+            {...style.backIconButton}
+            {...style.backArrowModalIcon}
             _hover={{
               backgroundColor: '#ffffff',
             }}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
           />
           <Modal.Body>
             <VStack {...style.mainContainer}>
@@ -61,15 +51,15 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
               <Form
                 layout="vertical"
                 onFinish={props.onSubmit}
-                onFinishFailed={onFinishFailed}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
+                className="ant-form-wrapper-ui"
               >
                 <Form.Item
                   label="Email"
                   name="email"
-                  tooltip="This is a required field. e.g, abc@abc.com"
+                  tooltip={props.tooltip?.email}
                   rules={[
                     {
                       required: true,
@@ -77,27 +67,19 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                       message: '',
                     },
                     {
-                      // message: 'should be a valid email',
-                      validator: (_, value) => {
-                        if (/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/.test(value)) {
-                          return Promise.resolve();
-                        } else {
-                          return Promise.reject();
-                        }
-                      },
+                      validator: (_, value) => emailValidator(value),
                     },
                   ]}
                 >
                   <Input
                     type="email"
-                    placeholder="type here"
+                    placeholder={props.placeholder?.email}
                     style={style.input}
                     suffix={' '}
                   />
                 </Form.Item>
-
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  Submit
+                  {props.buttonText}
                 </CustomButton>
               </Form>
             </VStack>
@@ -112,7 +94,14 @@ UnoForgetPasswordModal.defaultProps = {
   subHeading: '',
   title: '',
   onSubmit: undefined,
-  setIsOpen: false,
+  isOpened: false,
   setIsOpened: undefined,
   unoLogo: undefined,
+  buttonText: 'Send an email',
+  tooltip: {
+    email: 'Required',
+  },
+  placeholder: {
+    email: '',
+  },
 };

@@ -13,7 +13,7 @@ import {
 import { IconButton } from '../../../composites';
 import type { IUnoLoginProps } from './types';
 import '../styles.authentication.css';
-import { preventCopyPaste } from '../helper.authentication';
+import { emailValidator, preventCopyPaste } from '../helper.authentication';
 
 export const UnoLogin = (props: IUnoLoginProps) => {
   //form submit fail
@@ -36,6 +36,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         scrollToFirstError={true}
         requiredMark={false}
         autoComplete={'off'}
+        className="ant-form-wrapper-ui"
       >
         {!props.isAdmin && (
           <Form.Item
@@ -69,7 +70,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         <Form.Item
           label="Email"
           name="email"
-          tooltip="This is a required field. e.g, abc@abc.com"
+          tooltip={props.tooltip?.email}
           rules={[
             {
               required: true,
@@ -78,19 +79,13 @@ export const UnoLogin = (props: IUnoLoginProps) => {
             },
             {
               // message: 'should be a valid email',
-              validator: (_, value) => {
-                if (/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/.test(value)) {
-                  return Promise.resolve();
-                } else {
-                  return Promise.reject();
-                }
-              },
+              validator: (_, value) => emailValidator(value),
             },
           ]}
         >
           <Input
             type="email"
-            placeholder="type here"
+            placeholder={props.placeholder?.email}
             style={style.input}
             suffix={' '}
           />
@@ -98,7 +93,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         <Form.Item
           label="Password"
           name="password"
-          tooltip="must contain uppercase, lowercase, number, special & min length of 10 characters"
+          tooltip={props.tooltip?.password}
           rules={[
             {
               required: true,
@@ -108,7 +103,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           ]}
         >
           <Input.Password
-            placeholder="type here"
+            placeholder={props.placeholder?.password}
             style={style.input}
             onPaste={preventCopyPaste}
             onCopy={preventCopyPaste}
@@ -119,10 +114,10 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           {...style.commonText}
           onPress={props.onForgetPassword}
         >
-          Forget Password?
+          Forgot Password?
         </Text>
         <CustomButton {...style.submitButton} htmlType="submit">
-          Login
+          {props.buttonText}
         </CustomButton>
       </Form>
       {!props.isAdmin && (
@@ -134,8 +129,8 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               Register
             </Text>
           </Text>
-          <Text {...style.commonText}>Or Login With</Text>
-          <HStack {...style.smButtons}>
+          <Text {...style.commonText}>Or {props.buttonText} With</Text>
+          <HStack {...style.smButtonsContainer}>
             <IconButton
               icon={<GoogleLogo />}
               onPress={props.onGoogleLogin}
@@ -173,4 +168,13 @@ UnoLogin.defaultProps = {
   unoLogo: <UnojobsLogo />,
   isCandidate: false,
   setIsCandidate: undefined,
+  tooltip: {
+    email: 'Required',
+    password: 'Required',
+  },
+  placeholder: {
+    email: '',
+    password: '',
+  },
+  buttonText: 'Login',
 };

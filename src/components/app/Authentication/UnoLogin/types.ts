@@ -20,4 +20,12 @@ export interface IUnoLoginProps {
   unoLogo: React.FC;
   isCandidate: boolean;
   setIsCandidate: React.Dispatch<React.SetStateAction<boolean>>;
+  tooltip?: ILoginUtil;
+  buttonText: string;
+  placeholder?: ILoginUtil;
+}
+
+export interface ILoginUtil {
+  email: string;
+  password: string;
 }

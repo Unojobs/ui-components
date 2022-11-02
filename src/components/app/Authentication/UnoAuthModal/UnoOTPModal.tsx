@@ -7,17 +7,9 @@ import OtpInput from 'react-otp-input';
 import { style } from '../style.authentication';
 import { BackArrowIcon } from '../../Icons';
 import type { IUnoOTPModalProps } from './types';
+import '../styles.authentication.css';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
-  // const onFinish = (values: any) => {
-  //   console.warn('Success:', values);
-  //   setVisible(false);
-  // };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.warn('Failed:', errorInfo);
-  };
-
   return (
     <>
       <Modal
@@ -30,11 +22,11 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
           <IconButton
             icon={<BackArrowIcon />}
             onPress={() => props.setIsOpened(false)}
+            {...style.backIconButton}
+            {...style.backArrowModalIcon}
             _hover={{
               backgroundColor: '#ffffff',
             }}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
           />
           <Modal.Body>
             <VStack {...style.mainContainer}>
@@ -59,15 +51,15 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
               )}
               <Form
                 layout="vertical"
-                onFinish={props.onSubmit}
-                onFinishFailed={onFinishFailed}
+                onFinish={props.onVerify}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
+                className="ant-form-wrapper-ui"
               >
                 <Form.Item
                   label={props.label}
-                  name="otpInput"
+                  name="OTP"
                   rules={[{ required: true, min: 6, max: 6 }]}
                 >
                   <OtpInput
@@ -81,7 +73,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  Submit
+                  {props.buttonText}
                 </CustomButton>
               </Form>
             </VStack>
@@ -98,6 +90,9 @@ UnoOTPModal.defaultProps = {
   isInputSecure: false,
   title: '',
   label: '',
-  onSubmit: undefined,
+  onVerify: undefined,
   unoLogo: undefined,
+  buttonText: 'Verify',
+  isOpened: false,
+  setIsOpened: undefined,
 };

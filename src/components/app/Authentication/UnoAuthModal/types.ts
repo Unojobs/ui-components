@@ -7,10 +7,11 @@ export interface IUnoOTPModalProps {
   isInputSecure?: boolean;
   title?: string;
   label?: string;
-  onSubmit?: (values: any) => void | undefined;
+  onVerify?: (values: any) => void | undefined;
   isOpened: boolean;
   setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   unoLogo?: React.FC;
+  buttonText: string;
 }
 
 export interface IUnoForgetPasswordModalProps {
@@ -21,11 +22,18 @@ export interface IUnoForgetPasswordModalProps {
   isOpened: boolean;
   setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   unoLogo?: React.FC;
+  tooltip?: IForgotPUtil;
+  buttonText?: string;
+  placeholder?: IForgotPUtil;
+}
+
+export interface IForgotPUtil {
+  email: string;
 }
 
 export interface IUnoUserRegisterProps {
   title?: string;
-  onSubmit?: (values: any) => void | undefined;
+  onRegister?: (values: any) => void | undefined;
   isOpened: boolean;
   setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isCandidate: boolean;
@@ -39,4 +47,13 @@ export interface IUnoUserRegisterProps {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
   ) => void | undefined;
   unoLogo?: React.FC;
+  buttonText?: string;
+  tooltip?: IRegisterUtil;
+  placeholder?: IRegisterUtil;
+}
+
+export interface IRegisterUtil {
+  email: string;
+  password: string;
+  confirmPassword: string;
 }

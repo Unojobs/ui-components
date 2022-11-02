@@ -3,7 +3,11 @@ import { Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
-import { passwordValidator, preventCopyPaste } from '../helper.authentication';
+import {
+  emailValidator,
+  passwordValidator,
+  preventCopyPaste,
+} from '../helper.authentication';
 import { style } from '../style.authentication';
 import {
   BackArrowIcon,
@@ -13,12 +17,9 @@ import {
   UnojobsLogo,
 } from '../../Icons';
 import type { IUnoUserRegisterProps } from './types';
+import '../styles.authentication.css';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
-  const onFinishFailed = (errorInfo: any) => {
-    console.warn('Failed:', errorInfo);
-  };
-  console.warn(props.isOpened);
   return (
     <>
       <Modal
@@ -31,11 +32,11 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
           <IconButton
             icon={<BackArrowIcon />}
             onPress={() => props.setIsOpened(false)}
+            {...style.backIconButton}
+            {...style.backArrowModalIcon}
             _hover={{
               backgroundColor: '#ffffff',
             }}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
           />
           <Modal.Body>
             <VStack {...style.mainContainer}>
@@ -46,7 +47,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 </HStack>
               </Text>
               <Text {...style.commonText}>Join using</Text>
-              <HStack {...style.smButtons}>
+              <HStack {...style.smButtonsContainer}>
                 <IconButton
                   icon={<GoogleLogo />}
                   onPress={props.onGoogleLogin}
@@ -69,16 +70,16 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               <Text {...style.commonText}>Or</Text>
               <Form
                 layout="vertical"
-                onFinish={props.onSubmit}
-                onFinishFailed={onFinishFailed}
+                onFinish={props.onRegister}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
+                className="ant-form-wrapper-ui"
               >
                 <Form.Item
                   label="Email"
                   name="email"
-                  tooltip="This is a required field. e.g, abc@abc.com"
+                  tooltip={props.tooltip?.email}
                   rules={[
                     {
                       required: true,
@@ -86,19 +87,13 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                       message: '',
                     },
                     {
-                      validator: (_, value) => {
-                        if (/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/.test(value)) {
-                          return Promise.resolve();
-                        } else {
-                          return Promise.reject();
-                        }
-                      },
+                      validator: (_, value) => emailValidator(value),
                     },
                   ]}
                 >
                   <Input
                     type="email"
-                    placeholder="type here"
+                    placeholder={props.placeholder?.email}
                     style={style.input}
                     suffix={' '}
                   />
@@ -106,7 +101,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 <Form.Item
                   label="Password"
                   name="password"
-                  tooltip="must contain uppercase, lowercase, number, special & min length of 10 characters"
+                  tooltip={props.tooltip?.password}
                   rules={[
                     {
                       required: true,
@@ -119,7 +114,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   ]}
                 >
                   <Input.Password
-                    placeholder="Enter your password"
+                    placeholder={props.placeholder?.password}
                     style={style.input}
                     onPaste={preventCopyPaste}
                     onCopy={preventCopyPaste}
@@ -129,6 +124,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   name="confirmPassword"
                   label="Confirm Password"
                   dependencies={['password']}
+                  tooltip={props.tooltip?.confirmPassword}
                   hasFeedback
                   rules={[
                     {
@@ -150,14 +146,14 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   ]}
                 >
                   <Input.Password
-                    placeholder="Please confirm your password"
+                    placeholder={props.placeholder?.confirmPassword}
                     style={style.input}
                     onPaste={preventCopyPaste}
                     onCopy={preventCopyPaste}
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  Submit
+                  {props.buttonText}
                 </CustomButton>
               </Form>
             </VStack>
@@ -169,7 +165,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
 };
 UnoRegisterModal.defaultProps = {
   title: '',
-  onSubmit: undefined,
+  onRegister: undefined,
   isOpened: false,
   setIsOpened: undefined,
   isCandidate: false,
@@ -177,4 +173,15 @@ UnoRegisterModal.defaultProps = {
   onLinkedInLogin: undefined,
   onFacebookLogin: undefined,
   unoLogo: <UnojobsLogo />,
+  tooltip: {
+    email: 'Required',
+    password: 'Required',
+    confirmPassword: 'Required',
+  },
+  buttonText: 'Register',
+  placeholder: {
+    email: '',
+    password: '',
+    confirmPassword: '',
+  },
 };
