@@ -35,7 +35,6 @@ export const AppProvider = ({ children, theme, ...props }: any) => {
         },
         700: {
           normal: 'Urbanist_700Bold',
-          size: '48px',
         },
       },
     },

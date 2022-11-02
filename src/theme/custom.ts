@@ -1,22 +1,15 @@
 export const custom = {
   colors: {
-    landingPrimary: {
-      '20': '#B4CBFB',
-      '50': '#619dff',
-      '100': '#5b93ff',
-      '200': '#5488ff',
-      '300': '#4e7eff',
-      '400': '#4773f6',
-      '500': '#4169E0',
-      '600': '#3a5ec9',
-      '700': '#3251ae',
-      '800': '#2a4593',
-      '900': '#233878',
-    },
-    landingBackground: {
-      '50': '#619dff',
-      '100': '#5b93ff',
-      '200': '#5488ff',
+    primary: {
+      '100': '#EFF3FA', // icon background color
+      '200': '#EBF4FF', // border color
+      '300': '#0066FF', // span text color
+      '400': '#0091D8', // linear-gradient color
+      '500': '#4169E0', // main-blue color
+      '600': '#0C1A6B', // footer color
+      '700': '#192252', // arrowIcon background color
+    }, // blue colors
+    secondary: {
       '300': '#FFFFFF',
       '400': '#F3F3F3',
       '500': '#FAFAFA',
@@ -24,19 +17,25 @@ export const custom = {
       '700': '#FCFCFC',
       '800': '#E7E7E7',
       '900': '#EFF3FA',
+    }, // white-gray colors
+    textColors: {
+      primary: '#111111',
+      secondary: '#FFFFFF',
+      subtitle: '#707070',
+      caption: '#B7B7B7',
+      highlight: '#0066FF',
+      overline: '#203AA1',
     },
-    landingFooter: {
-      '500': '#0C1A6B',
-      '600': '#192252',
-    },
-  },
-  lineHeights: {
-    //our app theme Token
   },
   fontSizes: {
-    //our app theme Token
     appmedium: '22px',
   },
+  space: {
+    '12.5': '50px',
+    '15': '60px',
+    '30': '120px',
+  },
+
   components: {
     //Here we can add default theme for components
     Text: {},
