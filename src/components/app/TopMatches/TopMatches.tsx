@@ -1,11 +1,11 @@
 import { VStack } from 'native-base';
 import React from 'react';
+import { Pressable } from 'react-native';
 import { CustomButton } from '..';
 import {
   Box,
   HStack,
   Image,
-  Heading,
   Stack,
   Text,
   UnojobsSavedIcon,
@@ -27,9 +27,9 @@ export const TopMatches = (props: ITopmatches) => {
   } = props;
   return (
     <Box
-      px="16px"
-      py="25px"
-      maxW="80"
+      px={4}
+      py={25}
+      width={260}
       rounded="lg"
       overflow="hidden"
       borderColor="coolGray.200"
@@ -48,26 +48,42 @@ export const TopMatches = (props: ITopmatches) => {
     >
       <Stack>
         <VStack space={25}>
-          <HStack space={5} justifyContent="space-between">
-            <Heading size="md" ml="-1">
+          <HStack justifyContent="space-between">
+            <Text
+              color="#111111"
+              fontSize="16"
+              fontWeight={600}
+              fontFamily="Urbanist"
+            >
               {jobPost}
-            </Heading>
-            <div onClick={jobSave}>
+            </Text>
+
+            <Pressable onPress={jobSave}>
               <UnojobsSavedIcon size={6} />
-            </div>
+            </Pressable>
           </HStack>
           {type !== 'no-event' ? (
-            <HStack space={10}>
-              <Text color="#111111" fontWeight={500}>
+            <HStack space={3}>
+              <Text
+                color="#111111"
+                fontWeight={500}
+                fontSize="12"
+                fontFamily="Urbanist"
+              >
                 Match Level
               </Text>
               <Box
-                width="42px"
+                width={42}
                 backgroundColor="#89D860"
-                borderRadius="10px"
-                paddingLeft="10px"
+                borderRadius={2.5}
+                pl={2.5}
               >
-                <Text color="#FFFFFF" fontWeight={600}>
+                <Text
+                  color="#FFFFFF"
+                  fontWeight={600}
+                  fontSize="12"
+                  fontFamily="Urbanist"
+                >
                   {matchLevel}
                 </Text>
               </Box>
@@ -75,30 +91,37 @@ export const TopMatches = (props: ITopmatches) => {
           ) : (
             ''
           )}
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <HStack space={2} flexWrap="wrap">
             {jobDescription?.map((desc) => {
               return (
                 <Box
                   background="#F3F3F3"
-                  py="2px"
-                  px="8px"
+                  py={2}
+                  px={2}
                   color="#FFFFF"
                   width="fit-content"
+                  marginTop={2}
+                  borderRadius={4}
                 >
-                  <Text fontWeight="500" color="#707070">
+                  <Text
+                    fontWeight="500"
+                    color="#707070"
+                    fontSize="10"
+                    fontFamily="Urbanist"
+                  >
                     {desc}
                   </Text>
                 </Box>
               );
             })}
-          </div>
-          <Divider my="2" background="#F3F3F3" />
+          </HStack>
+          <Divider my={2} background="#F3F3F3" />
         </VStack>
 
-        <VStack space={type !== 'no-event' ? 21 : ''} paddingTop="20px">
-          <HStack space={5}>
+        <VStack space={type !== 'no-event' ? 21 : ''} paddingTop={5}>
+          <HStack space={2.5}>
             <Image
-              borderRadius="100px"
+              borderRadius={100}
               source={{
                 uri: companyLogo,
               }}
@@ -106,8 +129,22 @@ export const TopMatches = (props: ITopmatches) => {
               size="xs"
             />
             <Box>
-              <Text>{companyName}</Text>
-              <Text>{location}</Text>
+              <Text
+                color="#111111"
+                fontSize="14"
+                fontWeight={600}
+                fontFamily="Urbanist"
+              >
+                {companyName}
+              </Text>
+              <Text
+                color="#707070"
+                fontSize="12"
+                fontWeight={400}
+                fontFamily="Urbanist"
+              >
+                {location}
+              </Text>
             </Box>
           </HStack>
           {type !== 'no-event' ? (
