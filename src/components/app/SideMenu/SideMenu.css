@@ -116,3 +116,14 @@
   transform: rotate(180deg);
   transition-duration: 0.6s;
 }
+
+/* Separator */
+
+.menuItemSeparator {
+  padding: 20px 30px;
+}
+
+.menuSeparatorLine {
+  width: 100%;
+  border: 1.5px solid #f3f3f3;
+}
