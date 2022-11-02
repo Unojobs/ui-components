@@ -46,7 +46,7 @@ export const TopMatches = (props: ITopmatches) => {
         backgroundColor: '#FFFFFF',
       }}
     >
-      <Stack space={3}>
+      <Stack>
         <VStack space={25}>
           <HStack space={5} justifyContent="space-between">
             <Heading size="md" ml="-1">
@@ -92,9 +92,10 @@ export const TopMatches = (props: ITopmatches) => {
               );
             })}
           </div>
+          <Divider my="2" background="#F3F3F3" />
         </VStack>
-        <Divider my="2" background="#F3F3F3" />
-        <VStack space={21} paddingTop="20px">
+
+        <VStack space={type !== 'no-event' ? 21 : ''} paddingTop="20px">
           <HStack space={5}>
             <Image
               borderRadius="100px"
