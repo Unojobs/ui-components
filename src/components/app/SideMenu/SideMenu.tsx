@@ -31,6 +31,8 @@ export interface ISideMenuProps {
   width?: number;
   /** selected item. if not passed, defaults to the first valid item */
   selectedKey?: string;
+  /** sets a separator after passed keys */
+  separatorAfterKeys?: string[];
   /** handler for menu item click, gives route based on the selected item */
   onMenuItemClick: (value: string) => void;
   /** Data for side menu */
@@ -52,6 +54,7 @@ export const SideMenu = (props: ISideMenuProps) => {
     selectedKey,
     width,
     onMenuItemClick,
+    separatorAfterKeys,
     menuData,
     textColor,
     backgroundColor,
@@ -105,6 +108,7 @@ export const SideMenu = (props: ISideMenuProps) => {
               selectedMenuItem={selectedMenuItem}
               onMenuItemClick={onMenuItemClickHandler}
               isParentSelected={parentSelection === data.route}
+              separatorAfterKeys={separatorAfterKeys}
             />
           );
         }
@@ -117,6 +121,7 @@ export const SideMenu = (props: ISideMenuProps) => {
             suffixIcon={data.suffixIcon}
             isSelected={data.route === selectedMenuItem}
             onMenuItemClick={onMenuItemClickHandler}
+            separatorAfterKeys={separatorAfterKeys}
           />
         );
       })}
