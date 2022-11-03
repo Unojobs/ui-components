@@ -1,6 +1,5 @@
 import { VStack } from 'native-base';
 import React from 'react';
-import { Pressable } from 'react-native';
 import { CustomButton } from '..';
 import {
   Box,
@@ -10,6 +9,7 @@ import {
   Text,
   UnojobsSavedIcon,
   Divider,
+  Pressable,
 } from '../../../';
 import type { ITopmatches } from './types';
 export const TopMatches = (props: ITopmatches) => {
@@ -34,6 +34,7 @@ export const TopMatches = (props: ITopmatches) => {
       overflow="hidden"
       borderColor="coolGray.200"
       borderWidth="1"
+      borderRadius={12}
       _dark={{
         borderColor: 'coolGray.600',
         backgroundColor: '#FFFFFF',
@@ -49,12 +50,7 @@ export const TopMatches = (props: ITopmatches) => {
       <Stack>
         <VStack space={25}>
           <HStack justifyContent="space-between">
-            <Text
-              color="#111111"
-              fontSize="16"
-              fontWeight={600}
-              fontFamily="Urbanist"
-            >
+            <Text color="#111111" fontSize="16" fontWeight={600}>
               {jobPost}
             </Text>
 
@@ -64,12 +60,7 @@ export const TopMatches = (props: ITopmatches) => {
           </HStack>
           {type !== 'no-event' ? (
             <HStack space={3}>
-              <Text
-                color="#111111"
-                fontWeight={500}
-                fontSize="12"
-                fontFamily="Urbanist"
-              >
+              <Text color="#111111" fontWeight={500} fontSize="12">
                 Match Level
               </Text>
               <Box
@@ -78,12 +69,7 @@ export const TopMatches = (props: ITopmatches) => {
                 borderRadius={2.5}
                 pl={2.5}
               >
-                <Text
-                  color="#FFFFFF"
-                  fontWeight={600}
-                  fontSize="12"
-                  fontFamily="Urbanist"
-                >
+                <Text color="#FFFFFF" fontWeight={600} fontSize="12">
                   {matchLevel}
                 </Text>
               </Box>
@@ -103,12 +89,7 @@ export const TopMatches = (props: ITopmatches) => {
                   marginTop={2}
                   borderRadius={4}
                 >
-                  <Text
-                    fontWeight="500"
-                    color="#707070"
-                    fontSize="10"
-                    fontFamily="Urbanist"
-                  >
+                  <Text fontWeight="500" color="#707070" fontSize="10">
                     {desc}
                   </Text>
                 </Box>
@@ -129,26 +110,16 @@ export const TopMatches = (props: ITopmatches) => {
               size="xs"
             />
             <Box>
-              <Text
-                color="#111111"
-                fontSize="14"
-                fontWeight={600}
-                fontFamily="Urbanist"
-              >
+              <Text color="#111111" fontSize="14" fontWeight={600}>
                 {companyName}
               </Text>
-              <Text
-                color="#707070"
-                fontSize="12"
-                fontWeight={400}
-                fontFamily="Urbanist"
-              >
+              <Text color="#707070" fontSize="12" fontWeight={400}>
                 {location}
               </Text>
             </Box>
           </HStack>
           {type !== 'no-event' ? (
-            <CustomButton width="100%" fontWeight="600px" onClick={applyJob}>
+            <CustomButton width="100%" fontWeight="600" onClick={applyJob}>
               {buttonText}
             </CustomButton>
           ) : (
