@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { HStack, Text, Heading } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
@@ -18,12 +17,16 @@ export const TitleWithBtn = (props: TitleWithBtnProps) => {
   };
   return (
     <HStack
-      width={'326px'}
-      height={'40px'}
-      alignItems={'baseline'}
+      width={326}
+      height={40}
+      alignItems={'center'}
       justifyContent={'space-between'}
     >
-      <Heading size={'lg'}>{titleText}</Heading>
+      <Text>
+        <Heading size={'2xl'} fontWeight={'semibold'}>
+          {titleText}
+        </Heading>
+      </Text>
       <CustomButton
         onClick={handleClick}
         width="81px"
@@ -33,12 +36,14 @@ export const TitleWithBtn = (props: TitleWithBtnProps) => {
         <HStack
           alignItems={'center'}
           justifyContent={'center'}
-          width={'81px'}
-          height={'40px'}
-          space={2}
+          width={81}
+          height={40}
+          space={1}
         >
-          <PlusOutlined size={12} />
-          <Text style={{ color: '#fff', fontSize: 12 }}>{btnText}</Text>
+          <PlusOutlined size={4} />
+          <Text color={'#fff'} fontSize={'xs'}>
+            {btnText}
+          </Text>
         </HStack>
       </CustomButton>
     </HStack>

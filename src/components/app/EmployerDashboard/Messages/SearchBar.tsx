@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Box, Input } from '../../../primitives';
 import { SearchOutlined } from '@ant-design/icons';
@@ -11,18 +10,18 @@ export const SearchBar = (props: SearchBarProps) => {
   };
   return (
     <Box
-      width={'327px'}
-      height={'45px'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      paddingX={'13px'}
-      paddingY={'20px'}
+      width={327}
+      height={45}
+      paddingX={13}
+      paddingY={5}
+      justifyContent="center"
     >
       <Input
         placeholder="Search Message"
         onChange={handleChange}
         // value={searchVal}
-        style={{ width: '100%', fontSize: 12 }}
+        width={'full'}
+        fontSize={12}
         InputRightElement={<SearchOutlined />}
         variant={'unstyled'}
       />

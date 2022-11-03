@@ -24,8 +24,8 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
   ) => {};
   return (
     <HStack
-      width={'817px'}
-      height={'83px'}
+      width={817}
+      height={83}
       alignItems={'center'}
       justifyContent={'space-evenly'}
     >
@@ -37,10 +37,10 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
         </Avatar>
       )}
       <HStack
-        width={'650px'}
-        height={'45px'}
-        paddingX={'16px'}
-        paddingY={'20px'}
+        width={650}
+        height={45}
+        paddingX={4}
+        paddingY={5}
         alignItems={'center'}
         justifyContent={'space-between'}
       >

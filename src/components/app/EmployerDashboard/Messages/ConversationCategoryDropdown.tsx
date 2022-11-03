@@ -19,12 +19,12 @@ export const ConversationCategoryDropdown = (
     <>
       {categories?.length ? (
         <Box
-          width={'327px'}
-          height={'45px'}
+          width={327}
+          height={45}
           alignItems={'center'}
           justifyContent={'center'}
-          paddingX={'13px'}
-          paddingY={'20px'}
+          paddingX={3.5}
+          paddingY={5}
         >
           <Select
             defaultValue={categories[0]}
@@ -45,12 +45,12 @@ export const ConversationCategoryDropdown = (
         </Box>
       ) : (
         <Box
-          width={'327px'}
-          height={'45px'}
+          width={327}
+          height={45}
           alignItems={'center'}
           justifyContent={'center'}
-          paddingX={'13px'}
-          paddingY={'20px'}
+          paddingX={3.5}
+          paddingY={5}
         >
           <Select
             disabled

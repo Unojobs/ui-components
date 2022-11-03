@@ -1,8 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Avatar } from 'antd';
-import { Box, HStack, VStack } from '../../../primitives';
-import { Text, Pressable } from '../../../primitives';
+import { Box, HStack, VStack, Text, Pressable } from '../../../primitives';
+import { Badge } from '../../../composites';
 import { makeRandomColor } from '../../../utils';
 type TApplication = { jid: number; jobTitle: string; status: string };
 type TMessage = { msgBody: any; date: string; timestamp: string };
@@ -24,15 +23,15 @@ export const CandidateCard = (props: CandidateCardProps) => {
   };
   return (
     <Box
-      width={'326px'}
-      height={'126px'}
-      padding={'16px'}
-      borderRadius={'10px'}
+      width={326}
+      height={126}
+      padding={4}
+      borderRadius={2.5}
       justifyContent={'space-between'}
       backgroundColor={isActive ? '#4169E0' : '#fff'}
     >
       <Pressable onPress={handleClick}>
-        <HStack width={'100%'} alignItems={'flex-start'} space={2.5}>
+        <HStack width={'full'} alignItems={'flex-start'} space={2.5}>
           {candidate?.avatarUri ? (
             <Avatar size={48} src={candidate.avatarUri} />
           ) : (
@@ -41,9 +40,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
             </Avatar>
           )}
           <VStack flexGrow={1} space={1}>
-            <Text
-              style={{ color: isActive ? '#fff' : '#000304', fontSize: 16 }}
-            >
+            <Text color={isActive ? '#fff' : '#000304'} fontSize={16}>
               {candidate.username}
             </Text>
             <Text
@@ -54,18 +51,16 @@ export const CandidateCard = (props: CandidateCardProps) => {
               {latestMessage.msgBody}
             </Text>
 
-            <span
-              style={{
-                backgroundColor: isActive ? '#6E91EC' : '#E7E7E7',
-                textAlign: 'center',
-                borderRadius: 4,
-              }}
+            <Badge
+              backgroundColor={isActive ? '#6E91EC' : '#E7E7E7'}
+              textAlign="center"
+              borderRadius={4}
             >
               {candidate.activeApplications.length &&
               candidate.activeApplications.length > 1 ? (
                 <Text
                   color={isActive ? '#fff' : '#000304'}
-                  fontSize={12}
+                  fontSize={'xs'}
                   borderRadius={4}
                   fontWeight={'light'}
                 >
@@ -74,30 +69,30 @@ export const CandidateCard = (props: CandidateCardProps) => {
               ) : (
                 <Text
                   color={isActive ? '#fff' : '#000304'}
-                  fontSize={12}
+                  fontSize={'xs'}
                   borderRadius={4}
                   fontWeight={'light'}
                 >
                   Job: {candidate.activeApplications[0].jobTitle}
                 </Text>
               )}
-            </span>
+            </Badge>
 
             <HStack
-              marginTop={3}
+              marginTop={1}
               justifyContent={'space-between'}
               alignItems={'center'}
             >
               <Text
                 color={isActive ? '#fff' : '#000304'}
-                fontSize={12}
+                fontSize={'xs'}
                 fontWeight={'light'}
               >
                 {latestMessage.date}
               </Text>
               <Text
                 color={isActive ? '#fff' : '#000304'}
-                fontSize={12}
+                fontSize={'xs'}
                 fontWeight={'light'}
               >
                 {latestMessage.timestamp}

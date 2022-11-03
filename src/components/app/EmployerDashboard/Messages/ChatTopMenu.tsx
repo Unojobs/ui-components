@@ -9,6 +9,7 @@ import {
   PhoneTwoTone,
 } from '@ant-design/icons';
 import { Box, HStack, Text, VStack } from '../../../primitives';
+import { Badge } from '../../../composites';
 import { makeRandomColor } from '../../../utils';
 import { CustomButton } from '../../CustomButton';
 type TApplication = { jid: number; jobTitle: string; status: string };
@@ -40,7 +41,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
       justifyContent={'space-between'}
     >
       <HStack
-        width={'100%'}
+        width={'full'}
         alignItems={'center'}
         justifyContent={'space-between'}
       >
@@ -100,17 +101,9 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           >
             <FileTextFilled /> Notes
           </CustomButton>
-          <span
-            style={{
-              backgroundColor: '#F3F3F3',
-              paddingTop: 16,
-              paddingRight: 10,
-              paddingBottom: 16,
-              paddingLeft: 16,
-            }}
-          >
+          <Badge backgroundColor={'#f3f3f3'} paddingX={2.5} paddingY={4}>
             <Text>{candidate.activeApplications[0].status}</Text>
-          </span>
+          </Badge>
           <VStack space={0.5}>
             <Text>
               <MailTwoTone twoToneColor="#EB5757" /> {candidate.email}
