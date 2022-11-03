@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof LeftSideScreen> = (args) => (
   <Wrapper>
-    <LeftSideScreen />
+    <LeftSideScreen {...args} />
   </Wrapper>
 );
 export const Variants = Template.bind({});

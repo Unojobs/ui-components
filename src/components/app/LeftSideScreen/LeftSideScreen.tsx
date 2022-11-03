@@ -19,19 +19,19 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
       >
         <Box
           position={'fixed'}
-          top={'30%'}
+          top={'1/4'}
           padding={5}
           width={{ sm: 'none', md: 512, lg: 640, xl: 787 }}
         >
           <Carousel
-            showThumbs={true}
+            showThumbs={props.showThumbs}
             autoPlay={props.autoPlay}
             showArrows={props.showArrows}
             showStatus={false}
             infiniteLoop={props.infiniteLoop}
             interval={props.interval}
           >
-            {props.list.map((object: IListItem) => {
+            {props.list?.map((object: IListItem) => {
               return (
                 <VStack textAlign="left" key={nanoid()}>
                   <Text>
@@ -57,24 +57,10 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
 };
 
 LeftSideScreen.defaultProps = {
-  list: [
-    {
-      title: 'Reach even more talent, faster',
-      subTitle:
-        'Source faster, iterate an your outreach with that data, and see your efforts pay off.',
-      imageUrl:
-        'https://imgs.search.brave.com/PJYkFE3_wFpx2GrmYdDb8nav9tfctO9zsAI53ryttJI/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/WU01M21HMTBIX1Uy/NWlQam9wODNRSGFF/byZwaWQ9QXBp',
-    },
-    {
-      title: 'Reach even more talent, faster',
-      subTitle:
-        'Source faster, iterate an your outreach with that data, and see your efforts pay off.',
-      imageUrl:
-        'https://imgs.search.brave.com/PJYkFE3_wFpx2GrmYdDb8nav9tfctO9zsAI53ryttJI/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/WU01M21HMTBIX1Uy/NWlQam9wODNRSGFF/byZwaWQ9QXBp',
-    },
-  ],
+  list: [],
   infiniteLoop: true,
   autoPlay: true,
   showArrows: false,
   interval: 3000,
+  showThumbs: false,
 };

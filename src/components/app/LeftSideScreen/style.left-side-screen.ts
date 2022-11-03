@@ -1,16 +1,16 @@
 export const style = {
   title: {
-    color: '#FFFFFF',
+    color: 'secondary.300',
     margin: 0,
-    marginBottom: 10,
-    fontSize: 36,
+    marginBottom: 2.5,
+    fontSize: '4xl',
     display: 'block',
   },
   subTitle: {
-    color: '#EEEEEE',
+    color: 'textColors.subtitle2',
     margin: 0,
-    marginBottom: 10,
-    fontSize: 18,
+    marginBottom: 2.5,
+    fontSize: 'lg',
     display: 'block',
     maxWidth: 400,
   },
