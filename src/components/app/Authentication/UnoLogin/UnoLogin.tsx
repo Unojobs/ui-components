@@ -5,22 +5,16 @@ import { style } from '../style.authentication';
 import { SelectableRadioButton } from '../../SelectableRadioButton';
 import { CustomButton } from '../../CustomButton';
 import {
-  FacebookLogo,
-  Google as GoogleLogo,
-  Linkedin as LinkedInLogo,
-  UnojobsLogo,
-} from '../../Icons';
+  FacebookSMLogo,
+  GoogleSMLogo,
+  LinkedInSMLogo,
+} from '../../UnojobsIcons';
 import { IconButton } from '../../../composites';
 import type { IUnoLoginProps } from './types';
 import '../styles.authentication.css';
 import { emailValidator, preventCopyPaste } from '../helper.authentication';
 
 export const UnoLogin = (props: IUnoLoginProps) => {
-  //form submit fail
-  const onFinishFailed = (errorInfo: any) => {
-    console.warn('Failed:', errorInfo);
-  };
-
   return (
     <VStack {...style.mainContainer}>
       <VStack>
@@ -32,7 +26,6 @@ export const UnoLogin = (props: IUnoLoginProps) => {
       <Form
         layout="vertical"
         onFinish={props.onLogin}
-        onFinishFailed={onFinishFailed}
         scrollToFirstError={true}
         requiredMark={false}
         autoComplete={'off'}
@@ -132,19 +125,31 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           <Text {...style.commonText}>Or {props.buttonText} With</Text>
           <HStack {...style.smButtonsContainer}>
             <IconButton
-              icon={<GoogleLogo />}
+              icon={
+                <>
+                  <GoogleSMLogo />
+                </>
+              }
               onPress={props.onGoogleLogin}
               {...style.iconButton}
             />
             <IconButton
-              icon={<LinkedInLogo />}
+              icon={
+                <>
+                  <LinkedInSMLogo />
+                </>
+              }
               onPress={props.onLinkedInLogin}
               {...style.iconButton}
             />
 
             {props.isCandidate && (
               <IconButton
-                icon={<FacebookLogo />}
+                icon={
+                  <>
+                    <FacebookSMLogo />
+                  </>
+                }
                 onPress={props.onFacebookLogin}
                 {...style.iconButton}
               />
@@ -165,7 +170,7 @@ UnoLogin.defaultProps = {
   onLinkedInLogin: undefined,
   onFacebookLogin: undefined,
   onLogin: undefined,
-  unoLogo: <UnojobsLogo />,
+  unoLogo: undefined,
   isCandidate: false,
   setIsCandidate: undefined,
   tooltip: {

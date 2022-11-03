@@ -4,10 +4,10 @@ import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
-import { BackArrowIcon } from '../../Icons';
 import type { IUnoForgetPasswordModalProps } from './types';
 import { emailValidator } from '../helper.authentication';
 import '../styles.authentication.css';
+import { LeftArrowIcon } from '../../UnojobsIcons';
 
 export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
   return (
@@ -20,12 +20,16 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
       >
         <Modal.Content {...style.modalPosition}>
           <IconButton
-            icon={<BackArrowIcon />}
+            icon={
+              <>
+                <LeftArrowIcon size={8} />
+              </>
+            }
             onPress={() => props.setIsOpened(false)}
             {...style.backIconButton}
             {...style.backArrowModalIcon}
             _hover={{
-              backgroundColor: '#ffffff',
+              backgroundColor: 'secondary.300',
             }}
           />
           <Modal.Body>

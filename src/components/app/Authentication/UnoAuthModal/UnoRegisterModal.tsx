@@ -9,15 +9,14 @@ import {
   preventCopyPaste,
 } from '../helper.authentication';
 import { style } from '../style.authentication';
-import {
-  BackArrowIcon,
-  FacebookLogo,
-  Google as GoogleLogo,
-  Linkedin as LinkedInLogo,
-  UnojobsLogo,
-} from '../../Icons';
 import type { IUnoUserRegisterProps } from './types';
 import '../styles.authentication.css';
+import {
+  FacebookSMLogo,
+  GoogleSMLogo,
+  LeftArrowIcon,
+  LinkedInSMLogo,
+} from '../../UnojobsIcons';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   return (
@@ -30,12 +29,16 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
       >
         <Modal.Content {...style.modalPosition}>
           <IconButton
-            icon={<BackArrowIcon />}
+            icon={
+              <>
+                <LeftArrowIcon size={8} />
+              </>
+            }
             onPress={() => props.setIsOpened(false)}
             {...style.backIconButton}
             {...style.backArrowModalIcon}
             _hover={{
-              backgroundColor: '#ffffff',
+              backgroundColor: 'secondary.300',
             }}
           />
           <Modal.Body>
@@ -49,19 +52,31 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               <Text {...style.commonText}>Join using</Text>
               <HStack {...style.smButtonsContainer}>
                 <IconButton
-                  icon={<GoogleLogo />}
+                  icon={
+                    <>
+                      <GoogleSMLogo />
+                    </>
+                  }
                   onPress={props.onGoogleLogin}
                   {...style.iconButton}
                 />
                 <IconButton
-                  icon={<LinkedInLogo />}
+                  icon={
+                    <>
+                      <LinkedInSMLogo />
+                    </>
+                  }
                   onPress={props.onLinkedInLogin}
                   {...style.iconButton}
                 />
 
                 {props.isCandidate && (
                   <IconButton
-                    icon={<FacebookLogo />}
+                    icon={
+                      <>
+                        <FacebookSMLogo />
+                      </>
+                    }
                     onPress={props.onFacebookLogin}
                     {...style.iconButton}
                   />
@@ -172,7 +187,7 @@ UnoRegisterModal.defaultProps = {
   onGoogleLogin: undefined,
   onLinkedInLogin: undefined,
   onFacebookLogin: undefined,
-  unoLogo: <UnojobsLogo />,
+  unoLogo: undefined,
   tooltip: {
     email: 'Required',
     password: 'Required',

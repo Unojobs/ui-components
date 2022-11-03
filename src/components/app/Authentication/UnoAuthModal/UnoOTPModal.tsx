@@ -5,9 +5,9 @@ import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import OtpInput from 'react-otp-input';
 import { style } from '../style.authentication';
-import { BackArrowIcon } from '../../Icons';
 import type { IUnoOTPModalProps } from './types';
 import '../styles.authentication.css';
+import { LeftArrowIcon } from '../../UnojobsIcons';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   return (
@@ -20,12 +20,16 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
       >
         <Modal.Content {...style.modalPosition}>
           <IconButton
-            icon={<BackArrowIcon />}
+            icon={
+              <>
+                <LeftArrowIcon size={8} />
+              </>
+            }
             onPress={() => props.setIsOpened(false)}
             {...style.backIconButton}
             {...style.backArrowModalIcon}
             _hover={{
-              backgroundColor: '#ffffff',
+              backgroundColor: 'secondary.300',
             }}
           />
           <Modal.Body>

@@ -5,18 +5,22 @@ import { style } from '../style.authentication';
 import { CustomButton } from '../../CustomButton';
 import { IconButton } from '../../../composites';
 import '../styles.authentication.css';
-import { BackArrowIcon } from '../../Icons';
 import type { IUnoResetPasswordProps } from './types';
 import { passwordValidator, preventCopyPaste } from '../helper.authentication';
+import { LeftArrowIcon } from '../../UnojobsIcons';
 
 export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
   return (
     <VStack {...style.mainContainer}>
       <IconButton
-        icon={<BackArrowIcon />}
+        icon={
+          <>
+            <LeftArrowIcon size={10} />
+          </>
+        }
         onPress={props.onBackArrow}
         _hover={{
-          backgroundColor: '#ffffff',
+          backgroundColor: 'secondary.300',
         }}
         {...style.backIconButton}
         {...style.backArrowIcon}

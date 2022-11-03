@@ -18,20 +18,25 @@
   box-shadow: none !important;
 }
 
-.ant-form-wrapper-ui .ant-input-number-affix-wrapper:not(.ant-input-number-affix-wrapper-disabled):hover,
+.ant-form-wrapper-ui
+  .ant-input-number-affix-wrapper:not(.ant-input-number-affix-wrapper-disabled):hover,
 .ant-form-wrapper-ui .ant-select-selector:hover,
 .ant-form-wrapper-ui .ant-select-selector:focus-within,
 .ant-form-wrapper-ui .ant-input-number-affix-wrapper:focus,
 .ant-form-wrapper-ui .ant-input-number-affix-wrapper-focused,
-.ant-form-wrapper-ui .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
+.ant-form-wrapper-ui
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
 .ant-form-wrapper-ui .ant-input-affix-wrapper:focus,
 .ant-form-wrapper-ui .ant-input-affix-wrapper-focused {
   border-color: #4169e0 !important;
 }
 
-.ant-form-wrapper-ui .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
-.ant-form-wrapper-ui .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
-.ant-form-wrapper-ui .ant-select-status-error.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer)
+.ant-form-wrapper-ui
+  .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+.ant-form-wrapper-ui
+  .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
+.ant-form-wrapper-ui
+  .ant-select-status-error.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer)
   .ant-select-selector {
   border: 1px solid #ff4d4f !important;
 }
