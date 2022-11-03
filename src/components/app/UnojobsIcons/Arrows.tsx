@@ -53,3 +53,36 @@ export const UnojobsDownArrowCurvedIcon = ({ fill, size }: IconProps) => {
   });
   return <CustomIcon size={size ? size : 3} />;
 };
+
+export const LeftArrowIcon = ({ fill, size }: IconProps) => {
+  const CustomIcon = createIcon({
+    viewBox: '0 0 24 24',
+    path: (
+      <>
+        <path
+          d="M9.57 5.92993L3.5 11.9999L9.57 18.0699"
+          stroke={fill ? fill : '#111111'}
+          strokeWidth="2.5"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          width="24"
+          height="24"
+          fill="none"
+        />
+        <path
+          d="M40.5019 12H3.67188"
+          stroke={fill ? fill : '#111111'}
+          strokeWidth="2.5"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          width="24"
+          height="24"
+          fill="none"
+        />
+      </>
+    ),
+  });
+  return <CustomIcon size={size ? size : 8} />;
+};
