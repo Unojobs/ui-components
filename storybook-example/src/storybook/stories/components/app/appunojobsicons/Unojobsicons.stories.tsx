@@ -47,6 +47,9 @@ import {
   AttachFileIcon,
   LocationIcon,
   CameraIcon,
+  CircularRightArrowIcon,
+  CircularWrongIcon,
+  CircularCorrectIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -126,6 +129,9 @@ const UnojobsiconsTest = ({ ...args }) => {
             <AttachFileIcon />
             <LocationIcon />
             <CameraIcon />
+            <CircularRightArrowIcon />
+            <CircularWrongIcon />
+            <CircularCorrectIcon />
           </HStack>
         </VStack>
       </Box>
