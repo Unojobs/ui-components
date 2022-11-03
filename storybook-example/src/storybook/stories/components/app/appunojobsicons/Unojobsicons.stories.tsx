@@ -25,6 +25,25 @@ import {
   UnojobsAppLogo,
   UnojobsWindowFilledIcon,
   Box,
+  UnoJobsTechDepartment,
+  UnoJobsDataAnalysis,
+  UnoJobsDesign,
+  UnoJobsOperationsDepartment,
+  UnoJobsSalesDepartment,
+  UnoJobsMarketingDepartment,
+  UnoJobsSupplyChainDepartment,
+  UnoJobsFinanceDepartment,
+  UnoJobsSecurityDepartment,
+  UnoJobsAdministrationDepartment,
+  UnoJobsConsultationDepartment,
+  UnoJobsEducationDepartment,
+  UnoJobsHealthDepartment,
+  UnoJobsLawDepartment,
+  UnoJobsRetailDepartment,
+  UnoJobsProductDepartment,
+  UnoJobsHospitalityDepartment,
+  UnoJobsWellnessDepartment,
+  UnoJobsAviationDepartment,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -70,6 +89,29 @@ const UnojobsiconsTest = ({ ...args }) => {
             <Text>Landing :</Text>
             <UnojobsUpArrowRoundIcon />
             <UnojobsDownArrowRoundIcon />
+            <UnoJobsTechDepartment></UnoJobsTechDepartment>
+            <UnoJobsDataAnalysis></UnoJobsDataAnalysis>
+            <UnoJobsDesign></UnoJobsDesign>
+            <UnoJobsOperationsDepartment></UnoJobsOperationsDepartment>
+            <UnoJobsSalesDepartment></UnoJobsSalesDepartment>
+            <UnoJobsMarketingDepartment></UnoJobsMarketingDepartment>
+            <UnojobsUserGroupIcon
+              fill="#4169E0"
+              size={8}
+            ></UnojobsUserGroupIcon>
+            <UnoJobsSupplyChainDepartment></UnoJobsSupplyChainDepartment>
+            <UnoJobsFinanceDepartment></UnoJobsFinanceDepartment>
+            <UnoJobsSecurityDepartment></UnoJobsSecurityDepartment>
+            <UnoJobsAdministrationDepartment></UnoJobsAdministrationDepartment>
+            <UnoJobsConsultationDepartment></UnoJobsConsultationDepartment>
+            <UnoJobsEducationDepartment></UnoJobsEducationDepartment>
+            <UnoJobsHealthDepartment></UnoJobsHealthDepartment>
+            <UnoJobsLawDepartment></UnoJobsLawDepartment>
+            <UnoJobsRetailDepartment></UnoJobsRetailDepartment>
+            <UnoJobsProductDepartment></UnoJobsProductDepartment>
+            <UnoJobsHospitalityDepartment></UnoJobsHospitalityDepartment>
+            <UnoJobsWellnessDepartment></UnoJobsWellnessDepartment>
+            <UnoJobsAviationDepartment></UnoJobsAviationDepartment>
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>AppLogo :</Text>

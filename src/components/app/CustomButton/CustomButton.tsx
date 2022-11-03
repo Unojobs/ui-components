@@ -18,6 +18,9 @@ export const CustomButton = (props: CustomButtonProps) => {
     pt,
     p,
     disable,
+    display,
+    justifyContent,
+    alignItems,
   } = props;
   const defaultStyle = {
     padding: p,
@@ -30,6 +33,9 @@ export const CustomButton = (props: CustomButtonProps) => {
     fontSize: '16px',
     fontFamily: fontFamily,
     paddingTop: pt,
+    display,
+    justifyContent,
+    alignItems,
   };
   return (
     <Button
@@ -55,4 +61,8 @@ CustomButton.defaultProps = {
   border: 'none',
   p: '13px 24px',
   pt: '13px',
+
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
