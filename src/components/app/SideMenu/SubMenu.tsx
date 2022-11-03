@@ -10,11 +10,18 @@ export interface ISubMenuProps {
   selectedMenuItem: string;
   onMenuItemClick: (id: string, parentId?: string) => void;
   isParentSelected: boolean;
+  /** sets a separator after passed keys */
+  separatorAfterKeys?: string[];
 }
 
 export const SubMenu = (props: ISubMenuProps) => {
-  const { menuData, selectedMenuItem, onMenuItemClick, isParentSelected } =
-    props;
+  const {
+    menuData,
+    selectedMenuItem,
+    onMenuItemClick,
+    isParentSelected,
+    separatorAfterKeys,
+  } = props;
   const [expanded, setExpanded] = useState(true);
 
   // find which parent is selected based on the child route
@@ -56,6 +63,7 @@ export const SubMenu = (props: ISubMenuProps) => {
                 suffixIcon={data.suffixIcon}
                 isSelected={data.route === selectedMenuItem}
                 onMenuItemClick={onMenuItemClickHandler}
+                separatorAfterKeys={separatorAfterKeys}
               />
             );
           })}
