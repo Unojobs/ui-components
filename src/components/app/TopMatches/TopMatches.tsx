@@ -25,6 +25,31 @@ export const TopMatches = (props: ITopmatches) => {
     type,
     applyJob,
   } = props;
+  const MatchLevel = (matchProps: {
+    type: 'default' | 'no-event';
+    matchLevel?: string;
+  }) => {
+    const { type, matchLevel } = matchProps;
+    return type !== 'no-event' ? (
+      <HStack space={3}>
+        <Text color="textColors.primary" fontWeight={500} fontSize="xs">
+          Match Level
+        </Text>
+        <Box
+          width={42}
+          backgroundColor="success.400"
+          borderRadius={2.5}
+          pl={2.5}
+        >
+          <Text color="secondary.300" fontWeight={600} fontSize="xs">
+            {matchLevel}
+          </Text>
+        </Box>
+      </HStack>
+    ) : (
+      <></>
+    );
+  };
   return (
     <Box
       px={4}
@@ -58,25 +83,7 @@ export const TopMatches = (props: ITopmatches) => {
               <UnojobsSavedIcon size={6} />
             </Pressable>
           </HStack>
-          {type !== 'no-event' ? (
-            <HStack space={3}>
-              <Text color="textColors.primary" fontWeight={500} fontSize="xs">
-                Match Level
-              </Text>
-              <Box
-                width={42}
-                backgroundColor="success.400"
-                borderRadius={2.5}
-                pl={2.5}
-              >
-                <Text color="secondary.300" fontWeight={600} fontSize="xs">
-                  {matchLevel}
-                </Text>
-              </Box>
-            </HStack>
-          ) : (
-            ''
-          )}
+          <MatchLevel type={type} matchLevel={matchLevel} />
           <HStack space={2} flexWrap="wrap">
             {jobDescription?.map((desc) => {
               return (
@@ -103,7 +110,7 @@ export const TopMatches = (props: ITopmatches) => {
           <Divider my={2} background="secondary.400" />
         </VStack>
 
-        <VStack space={type !== 'no-event' ? 21 : ''} paddingTop={5}>
+        <VStack space={type !== 'no-event' ? 21 : 0} paddingTop={5}>
           <HStack space={2.5}>
             <Image
               borderRadius={100}
@@ -127,7 +134,7 @@ export const TopMatches = (props: ITopmatches) => {
               {buttonText}
             </CustomButton>
           ) : (
-            ''
+            <></>
           )}
         </VStack>
       </Stack>
