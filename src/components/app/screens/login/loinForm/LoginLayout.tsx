@@ -28,7 +28,7 @@ export const Login = (props: LoginProps) => {
     required: "'${name}' is required!",
   };
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
   };
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
@@ -36,7 +36,7 @@ export const Login = (props: LoginProps) => {
     else setEmailCheck('');
   };
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
     if (errorInfo.number === undefined && errorInfo.Email === undefined)
       setEmailCheck('empty');
     else setEmailCheck('');

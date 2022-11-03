@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Modal, UnojobsLogo, Text, Google, CustomButton, Linkedin } from '../../../../../';
+import {
+  Modal,
+  UnojobsLogo,
+  Text,
+  Google,
+  CustomButton,
+  Linkedin,
+} from '../../../../../';
 import './loginModalStyle.css';
 import { Form, Input as AntDInput } from 'antd';
 import { FacebookLogo } from '../../../../../';
@@ -16,7 +23,7 @@ export const LoginModal = (props: IModalProps) => {
   const [emailCheck, setEmailCheck] = useState('');
   const { type, isOpen, setModalVisible, setModalType } = props;
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
     if (values.Email === undefined) setEmailCheck('error');
     setModalType('OTP-verification');
   };
@@ -24,12 +31,12 @@ export const LoginModal = (props: IModalProps) => {
     required: "'${name}' is required!",
   };
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
     if (errorInfo.Email === undefined) setEmailCheck('empty');
   };
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
-    console.log(re.test(val), 'rrr');
+    // console.log(re.test(val), 'rrr');
 
     if (re.test(val) === false) setEmailCheck('error');
     else setEmailCheck('');

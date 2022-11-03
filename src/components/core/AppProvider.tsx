@@ -9,8 +9,8 @@ import {
   Urbanist_700Bold,
 } from '@expo-google-fonts/urbanist';
 import { useFonts } from 'expo-font';
-
-export const appTheme = extendTheme([defaultTheme, custom]);
+import merge from 'lodash.merge';
+export const appTheme = extendTheme(merge({ ...defaultTheme }, { ...custom }));
 export const AppProvider = ({ children, theme, ...props }: any) => {
   // Urbanist font configauration
 

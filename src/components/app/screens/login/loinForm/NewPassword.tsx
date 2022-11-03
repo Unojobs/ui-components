@@ -9,11 +9,12 @@ export const NewPassword = (props: any) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
+  //es-lint @typescript-eslint/no-unused-vars
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
   };
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
   };
 
   return (

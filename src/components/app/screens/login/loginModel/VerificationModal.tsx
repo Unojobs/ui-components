@@ -9,7 +9,7 @@ export const VerificationModal = (props: any) => {
   const [OTP, setOTP] = useState('');
   const { setModalType } = props;
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
   };
   const validateMessages = {
     required: "'${name}' is required!",
