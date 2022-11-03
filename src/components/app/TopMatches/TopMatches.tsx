@@ -37,20 +37,20 @@ export const TopMatches = (props: ITopmatches) => {
       borderRadius={12}
       _dark={{
         borderColor: 'coolGray.600',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: 'secondary.300',
       }}
       _web={{
         shadow: 2,
         borderWidth: 0,
       }}
       _light={{
-        backgroundColor: '#FFFFFF',
+        backgroundColor: 'secondary.300',
       }}
     >
       <Stack>
         <VStack space={25}>
           <HStack justifyContent="space-between">
-            <Text color="#111111" fontSize="16" fontWeight={600}>
+            <Text color="textColors.primary" fontSize="md" fontWeight={600}>
               {jobPost}
             </Text>
 
@@ -60,16 +60,16 @@ export const TopMatches = (props: ITopmatches) => {
           </HStack>
           {type !== 'no-event' ? (
             <HStack space={3}>
-              <Text color="#111111" fontWeight={500} fontSize="12">
+              <Text color="textColors.primary" fontWeight={500} fontSize="xs">
                 Match Level
               </Text>
               <Box
                 width={42}
-                backgroundColor="#89D860"
+                backgroundColor="success.400"
                 borderRadius={2.5}
                 pl={2.5}
               >
-                <Text color="#FFFFFF" fontWeight={600} fontSize="12">
+                <Text color="secondary.300" fontWeight={600} fontSize="xs">
                   {matchLevel}
                 </Text>
               </Box>
@@ -81,22 +81,26 @@ export const TopMatches = (props: ITopmatches) => {
             {jobDescription?.map((desc) => {
               return (
                 <Box
-                  background="#F3F3F3"
+                  background="secondary.400"
                   py={2}
                   px={2}
-                  color="#FFFFF"
+                  color="secondary.300"
                   width="fit-content"
                   marginTop={2}
                   borderRadius={4}
                 >
-                  <Text fontWeight="500" color="#707070" fontSize="10">
+                  <Text
+                    fontWeight="500"
+                    color="textColors.subtitle"
+                    fontSize="2xs"
+                  >
                     {desc}
                   </Text>
                 </Box>
               );
             })}
           </HStack>
-          <Divider my={2} background="#F3F3F3" />
+          <Divider my={2} background="secondary.400" />
         </VStack>
 
         <VStack space={type !== 'no-event' ? 21 : ''} paddingTop={5}>
@@ -110,10 +114,10 @@ export const TopMatches = (props: ITopmatches) => {
               size="xs"
             />
             <Box>
-              <Text color="#111111" fontSize="14" fontWeight={600}>
+              <Text color="textColors.primary" fontSize="sm" fontWeight={600}>
                 {companyName}
               </Text>
-              <Text color="#707070" fontSize="12" fontWeight={400}>
+              <Text color="textColors.subtitle" fontSize="xs" fontWeight={400}>
                 {location}
               </Text>
             </Box>

@@ -12,21 +12,21 @@ export const VideoCallPlatform = (props: IVideoCallProps) => {
           <ZoomLogo />
         )}
         <Box>
-          <Text color="#111111" fontSize="12" fontWeight={600}>
+          <Text color="textColor.primary" fontSize="xs" fontWeight={600}>
             {meetingId?.includes('meet.google.com')
               ? 'Google Meet'
               : 'Zoom meet'}
           </Text>
           <HStack>
             <Text
-              color="#707070"
-              fontSize="12"
+              color="textColor.subtitle"
+              fontSize="xs"
               fontWeight={500}
               paddingRight={1}
             >
               Meeting ID :
             </Text>
-            <Text color="#4169E0" fontSize="12" fontWeight={500}>
+            <Text color="primary.500" fontSize="xs" fontWeight={500}>
               {meetingId}
             </Text>
           </HStack>
