@@ -32,3 +32,35 @@ const SettingsSvg = () => (
 export const SettingsIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={SettingsSvg} {...props} />
 );
+
+const MoreIconSvg = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <path
+      fill="#707070"
+      d="M4 14a1.999 1.999 0 110-4 1.999 1.999 0 110 4z"
+    ></path>
+    <path
+      fill="#707070"
+      stroke="#707070"
+      d="M12 13.5a1.499 1.499 0 110-3 1.499 1.499 0 110 3z"
+    ></path>
+    <path
+      fill="#707070"
+      d="M20 14a1.999 1.999 0 110-4 1.999 1.999 0 110 4z"
+    ></path>
+  </svg>
+);
+
+interface IconProps {
+  /** invoke onClick event function */
+  onClick?: (event: React.MouseEvent) => void;
+}
+export const MoreIcon = (
+  props: Partial<CustomIconComponentProps & IconProps>
+) => <Icon component={MoreIconSvg} {...props} />;
