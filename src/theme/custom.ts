@@ -1,4 +1,26 @@
 export const custom = {
+  fontConfig: {
+    Urbanist: {
+      400: {
+        normal: 'Urbanist_400Regular',
+      },
+      500: {
+        normal: 'Urbanist_500Medium',
+      },
+      600: {
+        normal: 'Urbanist_600SemiBold',
+      },
+      700: {
+        normal: 'Urbanist_700Bold',
+        size: '48px',
+      },
+    },
+  },
+  fonts: {
+    heading: 'Urbanist',
+    body: 'Urbanist',
+    mono: 'Urbanist',
+  },
   colors: {
     landingPrimary: {
       '20': '#B4CBFB',
