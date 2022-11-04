@@ -26,15 +26,7 @@ export const CurvedUnderlineText: React.FC<CurvedUnderlineTitleProps> = (
   return (
     <Text position="relative">
       <Text color="primary.300">{props.children}</Text>
-      <Text
-        position="absolute"
-        left={0}
-        top="20%"
-        zIndex={-1}
-        bgColor="secondary.300"
-        color="white"
-        width="full"
-      >
+      <Text position="absolute" left={0} top="20%" zIndex={-1} width="full">
         <CustomIcon size="100%" />
       </Text>
     </Text>
