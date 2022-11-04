@@ -33,6 +33,7 @@ export const CurvedUnderlineText: React.FC<CurvedUnderlineTitleProps> = (
         zIndex={-1}
         bgColor="secondary.300"
         color="white"
+        width="full"
       >
         <CustomIcon size="100%" />
       </Text>
