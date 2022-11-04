@@ -16,3 +16,4 @@ export * from './UnojobsIcons';
 export * from './SuperAdmin';
 export * from './EmployerDashboard';
 export * from './LandingBadge';
+export * from './CurvedUnderlineText';
