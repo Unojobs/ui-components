@@ -15,5 +15,3 @@ export * from './CandidateAvatars';
 export * from './UnojobsIcons';
 export * from './SuperAdmin';
 export * from './EmployerDashboard';
-export * from './TopMatches';
-export * from './VideoCallPlatform';
