@@ -1,6 +1,5 @@
 import Icon from '@ant-design/icons';
 import React from 'react';
-
 export interface IconProps {
   /** invoke onClick event function */
   onClick?: (event: React.MouseEvent) => void;

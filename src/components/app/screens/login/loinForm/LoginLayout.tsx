@@ -27,16 +27,16 @@ export const Login = (props: LoginProps) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
+  // const onFinish = (values: any) => {
+  //   // console.log('Success:', values);
+  // };
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
     if (re.test(val) === false) setEmailCheck('error');
     else setEmailCheck('');
   };
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
     if (errorInfo.number === undefined && errorInfo.Email === undefined)
       setEmailCheck('empty');
     else setEmailCheck('');
@@ -89,7 +89,7 @@ export const Login = (props: LoginProps) => {
                 <Form
                   layout="vertical"
                   validateMessages={validateMessages}
-                  onFinish={onFinish}
+                  // onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
@@ -155,7 +155,7 @@ export const Login = (props: LoginProps) => {
                 <Form
                   layout="vertical"
                   validateMessages={validateMessages}
-                  onFinish={onFinish}
+                  // onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
@@ -329,7 +329,7 @@ export const Login = (props: LoginProps) => {
                 <Form
                   layout="vertical"
                   validateMessages={validateMessages}
-                  onFinish={onFinish}
+                  // onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >

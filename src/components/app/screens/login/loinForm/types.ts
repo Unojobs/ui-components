@@ -4,7 +4,8 @@ export type LoginProps = {
     | 'forget-password'
     | 'OTP-verification'
     | 'new-password'
-    | 'create-account' | 'admin-dashboard';
+    | 'create-account'
+    | 'admin-dashboard';
   loginButton(): string;
   loginWithGoogle(): string;
   loginWithLinkedin(): string;
