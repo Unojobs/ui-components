@@ -10,12 +10,12 @@ export const NewPassword = (props: any) => {
     required: "'${name}' is required!",
   };
   //es-lint @typescript-eslint/no-unused-vars
-  // const onFinish = (_values: any) => {
-  //   // console.log('Success:', values);
-  // };
-  // const onFinishFailed = (_errorInfo: any) => {
-  //   // console.log('Failed:', errorInfo);
-  // };
+  const onFinish = () => {
+    // console.log('Success:', values);
+  };
+  const onFinishFailed = () => {
+    // console.log('Failed:', errorInfo);
+  };
 
   return (
     <div className="cardDiv">

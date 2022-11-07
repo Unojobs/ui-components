@@ -8,9 +8,9 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 export const VerificationModal = (props: any) => {
   const [OTP, setOTP] = useState('');
   const { setModalType } = props;
-  // const onFinish = (values: any) => {
-  //   // console.log('Success:', values);
-  // };
+  const onFinish = () => {
+    // console.log('Success:', values);
+  };
   const validateMessages = {
     required: "'${name}' is required!",
   };

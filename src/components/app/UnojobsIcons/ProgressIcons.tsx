@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import { Box, createIcon } from '../../primitives';
 
-export interface IconProps {
+type IconProps = {
   fill?: string;
   size?: string | number;
   marginTop?: number | string;
   marginLeft?: number | string;
-}
+};
 
 /**Profile Icon */
 export const ProfileIcon = ({

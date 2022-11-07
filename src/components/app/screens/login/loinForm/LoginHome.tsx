@@ -27,9 +27,9 @@ export const LoginHome = (props: any) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  // const onFinish = (values: any) => {
-  //   // console.log('Success:', values);
-  // };
+  const onFinish = () => {
+    // console.log('Success:', values);
+  };
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
     if (re.test(val) === false) setEmailCheck('error');
