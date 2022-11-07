@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Input } from '../../../primitives';
 import { SearchOutlined } from '@ant-design/icons';
-export interface SearchBarProps {}
+export interface SearchBarProps {
+  searchString: string;
+  handleChange: (event?: any) => void;
+}
 export const SearchBar = (props: SearchBarProps) => {
-  const {} = props;
-  const handleChange = (event: any) => {
-    // eslint-disable-next-line no-console
-    console.log(event.target.value);
-  };
+  const { searchString, handleChange } = props;
+
   return (
     <Box
       width={327}
@@ -19,7 +19,7 @@ export const SearchBar = (props: SearchBarProps) => {
       <Input
         placeholder="Search Message"
         onChange={handleChange}
-        // value={searchVal}
+        value={searchString}
         width={'full'}
         fontSize={12}
         InputRightElement={<SearchOutlined />}

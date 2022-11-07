@@ -5,16 +5,12 @@ import { Box } from '../../../primitives';
 const { Option } = Select;
 export interface ConversationCategoryDropdownProps {
   categories: string[];
+  handleOptionChange: (event?: any) => void;
 }
 export const ConversationCategoryDropdown = (
   props: ConversationCategoryDropdownProps
 ) => {
-  const { categories } = props;
-  const handleChange = (value: string) => {
-    // eslint-disable-next-line no-console
-    console.log(value);
-  };
-
+  const { categories, handleOptionChange } = props;
   return (
     <>
       {categories?.length ? (
@@ -32,7 +28,7 @@ export const ConversationCategoryDropdown = (
               width: '100%',
               fontSize: 12,
             }}
-            onChange={handleChange}
+            onChange={handleOptionChange}
             bordered={false}
           >
             {categories.length &&

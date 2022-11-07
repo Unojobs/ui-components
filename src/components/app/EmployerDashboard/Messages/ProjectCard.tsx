@@ -17,13 +17,17 @@ export interface ProjectCardProps {
   candidates?: TCandidates[];
   conversations?: TConversations[];
   unreadConversations: number;
+  handleClick: (event?: any) => void;
 }
 export const ProjectCard = (props: ProjectCardProps) => {
-  const { jobTitle, candidates, conversations, unreadConversations } = props;
-  const handleClick = (event: any) => {
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
+  const {
+    jobTitle,
+    candidates,
+    conversations,
+    unreadConversations,
+    handleClick,
+  } = props;
+
   return (
     <Box width={295} height={129} padding={4}>
       <Pressable onPress={handleClick}>

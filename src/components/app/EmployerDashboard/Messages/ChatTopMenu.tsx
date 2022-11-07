@@ -24,14 +24,12 @@ type TCandidate = {
 };
 export interface ChatTopMenuProps {
   candidate: TCandidate;
+  handleAddNotes: (event?: any) => void;
 }
 
 export const ChatTopMenu = (props: ChatTopMenuProps) => {
-  const { candidate } = props;
-  const handleNotesClick = (event: any) => {
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
+  const { candidate, handleAddNotes } = props;
+
   return (
     <Box
       height={157}
@@ -70,11 +68,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
             {candidate.rating ? (
               <span>
                 {new Array(candidate.rating).fill(0).map((_, idx) => (
-                  <StarFilled
-                    key={idx}
-                    size={12}
-                    style={{ color: '#F2C94C' }}
-                  />
+                  <StarFilled key={idx} size={12} style={{ color: 'gold' }} />
                 ))}
               </span>
             ) : (
@@ -93,15 +87,15 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           justifyContent={'space-around'}
         >
           <CustomButton
-            backgroundColor="#fff"
-            color="#000"
-            width={'152'}
-            height={'40'}
-            onClick={handleNotesClick}
+            backgroundColor="white"
+            color="black"
+            width={'152px'}
+            height={'40px'}
+            onClick={handleAddNotes}
           >
             <FileTextFilled /> Notes
           </CustomButton>
-          <Badge backgroundColor={'#f3f3f3'} paddingX={2.5} paddingY={4}>
+          <Badge backgroundColor={'muted.100'} paddingX={2.5} paddingY={4}>
             <Text>{candidate.activeApplications[0].status}</Text>
           </Badge>
           <VStack space={0.5}>

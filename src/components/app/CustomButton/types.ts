@@ -13,8 +13,8 @@
 export interface CustomButtonProps {
   children?: any;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
   color?: string;
   backgroundColor?: string;
   borderRadius: string;

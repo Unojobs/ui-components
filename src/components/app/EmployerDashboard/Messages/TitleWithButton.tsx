@@ -5,16 +5,10 @@ import { PlusOutlined } from '@ant-design/icons';
 export interface TitleWithBtnProps {
   titleText: string;
   btnText: string;
+  handleClick: (event?: any) => void;
 }
 export const TitleWithBtn = (props: TitleWithBtnProps) => {
-  const { titleText, btnText } = props;
-  const handleClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    // handle modal pop up here
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
+  const { titleText, btnText, handleClick } = props;
   return (
     <HStack
       width={326}
@@ -29,19 +23,19 @@ export const TitleWithBtn = (props: TitleWithBtnProps) => {
       </Text>
       <CustomButton
         onClick={handleClick}
-        width="81px"
-        height="40px"
-        backgroundColor="#4169E0"
+        width={81}
+        height={40}
+        backgroundColor="primary.500"
       >
         <HStack
           alignItems={'center'}
           justifyContent={'center'}
-          width={81}
-          height={40}
+          width={'81px'}
+          height={'40px'}
           space={1}
         >
           <PlusOutlined size={4} />
-          <Text color={'#fff'} fontSize={'xs'}>
+          <Text color={'white'} fontSize={'xs'}>
             {btnText}
           </Text>
         </HStack>
