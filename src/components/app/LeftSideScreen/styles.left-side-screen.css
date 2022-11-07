@@ -1,0 +1,10 @@
+.left-side-bar-info {
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 492px) {
+  .left-side-bar-info {
+    display: none;
+  }
+}

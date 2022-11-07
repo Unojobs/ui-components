@@ -6,5 +6,5 @@ import {
 export const FormControlErrorMessage = ({
   ...props
 }: IFormControlErrorMessageProps) => {
-  return <NBFormControl.ErrorMessage {...props}></NBFormControl.ErrorMessage>;
+  return <NBFormControl.ErrorMessage {...props} />;
 };

@@ -62,7 +62,7 @@ export const LoginHome = (props: any) => {
             <Form
               layout="vertical"
               validateMessages={validateMessages}
-              onFinish={onFinish}
+              // onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               autoComplete="off"
             >

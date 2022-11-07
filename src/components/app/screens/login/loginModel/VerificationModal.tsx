@@ -59,7 +59,7 @@ export const VerificationModal = (props: any) => {
         <Form
           layout="vertical"
           validateMessages={validateMessages}
-          onFinish={onFinish}
+          // onFinish={onFinish}
           autoComplete="off"
         >
           <div className="modalVerificationOtpLable">Input your OTP code</div>

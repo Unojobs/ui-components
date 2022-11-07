@@ -5,26 +5,22 @@ import { Box } from '../../../primitives';
 const { Option } = Select;
 export interface ConversationCategoryDropdownProps {
   categories: string[];
+  handleOptionChange: (event?: any) => void;
 }
 export const ConversationCategoryDropdown = (
   props: ConversationCategoryDropdownProps
 ) => {
-  const { categories } = props;
-  const handleChange = (value: string) => {
-    // eslint-disable-next-line no-console
-    console.log(value);
-  };
-
+  const { categories, handleOptionChange } = props;
   return (
     <>
       {categories?.length ? (
         <Box
-          width={'327px'}
-          height={'45px'}
+          width={327}
+          height={45}
           alignItems={'center'}
           justifyContent={'center'}
-          paddingX={'13px'}
-          paddingY={'20px'}
+          paddingX={3.5}
+          paddingY={5}
         >
           <Select
             defaultValue={categories[0]}
@@ -32,7 +28,7 @@ export const ConversationCategoryDropdown = (
               width: '100%',
               fontSize: 12,
             }}
-            onChange={handleChange}
+            onChange={handleOptionChange}
             bordered={false}
           >
             {categories.length &&
@@ -45,12 +41,12 @@ export const ConversationCategoryDropdown = (
         </Box>
       ) : (
         <Box
-          width={'327px'}
-          height={'45px'}
+          width={327}
+          height={45}
           alignItems={'center'}
           justifyContent={'center'}
-          paddingX={'13px'}
-          paddingY={'20px'}
+          paddingX={3.5}
+          paddingY={5}
         >
           <Select
             disabled

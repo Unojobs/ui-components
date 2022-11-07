@@ -89,7 +89,7 @@ export const Login = (props: LoginProps) => {
                 <Form
                   layout="vertical"
                   validateMessages={validateMessages}
-                  onFinish={onFinish}
+                  // onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
@@ -155,7 +155,7 @@ export const Login = (props: LoginProps) => {
                 <Form
                   layout="vertical"
                   validateMessages={validateMessages}
-                  onFinish={onFinish}
+                  // onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
@@ -329,7 +329,7 @@ export const Login = (props: LoginProps) => {
                 <Form
                   layout="vertical"
                   validateMessages={validateMessages}
-                  onFinish={onFinish}
+                  // onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >

@@ -9,6 +9,7 @@ import {
   PhoneTwoTone,
 } from '@ant-design/icons';
 import { Box, HStack, Text, VStack } from '../../../primitives';
+import { Badge } from '../../../composites';
 import { makeRandomColor } from '../../../utils';
 import { CustomButton } from '../../CustomButton';
 type TApplication = { jid: number; jobTitle: string; status: string };
@@ -23,14 +24,12 @@ type TCandidate = {
 };
 export interface ChatTopMenuProps {
   candidate: TCandidate;
+  handleAddNotes: (event?: any) => void;
 }
 
 export const ChatTopMenu = (props: ChatTopMenuProps) => {
-  const { candidate } = props;
-  const handleNotesClick = (event: any) => {
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
+  const { candidate, handleAddNotes } = props;
+
   return (
     <Box
       height={157}
@@ -40,7 +39,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
       justifyContent={'space-between'}
     >
       <HStack
-        width={'100%'}
+        width={'full'}
         alignItems={'center'}
         justifyContent={'space-between'}
       >
@@ -69,11 +68,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
             {candidate.rating ? (
               <span>
                 {new Array(candidate.rating).fill(0).map((_, idx) => (
-                  <StarFilled
-                    key={idx}
-                    size={12}
-                    style={{ color: '#F2C94C' }}
-                  />
+                  <StarFilled key={idx} size={12} style={{ color: 'gold' }} />
                 ))}
               </span>
             ) : (
@@ -92,25 +87,17 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           justifyContent={'space-around'}
         >
           <CustomButton
-            backgroundColor="#fff"
-            color="#000"
-            width={'152'}
-            height={'40'}
-            onClick={handleNotesClick}
+            backgroundColor="white"
+            color="black"
+            width={'152px'}
+            height={'40px'}
+            onClick={handleAddNotes}
           >
             <FileTextFilled /> Notes
           </CustomButton>
-          <span
-            style={{
-              backgroundColor: '#F3F3F3',
-              paddingTop: 16,
-              paddingRight: 10,
-              paddingBottom: 16,
-              paddingLeft: 16,
-            }}
-          >
+          <Badge backgroundColor={'muted.100'} paddingX={2.5} paddingY={4}>
             <Text>{candidate.activeApplications[0].status}</Text>
-          </span>
+          </Badge>
           <VStack space={0.5}>
             <Text>
               <MailTwoTone twoToneColor="#EB5757" /> {candidate.email}

@@ -39,8 +39,8 @@ export const NewPassword = (props: any) => {
             <Form
               layout="vertical"
               validateMessages={validateMessages}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
+              // onFinish={onFinish}
+              // onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
               <Form.Item
