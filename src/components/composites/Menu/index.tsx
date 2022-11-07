@@ -12,7 +12,7 @@ import { MenuItem } from './MenuItem';
 import { MenuItemOption } from './MenuItemOption';
 import { MenuOptionGroup } from './MenuOptionGroup';
 
-let MenuTemp: any = MenuMain;
+const MenuTemp: any = MenuMain;
 MenuTemp.Item = MenuItem;
 MenuTemp.Group = MenuGroup;
 MenuTemp.ItemOption = MenuItemOption;

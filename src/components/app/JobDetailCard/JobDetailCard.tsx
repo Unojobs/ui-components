@@ -1,13 +1,6 @@
 import React from 'react';
 import { Badge } from '../../composites';
-import {
-  Box,
-  Heading,
-  Stack,
-  Text,
-  Image,
-  HStack,
-} from '../../../';
+import { Box, Heading, Stack, Text, Image, HStack } from '../../../';
 import type { JobDetailCardProps } from './types';
 import { CandidateAvatars } from '../CandidateAvatars';
 

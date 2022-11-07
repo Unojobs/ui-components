@@ -8,9 +8,9 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 export const VerificationModal = (props: any) => {
   const [OTP, setOTP] = useState('');
   const { setModalType } = props;
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
+  // const onFinish = (values: any) => {
+  //   // console.log('Success:', values);
+  // };
   const validateMessages = {
     required: "'${name}' is required!",
   };
@@ -59,7 +59,7 @@ export const VerificationModal = (props: any) => {
         <Form
           layout="vertical"
           validateMessages={validateMessages}
-          onFinish={onFinish}
+          // onFinish={onFinish}
           autoComplete="off"
         >
           <div className="modalVerificationOtpLable">Input your OTP code</div>

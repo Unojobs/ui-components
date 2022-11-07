@@ -7,3 +7,5 @@ export * from './components/factory';
 export * from './config';
 export * from './components/app';
 export * from './components/apptokens';
+export * from './components/custom';
+export * from './components/basic';

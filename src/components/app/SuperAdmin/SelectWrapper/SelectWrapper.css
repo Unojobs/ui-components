@@ -1,0 +1,44 @@
+.select-antd-mod .ant-select-selection-item {
+  padding-right: 0px !important;
+  padding-left: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.select-antd-mod .ant-select-selector {
+  display: flex;
+  align-items: center;
+  border-radius: 5px !important;
+  height: 100% !important;
+  padding: 0 48px 0 24px !important;
+}
+
+.select-antd-mod .ant-select-focused .ant-select-selector {
+  border-color: #4169e0 !important;
+}
+
+.ant-select-item-option {
+  padding: 14px 20px;
+}
+
+.ant-select-dropdown {
+  padding: 0px;
+  border-radius: 8px;
+}
+
+.ant-select-item-option-selected {
+  background-color: rgb(217, 230, 253, 0.3) !important;
+}
+
+.select-antd-mod .ant-select-selector:hover {
+  border: 1px solid #4169e0 !important;
+}
+
+.select-antd-mod .ant-select-arrow {
+  right: 24px;
+}
+
+.select-antd-mod .anticon {
+  display: flex;
+  justify-content: center;
+}
