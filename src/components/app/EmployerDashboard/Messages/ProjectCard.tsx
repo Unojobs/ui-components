@@ -17,18 +17,22 @@ export interface ProjectCardProps {
   candidates?: TCandidates[];
   conversations?: TConversations[];
   unreadConversations: number;
+  handleClick: (event?: any) => void;
 }
 export const ProjectCard = (props: ProjectCardProps) => {
-  const { jobTitle, candidates, conversations, unreadConversations } = props;
-  const handleClick = (event: any) => {
-    // eslint-disable-next-line no-console
-    console.log(event);
-  };
+  const {
+    jobTitle,
+    candidates,
+    conversations,
+    unreadConversations,
+    handleClick,
+  } = props;
+
   return (
-    <Box width={'295px'} height={'129px'} padding={'16px'}>
+    <Box width={295} height={129} padding={4}>
       <Pressable onPress={handleClick}>
         <VStack space={3}>
-          <Heading size={'md'} style={{ padding: 0, margin: 0 }}>
+          <Heading size={'md'} padding={0} margin={0}>
             {jobTitle}
           </Heading>
           {candidates?.length ? (
@@ -57,24 +61,24 @@ export const ProjectCard = (props: ProjectCardProps) => {
                   )}
               </Avatar.Group>
               {conversations?.length ? (
-                <Text style={{ fontSize: 16, color: '#707070' }}>
+                <Text fontSize={'md'} color={'#707070'}>
                   {conversations.length}{' '}
                   {conversations.length > 1 ? 'Conversations' : 'Conversation'}
                 </Text>
               ) : (
-                <Text style={{ fontSize: 16, color: '#707070' }} disabled>
+                <Text fontSize={'md'} color={'#707070'} disabled>
                   No conversations
                 </Text>
               )}
             </HStack>
           ) : (
-            <Text style={{ fontSize: 16 }} disabled>
+            <Text fontSize={'md'} disabled>
               No candidates
             </Text>
           )}
           {!!unreadConversations && !!candidates?.length && (
             <HStack alignItems={'center'} justifyContent={'space-between'}>
-              <Text style={{ color: '#707070', fontSize: 12 }}>
+              <Text fontSize={'xs'} color={'#707070'}>
                 {unreadConversations > 1 ? 'Unseen Messages' : 'Unseen Message'}
               </Text>
               <Badge
