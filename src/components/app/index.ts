@@ -13,5 +13,6 @@ export * from './FaqCard';
 export * from './StatusTag';
 export * from './CandidateAvatars';
 export * from './UnojobsIcons';
+export * from './Authentication';
 export * from './SuperAdmin';
 export * from './EmployerDashboard';

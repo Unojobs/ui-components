@@ -9,7 +9,7 @@ export const FacebookLogo = () => {
       width="35"
     >
       <path
-        fill="#1976D2"
+        fill="#395185"
         d="M14 0H2C.897 0 0 .897 0 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z"
       />
       <path

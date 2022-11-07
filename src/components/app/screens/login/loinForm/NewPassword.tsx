@@ -10,12 +10,12 @@ export const NewPassword = (props: any) => {
     required: "'${name}' is required!",
   };
   //es-lint @typescript-eslint/no-unused-vars
-  const onFinish = (values: any) => {
-    // console.log('Success:', values);
-  };
-  const onFinishFailed = (errorInfo: any) => {
-    // console.log('Failed:', errorInfo);
-  };
+  // const onFinish = (_values: any) => {
+  //   // console.log('Success:', values);
+  // };
+  // const onFinishFailed = (_errorInfo: any) => {
+  //   // console.log('Failed:', errorInfo);
+  // };
 
   return (
     <div className="cardDiv">
@@ -39,8 +39,8 @@ export const NewPassword = (props: any) => {
             <Form
               layout="vertical"
               validateMessages={validateMessages}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
+              // onFinish={onFinish}
+              // onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
               <Form.Item
