@@ -27,7 +27,7 @@ export const Login = (props: LoginProps) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinish = (values: any) => {
+  const onFinish = () => {
     // console.log('Success:', values);
   };
   const validateEmail = (val: string) => {

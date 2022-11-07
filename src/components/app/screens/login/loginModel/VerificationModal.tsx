@@ -8,7 +8,7 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 export const VerificationModal = (props: any) => {
   const [OTP, setOTP] = useState('');
   const { setModalType } = props;
-  const onFinish = (values: any) => {
+  const onFinish = () => {
     // console.log('Success:', values);
   };
   const validateMessages = {

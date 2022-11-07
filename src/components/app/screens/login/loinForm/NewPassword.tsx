@@ -10,10 +10,10 @@ export const NewPassword = (props: any) => {
     required: "'${name}' is required!",
   };
   //es-lint @typescript-eslint/no-unused-vars
-  const onFinish = (values: any) => {
+  const onFinish = () => {
     // console.log('Success:', values);
   };
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = () => {
     // console.log('Failed:', errorInfo);
   };
 
