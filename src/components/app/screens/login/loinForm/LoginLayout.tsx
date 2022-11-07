@@ -27,9 +27,7 @@ export const Login = (props: LoginProps) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinish = () => {
-    // console.log('Success:', values);
-  };
+
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
     if (re.test(val) === false) setEmailCheck('error');
@@ -223,7 +221,7 @@ export const Login = (props: LoginProps) => {
                       className="password"
                       placeholder="Input your password"
                     />
-                  </Form.Item>{' '}
+                  </Form.Item>
                   <Form.Item
                     name="Confirm Password"
                     label="Confirm Password"
@@ -268,7 +266,6 @@ export const Login = (props: LoginProps) => {
                   <div className="haveAc">
                     <span>Already have an account?</span>
                     <span className="register" onClick={() => login()}>
-                      {' '}
                       Login
                     </span>
                   </div>

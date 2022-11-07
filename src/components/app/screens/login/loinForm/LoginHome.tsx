@@ -27,9 +27,6 @@ export const LoginHome = (props: any) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinish = () => {
-    // console.log('Success:', values);
-  };
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
     if (re.test(val) === false) setEmailCheck('error');
@@ -193,7 +190,7 @@ export const LoginHome = (props: any) => {
                       backgroundColor="#F3F3F3"
                       color="#111111"
                       icon={<FacebookLogo />}
-                    ></CustomButton>
+                    />
                   )}
                 </div>
                 <div className="dontHaveAc">

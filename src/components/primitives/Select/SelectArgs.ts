@@ -1,73 +1,73 @@
-import { appTheme as theme } from "../../core/AppProvider";
+import { appTheme as theme } from '../../core/AppProvider';
 
 export const StorybookSelectArgs = {
   color: {
-    name: "color",
-    type: { name: "string", required: true },
-    defaultValue: "primary.500",
+    name: 'color',
+    type: { name: 'string', required: true },
+    defaultValue: 'primary.500',
     // options: Object.keys(remColors),
-    options: ["primary.500", "secondary.500", "tertiary.500"],
+    options: ['primary.500', 'secondary.500', 'tertiary.500'],
     control: {
-      type: "select",
+      type: 'select',
     },
   },
   placeholderTextColor: {
-    name: "placeholderTextColor",
-    type: { name: "string", required: true },
-    defaultValue: "coolGray.600",
+    name: 'placeholderTextColor',
+    type: { name: 'string', required: true },
+    defaultValue: 'coolGray.600',
     // options: Object.keys(remColors),
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   variant: {
-    name: "variant",
-    type: { name: "string", required: true },
-    defaultValue: "rounded",
+    name: 'variant',
+    type: { name: 'string', required: true },
+    defaultValue: 'rounded',
     options: Object.keys(theme.components.Input.variants),
     control: {
-      type: "radio",
+      type: 'radio',
     },
   },
   placeholder: {
-    name: "placeholder",
+    name: 'placeholder',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "Choose a profession",
+    defaultValue: 'Choose a profession',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   isHovered: {
-    name: "isHovered",
-    type: { name: "boolean" },
+    name: 'isHovered',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isFocused: {
-    name: "isFocused",
-    type: { name: "boolean" },
+    name: 'isFocused',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
 
   isDisabled: {
-    name: "isDisabled",
+    name: 'isDisabled',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
 };

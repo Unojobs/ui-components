@@ -1,2 +1,1 @@
-
-export type { IRadioProps } from "native-base";
+export type { IRadioProps } from 'native-base';

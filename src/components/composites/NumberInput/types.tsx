@@ -1,2 +1,1 @@
-
-export type { INumberInputContext } from "native-base"
+export type { INumberInputContext } from 'native-base';

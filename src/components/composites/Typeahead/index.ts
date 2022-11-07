@@ -1,2 +1,2 @@
-export { useTypeahead } from "native-base";
-export { Typeahead } from "./Typeahead";
+export { useTypeahead } from 'native-base';
+export { Typeahead } from './Typeahead';

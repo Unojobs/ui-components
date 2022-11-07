@@ -1,2 +1,1 @@
-
-export type { ISpinnerProps } from "native-base";
+export type { ISpinnerProps } from 'native-base';

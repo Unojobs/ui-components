@@ -1,5 +1,5 @@
-import React from "react";
-import { Actionsheet as NBActionsheet } from "native-base";
+import React from 'react';
+import { Actionsheet as NBActionsheet } from 'native-base';
 export const ActionsheetItem = ({ ...props }: any) => {
-  return <NBActionsheet.Item {...props}></NBActionsheet.Item>;
+  return <NBActionsheet.Item {...props} />;
 };

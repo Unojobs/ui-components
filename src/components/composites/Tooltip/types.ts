@@ -1,3 +1,1 @@
-
-
-export type { ITooltipProps } from "native-base";
+export type { ITooltipProps } from 'native-base';

@@ -47,7 +47,8 @@
     "typescript": "tsc --noEmit",
     "release": "release-it",
     "prepare": "bob build",
-    "commit-test": "yarn prepare && cd example && yarn test && cd .."
+    "commit-test": "yarn prepare && cd example && yarn test && cd ..",
+    "lint": "eslint src"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

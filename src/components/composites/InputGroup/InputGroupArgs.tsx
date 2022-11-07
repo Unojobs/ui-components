@@ -2,30 +2,30 @@
 
 export const StorybookInputGroupArgs = {
   backgroundColor: {
-    name: "backgroundColor",
-    type: { name: "string", required: true },
-    defaultValue: "primary",
-    options: ["primary.500", "blue.500"],
+    name: 'backgroundColor',
+    type: { name: 'string', required: true },
+    defaultValue: 'primary',
+    options: ['primary.500', 'blue.500'],
     control: {
-      type: "select",
+      type: 'select',
     },
   },
   iconBackground: {
-    name: "iconBackground",
-    type: { name: "string", required: true },
-    defaultValue: "primary",
-    options: ["primary.500", "blue.500"],
+    name: 'iconBackground',
+    type: { name: 'string', required: true },
+    defaultValue: 'primary',
+    options: ['primary.500', 'blue.500'],
     control: {
-      type: "select",
+      type: 'select',
     },
   },
   variant: {
-    name: "variant",
-    type: { name: "string", required: true },
-    defaultValue: "unstyled",
-    options: ["filled", "outline", "unstyled"],
+    name: 'variant',
+    type: { name: 'string', required: true },
+    defaultValue: 'unstyled',
+    options: ['filled', 'outline', 'unstyled'],
     control: {
-      type: "radio",
+      type: 'radio',
     },
   },
   // children: {
@@ -40,31 +40,31 @@ export const StorybookInputGroupArgs = {
   //   },
   // },
   isHovered: {
-    name: "isHovered",
-    type: { name: "boolean" },
+    name: 'isHovered',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
 };
 
 export const InputGroupArgs = {
   pages: {
-    type: "",
-    section: "variant",
-    row: "backgroundColor",
-    component: "states",
+    type: '',
+    section: 'variant',
+    row: 'backgroundColor',
+    component: 'states',
   },
   props: {
     backgroundColor: {
-      name: "backgroundColor",
-      type: { name: "string", required: true },
-      defaultValue: "primary.100",
-      options: ["primary.100", "blue.100"],
+      name: 'backgroundColor',
+      type: { name: 'string', required: true },
+      defaultValue: 'primary.100',
+      options: ['primary.100', 'blue.100'],
       control: {
-        type: "select",
+        type: 'select',
       },
     },
     // iconBackground: {
@@ -77,27 +77,27 @@ export const InputGroupArgs = {
     //   },
     // },
     variant: {
-      name: "variant",
-      type: { name: "string", required: true },
-      defaultValue: "unstyled",
-      options: ["filled", "outline", "unstyled"],
+      name: 'variant',
+      type: { name: 'string', required: true },
+      defaultValue: 'unstyled',
+      options: ['filled', 'outline', 'unstyled'],
       control: {
-        type: "radio",
+        type: 'radio',
       },
     },
     states: [
       {
         default: {
-          name: "default",
+          name: 'default',
         },
       },
       {
         isHovered: {
-          name: "isHovered",
-          type: { name: "boolean" },
+          name: 'isHovered',
+          type: { name: 'boolean' },
           defaultValue: false,
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
@@ -105,7 +105,7 @@ export const InputGroupArgs = {
   },
 
   metaData: {
-    heading: "InputGroup",
-    "sub-heading": "This is an custom input.",
+    'heading': 'InputGroup',
+    'sub-heading': 'This is an custom input.',
   },
 };

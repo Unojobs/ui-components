@@ -9,13 +9,6 @@ export const NewPassword = (props: any) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  //es-lint @typescript-eslint/no-unused-vars
-  const onFinish = () => {
-    // console.log('Success:', values);
-  };
-  const onFinishFailed = () => {
-    // console.log('Failed:', errorInfo);
-  };
 
   return (
     <div className="cardDiv">
@@ -52,7 +45,7 @@ export const NewPassword = (props: any) => {
                   className="password"
                   placeholder="Input your new password account"
                 />
-              </Form.Item>{' '}
+              </Form.Item>
               <Form.Item
                 name="Confirm New Password"
                 label="Confirm New Password"

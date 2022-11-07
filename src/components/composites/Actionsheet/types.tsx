@@ -1,1 +1,1 @@
-export type {IActionsheetProps} from 'native-base'
+export type { IActionsheetProps } from 'native-base';

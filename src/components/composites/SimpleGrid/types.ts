@@ -1,2 +1,1 @@
-
-export type {ISimpleGridProps} from "native-base" 
+export type { ISimpleGridProps } from 'native-base';
