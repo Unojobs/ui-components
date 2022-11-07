@@ -7,12 +7,14 @@ import { Checkbox } from 'components';
 const CheckboxTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Checkbox
-        {...args}
-        value="test"
-        accessibilityLabel="This is a dummy checkbox"
-        defaultIsChecked
-      />
+      <Checkbox.Group>
+        <Checkbox
+          {...args}
+          value="test"
+          accessibilityLabel="This is a dummy checkbox"
+          defaultIsChecked
+        />
+      </Checkbox.Group>
     </Wrapper>
   );
 };
