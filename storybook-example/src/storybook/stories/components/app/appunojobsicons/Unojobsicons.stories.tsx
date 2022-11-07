@@ -44,19 +44,16 @@ import {
   UnoJobsHospitalityDepartment,
   UnoJobsWellnessDepartment,
   UnoJobsAviationDepartment,
-<<<<<<< HEAD
   LeftArrowIcon,
   FacebookSMLogo,
   LinkedInSMLogo,
   GoogleSMLogo,
-=======
   AttachFileIcon,
   LocationIcon,
   CameraIcon,
   CircularRightArrowIcon,
   CircularWrongIcon,
   CircularCorrectIcon,
->>>>>>> d652e85e29e49b6958a665a0f7a206824168cd76
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -133,12 +130,12 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsAppLogo fill="#111" />
           </HStack>
           <HStack space={3} alignItems="center">
-<<<<<<< HEAD
             <Text>Social Media Logo :</Text>
             <FacebookSMLogo />
             <LinkedInSMLogo />
             <GoogleSMLogo />
-=======
+          </HStack>
+          <HStack space={3} alignItems="center">
             <Text>Form Icon :</Text>
             <AttachFileIcon />
             <LocationIcon />
@@ -146,7 +143,6 @@ const UnojobsiconsTest = ({ ...args }) => {
             <CircularRightArrowIcon />
             <CircularWrongIcon />
             <CircularCorrectIcon />
->>>>>>> d652e85e29e49b6958a665a0f7a206824168cd76
           </HStack>
         </VStack>
       </Box>
