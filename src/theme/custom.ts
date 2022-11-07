@@ -61,6 +61,7 @@ export const custom = {
       caption: '#B7B7B7',
       highlight: '#0066FF',
       overline: '#203AA1',
+      subtitle2: '#EEEEEE',
     },
   },
   fontSizes: {
