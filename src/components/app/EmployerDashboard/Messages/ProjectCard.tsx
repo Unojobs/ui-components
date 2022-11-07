@@ -29,7 +29,13 @@ export const ProjectCard = (props: ProjectCardProps) => {
   } = props;
 
   return (
-    <Box width={295} height={129} padding={4}>
+    <Box
+      width={295}
+      height={129}
+      padding={4}
+      borderRadius={12}
+      backgroundColor="white"
+    >
       <Pressable onPress={handleClick}>
         <VStack space={3}>
           <Heading size={'md'} padding={0} margin={0}>

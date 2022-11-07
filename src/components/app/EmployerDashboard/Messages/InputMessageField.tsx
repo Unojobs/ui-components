@@ -8,7 +8,7 @@ import {
   SendOutlined,
 } from '@ant-design/icons';
 import { makeRandomColor } from '../../../utils';
-import { CustomButton } from '../../CustomButton';
+import { CustomNBButton } from '../../CustomNBButton';
 const { TextArea } = Input;
 export interface InputMessageFieldProps {
   avatarUri: string;
@@ -61,15 +61,15 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
           <FileAddOutlined onClick={handleFileUpload} size={12} />
         </HStack>
       </HStack>
-      <CustomButton
+      <CustomNBButton
         htmlType="submit"
         width={'48px'}
         height={'46px'}
         backgroundColor="primary.500"
         onClick={handleSubmit}
       >
-        <SendOutlined size={12} />
-      </CustomButton>
+        <SendOutlined size={12} style={{ color: '#fff' }} />
+      </CustomNBButton>
     </HStack>
   );
 };

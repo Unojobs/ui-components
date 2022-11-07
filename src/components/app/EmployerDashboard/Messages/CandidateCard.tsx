@@ -3,7 +3,6 @@ import { Avatar } from 'antd';
 import { Box, HStack, VStack, Text, Pressable } from '../../../primitives';
 import { Badge } from '../../../composites';
 import { makeRandomColor } from '../../../utils';
-import { custom } from '../../../../theme/custom';
 type TApplication = { jid: number; jobTitle: string; status: string };
 type TMessage = { msgBody: any; date: string; timestamp: string };
 type TCandidate = {
@@ -24,7 +23,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
       width={326}
       height={126}
       padding={4}
-      borderRadius={2.5}
+      borderRadius={10}
       justifyContent={'space-between'}
       backgroundColor={isActive ? 'primary.500' : 'white'}
     >
@@ -38,15 +37,11 @@ export const CandidateCard = (props: CandidateCardProps) => {
             </Avatar>
           )}
           <VStack flexGrow={1} space={1}>
-            <Text color={isActive ? 'white' : 'secondary.100'} fontSize={16}>
+            <Text color={isActive ? 'white' : 'black'} fontSize={16}>
               {candidate.username}
             </Text>
             <Text
-              color={
-                isActive
-                  ? 'white'
-                  : custom.components.CandidateCard.inActiveCardColor
-              }
+              color={isActive ? 'white' : 'black'}
               fontSize={12}
               fontWeight={'hairline'}
             >
@@ -54,22 +49,14 @@ export const CandidateCard = (props: CandidateCardProps) => {
             </Text>
 
             <Badge
-              backgroundColor={
-                isActive
-                  ? 'primary.300'
-                  : custom.components.CandidateCard.badgeFillColor
-              }
+              backgroundColor={isActive ? 'primary.300' : 'coolGray.200'}
               textAlign="center"
               borderRadius={4}
             >
               {candidate.activeApplications.length &&
               candidate.activeApplications.length > 1 ? (
                 <Text
-                  color={
-                    isActive
-                      ? 'white'
-                      : custom.components.CandidateCard.inActiveCardColor
-                  }
+                  color={isActive ? 'white' : 'black'}
                   fontSize={'xs'}
                   borderRadius={4}
                   fontWeight={'light'}
@@ -78,11 +65,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
                 </Text>
               ) : (
                 <Text
-                  color={
-                    isActive
-                      ? 'white'
-                      : custom.components.CandidateCard.inActiveCardColor
-                  }
+                  color={isActive ? 'white' : 'black'}
                   fontSize={'xs'}
                   borderRadius={4}
                   fontWeight={'light'}
@@ -98,22 +81,14 @@ export const CandidateCard = (props: CandidateCardProps) => {
               alignItems={'center'}
             >
               <Text
-                color={
-                  isActive
-                    ? 'white'
-                    : custom.components.CandidateCard.inActiveCardColor
-                }
+                color={isActive ? 'white' : 'black'}
                 fontSize={'xs'}
                 fontWeight={'light'}
               >
                 {latestMessage.date}
               </Text>
               <Text
-                color={
-                  isActive
-                    ? 'white'
-                    : custom.components.CandidateCard.inActiveCardColor
-                }
+                color={isActive ? 'white' : 'black'}
                 fontSize={'xs'}
                 fontWeight={'light'}
               >

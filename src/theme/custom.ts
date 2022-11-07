@@ -82,9 +82,5 @@ export const custom = {
   components: {
     //Here we can add default theme for components
     Text: {},
-    CandidateCard: {
-      inActiveCardColor: '#000304',
-      badgeFillColor: '#E7E7E7',
-    },
   },
 };

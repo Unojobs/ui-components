@@ -1,7 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { HStack, Text, Heading } from '../../../primitives';
-import { CustomButton } from '../../CustomButton';
 import { PlusOutlined } from '@ant-design/icons';
+import { CustomNBButton } from '../../CustomNBButton';
 export interface TitleWithBtnProps {
   titleText: string;
   btnText: string;
@@ -21,25 +22,20 @@ export const TitleWithBtn = (props: TitleWithBtnProps) => {
           {titleText}
         </Heading>
       </Text>
-      <CustomButton
-        onClick={handleClick}
-        width={81}
-        height={40}
-        backgroundColor="primary.500"
-      >
+      <CustomNBButton onClick={handleClick} width={'81px'} height={'40px'}>
         <HStack
           alignItems={'center'}
           justifyContent={'center'}
-          width={'81px'}
-          height={'40px'}
+          width={'full'}
+          height={'full'}
           space={1}
         >
-          <PlusOutlined size={4} />
+          <PlusOutlined size={2} style={{ color: '#fff' }} />
           <Text color={'white'} fontSize={'xs'}>
             {btnText}
           </Text>
         </HStack>
-      </CustomButton>
+      </CustomNBButton>
     </HStack>
   );
 };

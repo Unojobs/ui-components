@@ -11,7 +11,7 @@ import {
 import { Box, HStack, Text, VStack } from '../../../primitives';
 import { Badge } from '../../../composites';
 import { makeRandomColor } from '../../../utils';
-import { CustomButton } from '../../CustomButton';
+import { CustomNBButton } from '../../CustomNBButton';
 type TApplication = { jid: number; jobTitle: string; status: string };
 type TCandidate = {
   username: string;
@@ -84,17 +84,18 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           flexDirection={'row'}
           alignItems={'center'}
           flexGrow={1}
-          justifyContent={'space-around'}
+          justifyContent={'space-between'}
         >
-          <CustomButton
+          <CustomNBButton
             backgroundColor="white"
             color="black"
             width={'152px'}
             height={'40px'}
             onClick={handleAddNotes}
           >
-            <FileTextFilled /> Notes
-          </CustomButton>
+            <FileTextFilled size={4} />
+            <Text>Notes</Text>
+          </CustomNBButton>
           <Badge backgroundColor={'muted.100'} paddingX={2.5} paddingY={4}>
             <Text>{candidate.activeApplications[0].status}</Text>
           </Badge>
