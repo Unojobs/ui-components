@@ -7,11 +7,14 @@
  * @param initialValue {string}- is for setting up initial selection of radio button e.g, initialValue="Employer"
  */
 
+import type React from 'react';
+
 export type SelectableRadioButtonProps = {
   onChange?: (value: string) => void;
   list: string[];
   size: 'extraLarge' | 'large' | 'medium' | 'small';
-  label: string;
-  space: number;
+  label?: string;
+  space?: number;
   initialValue: string | undefined;
+  userStyle?: React.CSSProperties;
 };

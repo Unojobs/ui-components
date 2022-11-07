@@ -52,6 +52,7 @@ export const SelectableRadioButton = (
       <Space
         size={space}
         direction={size === 'extraLarge' ? 'vertical' : 'horizontal'}
+        style={props.userStyle}
       >
         {createButtons()}
       </Space>
@@ -66,4 +67,5 @@ SelectableRadioButton.defaultProps = {
   initialValue: undefined,
   space: 20.5,
   label: 'RadioButtonGroup',
+  userStyle: undefined,
 };
