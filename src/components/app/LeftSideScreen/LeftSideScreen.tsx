@@ -19,7 +19,7 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
       >
         <Box
           position={'fixed'}
-          top={'1/4'}
+          top={'1/5'}
           padding={5}
           width={{ sm: 'none', md: 512, lg: 640, xl: 787 }}
         >
@@ -44,8 +44,12 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
                       width={{ sm: 'none', md: 512, lg: 640, xl: 787 }}
                     />
                   </Text>
-                  <Text {...style.title}>{object.title}</Text>
-                  <Text {...style.subTitle}>{object.subTitle}</Text>
+                  <Text {...style.title} textAlign="justify">
+                    {object.title}
+                  </Text>
+                  <Text {...style.subTitle} textAlign="justify">
+                    {object.subTitle}
+                  </Text>
                 </VStack>
               );
             })}

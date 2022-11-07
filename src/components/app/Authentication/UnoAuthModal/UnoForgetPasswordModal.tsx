@@ -1,39 +1,30 @@
 import React from 'react';
 import { Form, Input } from 'antd';
-import { IconButton, Modal } from '../../../composites';
+import { Center, IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
 import type { IUnoForgetPasswordModalProps } from './types';
 import { emailValidator } from '../helper.authentication';
 import '../styles.authentication.css';
-import { LeftArrowIcon } from '../../UnojobsIcons';
+import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
   return (
-    <>
+    <Center>
       <Modal
         isOpen={props.isOpened}
-        onClose={() => props.setIsOpened(false)}
+        onClose={props.onClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
-        <Modal.Content {...style.modalPosition}>
-          <IconButton
-            icon={
-              <>
-                <LeftArrowIcon size={8} />
-              </>
-            }
-            onPress={() => props.setIsOpened(false)}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
-            _hover={{
-              backgroundColor: 'secondary.300',
-            }}
-          />
+        <Modal.Content
+          {...style.modalPosition}
+          maxWidth={props.maxWidth}
+          maxHeight={props.maxHeight}
+        >
           <Modal.Body>
-            <VStack {...style.mainContainer}>
+            <VStack {...style.mainContainer} space={props.verticalSpace}>
               {(props.title || props.unoLogo) && (
                 <Text {...style.heading} textAlign="center">
                   <HStack space={8}>
@@ -42,6 +33,19 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                   </HStack>
                 </Text>
               )}
+              <IconButton
+                onPress={props.onClose}
+                {...style.backIconButton}
+                {...style.backArrowModalIcon}
+                _hover={{
+                  backgroundColor: 'secondary.300',
+                }}
+                icon={
+                  <>
+                    <LeftArrowIcon size={6} />
+                  </>
+                }
+              />
               {(props.heading || props.subHeading) && (
                 <VStack>
                   {props.heading && (
@@ -90,7 +94,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
           </Modal.Body>
         </Modal.Content>
       </Modal>
-    </>
+    </Center>
   );
 };
 UnoForgetPasswordModal.defaultProps = {
@@ -100,7 +104,7 @@ UnoForgetPasswordModal.defaultProps = {
   onSubmit: undefined,
   isOpened: false,
   setIsOpened: undefined,
-  unoLogo: undefined,
+  unoLogo: <UnojobsAppLogo />,
   buttonText: 'Send an email',
   tooltip: {
     email: 'Required',
@@ -108,4 +112,8 @@ UnoForgetPasswordModal.defaultProps = {
   placeholder: {
     email: '',
   },
+  verticalSpace: 30,
+  maxWidth: 500,
+  maxHeight: 500,
+  onClose: undefined,
 };

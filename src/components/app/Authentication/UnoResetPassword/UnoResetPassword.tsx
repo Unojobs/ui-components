@@ -15,7 +15,7 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
       <IconButton
         icon={
           <>
-            <LeftArrowIcon size={10} />
+            <LeftArrowIcon size={8} />
           </>
         }
         onPress={props.onBackArrow}

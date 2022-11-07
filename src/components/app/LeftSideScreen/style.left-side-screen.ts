@@ -9,7 +9,7 @@ export const style = {
   subTitle: {
     color: 'textColors.subtitle2',
     margin: 0,
-    marginBottom: 2.5,
+    marginBottom: 16,
     fontSize: 'lg',
     display: 'block',
     maxWidth: 400,

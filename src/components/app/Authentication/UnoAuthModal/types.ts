@@ -1,29 +1,36 @@
 import type React from 'react';
 
-export interface IUnoOTPModalProps {
+export interface ICommonModalProps {
   heading?: string;
   subHeading?: string;
-  hasErrored?: boolean;
-  isInputSecure?: boolean;
   title?: string;
-  label?: string;
-  onVerify?: (values: any) => void | undefined;
+  maxWidth?: number | string;
+  maxHeight?: number | string;
   isOpened: boolean;
-  setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  unoLogo?: React.FC;
-  buttonText: string;
+  setIsOpened?: React.Dispatch<React.SetStateAction<boolean>>;
+  unoLogo?: any;
+  verticalSpace?: string | number;
+  buttonText?: string;
+  onClose?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
+  ) => void | undefined;
 }
 
-export interface IUnoForgetPasswordModalProps {
-  heading?: string;
-  subHeading?: string;
-  title?: string;
+export interface IUnoOTPModalProps extends ICommonModalProps {
+  hasErrored?: boolean;
+  isInputSecure?: boolean;
+  label?: string;
+  onVerify?: (values: any) => void | undefined;
+  smsSentOn: string;
+  onResendOTP?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
+  ) => void | undefined;
+  isResend: boolean;
+}
+
+export interface IUnoForgetPasswordModalProps extends ICommonModalProps {
   onSubmit?: (values: any) => void | undefined;
-  isOpened: boolean;
-  setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  unoLogo?: React.FC;
   tooltip?: IForgotPUtil;
-  buttonText?: string;
   placeholder?: IForgotPUtil;
 }
 
@@ -31,11 +38,8 @@ export interface IForgotPUtil {
   email: string;
 }
 
-export interface IUnoUserRegisterProps {
-  title?: string;
+export interface IUnoUserRegisterProps extends ICommonModalProps {
   onRegister?: (values: any) => void | undefined;
-  isOpened: boolean;
-  setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isCandidate: boolean;
   onGoogleLogin?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
@@ -46,14 +50,23 @@ export interface IUnoUserRegisterProps {
   onFacebookLogin?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
   ) => void | undefined;
-  unoLogo?: React.FC;
-  buttonText?: string;
   tooltip?: IRegisterUtil;
   placeholder?: IRegisterUtil;
 }
 
 export interface IRegisterUtil {
   email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface IUnoNewPasswordProps extends ICommonModalProps {
+  onCreate?: (values: any) => void | undefined;
+  tooltip?: INewPasswordUtil;
+  placeholder?: INewPasswordUtil;
+}
+
+export interface INewPasswordUtil {
   password: string;
   confirmPassword: string;
 }

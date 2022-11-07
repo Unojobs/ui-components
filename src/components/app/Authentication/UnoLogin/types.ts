@@ -23,6 +23,7 @@ export interface IUnoLoginProps {
   tooltip?: ILoginUtil;
   buttonText: string;
   placeholder?: ILoginUtil;
+  verticalSpace?: string | number;
 }
 
 export interface ILoginUtil {

@@ -72,18 +72,15 @@ export const style = {
     alignItems: 'center',
   },
   mainContainer: {
-    width: 400,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    space: 30,
   },
   backIconButton: {
     height: 0,
     fontSize: '5xl',
     cursor: 'pointer',
     marginRight: 'auto',
-    paddingLeft: '0px',
   },
   backArrowIcon: {
     marginTop: 8,
@@ -93,16 +90,11 @@ export const style = {
     marginLeft: '15px',
   },
   modalPosition: {
-    maxWidth: 430,
     backgroundColor: 'secondary.300',
-    maxHeight: 'auto',
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
     marginTop: 'auto',
-    marginLeft: -215,
-    marginRight: 0,
-    marginBottom: 0,
+    marginBottom: 'auto',
   },
   otpInputStyle: {
     width: 60,

@@ -7,33 +7,24 @@ import OtpInput from 'react-otp-input';
 import { style } from '../style.authentication';
 import type { IUnoOTPModalProps } from './types';
 import '../styles.authentication.css';
-import { LeftArrowIcon } from '../../UnojobsIcons';
+import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   return (
     <>
       <Modal
         isOpen={props.isOpened}
-        onClose={() => props.setIsOpened(false)}
+        onClose={props.onClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
-        <Modal.Content {...style.modalPosition}>
-          <IconButton
-            icon={
-              <>
-                <LeftArrowIcon size={8} />
-              </>
-            }
-            onPress={() => props.setIsOpened(false)}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
-            _hover={{
-              backgroundColor: 'secondary.300',
-            }}
-          />
+        <Modal.Content
+          {...style.modalPosition}
+          maxWidth={props.maxWidth}
+          maxHeight={props.maxHeight}
+        >
           <Modal.Body>
-            <VStack {...style.mainContainer}>
+            <VStack {...style.mainContainer} space={props.verticalSpace}>
               {(props.title || props.unoLogo) && (
                 <Text {...style.heading} textAlign="center">
                   <HStack space={8}>
@@ -42,17 +33,36 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   </HStack>
                 </Text>
               )}
-
+              <IconButton
+                icon={
+                  <>
+                    <LeftArrowIcon size={6} />
+                  </>
+                }
+                onPress={props.onClose}
+                {...style.backIconButton}
+                {...style.backArrowModalIcon}
+                _hover={{
+                  backgroundColor: 'secondary.300',
+                }}
+              />
               {(props.heading || props.subHeading) && (
                 <VStack>
                   {props.heading && (
                     <Text {...style.heading}>{props.heading}</Text>
                   )}
                   {props.subHeading && (
-                    <Text {...style.subHeading}>{props.subHeading}</Text>
+                    <Text {...style.subHeading}>
+                      {props.subHeading}
+                      <Text fontWeight={'extraBlack'} fontSize={'lg'}>
+                        {' '}
+                        {props.smsSentOn}
+                      </Text>
+                    </Text>
                   )}
                 </VStack>
               )}
+
               <Form
                 layout="vertical"
                 onFinish={props.onVerify}
@@ -61,10 +71,27 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
               >
+                {props.isResend && (
+                  <Text
+                    {...style.forgetText}
+                    {...style.commonText}
+                    marginTop={0}
+                    onPress={props.onResendOTP}
+                  >
+                    Resend OTP
+                  </Text>
+                )}
                 <Form.Item
                   label={props.label}
-                  name="OTP"
-                  rules={[{ required: true, min: 6, max: 6 }]}
+                  name="otp"
+                  rules={[
+                    {
+                      required: true,
+                      min: 6,
+                      max: 6,
+                      message: 'OTP is required',
+                    },
+                  ]}
                 >
                   <OtpInput
                     inputStyle={style.otpInputStyle}
@@ -76,6 +103,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                     hasErrored={props.hasErrored}
                   />
                 </Form.Item>
+
                 <CustomButton {...style.submitButton} htmlType="submit">
                   {props.buttonText}
                 </CustomButton>
@@ -95,8 +123,15 @@ UnoOTPModal.defaultProps = {
   title: '',
   label: '',
   onVerify: undefined,
-  unoLogo: undefined,
+  unoLogo: <UnojobsAppLogo />,
   buttonText: 'Verify',
   isOpened: false,
   setIsOpened: undefined,
+  verticalSpace: 30,
+  maxWidth: 500,
+  maxHeight: 500,
+  onClose: undefined,
+  smsSentOn: '',
+  onResendOTP: undefined,
+  isResend: false,
 };

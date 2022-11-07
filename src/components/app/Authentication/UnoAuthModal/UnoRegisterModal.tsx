@@ -16,6 +16,7 @@ import {
   GoogleSMLogo,
   LeftArrowIcon,
   LinkedInSMLogo,
+  UnojobsAppLogo,
 } from '../../UnojobsIcons';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
@@ -23,32 +24,36 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
     <>
       <Modal
         isOpen={props.isOpened}
-        onClose={() => props.setIsOpened(false)}
+        onClose={props.onClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
-        <Modal.Content {...style.modalPosition}>
-          <IconButton
-            icon={
-              <>
-                <LeftArrowIcon size={8} />
-              </>
-            }
-            onPress={() => props.setIsOpened(false)}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
-            _hover={{
-              backgroundColor: 'secondary.300',
-            }}
-          />
+        <Modal.Content
+          {...style.modalPosition}
+          maxWidth={props.maxWidth}
+          maxHeight={props.maxHeight}
+        >
           <Modal.Body>
-            <VStack {...style.mainContainer}>
+            <VStack {...style.mainContainer} space={props.verticalSpace}>
               <Text {...style.heading} textAlign="center" fontFamily={'body'}>
                 <HStack space={8}>
                   {props.unoLogo}
                   {props.title}
                 </HStack>
               </Text>
+              <IconButton
+                icon={
+                  <>
+                    <LeftArrowIcon size={6} />
+                  </>
+                }
+                onPress={props.onClose}
+                {...style.backIconButton}
+                {...style.backArrowModalIcon}
+                _hover={{
+                  backgroundColor: 'secondary.300',
+                }}
+              />
               <Text {...style.commonText}>Join using</Text>
               <HStack {...style.smButtonsContainer}>
                 <IconButton
@@ -187,7 +192,7 @@ UnoRegisterModal.defaultProps = {
   onGoogleLogin: undefined,
   onLinkedInLogin: undefined,
   onFacebookLogin: undefined,
-  unoLogo: undefined,
+  unoLogo: <UnojobsAppLogo />,
   tooltip: {
     email: 'Required',
     password: 'Required',
@@ -199,4 +204,8 @@ UnoRegisterModal.defaultProps = {
     password: '',
     confirmPassword: '',
   },
+  verticalSpace: 30,
+  maxWidth: 500,
+  maxHeight: 500,
+  onClose: undefined,
 };

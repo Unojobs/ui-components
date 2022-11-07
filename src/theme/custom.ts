@@ -76,7 +76,6 @@ export const custom = {
   space: {
     '12.5': '50px',
     '15': '60px',
-    '30': '120px',
   },
 
   components: {

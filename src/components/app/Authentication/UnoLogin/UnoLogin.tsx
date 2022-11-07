@@ -8,6 +8,7 @@ import {
   FacebookSMLogo,
   GoogleSMLogo,
   LinkedInSMLogo,
+  UnojobsAppLogo,
 } from '../../UnojobsIcons';
 import { IconButton } from '../../../composites';
 import type { IUnoLoginProps } from './types';
@@ -16,7 +17,7 @@ import { emailValidator, preventCopyPaste } from '../helper.authentication';
 
 export const UnoLogin = (props: IUnoLoginProps) => {
   return (
-    <VStack {...style.mainContainer}>
+    <VStack {...style.mainContainer} space={props.verticalSpace}>
       <VStack>
         {props.unoLogo}
         <Text {...style.heading} fontFamily={'body'}>
@@ -42,13 +43,19 @@ export const UnoLogin = (props: IUnoLoginProps) => {
                 message: '',
               },
             ]}
-            initialValue="Employer"
+            initialValue={props.isCandidate ? 'Candidate' : 'Employer'}
             style={style.userType}
           >
             <SelectableRadioButton
-              list={['Employer', 'Candidate']}
+              list={['Employer', '`Candidate`']}
               size="medium"
-              space={60}
+              // eslint-disable-next-line react-native/no-inline-styles
+              userStyle={{
+                width: 400,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
               initialValue={'Employer'}
               onChange={(value: string) => {
                 if (value.toLowerCase() === 'candidate') {
@@ -115,13 +122,6 @@ export const UnoLogin = (props: IUnoLoginProps) => {
       </Form>
       {!props.isAdmin && (
         <>
-          <Text {...style.commonText}>
-            Don't have any account?
-            <Text {...style.registerText} onPress={props.onRegister}>
-              {' '}
-              Register
-            </Text>
-          </Text>
           <Text {...style.commonText}>Or {props.buttonText} With</Text>
           <HStack {...style.smButtonsContainer}>
             <IconButton
@@ -155,6 +155,13 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               />
             )}
           </HStack>
+          <Text {...style.commonText}>
+            Don't have any account?
+            <Text {...style.registerText} onPress={props.onRegister}>
+              {' '}
+              Register
+            </Text>
+          </Text>
         </>
       )}
     </VStack>
@@ -170,7 +177,7 @@ UnoLogin.defaultProps = {
   onLinkedInLogin: undefined,
   onFacebookLogin: undefined,
   onLogin: undefined,
-  unoLogo: undefined,
+  unoLogo: <UnojobsAppLogo />,
   isCandidate: false,
   setIsCandidate: undefined,
   tooltip: {
@@ -182,4 +189,5 @@ UnoLogin.defaultProps = {
     password: '',
   },
   buttonText: 'Login',
+  verticalSpace: 30,
 };
