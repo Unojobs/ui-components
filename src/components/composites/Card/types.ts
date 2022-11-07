@@ -1,2 +1,1 @@
-
-export type {ICardProps} from "native-base"
+export type { ICardProps } from 'native-base';

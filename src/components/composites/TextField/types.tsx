@@ -1,2 +1,1 @@
-
-export type { ITextFieldProps } from "native-base";
+export type { ITextFieldProps } from 'native-base';

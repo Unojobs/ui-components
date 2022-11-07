@@ -1,2 +1,1 @@
-
-export type { IWrapProps } from "native-base"
+export type { IWrapProps } from 'native-base';

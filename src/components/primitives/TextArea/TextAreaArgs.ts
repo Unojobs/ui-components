@@ -1,61 +1,61 @@
 export const StorybookTextAreaArgs = {
   placeholder: {
-    name: "placeholder",
+    name: 'placeholder',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "Enter Text",
+    defaultValue: 'Enter Text',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   numberOfLines: {
-    name: "numberOfLines",
+    name: 'numberOfLines',
     type: {
-      name: "number",
+      name: 'number',
       required: true,
     },
     defaultValue: 2,
     control: {
-      type: "number",
+      type: 'number',
     },
   },
   placeholderTextColor: {
-    name: "placeholderTextColor",
-    type: { name: "string", required: true },
-    defaultValue: "coolGray.500",
+    name: 'placeholderTextColor',
+    type: { name: 'string', required: true },
+    defaultValue: 'coolGray.500',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   isHovered: {
-    name: "isHovered",
-    type: { name: "boolean" },
+    name: 'isHovered',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isInvalid: {
-    name: "isInvalid",
-    type: { name: "boolean" },
+    name: 'isInvalid',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isDisabled: {
-    name: "isDisabled",
+    name: 'isDisabled',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
 };

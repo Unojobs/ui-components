@@ -1,10 +1,8 @@
+import type { IAccordionProps } from 'native-base';
+import type { IAccordionItemProps } from 'native-base';
+import type { IAccordionSummaryProps } from 'native-base';
 
-
-import type {IAccordionProps} from "native-base"
-import type {IAccordionItemProps} from "native-base"
-import type {IAccordionSummaryProps} from "native-base"
-
-import type {IAccordionIconProps} from "native-base"
+import type { IAccordionIconProps } from 'native-base';
 import type { MutableRefObject } from 'react';
 
 export type IAccordionComponentType = ((
@@ -21,9 +19,7 @@ export type IAccordionComponentType = ((
     ) => JSX.Element
   >;
   Details: React.MemoExoticComponent<
-    (
-      props:{ ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: { ref?: MutableRefObject<any> }) => JSX.Element
   >;
   Icon: React.MemoExoticComponent<
     (

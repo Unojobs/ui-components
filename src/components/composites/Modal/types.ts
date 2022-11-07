@@ -1,2 +1,1 @@
-
-export type { IModalProps } from "native-base";
+export type { IModalProps } from 'native-base';

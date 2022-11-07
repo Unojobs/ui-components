@@ -1,4 +1,4 @@
-import { appTheme as theme } from "../../core/AppProvider";
+import { appTheme as theme } from '../../core/AppProvider';
 
 // const {
 //   contrastThreshold,
@@ -10,53 +10,53 @@ import { appTheme as theme } from "../../core/AppProvider";
 // } = theme.colors;
 export const StorybookButtonArgs = {
   colorScheme: {
-    name: "colorScheme",
-    type: { name: "string", required: true },
-    defaultValue: "primary",
+    name: 'colorScheme',
+    type: { name: 'string', required: true },
+    defaultValue: 'primary',
     // options: Object.keys(remColors),
-    options: ["primary", "secondary", "tertiary"],
+    options: ['primary', 'secondary', 'tertiary'],
     control: {
-      type: "select",
+      type: 'select',
     },
   },
   variant: {
-    name: "variant",
-    type: { name: "string", required: true },
-    defaultValue: "solid",
+    name: 'variant',
+    type: { name: 'string', required: true },
+    defaultValue: 'solid',
     options: Object.keys(theme.components.Button.variants),
     control: {
-      type: "radio",
+      type: 'radio',
     },
   },
   children: {
-    name: "children",
+    name: 'children',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "Button",
+    defaultValue: 'Button',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   isHovered: {
-    name: "isHovered",
-    type: { name: "boolean" },
+    name: 'isHovered',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isDisabled: {
-    name: "isDisabled",
+    name: 'isDisabled',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   // isLoading: {
@@ -71,40 +71,40 @@ export const StorybookButtonArgs = {
   //   },
   // },
   isPressed: {
-    name: "isPressed",
+    name: 'isPressed',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isFocusVisible: {
-    name: "isFocusVisible",
+    name: 'isFocusVisible',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   size: {
-    name: "size",
+    name: 'size',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "md",
+    defaultValue: 'md',
     control: {
-      type: "select",
+      type: 'select',
     },
-    options: ["sm", "md", "lg"],
+    options: ['sm', 'md', 'lg'],
   },
   leftIcon: {
-    name: "leftIcon",
+    name: 'leftIcon',
     type: {},
   },
 };

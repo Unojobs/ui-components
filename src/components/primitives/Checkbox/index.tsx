@@ -10,4 +10,4 @@ const Checkbox: any = CheckboxTemp;
 Checkbox.displayName = 'Checkbox';
 Checkbox.displayName = 'Checkbox.Group';
 Checkbox.Group = CheckboxGroup;
-export default Checkbox;
+export { Checkbox };

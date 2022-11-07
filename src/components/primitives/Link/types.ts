@@ -1,2 +1,1 @@
-
-export type { ILinkProps } from "native-base";
+export type { ILinkProps } from 'native-base';

@@ -1,2 +1,1 @@
-
-export type { IPressableProps } from "native-base";
+export type { IPressableProps } from 'native-base';

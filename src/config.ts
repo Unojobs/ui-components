@@ -1,4 +1,4 @@
-import { StorybookInputGroupArgs } from "./components/composites";
+import { StorybookInputGroupArgs } from './components/composites';
 import {
   StorybookButtonArgs,
   StorybookCheckboxArgs,
@@ -11,7 +11,7 @@ import {
   StorybookTextAreaArgs,
   StorybookTextArgs,
   // StorybookTextArgs,
-} from "./components/primitives";
+} from './components/primitives';
 // import { dsxTheme } from "./theme";
 
 export const config = {
@@ -19,38 +19,38 @@ export const config = {
     Button: {
       args: StorybookButtonArgs,
       pageConfig: {
-        type: "variant",
-        section: "size",
-        row: "colorScheme",
-        component: "states",
+        type: 'variant',
+        section: 'size',
+        row: 'colorScheme',
+        component: 'states',
         metaData: {
-          heading: "This is a Button.",
+          heading: 'This is a Button.',
         },
       },
     },
     Text: {
       args: StorybookTextArgs,
       pageConfig: {
-        type: "",
-        section: "component",
-        row: "fontSize",
-        component: "states",
+        type: '',
+        section: 'component',
+        row: 'fontSize',
+        component: 'states',
         metaData: {
-          heading: "Typography",
-          "sub-heading": "Text",
+          'heading': 'Typography',
+          'sub-heading': 'Text',
         },
       },
     },
     Heading: {
       args: StorybookHeadingArgs,
       pageConfig: {
-        type: "",
-        section: "component",
-        row: "fontSize",
-        component: "states",
+        type: '',
+        section: 'component',
+        row: 'fontSize',
+        component: 'states',
         metaData: {
-          heading: "Typography",
-          "sub-heading": "Heading",
+          'heading': 'Typography',
+          'sub-heading': 'Heading',
         },
       },
     },
@@ -70,73 +70,73 @@ export const config = {
     InputGroup: {
       args: StorybookInputGroupArgs,
       pageConfig: {
-        type: "",
-        section: "variant",
-        row: "backgroundColor",
-        component: "states",
+        type: '',
+        section: 'variant',
+        row: 'backgroundColor',
+        component: 'states',
         metaData: {
-          heading: "InputGroup",
-          "sub-heading": "This is an custom input.",
+          'heading': 'InputGroup',
+          'sub-heading': 'This is an custom input.',
         },
       },
     },
     Input: {
       args: StorybookInputArgs,
       pageConfig: {
-        type: "variant",
-        section: "component",
-        row: "size",
-        component: "states",
+        type: 'variant',
+        section: 'component',
+        row: 'size',
+        component: 'states',
         metaData: {
-          heading: "This is an Input.",
+          heading: 'This is an Input.',
         },
       },
     },
     TextArea: {
       args: StorybookTextAreaArgs,
       pageConfig: {
-        type: "",
-        section: "component",
-        row: "",
-        component: "states",
+        type: '',
+        section: 'component',
+        row: '',
+        component: 'states',
         metaData: {
-          heading: "This is an Input.",
+          heading: 'This is an Input.',
         },
       },
     },
     Checkbox: {
       args: StorybookCheckboxArgs,
       pageConfig: {
-        type: "",
-        section: "size",
-        row: "colorScheme",
-        component: "states",
+        type: '',
+        section: 'size',
+        row: 'colorScheme',
+        component: 'states',
         metaData: {
-          heading: "This is checkbox.",
+          heading: 'This is checkbox.',
         },
       },
     },
     Radio: {
       args: StorybookRadioArgs,
       pageConfig: {
-        type: "",
-        section: "size",
-        row: "colorScheme",
-        component: "states",
+        type: '',
+        section: 'size',
+        row: 'colorScheme',
+        component: 'states',
         metaData: {
-          heading: "This is Radio.",
+          heading: 'This is Radio.',
         },
       },
     },
     Link: {
       args: StorybookLinkArgs,
       pageConfig: {
-        type: "",
-        section: "",
-        row: "href",
-        component: "states",
+        type: '',
+        section: '',
+        row: 'href',
+        component: 'states',
         metaData: {
-          heading: "This is Link.",
+          heading: 'This is Link.',
         },
       },
     },
@@ -168,12 +168,12 @@ export const config = {
     Switch: {
       args: StorybookSwitchArgs,
       pageConfig: {
-        type: "",
-        section: "size",
-        row: "colorScheme",
-        component: "states",
+        type: '',
+        section: 'size',
+        row: 'colorScheme',
+        component: 'states',
         metaData: {
-          heading: "This is a switch.",
+          heading: 'This is a switch.',
         },
       },
     },
@@ -182,12 +182,12 @@ export const config = {
         size: { ...StorybookIconArgs.size },
       },
       pageConfig: {
-        type: "",
-        section: "component",
-        row: "size",
-        component: "states",
+        type: '',
+        section: 'component',
+        row: 'size',
+        component: 'states',
         metaData: {
-          heading: "Add Icon.",
+          heading: 'Add Icon.',
         },
       },
     },
@@ -195,44 +195,44 @@ export const config = {
       args: {
         size: { ...StorybookIconArgs.size },
         as: {
-          name: "as",
+          name: 'as',
           type: {
-            name: "string",
+            name: 'string',
           },
           control: {
-            type: "select",
+            type: 'select',
           },
-          options: ["Entypo"],
+          options: ['Entypo'],
         },
         name: {
-          name: "name",
+          name: 'name',
           type: {
-            name: "string",
+            name: 'string',
           },
           options: [
-            "500px",
-            "add-to-list",
-            "add-user",
-            "address",
-            "adjust",
-            "attachment",
-            "folder",
-            "infinity",
-            "instagram",
+            '500px',
+            'add-to-list',
+            'add-user',
+            'address',
+            'adjust',
+            'attachment',
+            'folder',
+            'infinity',
+            'instagram',
           ],
           control: {
-            type: "select",
+            type: 'select',
           },
         },
       },
       pageConfig: {
-        type: "",
-        section: "name",
-        row: "size",
-        component: "states",
+        type: '',
+        section: 'name',
+        row: 'size',
+        component: 'states',
         metaData: {
-          heading: "Icons",
-          "sub-heading": "Few icons from Entypo lib.",
+          'heading': 'Icons',
+          'sub-heading': 'Few icons from Entypo lib.',
         },
       },
     },

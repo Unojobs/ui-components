@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   Input as NBInput,
   Box,
   HStack,
   SearchIcon,
   ThreeDotsIcon,
-} from "native-base";
+} from 'native-base';
 
 export const InputGroup = ({
   variant,
@@ -17,9 +17,9 @@ export const InputGroup = ({
     <HStack
       borderWidth={1}
       justifyContent="center"
-      alignItems={"center"}
+      alignItems={'center'}
       borderRadius="full"
-      borderColor={"gray.300"}
+      borderColor={'gray.300'}
       bg={backgroundColor}
     >
       <Box pl="3">
@@ -27,12 +27,12 @@ export const InputGroup = ({
       </Box>
       <NBInput
         _hover={{
-          bg: "red.100",
+          bg: 'red.100',
         }}
         variant={variant}
         {...props}
         placeholder="Enter Here"
-      ></NBInput>
+      />
       <Box px="3" bg={iconBackground}>
         <ThreeDotsIcon size="3" />
       </Box>

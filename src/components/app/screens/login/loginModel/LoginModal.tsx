@@ -122,7 +122,7 @@ export const LoginModal = (props: IModalProps) => {
                         backgroundColor="#F3F3F3"
                         color="#111111"
                         icon={<FacebookLogo />}
-                      ></CustomButton>
+                      />
                     </div>
                     <div className="orText">
                       <Text

@@ -1,7 +1,7 @@
-import React from "react";
-import { Stagger as NBStagger } from "native-base";
-import type { ISupportedTransitions } from "native-base/lib/typescript/components/composites/Transitions/types";
-import type { IStaggerStyleProps } from "native-base/lib/typescript/components/composites/Transitions/Stagger";
+import React from 'react';
+import { Stagger as NBStagger } from 'native-base';
+import type { ISupportedTransitions } from 'native-base/lib/typescript/components/composites/Transitions/types';
+import type { IStaggerStyleProps } from 'native-base/lib/typescript/components/composites/Transitions/Stagger';
 
 interface IStaggerProps {
   children: any;
@@ -24,5 +24,5 @@ interface IStaggerProps {
 }
 
 export const Stagger = ({ ...props }: IStaggerProps) => {
-  return <NBStagger {...props}></NBStagger>;
+  return <NBStagger {...props} />;
 };

@@ -1,85 +1,85 @@
-import { appTheme as theme } from "../../core/AppProvider";
+import { appTheme as theme } from '../../core/AppProvider';
 
 export const StorybookIconArgs = {
   size: {
-    name: "size",
+    name: 'size',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "md",
+    defaultValue: 'md',
     control: {
-      type: "select",
+      type: 'select',
     },
     options: Object.keys(theme.components.Icon.sizes),
   },
   as: {
-    name: "as",
+    name: 'as',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "AntDesign",
+    defaultValue: 'AntDesign',
     control: {
-      type: "select",
+      type: 'select',
     },
     options: [
-      "AntDesign",
-      "Entypo",
-      "EvilIcons",
-      "Feather",
-      "FontAwesome",
-      "FontAwesome5",
-      "Fontisto",
-      "Foundation",
-      "Ionicons",
-      "MaterialCommunityIcons",
-      "MaterialIcons",
-      "Octicons",
-      "SimpleLineIcons",
-      "Zocial",
+      'AntDesign',
+      'Entypo',
+      'EvilIcons',
+      'Feather',
+      'FontAwesome',
+      'FontAwesome5',
+      'Fontisto',
+      'Foundation',
+      'Ionicons',
+      'MaterialCommunityIcons',
+      'MaterialIcons',
+      'Octicons',
+      'SimpleLineIcons',
+      'Zocial',
     ],
   },
   name: {
-    name: "name",
+    name: 'name',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "customerservice",
+    defaultValue: 'customerservice',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
 };
 
 export const IconArgs = {
   pages: {
-    type: "variant",
-    section: "sizes",
-    row: "colorScheme",
-    component: "states",
+    type: 'variant',
+    section: 'sizes',
+    row: 'colorScheme',
+    component: 'states',
   },
   props: {
     sizes: {
-      name: "size",
+      name: 'size',
       type: {
-        name: "string",
+        name: 'string',
       },
-      defaultValue: "md",
+      defaultValue: 'md',
       control: {
-        type: "select",
+        type: 'select',
       },
       options: Object.keys(theme.components.Icon.sizes).reverse(),
     },
     states: [
       {
         default: {
-          name: "default",
+          name: 'default',
         },
       },
     ],
   },
   metaData: {
-    heading: "Icon",
-    "sub-heading": "The Icon component.",
+    'heading': 'Icon',
+    'sub-heading': 'The Icon component.',
   },
 };

@@ -1,2 +1,1 @@
-
-export type { IIconProps } from "native-base";
+export type { IIconProps } from 'native-base';

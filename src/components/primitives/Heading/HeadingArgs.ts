@@ -1,25 +1,25 @@
-import { appTheme as theme } from "../../core/AppProvider";
+import { appTheme as theme } from '../../core/AppProvider';
 
 export const StorybookHeadingArgs = {
   children: {
-    name: "children",
+    name: 'children',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "This is a Heading",
+    defaultValue: 'This is a Heading',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   size: {
-    name: "size",
+    name: 'size',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "lg",
+    defaultValue: 'lg',
     control: {
-      type: "select",
+      type: 'select',
     },
     options: Object.keys(theme.components.Heading.sizes),
   },

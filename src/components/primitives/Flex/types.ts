@@ -1,3 +1,1 @@
-
-
-export type { IFlexProps } from "native-base";
+export type { IFlexProps } from 'native-base';

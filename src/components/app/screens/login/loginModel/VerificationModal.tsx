@@ -8,9 +8,7 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 export const VerificationModal = (props: any) => {
   const [OTP, setOTP] = useState('');
   const { setModalType } = props;
-  const onFinish = () => {
-    // console.log('Success:', values);
-  };
+
   const validateMessages = {
     required: "'${name}' is required!",
   };
@@ -80,7 +78,7 @@ export const VerificationModal = (props: any) => {
                 onChange={(e: string) => {
                   setOTP(e);
                 }}
-                separator={<span style={{ width: 14 }}></span>}
+                separator={<span style={{ width: 14 }} />}
                 numInputs={6}
                 value={'number'}
               />

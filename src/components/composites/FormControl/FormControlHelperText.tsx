@@ -6,5 +6,5 @@ import {
 export const FormControlHelperText = ({
   ...props
 }: IFormControlHelperTextProps) => {
-  return <NBFormControl.HelperText {...props}></NBFormControl.HelperText>;
+  return <NBFormControl.HelperText {...props} />;
 };

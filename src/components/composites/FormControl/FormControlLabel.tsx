@@ -4,5 +4,5 @@ import {
   IFormControlLabelProps,
 } from 'native-base';
 export const FormControlLabel = ({ ...props }: IFormControlLabelProps) => {
-  return <NBFormControl.Label {...props}></NBFormControl.Label>;
+  return <NBFormControl.Label {...props} />;
 };
