@@ -1,40 +1,40 @@
 export const StorybookLinkArgs = {
   isExternal: {
-    name: "isExternal",
-    type: { name: "boolean" },
+    name: 'isExternal',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isUnderlined: {
-    name: "isUnderlined",
-    type: { name: "boolean" },
+    name: 'isUnderlined',
+    type: { name: 'boolean' },
     defaultValue: false,
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   href: {
-    name: "href",
+    name: 'href',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "https://nativebase.io",
+    defaultValue: 'https://nativebase.io',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   children: {
-    name: "children",
+    name: 'children',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "This is a link",
+    defaultValue: 'This is a link',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
 };

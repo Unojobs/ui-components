@@ -1,2 +1,1 @@
-
-export type { IInputProps } from "native-base";
+export type { IInputProps } from 'native-base';

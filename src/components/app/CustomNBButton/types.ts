@@ -16,8 +16,8 @@ import type React from 'react';
 export type CustomButtonProps = {
   children: any;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
   color?: string;
   backgroundColor?: string;
   borderRadius: string;
@@ -27,5 +27,7 @@ export type CustomButtonProps = {
   borderWidth: string | undefined;
   borderColor: string | undefined;
   borderStyle: string | undefined;
-  // htmlType?: 'button' | 'submit' | 'reset';
+  htmlType?: 'button' | 'submit' | 'reset';
+  display?: string;
+  flexDirection?: string;
 };

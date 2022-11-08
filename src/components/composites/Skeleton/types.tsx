@@ -1,2 +1,1 @@
-
-export type { ISkeletonProps } from "native-base";
+export type { ISkeletonProps } from 'native-base';

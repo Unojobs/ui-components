@@ -17,6 +17,8 @@ export const CustomNBButton = (props: CustomButtonProps) => {
     borderWidth,
     borderColor,
     borderStyle,
+    display,
+    flexDirection,
   } = props;
 
   return (
@@ -37,6 +39,8 @@ export const CustomNBButton = (props: CustomButtonProps) => {
       onPress={onClick}
       fontSize={'16px'}
       _text={{ color: color, marginLeft: textMarginLeft }}
+      display={display}
+      flexDirection={flexDirection}
     >
       {children}
     </Button>
@@ -57,4 +61,6 @@ CustomNBButton.defaultProps = {
   borderWidth: undefined,
   borderColor: undefined,
   borderStyle: undefined,
+  display: 'flex',
+  flexDirection: 'row',
 };

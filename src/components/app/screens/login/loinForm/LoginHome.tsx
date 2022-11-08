@@ -2,7 +2,11 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Card, Form, Input, Typography } from 'antd';
 import './LoginStyle.css';
-import { CustomButton, LoginModal, SelectableRadioButton } from '../../../../../';
+import {
+  CustomButton,
+  LoginModal,
+  SelectableRadioButton,
+} from '../../../../../';
 import { UnojobsLogo, Linkedin, Google, FacebookLogo } from '../../../../../';
 export const LoginHome = (props: any) => {
   const {
@@ -23,16 +27,13 @@ export const LoginHome = (props: any) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
   const validateEmail = (val: string) => {
     var re = /\S+@\S+\.\S+/;
     if (re.test(val) === false) setEmailCheck('error');
     else setEmailCheck('');
   };
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
     if (errorInfo.number === undefined && errorInfo.Email === undefined)
       setEmailCheck('empty');
     else setEmailCheck('');
@@ -58,7 +59,7 @@ export const LoginHome = (props: any) => {
             <Form
               layout="vertical"
               validateMessages={validateMessages}
-              onFinish={onFinish}
+              // onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
@@ -189,7 +190,7 @@ export const LoginHome = (props: any) => {
                       backgroundColor="#F3F3F3"
                       color="#111111"
                       icon={<FacebookLogo />}
-                    ></CustomButton>
+                    />
                   )}
                 </div>
                 <div className="dontHaveAc">

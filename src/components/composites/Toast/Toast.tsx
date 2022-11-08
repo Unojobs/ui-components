@@ -1,1 +1,1 @@
-export { useToast } from "native-base";
+export { useToast } from 'native-base';

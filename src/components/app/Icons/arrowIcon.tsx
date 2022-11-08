@@ -13,7 +13,7 @@ const DownSharpSvg = () => (
     <path
       fill="#111"
       d="M.427.427l3.396 3.396a.25.25 0 00.354 0L7.573.427A.25.25 0 007.396 0H.604a.25.25 0 00-.177.427z"
-    ></path>
+    />
   </svg>
 );
 
@@ -67,3 +67,35 @@ const DownCurvedSvg = () => (
 export const DownArrowCurvedIcon = (
   props: Partial<CustomIconComponentProps>
 ) => <Icon component={DownCurvedSvg} {...props} />;
+
+/** BackArrowSVG for sidemenu to expand items */
+const BackArrowSVG = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.57 5.92993L3.5 11.9999L9.57 18.0699"
+      stroke="#000000"
+      strokeWidth="2.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M40.5019 12H3.67188"
+      stroke="#000000"
+      strokeWidth="2.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const BackArrowIcon = (props: Partial<CustomIconComponentProps>) => (
+  <Icon component={BackArrowSVG} {...props} />
+);

@@ -1,2 +1,1 @@
-
-export type {IBreadcrumbProps} from "native-base" 
+export type { IBreadcrumbProps } from 'native-base';

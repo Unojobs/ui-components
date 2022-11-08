@@ -9,12 +9,6 @@ export const NewPassword = (props: any) => {
   const validateMessages = {
     required: "'${name}' is required!",
   };
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
 
   return (
     <div className="cardDiv">
@@ -38,8 +32,8 @@ export const NewPassword = (props: any) => {
             <Form
               layout="vertical"
               validateMessages={validateMessages}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
+              // onFinish={onFinish}
+              // onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
               <Form.Item
@@ -51,7 +45,7 @@ export const NewPassword = (props: any) => {
                   className="password"
                   placeholder="Input your new password account"
                 />
-              </Form.Item>{' '}
+              </Form.Item>
               <Form.Item
                 name="Confirm New Password"
                 label="Confirm New Password"

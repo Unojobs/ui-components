@@ -30,4 +30,4 @@ export {
   PlayIcon,
   FavouriteIcon,
   DeleteIcon,
-} from "native-base";
+} from 'native-base';

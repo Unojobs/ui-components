@@ -1,2 +1,1 @@
-
-export type { IToastProps } from "native-base";
+export type { IToastProps } from 'native-base';

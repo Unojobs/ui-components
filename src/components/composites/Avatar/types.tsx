@@ -1,2 +1,1 @@
-
-export type {IAvatarProps} from "native-base"
+export type { IAvatarProps } from 'native-base';
