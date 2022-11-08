@@ -21,7 +21,7 @@ type FormControlComponentType = ((props: IFormControlProps) => JSX.Element) & {
   >;
 };
 
-const FormControlTemp: any = FormControlBase;
+let FormControlTemp: any = FormControlBase;
 FormControlTemp.Label = FormControlLabel;
 FormControlTemp.ErrorMessage = FormControlErrorMessage;
 FormControlTemp.HelperText = FormControlHelperText;

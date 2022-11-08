@@ -5,7 +5,7 @@ import { BreadcrumbText } from './BreadcrumbText';
 import { BreadcrumbIcon } from './BreadcrumbIcon';
 import type { IBreadcrumbProps } from 'native-base';
 
-const BreadcrumbTemp: any = BreadcrumbMain;
+let BreadcrumbTemp: any = BreadcrumbMain;
 BreadcrumbTemp.Item = BreadcrumbItem;
 BreadcrumbTemp.Link = BreadcrumbLink;
 BreadcrumbTemp.Text = BreadcrumbText;
