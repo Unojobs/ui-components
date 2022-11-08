@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
@@ -10,15 +10,18 @@ import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
-  if (props.isOpened) {
-    // When the modal is shown, we want a fixed body
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
-  } else {
-    // When the modal is hidden, we want to remain at the top of the scroll position
-    document.body.style.position = '';
-    document.body.style.top = '';
-  }
+  useEffect(() => {
+    if (props.isOpened === true && window !== undefined) {
+      // When the modal is shown, we want a fixed body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+    }
+    if (props.isOpened === false && window !== undefined) {
+      // When the modal is hidden, we want to remain at the top of the scroll position
+      document.body.style.position = '';
+      document.body.style.top = '';
+    }
+  }, [props.isOpened]);
   return (
     <>
       <Modal

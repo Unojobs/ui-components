@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Checkbox, Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
@@ -22,15 +22,18 @@ import type { RuleObject } from 'antd/lib/form';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
-  if (props.isOpened) {
-    // When the modal is shown, we want a fixed body
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
-  } else {
-    // When the modal is hidden, we want to remain at the top of the scroll position
-    document.body.style.position = '';
-    document.body.style.top = '';
-  }
+  useEffect(() => {
+    if (props.isOpened === true && window !== undefined) {
+      // When the modal is shown, we want a fixed body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+    }
+    if (props.isOpened === false && window !== undefined) {
+      // When the modal is hidden, we want to remain at the top of the scroll position
+      document.body.style.position = '';
+      document.body.style.top = '';
+    }
+  }, [props.isOpened]);
 
   /**handle terms and condition using checkbox */
 
