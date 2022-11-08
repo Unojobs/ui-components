@@ -52,9 +52,19 @@ export interface IUnoUserRegisterProps extends ICommonModalProps {
   ) => void | undefined;
   tooltip?: IRegisterUtil;
   placeholder?: IRegisterUtil;
+  onTermsAndCondition?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
+  ) => void | undefined;
+  termAndConditionValues: ITermsAndConditions;
+}
+export interface ITermsAndConditions {
+  fieldName: string;
+  linkText: string;
+  text: string;
 }
 
 export interface IRegisterUtil {
+  fullName: string;
   email: string;
   password: string;
   confirmPassword: string;
