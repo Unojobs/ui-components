@@ -13,7 +13,9 @@ const CheckboxTest = ({ ...args }) => {
           value="test"
           accessibilityLabel="This is a dummy checkbox"
           defaultIsChecked
-        />
+        >
+          CheckBox
+        </Checkbox>
       </Checkbox.Group>
     </Wrapper>
   );
