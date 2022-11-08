@@ -1,16 +1,15 @@
 import { VStack } from 'native-base';
 import React from 'react';
 import { CustomButton } from '..';
-import {
-  Box,
-  HStack,
-  Image,
-  Stack,
-  Text,
-  UnojobsSavedIcon,
-  Divider,
-  Pressable,
-} from '../../../';
+import { Box } from '../../primitives/Box';
+import { Stack } from '../../primitives/Stack';
+import { HStack } from '../../primitives/Stack';
+import { Text } from '../../primitives/Text';
+import { Image } from '../../primitives/Image';
+import { Divider } from '../../composites/Divider';
+import { Pressable } from '../../primitives/Pressable';
+
+import { UnojobsSavedIcon } from '../../../components/app';
 import type { ITopmatches } from './types';
 export const TopMatches = (props: ITopmatches) => {
   const {
