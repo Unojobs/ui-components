@@ -34,17 +34,13 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                 </Text>
               )}
               <IconButton
-                onPress={props.onClose}
+                onPressIn={props.onClose}
                 {...style.backIconButton}
                 {...style.backArrowModalIcon}
                 _hover={{
                   backgroundColor: 'secondary.300',
                 }}
-                icon={
-                  <>
-                    <LeftArrowIcon size={6} />
-                  </>
-                }
+                icon={<LeftArrowIcon size={6} />}
               />
               {(props.heading || props.subHeading) && (
                 <VStack>

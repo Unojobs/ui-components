@@ -125,32 +125,20 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           <Text {...style.commonText}>Or {props.buttonText} With</Text>
           <HStack {...style.smButtonsContainer}>
             <IconButton
-              icon={
-                <>
-                  <GoogleSMLogo />
-                </>
-              }
-              onPress={props.onGoogleLogin}
+              icon={<GoogleSMLogo />}
+              onPressIn={props.onGoogleLogin}
               {...style.iconButton}
             />
             <IconButton
-              icon={
-                <>
-                  <LinkedInSMLogo />
-                </>
-              }
-              onPress={props.onLinkedInLogin}
+              icon={<LinkedInSMLogo />}
+              onPressIn={props.onLinkedInLogin}
               {...style.iconButton}
             />
 
             {props.isCandidate && (
               <IconButton
-                icon={
-                  <>
-                    <FacebookSMLogo />
-                  </>
-                }
-                onPress={props.onFacebookLogin}
+                icon={<FacebookSMLogo />}
+                onPressIn={props.onFacebookLogin}
                 {...style.iconButton}
               />
             )}

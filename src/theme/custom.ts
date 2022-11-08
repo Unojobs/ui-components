@@ -41,6 +41,7 @@ export const custom = {
       '700': '#FCFCFC',
       '800': '#E7E7E7',
       '900': '#EFF3FA',
+      '950': '#0A0A0A',
     }, // white-gray colors
     success: {
       '200': '#F2FDDF',

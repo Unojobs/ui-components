@@ -11,4 +11,9 @@ export interface ILeftSideScreenProps {
   showArrows?: boolean;
   interval?: number;
   showThumbs?: boolean;
+  carouselTopMargin: string | number;
+  boxWidth: any;
+  imageBorderRadius: string | number;
+  imageHeight: string | number;
+  boxPadding: string | number;
 }

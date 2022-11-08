@@ -42,12 +42,8 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 </HStack>
               </Text>
               <IconButton
-                icon={
-                  <>
-                    <LeftArrowIcon size={6} />
-                  </>
-                }
-                onPress={props.onClose}
+                icon={<LeftArrowIcon size={6} />}
+                onPressIn={props.onClose}
                 {...style.backIconButton}
                 {...style.backArrowModalIcon}
                 _hover={{
@@ -57,32 +53,20 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               <Text {...style.commonText}>Join using</Text>
               <HStack {...style.smButtonsContainer}>
                 <IconButton
-                  icon={
-                    <>
-                      <GoogleSMLogo />
-                    </>
-                  }
-                  onPress={props.onGoogleLogin}
+                  icon={<GoogleSMLogo />}
+                  onPressIn={props.onGoogleLogin}
                   {...style.iconButton}
                 />
                 <IconButton
-                  icon={
-                    <>
-                      <LinkedInSMLogo />
-                    </>
-                  }
-                  onPress={props.onLinkedInLogin}
+                  icon={<LinkedInSMLogo />}
+                  onPressIn={props.onLinkedInLogin}
                   {...style.iconButton}
                 />
 
                 {props.isCandidate && (
                   <IconButton
-                    icon={
-                      <>
-                        <FacebookSMLogo />
-                      </>
-                    }
-                    onPress={props.onFacebookLogin}
+                    icon={<FacebookSMLogo />}
+                    onPressIn={props.onFacebookLogin}
                     {...style.iconButton}
                   />
                 )}

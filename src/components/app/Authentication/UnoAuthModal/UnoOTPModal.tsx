@@ -34,12 +34,8 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                 </Text>
               )}
               <IconButton
-                icon={
-                  <>
-                    <LeftArrowIcon size={6} />
-                  </>
-                }
-                onPress={props.onClose}
+                icon={<LeftArrowIcon size={6} />}
+                onPressIn={props.onClose}
                 {...style.backIconButton}
                 {...style.backArrowModalIcon}
                 _hover={{

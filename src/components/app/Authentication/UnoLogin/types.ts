@@ -17,7 +17,7 @@ export interface IUnoLoginProps {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
   ) => void | undefined;
   onLogin?: (values: any) => void | undefined;
-  unoLogo: React.FC;
+  unoLogo?: any;
   isCandidate: boolean;
   setIsCandidate: React.Dispatch<React.SetStateAction<boolean>>;
   tooltip?: ILoginUtil;

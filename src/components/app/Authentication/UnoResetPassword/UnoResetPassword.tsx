@@ -13,12 +13,8 @@ export const UnoResetPassword = (props: IUnoResetPasswordProps) => {
   return (
     <VStack {...style.mainContainer}>
       <IconButton
-        icon={
-          <>
-            <LeftArrowIcon size={8} />
-          </>
-        }
-        onPress={props.onBackArrow}
+        icon={<LeftArrowIcon size={8} />}
+        onPressIn={props.onBackArrow}
         _hover={{
           backgroundColor: 'secondary.300',
         }}

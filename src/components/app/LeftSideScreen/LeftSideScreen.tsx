@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, VStack, Text, Image } from '../../primitives';
-import './styles.left-side-screen.css';
 import type { ILeftSideScreenProps, IListItem } from './types';
 import { style } from './style.left-side-screen';
 import { Carousel } from 'react-responsive-carousel';
@@ -9,54 +8,57 @@ import { nanoid } from 'nanoid';
 
 export const LeftSideScreen = (props: ILeftSideScreenProps) => {
   return (
-    <div className="left-side-bar-info">
+    <Box
+      backgroundColor={'secondary.950'}
+      width={props.boxWidth}
+      minHeight={'100vh'}
+      position="relative"
+      display={{ sm: 'none', md: 'block' }}
+    >
       <Box
-        backgroundColor={'black'}
-        width={{ sm: 'none', md: 512, lg: 640, xl: 787 }}
-        minHeight={'100vh'}
-        position="relative"
-        display={{ sm: 'none', md: 'block' }}
+        position={'fixed'}
+        top={props.carouselTopMargin}
+        padding={props.boxPadding}
+        width={props.boxWidth}
       >
-        <Box
-          position={'fixed'}
-          top={'1/5'}
-          padding={5}
-          width={{ sm: 'none', md: 512, lg: 640, xl: 787 }}
+        <Carousel
+          showThumbs={props.showThumbs}
+          autoPlay={props.autoPlay}
+          showArrows={props.showArrows}
+          showStatus={false}
+          infiniteLoop={props.infiniteLoop}
+          interval={props.interval}
         >
-          <Carousel
-            showThumbs={props.showThumbs}
-            autoPlay={props.autoPlay}
-            showArrows={props.showArrows}
-            showStatus={false}
-            infiniteLoop={props.infiniteLoop}
-            interval={props.interval}
-          >
-            {props.list?.map((object: IListItem) => {
-              return (
-                <VStack textAlign="left" key={nanoid()}>
-                  <Text>
-                    <Image
-                      source={{
-                        uri: object.imageUrl,
-                      }}
-                      alt={object.imageUrl}
-                      {...style.image}
-                      width={{ sm: 'none', md: 512, lg: 640, xl: 787 }}
-                    />
-                  </Text>
-                  <Text {...style.title} textAlign="justify">
-                    {object.title}
-                  </Text>
-                  <Text {...style.subTitle} textAlign="justify">
-                    {object.subTitle}
-                  </Text>
-                </VStack>
-              );
-            })}
-          </Carousel>
-        </Box>
+          {props.list?.map((object: IListItem) => {
+            return (
+              <VStack textAlign="left" key={nanoid()}>
+                <Text>
+                  <Image
+                    source={{
+                      uri: object.imageUrl,
+                    }}
+                    alt={object.imageUrl}
+                    borderRadius={props.imageBorderRadius}
+                    height={props.imageHeight}
+                    width={props.boxWidth}
+                  />
+                </Text>
+                <Text {...style.title} maxWidth={props.boxWidth}>
+                  {object.title}
+                </Text>
+                <Text
+                  {...style.subTitle}
+                  textAlign="justify"
+                  maxWidth={props.boxWidth}
+                >
+                  {object.subTitle}
+                </Text>
+              </VStack>
+            );
+          })}
+        </Carousel>
       </Box>
-    </div>
+    </Box>
   );
 };
 
@@ -67,4 +69,9 @@ LeftSideScreen.defaultProps = {
   showArrows: false,
   interval: 3000,
   showThumbs: false,
+  carouselTopMargin: 220,
+  boxWidth: { 'sm': 'none', 'md': 512, 'lg': 640, 'xl': 787, '2xl': 900 },
+  imageBorderRadius: 10,
+  imageHeight: 400,
+  boxPadding: 10,
 };

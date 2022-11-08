@@ -75,6 +75,7 @@ export const style = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 100,
   },
   backIconButton: {
     height: 0,
