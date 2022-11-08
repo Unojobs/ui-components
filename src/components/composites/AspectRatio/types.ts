@@ -1,2 +1,1 @@
-
-export type { IAspectRatioProps } from "native-base"
+export type { IAspectRatioProps } from 'native-base';

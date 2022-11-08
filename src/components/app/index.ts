@@ -1,6 +1,5 @@
 export * from './JobDetailCard/index';
 import 'antd/dist/antd.css';
-export * from './screens';
 export * from './radioButtonGroup';
 export * from './SideMenu';
 export * from './CustomNBButton';
@@ -13,6 +12,8 @@ export * from './FaqCard';
 export * from './StatusTag';
 export * from './CandidateAvatars';
 export * from './UnojobsIcons';
+export * from './LeftSideScreen';
+export * from './Authentication';
 export * from './SuperAdmin';
 export * from './EmployerDashboard';
 export * from './TopMatches';

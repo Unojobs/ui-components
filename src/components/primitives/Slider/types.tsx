@@ -1,3 +1,1 @@
-
-
-export type { ISliderProps } from "native-base";
+export type { ISliderProps } from 'native-base';

@@ -1,238 +1,238 @@
-import { appTheme as theme } from "../../core/AppProvider";
+import { appTheme as theme } from '../../core/AppProvider';
 
 export const StorybookTextArgs = {
   children: {
-    name: "children",
+    name: 'children',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "This is a Text",
+    defaultValue: 'This is a Text',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   fontSize: {
-    name: "fontSize",
+    name: 'fontSize',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "md",
+    defaultValue: 'md',
     control: {
-      type: "select",
+      type: 'select',
     },
     options: Object.keys(theme.fontSizes),
   },
   italic: {
-    name: "italic",
+    name: 'italic',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   bold: {
-    name: "bold",
+    name: 'bold',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   underline: {
-    name: "underline",
+    name: 'underline',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   highlight: {
-    name: "highlight",
+    name: 'highlight',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   sub: {
-    name: "sub",
+    name: 'sub',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   strikeThrough: {
-    name: "strikeThrough",
+    name: 'strikeThrough',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isTruncated: {
-    name: "isTruncated",
+    name: 'isTruncated',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
 };
 
 export const TextArgs = {
   pages: {
-    type: "",
-    section: "component",
-    row: "fontSize",
-    component: "states",
+    type: '',
+    section: 'component',
+    row: 'fontSize',
+    component: 'states',
   },
   props: {
     children: {
-      name: "children",
+      name: 'children',
       type: {
-        name: "string",
+        name: 'string',
         required: true,
       },
-      defaultValue: "This is a Text",
+      defaultValue: 'This is a Text',
       control: {
-        type: "text",
+        type: 'text',
       },
     },
     fontSize: {
-      name: "fontSize",
+      name: 'fontSize',
       type: {
-        name: "string",
+        name: 'string',
       },
-      defaultValue: "md",
+      defaultValue: 'md',
       control: {
-        type: "select",
+        type: 'select',
       },
       options: Object.keys(theme.fontSizes),
     },
     states: [
       {
         default: {
-          name: "default",
+          name: 'default',
         },
       },
       {
         italic: {
-          name: "italic",
+          name: 'italic',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
       {
         bold: {
-          name: "bold",
+          name: 'bold',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
       {
         underline: {
-          name: "underline",
+          name: 'underline',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
       {
         highlight: {
-          name: "highlight",
+          name: 'highlight',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
       {
         sub: {
-          name: "sub",
+          name: 'sub',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
       {
         strikeThrough: {
-          name: "strikeThrough",
+          name: 'strikeThrough',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
       {
         isTruncated: {
-          name: "isTruncated",
+          name: 'isTruncated',
           type: {
-            name: "boolean",
+            name: 'boolean',
           },
           defaultValue: false,
 
           control: {
-            type: "boolean",
+            type: 'boolean',
           },
         },
       },
     ],
   },
   metaData: {
-    heading: "Typography",
-    "sub-heading": "Text",
+    'heading': 'Typography',
+    'sub-heading': 'Text',
   },
 };

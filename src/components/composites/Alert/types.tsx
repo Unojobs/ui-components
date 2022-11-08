@@ -1,2 +1,1 @@
-
-export type { IAlertProps } from "native-base";
+export type { IAlertProps } from 'native-base';

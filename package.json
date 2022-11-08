@@ -17,7 +17,8 @@
     "expo-font": "^10.2.1",
     "expo-modules-core": "^0.11.8",
     "lodash.isempty": "^4.4.0",
-    "native-base": "3.4.17",
+    "lodash.merge": "^4.6.2",
+    "native-base": "^3.4.21",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
@@ -46,7 +47,8 @@
     "typescript": "tsc --noEmit",
     "release": "release-it",
     "prepare": "bob build",
-    "commit-test": "yarn prepare && cd example && yarn test && cd .."
+    "commit-test": "yarn prepare && cd example && yarn test && cd ..",
+    "lint": "eslint src"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

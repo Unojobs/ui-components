@@ -1,2 +1,1 @@
-
-export type { IHiddenProps } from "native-base";
+export type { IHiddenProps } from 'native-base';

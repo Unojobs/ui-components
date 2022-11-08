@@ -1,13 +1,6 @@
 import React from 'react';
 import { Badge } from '../../composites';
-import {
-  Box,
-  Heading,
-  Stack,
-  Text,
-  Image,
-  HStack,
-} from '../../../';
+import { Box, Heading, Stack, Text, Image, HStack } from '../../../';
 import type { JobDetailCardProps } from './types';
 import { CandidateAvatars } from '../CandidateAvatars';
 
@@ -63,7 +56,7 @@ export const JobDetailCard = (props: JobDetailCardProps) => {
             })}
           </HStack>
           <HStack space={2} alignItems="center">
-            <CandidateAvatars candidates={props.candidates}></CandidateAvatars>
+            <CandidateAvatars candidates={props.candidates} />
             <Text color="#B7B7B7" fontSize="12px">
               {props.candidates.length} Total Candidate
             </Text>

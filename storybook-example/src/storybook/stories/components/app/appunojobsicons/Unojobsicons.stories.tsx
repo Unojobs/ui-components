@@ -51,6 +51,16 @@ import {
   UnojobsVideoIcon,
   UnojobsResumeIcon,
   UnojobsInfoIcon,
+  LeftArrowIcon,
+  FacebookSMLogo,
+  LinkedInSMLogo,
+  GoogleSMLogo,
+  AttachFileIcon,
+  LocationIcon,
+  CameraIcon,
+  CircularRightArrowIcon,
+  CircularWrongIcon,
+  CircularCorrectIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -66,6 +76,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsDownArrowSharpIcon />
             <UnojobsRightArrowCurvedIcon />
             <UnojobsDownArrowCurvedIcon />
+            <LeftArrowIcon />
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
@@ -125,7 +136,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsAppLogo />
             <UnojobsAppLogo fill="#111" />
           </HStack>
-          <HStack>
+      
             <HStack space={3} alignItems="center" flexWrap="wrap">
               <Text>Candidate Icons :</Text>
               <UnojobsWelcomeIcon size={40}></UnojobsWelcomeIcon>
@@ -136,6 +147,20 @@ const UnojobsiconsTest = ({ ...args }) => {
               <UnojobsResumeIcon size={20} />
               <UnojobsInfoIcon size={20} />
             </HStack>
+          <HStack space={3} alignItems="center">
+            <Text>Social Media Logo :</Text>
+            <FacebookSMLogo />
+            <LinkedInSMLogo />
+            <GoogleSMLogo />
+          </HStack>
+          <HStack space={3} alignItems="center">
+            <Text>Form Icon :</Text>
+            <AttachFileIcon />
+            <LocationIcon />
+            <CameraIcon />
+            <CircularRightArrowIcon />
+            <CircularWrongIcon />
+            <CircularCorrectIcon />
           </HStack>
         </VStack>
       </Box>

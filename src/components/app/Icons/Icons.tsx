@@ -1,7 +1,6 @@
 import Icon from '@ant-design/icons';
 import React from 'react';
-
-export interface IconProps {
+export interface AntIconProps {
   /** invoke onClick event function */
   onClick?: (event: React.MouseEvent) => void;
 }
@@ -36,7 +35,7 @@ const DeleteSvg: React.FC = () => {
   );
 };
 /** Delete component where we are passing the DeleteSvg component as prop to ant design's Icon component  */
-export const UnoJobsDeleteIcon: React.FC<IconProps> = (props) => (
+export const UnoJobsDeleteIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={DeleteSvg} {...props} />
 );
 
@@ -69,7 +68,7 @@ const EditSvg: React.FC = () => {
 };
 
 /** Edit component where we are passing the EditSvg component as prop to ant design's Icon component  */
-export const EditIcon: React.FC<IconProps> = (props) => (
+export const EditIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={EditSvg} {...props} />
 );
 
@@ -101,7 +100,7 @@ const ViewSvg: React.FC = () => {
   );
 };
 /** View component where we are passing the ViewSvg component as prop to ant design's Icon component  */
-export const ViewIcon: React.FC<IconProps> = (props) => (
+export const ViewIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={ViewSvg} {...props} />
 );
 
@@ -130,7 +129,7 @@ const ConfirmSvg: React.FC = () => {
 };
 
 /** Confirm component where we are passing the ConfirmSvg component as prop to ant design's Icon component  */
-export const ConfirmIcon: React.FC<IconProps> = (props) => (
+export const ConfirmIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={ConfirmSvg} {...props} />
 );
 
@@ -159,7 +158,7 @@ const RejectSvg: React.FC = () => {
 };
 
 /** Reject component where we are passing the RejectSvg component as prop to ant design's Icon component */
-export const RejectIcon: React.FC<IconProps> = (props) => (
+export const RejectIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={RejectSvg} {...props} />
 );
 
@@ -221,7 +220,7 @@ const UpArrowRoundSvg: React.FC = () => {
 };
 
 /** UpArrowRound component where we are passing the UpArrowRoundSvg component as prop to ant design's Icon component */
-export const UpArrowRoundIcon: React.FC<IconProps> = (props) => (
+export const UpArrowRoundIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={UpArrowRoundSvg} {...props} />
 );
 
@@ -249,7 +248,7 @@ const DownArrowRoundSvg: React.FC = () => {
 };
 
 /** DownArrowRound component where we are passing the DownArrowRoundSvg component as prop to ant design's Icon component */
-export const DownArrowRoundIcon: React.FC<IconProps> = (props) => (
+export const DownArrowRoundIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={DownArrowRoundSvg} {...props} />
 );
 

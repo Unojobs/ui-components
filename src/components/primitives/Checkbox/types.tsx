@@ -1,2 +1,1 @@
-
-export type { ICheckboxProps } from "native-base";
+export type { ICheckboxProps } from 'native-base';

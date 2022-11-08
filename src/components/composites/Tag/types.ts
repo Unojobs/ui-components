@@ -1,2 +1,1 @@
-
-export type { ITagProps } from "native-base";
+export type { ITagProps } from 'native-base';

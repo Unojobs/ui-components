@@ -1,2 +1,1 @@
-
-export type { IPopoverProps } from "native-base";
+export type { IPopoverProps } from 'native-base';

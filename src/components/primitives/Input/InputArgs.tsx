@@ -1,4 +1,4 @@
-import { appTheme as theme } from "../../core/AppProvider";
+import { appTheme as theme } from '../../core/AppProvider';
 
 // const {
 //   contrastThreshold,
@@ -10,43 +10,43 @@ import { appTheme as theme } from "../../core/AppProvider";
 // } = theme.colors;
 export const StorybookInputArgs = {
   variant: {
-    name: "variant",
-    type: { name: "string", required: true },
-    defaultValue: "rounded",
+    name: 'variant',
+    type: { name: 'string', required: true },
+    defaultValue: 'rounded',
     options: Object.keys(theme.components.Input.variants),
     control: {
-      type: "radio",
+      type: 'radio',
     },
   },
   placeholder: {
-    name: "placeholder",
+    name: 'placeholder',
     type: {
-      name: "string",
+      name: 'string',
       required: true,
     },
-    defaultValue: "Enter Text",
+    defaultValue: 'Enter Text',
     control: {
-      type: "text",
+      type: 'text',
     },
   },
   isHovered: {
-    name: "isHovered",
-    type: { name: "boolean" },
+    name: 'isHovered',
+    type: { name: 'boolean' },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   isDisabled: {
-    name: "isDisabled",
+    name: 'isDisabled',
     type: {
-      name: "boolean",
+      name: 'boolean',
     },
     defaultValue: false,
 
     control: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   // isLoading: {
@@ -62,13 +62,13 @@ export const StorybookInputArgs = {
   // },
 
   size: {
-    name: "size",
+    name: 'size',
     type: {
-      name: "string",
+      name: 'string',
     },
-    defaultValue: "md",
+    defaultValue: 'md',
     control: {
-      type: "select",
+      type: 'select',
     },
     options: Object.keys(theme.components.Input.sizes),
   },

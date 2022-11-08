@@ -175,7 +175,7 @@ export const UnoJobsMarketingDepartment = ({ fill, size }: IconProps) => {
       </>
     ),
   });
-  return <CustomIcon size={size ? size : 8}></CustomIcon>;
+  return <CustomIcon size={size ? size : 8} />;
 };
 
 UnoJobsMarketingDepartment.defaultProps = {

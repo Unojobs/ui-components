@@ -8,24 +8,29 @@ import {
   SendOutlined,
 } from '@ant-design/icons';
 import { makeRandomColor } from '../../../utils';
-import { CustomButton } from '../../CustomButton';
+import { CustomNBButton } from '../../CustomNBButton';
 const { TextArea } = Input;
 export interface InputMessageFieldProps {
   avatarUri: string;
   username: string;
+  handleTextInput: (event?: any) => void;
+  handleEmojiInput: (event?: any) => void;
+  handleFileUpload: (event?: any) => void;
+  handleSubmit: (event?: any) => void;
 }
 export const InputMessageField = (props: InputMessageFieldProps) => {
-  const { avatarUri, username } = props;
-  const handleChange = (_event: any) => {};
-  const handleEmojiPicker = () => {};
-  const handleFileUpload = () => {};
-  const handleMessageSubmit = (
-    _event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {};
+  const {
+    avatarUri,
+    username,
+    handleTextInput,
+    handleEmojiInput,
+    handleFileUpload,
+    handleSubmit,
+  } = props;
   return (
     <HStack
-      width={'817px'}
-      height={'83px'}
+      width={817}
+      height={83}
       alignItems={'center'}
       justifyContent={'space-evenly'}
     >
@@ -37,10 +42,10 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
         </Avatar>
       )}
       <HStack
-        width={'650px'}
-        height={'45px'}
-        paddingX={'16px'}
-        paddingY={'20px'}
+        width={650}
+        height={45}
+        paddingX={4}
+        paddingY={5}
         alignItems={'center'}
         justifyContent={'space-between'}
       >
@@ -49,21 +54,22 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
           style={{ fontSize: 14 }}
           bordered={false}
           autoSize
-          onChange={handleChange}
+          onChange={handleTextInput}
         />
         <HStack space={2}>
-          <SmileOutlined onClick={handleEmojiPicker} size={12} />
+          <SmileOutlined onClick={handleEmojiInput} size={12} />
           <FileAddOutlined onClick={handleFileUpload} size={12} />
         </HStack>
       </HStack>
-      <CustomButton
-        width="48px"
-        height="46px"
-        backgroundColor="#4169E0"
-        onClick={handleMessageSubmit}
+      <CustomNBButton
+        htmlType="submit"
+        width={'48px'}
+        height={'46px'}
+        backgroundColor="primary.500"
+        onClick={handleSubmit}
       >
-        <SendOutlined size={12} />
-      </CustomButton>
+        <SendOutlined size={12} style={{ color: '#fff' }} />
+      </CustomNBButton>
     </HStack>
   );
 };

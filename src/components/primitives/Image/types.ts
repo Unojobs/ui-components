@@ -1,2 +1,1 @@
-
-export type { IImageProps } from "native-base";
+export type { IImageProps } from 'native-base';

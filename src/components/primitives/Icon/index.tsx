@@ -32,7 +32,7 @@ export const Icon = ({ as, ...props }: IIconProps) => {
     Zocial: Zocial,
   };
 
-  return <NBIcon as={map[as]} {...props}></NBIcon>;
+  return <NBIcon as={map[as]} {...props} />;
 };
 
 export { createIcon } from './createIcon';
