@@ -80,15 +80,11 @@ export const style = {
     height: 0,
     fontSize: '5xl',
     cursor: 'pointer',
-    marginRight: 'auto',
   },
   backArrowIcon: {
     marginTop: 8,
   },
-  backArrowModalIcon: {
-    marginTop: '15px',
-    marginLeft: '15px',
-  },
+
   modalPosition: {
     backgroundColor: 'secondary.300',
     marginRight: 'auto',

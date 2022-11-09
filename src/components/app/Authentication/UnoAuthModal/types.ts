@@ -1,5 +1,6 @@
 import type React from 'react';
 
+/**Common Modal props */
 export interface ICommonModalProps {
   heading?: string;
   subHeading?: string;
@@ -11,12 +12,19 @@ export interface ICommonModalProps {
   unoLogo?: any;
   verticalSpace?: string | number;
   buttonText?: string;
-  onClose?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
-  ) => void | undefined;
+  onClose?: () => void | undefined;
 }
 
-export interface IUnoOTPModalProps extends ICommonModalProps {
+export interface IBackArrowProps {
+  showBackArrow: boolean;
+  backArrowMarginTop: string | number;
+  backArrowMarginBottom: string | number;
+  backArrowMarginLeft: string | number;
+  backArrowMarginRight: string | number;
+}
+
+/** Verify OTP Modal Props */
+export interface IUnoOTPModalProps extends ICommonModalProps, IBackArrowProps {
   hasErrored?: boolean;
   isInputSecure?: boolean;
   label?: string;
@@ -28,7 +36,11 @@ export interface IUnoOTPModalProps extends ICommonModalProps {
   isResend: boolean;
 }
 
-export interface IUnoForgetPasswordModalProps extends ICommonModalProps {
+/** Forgot password Modal Props */
+
+export interface IUnoForgetPasswordModalProps
+  extends ICommonModalProps,
+    IBackArrowProps {
   onSubmit?: (values: any) => void | undefined;
   tooltip?: IForgotPUtil;
   placeholder?: IForgotPUtil;
@@ -38,7 +50,11 @@ export interface IForgotPUtil {
   email: string;
 }
 
-export interface IUnoUserRegisterProps extends ICommonModalProps {
+/** Register new user Modal Props */
+
+export interface IUnoUserRegisterProps
+  extends ICommonModalProps,
+    IBackArrowProps {
   onRegister?: (values: any) => void | undefined;
   isCandidate: boolean;
   onGoogleLogin?: (
@@ -52,15 +68,16 @@ export interface IUnoUserRegisterProps extends ICommonModalProps {
   ) => void | undefined;
   tooltip?: IRegisterUtil;
   placeholder?: IRegisterUtil;
-  onTermsAndCondition?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
-  ) => void | undefined;
-  termAndConditionValues: ITermsAndConditions;
+  onTermsAndCondition?: () => void | undefined;
+  onPrivacyPolicy?: () => void | undefined;
+  termAndConditionValues?: ITermsAndConditions;
 }
 export interface ITermsAndConditions {
-  fieldName: string;
-  linkText: string;
-  text: string;
+  linkTextOne?: string;
+  linkTextTwo?: string;
+  text?: string;
+  textSize?: number | string;
+  showCheckBox?: boolean;
 }
 
 export interface IRegisterUtil {
@@ -70,7 +87,11 @@ export interface IRegisterUtil {
   confirmPassword: string;
 }
 
-export interface IUnoNewPasswordProps extends ICommonModalProps {
+/** Create new password Modal Props */
+
+export interface IUnoNewPasswordProps
+  extends ICommonModalProps,
+    IBackArrowProps {
   onCreate?: (values: any) => void | undefined;
   tooltip?: INewPasswordUtil;
   placeholder?: INewPasswordUtil;
@@ -79,4 +100,15 @@ export interface IUnoNewPasswordProps extends ICommonModalProps {
 export interface INewPasswordUtil {
   password: string;
   confirmPassword: string;
+}
+
+/** Pop up modal props */
+export interface IUnoPopUpModalProps {
+  text?: string;
+  textWidth?: string | number;
+  icon?: any;
+  maxWidth?: string | number;
+  maxHeight?: string | number;
+  isOpened: boolean;
+  setIsOpened?: React.Dispatch<React.SetStateAction<boolean>>;
 }

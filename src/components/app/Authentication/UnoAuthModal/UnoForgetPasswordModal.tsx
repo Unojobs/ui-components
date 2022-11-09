@@ -7,9 +7,16 @@ import { style } from '../style.authentication';
 import type { IUnoForgetPasswordModalProps } from './types';
 import { emailValidator } from '../helper.authentication';
 import '../styles.authentication.css';
-import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
+import {
+  LeftArrowIcon,
+  UnoEmailIcon,
+  UnojobsAppLogo,
+} from '../../UnojobsIcons';
 
 export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
+  const [form] = Form.useForm();
+
+  /** Handle back screen scroll when modal is open */
   useEffect(() => {
     if (props.isOpened === true && window !== undefined) {
       // When the modal is shown, we want a fixed body
@@ -23,11 +30,17 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
     }
   }, [props.isOpened]);
 
+  /**Handle modal close function */
+
+  const handleModalClose = () => {
+    form.resetFields();
+    props.onClose?.();
+  };
   return (
     <Center>
       <Modal
         isOpen={props.isOpened}
-        onClose={props.onClose}
+        onClose={handleModalClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
@@ -40,21 +53,26 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
             <VStack {...style.mainContainer} space={props.verticalSpace}>
               {(props.title || props.unoLogo) && (
                 <Text {...style.heading} textAlign="center">
-                  <HStack space={8}>
+                  <HStack space={30}>
                     {props.unoLogo}
                     {props.title}
                   </HStack>
                 </Text>
               )}
-              <IconButton
-                onPressIn={props.onClose}
-                {...style.backIconButton}
-                {...style.backArrowModalIcon}
-                _hover={{
-                  backgroundColor: 'secondary.300',
-                }}
-                icon={<LeftArrowIcon size={6} />}
-              />
+              {props.showBackArrow && (
+                <IconButton
+                  onPressIn={handleModalClose}
+                  {...style.backIconButton}
+                  marginTop={props.backArrowMarginTop}
+                  marginBottom={props.backArrowMarginBottom}
+                  marginLeft={props.backArrowMarginLeft}
+                  marginRight={props.backArrowMarginRight}
+                  _hover={{
+                    backgroundColor: 'secondary.300',
+                  }}
+                  icon={<LeftArrowIcon size={6} />}
+                />
+              )}
               {(props.heading || props.subHeading) && (
                 <VStack>
                   {props.heading && (
@@ -66,6 +84,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                 </VStack>
               )}
               <Form
+                form={form}
                 layout="vertical"
                 onFinish={props.onSubmit}
                 scrollToFirstError={true}
@@ -92,7 +111,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                     type="email"
                     placeholder={props.placeholder?.email}
                     style={style.input}
-                    suffix={' '}
+                    suffix={<UnoEmailIcon />}
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
@@ -123,6 +142,11 @@ UnoForgetPasswordModal.defaultProps = {
   },
   verticalSpace: 30,
   maxWidth: 500,
-  maxHeight: 500,
+  maxHeight: 540,
   onClose: undefined,
+  showBackArrow: true,
+  backArrowMarginTop: 35,
+  backArrowMarginBottom: 26,
+  backArrowMarginLeft: 5,
+  backArrowMarginRight: 'auto',
 };

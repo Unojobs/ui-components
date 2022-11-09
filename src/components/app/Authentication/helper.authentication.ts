@@ -23,3 +23,13 @@ export const emailValidator = (value: string) => {
     return Promise.reject();
   }
 };
+
+// validate email / phone number input fields
+
+export const validateEmailPhoneNumber = (value: any) => {
+  if (isNaN(value)) {
+    return 'email';
+  } else {
+    return 'password';
+  }
+};

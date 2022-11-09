@@ -10,6 +10,9 @@ import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
+  const [form] = Form.useForm();
+
+  /** Handle back screen scroll when modal is open */
   useEffect(() => {
     if (props.isOpened === true && window !== undefined) {
       // When the modal is shown, we want a fixed body
@@ -22,11 +25,18 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
       document.body.style.top = '';
     }
   }, [props.isOpened]);
+
+  /**Handle modal close function */
+
+  const handleModalClose = () => {
+    form.resetFields();
+    props.onClose?.();
+  };
   return (
     <>
       <Modal
         isOpen={props.isOpened}
-        onClose={props.onClose}
+        onClose={handleModalClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
@@ -39,21 +49,26 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
             <VStack {...style.mainContainer} space={props.verticalSpace}>
               {(props.title || props.unoLogo) && (
                 <Text {...style.heading} textAlign="center">
-                  <HStack space={8}>
+                  <HStack space={30}>
                     {props.unoLogo}
                     {props.title}
                   </HStack>
                 </Text>
               )}
-              <IconButton
-                icon={<LeftArrowIcon size={6} />}
-                onPressIn={props.onClose}
-                {...style.backIconButton}
-                {...style.backArrowModalIcon}
-                _hover={{
-                  backgroundColor: 'secondary.300',
-                }}
-              />
+              {props.showBackArrow && (
+                <IconButton
+                  onPressIn={handleModalClose}
+                  {...style.backIconButton}
+                  marginTop={props.backArrowMarginTop}
+                  marginBottom={props.backArrowMarginBottom}
+                  marginLeft={props.backArrowMarginLeft}
+                  marginRight={props.backArrowMarginRight}
+                  _hover={{
+                    backgroundColor: 'secondary.300',
+                  }}
+                  icon={<LeftArrowIcon size={6} />}
+                />
+              )}
               {(props.heading || props.subHeading) && (
                 <VStack>
                   {props.heading && (
@@ -72,6 +87,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
               )}
 
               <Form
+                form={form}
                 layout="vertical"
                 onFinish={props.onVerify}
                 scrollToFirstError={true}
@@ -142,4 +158,9 @@ UnoOTPModal.defaultProps = {
   smsSentOn: '',
   onResendOTP: undefined,
   isResend: false,
+  showBackArrow: true,
+  backArrowMarginTop: 35,
+  backArrowMarginBottom: 26,
+  backArrowMarginLeft: 5,
+  backArrowMarginRight: 'auto',
 };

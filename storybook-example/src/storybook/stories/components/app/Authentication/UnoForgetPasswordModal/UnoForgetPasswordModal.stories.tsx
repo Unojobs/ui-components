@@ -12,6 +12,9 @@ export default {
 
 const Template: ComponentStory<typeof UnoForgetPasswordModal> = (args) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+  const handleOnClose = () => {
+    setIsOpened(false);
+  };
   return (
     <Wrapper>
       <button onClick={() => setIsOpened(true)}>Forgot Password</button>
@@ -19,6 +22,8 @@ const Template: ComponentStory<typeof UnoForgetPasswordModal> = (args) => {
         {...args}
         isOpened={isOpened}
         setIsOpened={setIsOpened}
+        onClose={handleOnClose}
+        showBackArrow={true}
       />
     </Wrapper>
   );

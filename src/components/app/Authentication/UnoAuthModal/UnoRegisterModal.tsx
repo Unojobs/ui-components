@@ -16,12 +16,16 @@ import {
   GoogleSMLogo,
   LeftArrowIcon,
   LinkedInSMLogo,
+  UnoEmailIcon,
   UnojobsAppLogo,
 } from '../../UnojobsIcons';
 import type { RuleObject } from 'antd/lib/form';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
+  const [form] = Form.useForm();
+
+  /** Handle back screen scroll when modal is open */
   useEffect(() => {
     if (props.isOpened === true && window !== undefined) {
       // When the modal is shown, we want a fixed body
@@ -34,6 +38,13 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
       document.body.style.top = '';
     }
   }, [props.isOpened]);
+
+  /**Handle modal close function */
+
+  const handleModalClose = () => {
+    form.resetFields();
+    props.onClose?.();
+  };
 
   /**handle terms and condition using checkbox */
 
@@ -56,7 +67,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
     <>
       <Modal
         isOpen={props.isOpened}
-        onClose={props.onClose}
+        onClose={handleModalClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
@@ -68,20 +79,25 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
           <Modal.Body>
             <VStack {...style.mainContainer} space={props.verticalSpace}>
               <Text {...style.heading} textAlign="center" fontFamily={'body'}>
-                <HStack space={8}>
+                <HStack space={30}>
                   {props.unoLogo}
                   {props.title}
                 </HStack>
               </Text>
-              <IconButton
-                icon={<LeftArrowIcon size={6} />}
-                onPressIn={props.onClose}
-                {...style.backIconButton}
-                {...style.backArrowModalIcon}
-                _hover={{
-                  backgroundColor: 'secondary.300',
-                }}
-              />
+              {props.showBackArrow && (
+                <IconButton
+                  onPressIn={handleModalClose}
+                  {...style.backIconButton}
+                  marginTop={props.backArrowMarginTop}
+                  marginBottom={props.backArrowMarginBottom}
+                  marginLeft={props.backArrowMarginLeft}
+                  marginRight={props.backArrowMarginRight}
+                  _hover={{
+                    backgroundColor: 'secondary.300',
+                  }}
+                  icon={<LeftArrowIcon size={6} />}
+                />
+              )}
               <Text {...style.commonText}>Join using</Text>
               <HStack {...style.smButtonsContainer}>
                 <IconButton
@@ -105,6 +121,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               </HStack>
               <Text {...style.commonText}>Or</Text>
               <Form
+                form={form}
                 layout="vertical"
                 onFinish={props.onRegister}
                 scrollToFirstError={true}
@@ -151,7 +168,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     type="email"
                     placeholder={props.placeholder?.email}
                     style={style.input}
-                    suffix={' '}
+                    suffix={<UnoEmailIcon />}
                   />
                 </Form.Item>
                 <Form.Item
@@ -208,35 +225,39 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     onCopy={preventCopyPaste}
                   />
                 </Form.Item>
-                <Form.Item
-                  name="termsAndCondition"
-                  rules={[{ validator: validation }]}
-                >
-                  <Checkbox checked={checked} onChange={onCheckboxChange}>
-                    <span
-                      // eslint-disable-next-line react-native/no-inline-styles
-                      style={{
-                        color: checked ? '#111111' : '#EB5757',
-                      }}
-                    >
-                      {props.termAndConditionValues.fieldName}
-                    </span>
-                  </Checkbox>
-                </Form.Item>
+                {props.termAndConditionValues?.showCheckBox && (
+                  <Form.Item
+                    name="termsAndCondition"
+                    rules={[{ validator: validation }]}
+                  >
+                    <Checkbox checked={checked} onChange={onCheckboxChange} />
+                    <Text {...style.commonText} marginLeft={1} fontSize={13}>
+                      {props.termAndConditionValues?.text}
+                      <Text
+                        {...style.registerText}
+                        onPress={props.onTermsAndCondition}
+                      >
+                        {' '}
+                        {`${props?.termAndConditionValues?.linkTextOne} `}
+                      </Text>
+                      {props.termAndConditionValues?.linkTextTwo && (
+                        <Text>
+                          {'& '}
+                          <Text
+                            {...style.registerText}
+                            onPress={props.onPrivacyPolicy}
+                          >
+                            {props.termAndConditionValues.linkTextTwo}
+                          </Text>
+                        </Text>
+                      )}
+                    </Text>
+                  </Form.Item>
+                )}
                 <CustomButton {...style.submitButton} htmlType="submit">
                   {props.buttonText}
                 </CustomButton>
               </Form>
-              <Text {...style.commonText}>
-                {props.termAndConditionValues.text}
-                <Text
-                  {...style.registerText}
-                  onPress={props.onTermsAndCondition}
-                >
-                  {' '}
-                  {props.termAndConditionValues.linkText}
-                </Text>
-              </Text>
             </VStack>
           </Modal.Body>
         </Modal.Content>
@@ -272,9 +293,17 @@ UnoRegisterModal.defaultProps = {
   maxHeight: 500,
   onClose: undefined,
   onTermsAndCondition: undefined,
+  onPrivacyPolicy: undefined,
   termAndConditionValues: {
-    fieldName: 'Terms & conditions',
-    linkText: 'Terms & Conditions',
-    text: 'By clicking on join us you agree to our',
+    linkTextOne: 'Terms & Conditions',
+    linkTextTwo: 'Privacy Policy',
+    text: 'I agree to',
+    textSize: 13,
+    showCheckBox: true,
   },
+  showBackArrow: true,
+  backArrowMarginTop: 35,
+  backArrowMarginBottom: 26,
+  backArrowMarginLeft: 5,
+  backArrowMarginRight: 'auto',
 };

@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof UnoNewPasswordModal> = (args) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   return (
     <Wrapper>
-      <button onClick={() => setIsOpened(true)}>Forgot Password</button>
+      <button onClick={() => setIsOpened(true)}>Create New Password</button>
       <UnoNewPasswordModal
         {...args}
         isOpened={isOpened}
