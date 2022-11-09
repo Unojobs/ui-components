@@ -54,6 +54,7 @@ import {
   CircularRightArrowIcon,
   CircularWrongIcon,
   CircularCorrectIcon,
+  UnoEmailIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -143,6 +144,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <CircularRightArrowIcon />
             <CircularWrongIcon />
             <CircularCorrectIcon />
+            <UnoEmailIcon />
           </HStack>
         </VStack>
       </Box>
