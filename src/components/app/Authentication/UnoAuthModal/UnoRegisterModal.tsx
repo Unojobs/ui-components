@@ -4,7 +4,7 @@ import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import {
-  emailValidator,
+  fullNameValidator,
   passwordValidator,
   preventCopyPaste,
 } from '../helper.authentication';
@@ -16,13 +16,14 @@ import {
   GoogleSMLogo,
   LeftArrowIcon,
   LinkedInSMLogo,
-  UnoEmailIcon,
   UnojobsAppLogo,
 } from '../../UnojobsIcons';
-import type { RuleObject } from 'antd/lib/form';
+import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<string | undefined>('');
+  const [fullNameError, setfullNameError] = useState<string | undefined>('');
   const [form] = Form.useForm();
 
   /** Handle back screen scroll when modal is open */
@@ -48,19 +49,8 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
 
   /**handle terms and condition using checkbox */
 
-  const onCheckboxChange = async (e: any) => {
-    await setChecked(e.target.checked);
-  };
-
-  const validation = (
-    _rule: RuleObject,
-    _value: any,
-    callback: (error?: string) => void
-  ) => {
-    if (checked) {
-      return callback();
-    }
-    return callback('');
+  const onCheckboxChange = (e: CheckboxChangeEvent) => {
+    setChecked(e.target.checked);
   };
 
   return (
@@ -137,10 +127,23 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      message: '',
-                      max: 255,
+                      validator: () => {
+                        setfullNameError(props.errors?.fullName?.required);
+                      },
+                    },
+                    {
+                      validator: (_, value) => {
+                        const message = fullNameValidator(
+                          value,
+                          props.errors?.fullName
+                        );
+
+                        setfullNameError(message);
+                      },
                     },
                   ]}
+                  validateStatus={fullNameError ? 'error' : ''}
+                  help={fullNameError}
                 >
                   <Input
                     type="text"
@@ -157,10 +160,11 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      message: '',
+                      message: props.errors?.email?.required,
                     },
                     {
-                      validator: (_, value) => emailValidator(value),
+                      type: 'email',
+                      message: props.errors?.email?.validation,
                     },
                   ]}
                 >
@@ -168,7 +172,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     type="email"
                     placeholder={props.placeholder?.email}
                     style={style.input}
-                    suffix={<UnoEmailIcon />}
+                    suffix={' '}
                   />
                 </Form.Item>
                 <Form.Item
@@ -179,12 +183,22 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      message: '',
+                      validator: () => {
+                        setPasswordError(props.errors?.password?.required);
+                      },
                     },
-                    {
-                      validator: (_, value) => passwordValidator(value),
-                    },
+                    ({}) => ({
+                      validator(_, value) {
+                        const message = passwordValidator(
+                          value,
+                          props.errors?.password
+                        );
+                        setPasswordError(message);
+                      },
+                    }),
                   ]}
+                  validateStatus={passwordError ? 'error' : ''}
+                  help={passwordError}
                 >
                   <Input.Password
                     placeholder={props.placeholder?.password}
@@ -202,7 +216,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   rules={[
                     {
                       required: true,
-                      message: '',
+                      message: props.errors?.confirmPassword?.required,
                     },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
@@ -210,9 +224,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                           return Promise.resolve();
                         }
                         return Promise.reject(
-                          new Error(
-                            'The two passwords that you entered do not match!'
-                          )
+                          new Error(props.errors?.confirmPassword?.validation)
                         );
                       },
                     }),
@@ -228,7 +240,14 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 {props.termAndConditionValues?.showCheckBox && (
                   <Form.Item
                     name="termsAndCondition"
-                    rules={[{ validator: validation }]}
+                    rules={[
+                      {
+                        validator: (_, _value) => {
+                          if (checked) return Promise.resolve();
+                          return Promise.reject(props.errors?.checkbox);
+                        },
+                      },
+                    ]}
                   >
                     <Checkbox checked={checked} onChange={onCheckboxChange} />
                     <Text {...style.commonText} marginLeft={1} fontSize={13}>
@@ -290,7 +309,7 @@ UnoRegisterModal.defaultProps = {
   },
   verticalSpace: 30,
   maxWidth: 500,
-  maxHeight: 500,
+  maxHeight: 620,
   onClose: undefined,
   onTermsAndCondition: undefined,
   onPrivacyPolicy: undefined,
@@ -306,4 +325,23 @@ UnoRegisterModal.defaultProps = {
   backArrowMarginBottom: 26,
   backArrowMarginLeft: 5,
   backArrowMarginRight: 'auto',
+  errors: {
+    password: {
+      required: 'required field',
+      validation: 'must be a valid password',
+    },
+    confirmPassword: {
+      required: 'required field',
+      validation: 'must match with password',
+    },
+    email: {
+      required: 'required field',
+      validation: 'must be a valid email',
+    },
+    fullName: {
+      required: 'required field',
+      validation: 'must be a valid fullName',
+    },
+    checkbox: 'accept trems and conditions',
+  },
 };

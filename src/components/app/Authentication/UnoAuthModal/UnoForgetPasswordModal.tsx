@@ -5,13 +5,8 @@ import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
 import type { IUnoForgetPasswordModalProps } from './types';
-import { emailValidator } from '../helper.authentication';
 import '../styles.authentication.css';
-import {
-  LeftArrowIcon,
-  UnoEmailIcon,
-  UnojobsAppLogo,
-} from '../../UnojobsIcons';
+import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
   const [form] = Form.useForm();
@@ -100,10 +95,11 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      message: '',
+                      message: props.errors?.email?.required,
                     },
                     {
-                      validator: (_, value) => emailValidator(value),
+                      type: 'email',
+                      message: props.errors?.email?.validation,
                     },
                   ]}
                 >
@@ -111,7 +107,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                     type="email"
                     placeholder={props.placeholder?.email}
                     style={style.input}
-                    suffix={<UnoEmailIcon />}
+                    suffix={' '}
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
@@ -142,11 +138,17 @@ UnoForgetPasswordModal.defaultProps = {
   },
   verticalSpace: 30,
   maxWidth: 500,
-  maxHeight: 540,
+  maxHeight: 620,
   onClose: undefined,
   showBackArrow: true,
   backArrowMarginTop: 35,
   backArrowMarginBottom: 26,
   backArrowMarginLeft: 5,
   backArrowMarginRight: 'auto',
+  errors: {
+    email: {
+      required: 'required field',
+      validation: 'must be a valid email',
+    },
+  },
 };

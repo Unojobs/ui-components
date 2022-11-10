@@ -113,7 +113,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                       required: true,
                       min: 6,
                       max: 6,
-                      message: 'OTP is required',
+                      message: props.errors?.otp,
                     },
                   ]}
                 >
@@ -163,4 +163,7 @@ UnoOTPModal.defaultProps = {
   backArrowMarginBottom: 26,
   backArrowMarginLeft: 5,
   backArrowMarginRight: 'auto',
+  errors: {
+    otp: 'required field',
+  },
 };

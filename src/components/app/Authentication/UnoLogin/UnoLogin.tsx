@@ -8,25 +8,14 @@ import {
   FacebookSMLogo,
   GoogleSMLogo,
   LinkedInSMLogo,
-  UnoEmailIcon,
   UnojobsAppLogo,
 } from '../../UnojobsIcons';
 import { IconButton } from '../../../composites';
 import type { IUnoLoginProps } from './types';
 import '../styles.authentication.css';
-import {
-  emailValidator,
-  preventCopyPaste,
-  validateEmailPhoneNumber,
-} from '../helper.authentication';
+import { preventCopyPaste } from '../helper.authentication';
 
 export const UnoLogin = (props: IUnoLoginProps) => {
-  /** handle Email/Phone Number Input */
-  const handleEmailPhoneInput = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    validateEmailPhoneNumber(event.target.value);
-  };
   return (
     <VStack {...style.mainContainer} space={props.verticalSpace}>
       <VStack>
@@ -78,54 +67,30 @@ export const UnoLogin = (props: IUnoLoginProps) => {
             />
           </Form.Item>
         )}
-        {props.isCandidate !== true ? (
-          <Form.Item
-            label="Email"
-            name="email"
-            tooltip={props.tooltip?.email}
-            rules={[
-              {
-                required: true,
-                whitespace: true,
-                message: '',
-              },
-              {
-                // message: 'should be a valid email',
-                validator: (_, value) => emailValidator(value),
-              },
-            ]}
-          >
-            <Input
-              type="email"
-              placeholder={props.placeholder?.email}
-              style={style.input}
-              suffix={<UnoEmailIcon />}
-            />
-          </Form.Item>
-        ) : (
-          <Form.Item
-            label="Email/Phone Number"
-            name="emailOrPhone"
-            tooltip={props.tooltip?.email}
-            rules={[
-              {
-                required: true,
-                whitespace: true,
-                message: '',
-              },
-            ]}
-            // validateStatus={'error'}
-            // help={'required'}
-          >
-            <Input
-              type="text"
-              placeholder={props.placeholder?.email}
-              style={style.input}
-              suffix={' '}
-              onChange={handleEmailPhoneInput}
-            />
-          </Form.Item>
-        )}
+        <Form.Item
+          label="Email"
+          name="email"
+          tooltip={props.tooltip?.email}
+          rules={[
+            {
+              required: true,
+              whitespace: true,
+              message: props.errors?.email?.required,
+            },
+            {
+              type: 'email',
+              message: props.errors?.email?.validation,
+            },
+          ]}
+        >
+          <Input
+            type="email"
+            placeholder={props.placeholder?.email}
+            style={style.input}
+            suffix={' '}
+          />
+        </Form.Item>
+
         <Form.Item
           label="Password"
           name="password"
@@ -134,7 +99,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
             {
               required: true,
               whitespace: true,
-              message: '',
+              message: props.errors?.password?.required,
             },
           ]}
         >
@@ -214,4 +179,13 @@ UnoLogin.defaultProps = {
   },
   buttonText: 'Login',
   verticalSpace: 30,
+  errors: {
+    email: {
+      required: 'required field',
+      validation: 'must be a valid email',
+    },
+    password: {
+      required: 'required field',
+    },
+  },
 };

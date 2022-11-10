@@ -24,9 +24,19 @@ export interface IUnoLoginProps {
   buttonText: string;
   placeholder?: ILoginUtil;
   verticalSpace?: string | number;
+  errors?: ILoginErrorProps;
 }
 
 export interface ILoginUtil {
   email: string;
   password: string;
+}
+export interface ILoginErrorProps {
+  email?: IErrorProps;
+  password: IErrorProps;
+}
+
+export interface IErrorProps {
+  required?: string;
+  validation?: string;
 }

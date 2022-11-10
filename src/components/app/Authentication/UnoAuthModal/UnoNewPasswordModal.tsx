@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
@@ -11,6 +11,7 @@ import type { IUnoNewPasswordProps } from './types';
 
 export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();
+  const [passwordError, setPasswordError] = useState<string | undefined>('');
 
   /** Handle back screen scroll when modal is open */
   useEffect(() => {
@@ -32,6 +33,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
     form.resetFields();
     props.onClose?.();
   };
+
   return (
     <>
       <Modal
@@ -96,12 +98,22 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      message: '',
+                      validator: () => {
+                        setPasswordError(props.errors?.password?.required);
+                      },
                     },
-                    {
-                      validator: (_, value) => passwordValidator(value),
-                    },
+                    ({}) => ({
+                      validator(_, value) {
+                        const message = passwordValidator(
+                          value,
+                          props.errors?.password
+                        );
+                        setPasswordError(message);
+                      },
+                    }),
                   ]}
+                  validateStatus={passwordError ? 'error' : ''}
+                  help={passwordError}
                 >
                   <Input.Password
                     placeholder={props.placeholder?.password}
@@ -119,7 +131,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                   rules={[
                     {
                       required: true,
-                      message: '',
+                      message: props.errors?.confirmPassword?.required,
                     },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
@@ -127,9 +139,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                           return Promise.resolve();
                         }
                         return Promise.reject(
-                          new Error(
-                            'The two passwords that you entered do not match!'
-                          )
+                          new Error(props.errors?.confirmPassword?.validation)
                         );
                       },
                     }),
@@ -179,4 +189,14 @@ UnoNewPasswordModal.defaultProps = {
   backArrowMarginBottom: 26,
   backArrowMarginLeft: 5,
   backArrowMarginRight: 'auto',
+  errors: {
+    password: {
+      required: 'required field',
+      validation: 'must be a valid password',
+    },
+    confirmPassword: {
+      required: 'required field',
+      validation: 'must match with password',
+    },
+  },
 };

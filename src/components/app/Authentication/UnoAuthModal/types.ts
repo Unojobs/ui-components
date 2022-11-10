@@ -34,6 +34,7 @@ export interface IUnoOTPModalProps extends ICommonModalProps, IBackArrowProps {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
   ) => void | undefined;
   isResend: boolean;
+  errors?: IOTPErrorProps;
 }
 
 /** Forgot password Modal Props */
@@ -44,10 +45,11 @@ export interface IUnoForgetPasswordModalProps
   onSubmit?: (values: any) => void | undefined;
   tooltip?: IForgotPUtil;
   placeholder?: IForgotPUtil;
+  errors?: IEmailErrorProps;
 }
 
 export interface IForgotPUtil {
-  email: string;
+  email?: string;
 }
 
 /** Register new user Modal Props */
@@ -71,6 +73,7 @@ export interface IUnoUserRegisterProps
   onTermsAndCondition?: () => void | undefined;
   onPrivacyPolicy?: () => void | undefined;
   termAndConditionValues?: ITermsAndConditions;
+  errors?: IRegisterErrorProps;
 }
 export interface ITermsAndConditions {
   linkTextOne?: string;
@@ -81,10 +84,10 @@ export interface ITermsAndConditions {
 }
 
 export interface IRegisterUtil {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
+  fullName?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
 }
 
 /** Create new password Modal Props */
@@ -95,11 +98,12 @@ export interface IUnoNewPasswordProps
   onCreate?: (values: any) => void | undefined;
   tooltip?: INewPasswordUtil;
   placeholder?: INewPasswordUtil;
+  errors?: IPasswordErrorProps;
 }
 
 export interface INewPasswordUtil {
-  password: string;
-  confirmPassword: string;
+  password?: string;
+  confirmPassword?: string;
 }
 
 /** Pop up modal props */
@@ -111,4 +115,32 @@ export interface IUnoPopUpModalProps {
   maxHeight?: string | number;
   isOpened: boolean;
   setIsOpened?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+/** user register error props */
+export interface IRegisterErrorProps
+  extends IPasswordErrorProps,
+    IEmailErrorProps {
+  fullName?: IErrorProps;
+  checkbox?: string;
+}
+
+/** password error props */
+export interface IPasswordErrorProps {
+  password?: IErrorProps;
+  confirmPassword?: IErrorProps;
+}
+
+/**email error props */
+export interface IEmailErrorProps {
+  email?: IErrorProps;
+}
+
+/**OTP error props */
+export interface IOTPErrorProps {
+  otp?: string;
+}
+export interface IErrorProps {
+  required?: string;
+  validation?: string;
 }
