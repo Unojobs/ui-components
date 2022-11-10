@@ -1,30 +1,31 @@
 import React from 'react';
-import { Box, Input } from '../../../primitives';
-import { SearchOutlined } from '@ant-design/icons';
+import { Box, Input, SearchIcon } from '../../../primitives';
+// MessagesSidebar > Searchbar
 export interface SearchBarProps {
-  searchString: string;
-  handleChange: (event?: any) => void;
+  value: string;
+  onChangeText: (text: string) => void;
 }
 export const SearchBar = (props: SearchBarProps) => {
-  const { searchString, handleChange } = props;
-
+  const { value, onChangeText } = props;
   return (
     <Box
-      width={327}
-      height={45}
-      paddingX={13}
-      paddingY={5}
-      justifyContent="center"
+      justifyContent={'center'}
+      height={'43px'}
+      borderStyle={'solid'}
+      borderColor={'light.300'}
+      borderWidth={'1'}
+      borderRadius={'sm'}
     >
-      <Input
-        placeholder="Search Message"
-        onChange={handleChange}
-        value={searchString}
-        width={'full'}
-        fontSize={12}
-        InputRightElement={<SearchOutlined />}
-        variant={'unstyled'}
-      />
+      <Box marginRight={'2'}>
+        <Input
+          placeholder="Search Messages"
+          InputRightElement={<SearchIcon size={'lg'} />}
+          variant={'unstyled'}
+          fontSize={'md'}
+          onChangeText={onChangeText}
+          value={value}
+        />
+      </Box>
     </Box>
   );
 };
