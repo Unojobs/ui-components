@@ -3,7 +3,7 @@ import { Avatar as AvatarDefault } from './Avatar';
 import { Badge as AvatarBadge } from './Badge';
 import { AvatarGroup } from './Group';
 
-const AvatarTemp: any = AvatarDefault;
+let AvatarTemp: any = AvatarDefault;
 AvatarTemp.Badge = AvatarBadge;
 AvatarTemp.Group = AvatarGroup;
 

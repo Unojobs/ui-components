@@ -3,7 +3,7 @@ import { Button as NBButton, IButtonProps } from 'native-base';
 import { ButtonGroup } from './ButtonGroup';
 
 export const ButtonMain = ({ ...props }: IButtonProps) => {
-  return <NBButton {...props} />;
+  return <NBButton {...props}></NBButton>;
 };
 
 const ButtonTemp: any = ButtonMain;

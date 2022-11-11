@@ -28,4 +28,5 @@ export interface CustomButtonProps {
   display?: string;
   justifyContent?: string;
   alignItems?: string;
+  fontWeight?: string;
 }
