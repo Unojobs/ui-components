@@ -31,6 +31,13 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
     form.resetFields();
     props.onClose?.();
   };
+
+  /** handle reset form values */
+  useEffect(() => {
+    form.resetFields();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Center>
       <Modal
@@ -151,4 +158,5 @@ UnoForgetPasswordModal.defaultProps = {
       validation: 'must be a valid email',
     },
   },
+  isResetOnSubmit: false,
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 import { HStack, Text, VStack } from '../../../primitives';
 import { style } from '../style.authentication';
@@ -11,11 +11,54 @@ import {
   UnojobsAppLogo,
 } from '../../UnojobsIcons';
 import { IconButton } from '../../../composites';
-import type { IUnoLoginProps } from './types';
+import type { ILoginFormValue, IUnoLoginProps } from './types';
 import '../styles.authentication.css';
 import { preventCopyPaste } from '../helper.authentication';
 
 export const UnoLogin = (props: IUnoLoginProps) => {
+  const [form] = Form.useForm();
+
+  /** handle reset form values */
+  useEffect(() => {
+    form.resetFields();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleOnForgotPassword = () => {
+    form.resetFields();
+    props.onForgetPassword?.();
+  };
+
+  const handleOnRegister = () => {
+    form.resetFields();
+    props.onRegister?.();
+  };
+  const handleOnGoogleSM = () => {
+    form.resetFields();
+    props.onGoogleLogin?.();
+  };
+
+  const handleOnLinkedInSM = () => {
+    form.resetFields();
+    props.onLinkedInLogin?.();
+  };
+
+  const handleOnFacebookSM = () => {
+    form.resetFields();
+    props.onFacebookLogin?.();
+  };
+
+  /**handle login form submit */
+  const handleLoginFormSubmit = (values: ILoginFormValue) => {
+    props.onLogin?.({
+      ...values,
+      role: props.isAdmin
+        ? 'super_admin'
+        : props.isCandidate
+        ? 'candidate'
+        : 'employer',
+    });
+  };
   return (
     <VStack {...style.mainContainer} space={props.verticalSpace}>
       <VStack>
@@ -25,8 +68,9 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         </Text>
       </VStack>
       <Form
+        form={form}
         layout="vertical"
-        onFinish={props.onLogin}
+        onFinish={handleLoginFormSubmit}
         scrollToFirstError={true}
         requiredMark={false}
         autoComplete={'off'}
@@ -35,7 +79,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         {!props.isAdmin && (
           <Form.Item
             label="Please first select you as what here?"
-            name="userType"
+            name="role"
             rules={[
               {
                 required: true,
@@ -110,12 +154,9 @@ export const UnoLogin = (props: IUnoLoginProps) => {
             onCopy={preventCopyPaste}
           />
         </Form.Item>
-        <Text
-          {...style.forgetText}
-          {...style.commonText}
-          onPress={props.onForgetPassword}
-        >
-          Forgot Password?
+
+        <Text {...style.forgetText} {...style.commonText}>
+          <Text onPress={handleOnForgotPassword}>Forgot Password?</Text>
         </Text>
         <CustomButton {...style.submitButton} htmlType="submit">
           {props.buttonText}
@@ -127,26 +168,26 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           <HStack {...style.smButtonsContainer}>
             <IconButton
               icon={<GoogleSMLogo />}
-              onPressIn={props.onGoogleLogin}
+              onPressIn={handleOnGoogleSM}
               {...style.iconButton}
             />
             <IconButton
               icon={<LinkedInSMLogo />}
-              onPressIn={props.onLinkedInLogin}
+              onPressIn={handleOnLinkedInSM}
               {...style.iconButton}
             />
 
             {props.isCandidate && (
               <IconButton
                 icon={<FacebookSMLogo />}
-                onPressIn={props.onFacebookLogin}
+                onPressIn={handleOnFacebookSM}
                 {...style.iconButton}
               />
             )}
           </HStack>
           <Text {...style.commonText}>
             Don't have any account?
-            <Text {...style.registerText} onPress={props.onRegister}>
+            <Text {...style.registerText} onPress={handleOnRegister}>
               {' '}
               Register
             </Text>

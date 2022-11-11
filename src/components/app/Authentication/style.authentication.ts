@@ -36,13 +36,11 @@ export const style = {
     marginTop: 2.5,
   },
   forgetText: {
-    maxWidth: 400,
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginTop: 8,
-    marginBottom: 8,
-    cursor: 'pointer',
+    marginTop: 30,
+    marginBottom: 30,
     color: 'primary.500',
   },
   registerText: {

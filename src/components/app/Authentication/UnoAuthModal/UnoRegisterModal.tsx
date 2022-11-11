@@ -3,13 +3,9 @@ import { Checkbox, Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
-import {
-  fullNameValidator,
-  passwordValidator,
-  preventCopyPaste,
-} from '../helper.authentication';
+import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
-import type { IUnoUserRegisterProps } from './types';
+import type { IRegisterFormValuesProps, IUnoUserRegisterProps } from './types';
 import '../styles.authentication.css';
 import {
   FacebookSMLogo,
@@ -22,8 +18,6 @@ import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
-  const [passwordError, setPasswordError] = useState<string | undefined>('');
-  const [fullNameError, setfullNameError] = useState<string | undefined>('');
   const [form] = Form.useForm();
 
   /** Handle back screen scroll when modal is open */
@@ -47,10 +41,36 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
     props.onClose?.();
   };
 
+  /** handle reset form values */
+  useEffect(() => {
+    form.resetFields();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleOnGoogleSM = () => {
+    form.resetFields();
+    props.onGoogleLogin?.();
+  };
+
+  const handleOnLinkedInSM = () => {
+    form.resetFields();
+    props.onLinkedInLogin?.();
+  };
+
+  const handleOnFacebookSM = () => {
+    form.resetFields();
+    props.onFacebookLogin?.();
+  };
+
   /**handle terms and condition using checkbox */
 
   const onCheckboxChange = (e: CheckboxChangeEvent) => {
     setChecked(e.target.checked);
+  };
+
+  /**handle register form submit */
+  const handleRegisterFormSubmit = (values: IRegisterFormValuesProps) => {
+    props.onRegister?.({ ...values, termsAndCondition: checked });
   };
 
   return (
@@ -92,19 +112,19 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               <HStack {...style.smButtonsContainer}>
                 <IconButton
                   icon={<GoogleSMLogo />}
-                  onPressIn={props.onGoogleLogin}
+                  onPressIn={handleOnGoogleSM}
                   {...style.iconButton}
                 />
                 <IconButton
                   icon={<LinkedInSMLogo />}
-                  onPressIn={props.onLinkedInLogin}
+                  onPressIn={handleOnLinkedInSM}
                   {...style.iconButton}
                 />
 
                 {props.isCandidate && (
                   <IconButton
                     icon={<FacebookSMLogo />}
-                    onPressIn={props.onFacebookLogin}
+                    onPressIn={handleOnFacebookSM}
                     {...style.iconButton}
                   />
                 )}
@@ -113,7 +133,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               <Form
                 form={form}
                 layout="vertical"
-                onFinish={props.onRegister}
+                onFinish={handleRegisterFormSubmit}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
@@ -127,23 +147,13 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      validator: () => {
-                        setfullNameError(props.errors?.fullName?.required);
-                      },
+                      message: props.errors?.fullName?.required,
                     },
                     {
-                      validator: (_, value) => {
-                        const message = fullNameValidator(
-                          value,
-                          props.errors?.fullName
-                        );
-
-                        setfullNameError(message);
-                      },
+                      max: 250,
+                      message: props.errors?.fullName?.validation,
                     },
                   ]}
-                  validateStatus={fullNameError ? 'error' : ''}
-                  help={fullNameError}
                 >
                   <Input
                     type="text"
@@ -183,22 +193,14 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      validator: () => {
-                        setPasswordError(props.errors?.password?.required);
-                      },
+                      message: props.errors?.password?.required,
                     },
-                    ({}) => ({
-                      validator(_, value) {
-                        const message = passwordValidator(
-                          value,
-                          props.errors?.password
-                        );
-                        setPasswordError(message);
-                      },
-                    }),
+                    {
+                      pattern:
+                        /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/,
+                      message: props.errors?.password?.validation,
+                    },
                   ]}
-                  validateStatus={passwordError ? 'error' : ''}
-                  help={passwordError}
                 >
                   <Input.Password
                     placeholder={props.placeholder?.password}
@@ -344,4 +346,5 @@ UnoRegisterModal.defaultProps = {
     },
     checkbox: 'accept trems and conditions',
   },
+  isResetOnSubmit: false,
 };

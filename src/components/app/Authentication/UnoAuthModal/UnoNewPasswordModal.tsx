@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
-import { passwordValidator, preventCopyPaste } from '../helper.authentication';
+import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
 import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
@@ -11,8 +11,6 @@ import type { IUnoNewPasswordProps } from './types';
 
 export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();
-  const [passwordError, setPasswordError] = useState<string | undefined>('');
-
   /** Handle back screen scroll when modal is open */
   useEffect(() => {
     if (props.isOpened === true && window !== undefined) {
@@ -33,6 +31,12 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
     form.resetFields();
     props.onClose?.();
   };
+
+  /** handle reset form values */
+  useEffect(() => {
+    form.resetFields();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -98,22 +102,14 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      validator: () => {
-                        setPasswordError(props.errors?.password?.required);
-                      },
+                      message: props.errors?.password?.required,
                     },
-                    ({}) => ({
-                      validator(_, value) {
-                        const message = passwordValidator(
-                          value,
-                          props.errors?.password
-                        );
-                        setPasswordError(message);
-                      },
-                    }),
+                    {
+                      pattern:
+                        /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/,
+                      message: props.errors?.password?.validation,
+                    },
                   ]}
-                  validateStatus={passwordError ? 'error' : ''}
-                  help={passwordError}
                 >
                   <Input.Password
                     placeholder={props.placeholder?.password}
@@ -139,7 +135,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                           return Promise.resolve();
                         }
                         return Promise.reject(
-                          new Error(props.errors?.confirmPassword?.validation)
+                          props.errors?.confirmPassword?.validation
                         );
                       },
                     }),
@@ -179,7 +175,7 @@ UnoNewPasswordModal.defaultProps = {
   },
   verticalSpace: 30,
   maxWidth: 500,
-  maxHeight: 500,
+  maxHeight: 620,
   onClose: undefined,
   unoLogo: <UnojobsAppLogo />,
   isOpened: false,
@@ -199,4 +195,5 @@ UnoNewPasswordModal.defaultProps = {
       validation: 'must match with password',
     },
   },
+  isResetOnSubmit: false,
 };

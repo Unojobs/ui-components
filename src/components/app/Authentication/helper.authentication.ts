@@ -12,7 +12,7 @@ export const passwordValidator = (
   value: string,
   error: IErrorProps | undefined
 ) => {
-  if (/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,255})/.test(value)) {
+  if (/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/.test(value)) {
     return '';
   } else {
     if (value.length === 0 || value.match(/^ *$/) !== null) {
@@ -39,20 +39,5 @@ export const validateEmailPhoneNumber = (value: any) => {
     return 'email';
   } else {
     return 'password';
-  }
-};
-
-// full name validator
-export const fullNameValidator = (
-  value: string,
-  error: IErrorProps | undefined
-) => {
-  if (value.length > 255) {
-    return error?.validation;
-  } else {
-    if (value.length === 0 || value.match(/^ *$/) !== null) {
-      return error?.required;
-    }
-    return '';
   }
 };

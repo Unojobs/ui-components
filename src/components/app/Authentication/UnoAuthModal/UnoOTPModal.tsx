@@ -27,11 +27,17 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   }, [props.isOpened]);
 
   /**Handle modal close function */
-
   const handleModalClose = () => {
     form.resetFields();
     props.onClose?.();
   };
+
+  /** handle reset form values */
+  useEffect(() => {
+    form.resetFields();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Modal
@@ -153,7 +159,7 @@ UnoOTPModal.defaultProps = {
   setIsOpened: undefined,
   verticalSpace: 30,
   maxWidth: 500,
-  maxHeight: 500,
+  maxHeight: 620,
   onClose: undefined,
   smsSentOn: '',
   onResendOTP: undefined,
@@ -166,4 +172,5 @@ UnoOTPModal.defaultProps = {
   errors: {
     otp: 'required field',
   },
+  isResetOnSubmit: true,
 };
