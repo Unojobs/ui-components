@@ -45,6 +45,7 @@ export const SubMenu = (props: ISubMenuProps) => {
     setExpanded((prev) => !prev);
   };
   const onClickHandler = () => {
+    setExpanded(true);
     onMenuItemClick(route);
   };
 
