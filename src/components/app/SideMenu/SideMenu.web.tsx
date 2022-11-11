@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { MenuItem } from './MenuItem';
-import { SubMenu } from './SubMenu';
+import { MenuItem } from './MenuItem.web';
+import { SubMenu } from './SubMenu.web';
 import './SideMenu.css';
 
 /**

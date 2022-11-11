@@ -18,9 +18,9 @@ export const StatusTag: React.FC<IStatusTagProps> = (props) => {
           fontWeight: 500,
           fontSize: 'sm',
         }}
-        borderRadius="10px"
-        paddingX="10px"
-        paddingY="5px"
+        borderRadius={10}
+        paddingLeft={2.5}
+        paddingRight={2.5}
       >
         {children}
       </Badge>

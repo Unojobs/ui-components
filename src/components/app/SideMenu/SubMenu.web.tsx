@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DownArrowCurvedIcon } from '../Icons';
-import { MenuItem } from './MenuItem';
-import type { MenuDataType } from './SideMenu';
+import { MenuItem } from './MenuItem.web';
+import type { MenuDataType } from './SideMenu.web';
 import './SideMenu.css';
 
 /** Props for subMenu */
