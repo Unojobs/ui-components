@@ -104,9 +104,11 @@ export const SideMenu = (props: ISideMenuProps) => {
           return (
             <SubMenu
               key={data.route}
+              route={data.route}
               menuData={data}
               selectedMenuItem={selectedMenuItem}
               onMenuItemClick={onMenuItemClickHandler}
+              isSelected={data.route === selectedMenuItem}
               isParentSelected={parentSelection === data.route}
               separatorAfterKeys={separatorAfterKeys}
             />
