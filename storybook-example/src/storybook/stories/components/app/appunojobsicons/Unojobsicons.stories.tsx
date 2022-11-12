@@ -62,6 +62,7 @@ import {
   CircularWrongIcon,
   CircularCorrectIcon,
   UnojobsNoAppliedJobsIcon,
+  UnojobsLeftArrowCurvedIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -78,6 +79,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsRightArrowCurvedIcon />
             <UnojobsDownArrowCurvedIcon />
             <LeftArrowIcon />
+            <UnojobsLeftArrowCurvedIcon />
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
@@ -137,18 +139,18 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsAppLogo />
             <UnojobsAppLogo fill="#111" />
           </HStack>
-      
-            <HStack space={3} alignItems="center" flexWrap="wrap">
-              <Text>Candidate Icons :</Text>
-              <UnojobsWelcomeIcon size={40}></UnojobsWelcomeIcon>
-              <UnojobsMessageIcon size={20} />
-              <UnojobsCallIcon size={20} />
-              <UnojobsEmailBoxIcon size={20} />
-              <UnojobsVideoIcon size={20} />
-              <UnojobsResumeIcon size={20} />
-              <UnojobsInfoIcon size={20} />
-              <UnojobsNoAppliedJobsIcon/>
-            </HStack>
+
+          <HStack space={3} alignItems="center" flexWrap="wrap">
+            <Text>Candidate Icons :</Text>
+            <UnojobsWelcomeIcon size={40}></UnojobsWelcomeIcon>
+            <UnojobsMessageIcon size={20} />
+            <UnojobsCallIcon size={20} />
+            <UnojobsEmailBoxIcon size={20} />
+            <UnojobsVideoIcon size={20} />
+            <UnojobsResumeIcon size={20} />
+            <UnojobsInfoIcon size={20} />
+            <UnojobsNoAppliedJobsIcon />
+          </HStack>
           <HStack space={3} alignItems="center">
             <Text>Social Media Logo :</Text>
             <FacebookSMLogo />
