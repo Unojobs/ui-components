@@ -1,3 +1,3 @@
-export type IVideoCallProps={
-    meetingId?:string
-}
+export type IVideoCallProps = {
+  meetingId?: string;
+};

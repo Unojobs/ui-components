@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { DownArrowCurvedIcon } from '../Icons';
-import { MenuItem } from './MenuItem';
-import type { MenuDataType } from './SideMenu';
+import { MenuItem } from './MenuItem.web';
+import type { MenuDataType } from './SideMenu.web';
 import './SideMenu.css';
 
 /** Props for subMenu */
 export interface ISubMenuProps {
   menuData: MenuDataType;
+  /** unique route for each item */
+  route: string;
+  isSelected: boolean;
   selectedMenuItem: string;
   onMenuItemClick: (id: string, parentId?: string) => void;
   isParentSelected: boolean;
@@ -17,6 +20,8 @@ export interface ISubMenuProps {
 export const SubMenu = (props: ISubMenuProps) => {
   const {
     menuData,
+    isSelected,
+    route,
     selectedMenuItem,
     onMenuItemClick,
     isParentSelected,
@@ -35,19 +40,29 @@ export const SubMenu = (props: ISubMenuProps) => {
   const onMenuItemClickHandler = (id: string) => {
     onMenuItemClick(id, menuData.route);
   };
-  const onClickHandler = () => {
+  const onExpandedClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
     setExpanded((prev) => !prev);
+  };
+  const onClickHandler = () => {
+    setExpanded(true);
+    onMenuItemClick(route);
   };
 
   return (
     <div>
       <div
-        className={`menuItem ${_parentSelected && 'parentSelection'}`}
         onClick={onClickHandler}
+        className={`menuItem ${_parentSelected && 'parentSelection'} ${
+          isSelected && 'selectedItem'
+        }`}
       >
         {menuData.icon}
         <p className="itemTitle">{menuData.title}</p>
-        <div className={expanded ? 'downAnim' : 'upAnim'}>
+        <div
+          onClick={onExpandedClickHandler}
+          className={expanded ? 'downAnim' : 'upAnim'}
+        >
           <DownArrowCurvedIcon />
         </div>
       </div>

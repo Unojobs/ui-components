@@ -28,51 +28,51 @@ Variants.args = {
     {
       title: 'Dashboard',
       icon: <WindowFilledIcon />,
-      route: '/job',
+      route: '/dashboard',
       // suffixIcon: <NumberIcon children={12} fade={false} />,
     },
     {
       title: 'Profiles',
       icon: <UserBoxIcon />,
-      route: '/adib',
+      route: '/profiles',
       childItems: [
         {
           title: 'Job departments',
-          route: '/prof',
+          route: '/profies/departments',
         },
         {
-          title: 'videos',
-          route: '/vid',
+          title: 'Job Skills',
+          route: '/profiles/videos',
           //   suffixIcon: <CheckCircleIcon />,
           suffixIcon: <NumberIcon children={12} fade={false} />,
         },
         {
-          title: 'secrets',
-          route: '/sec',
+          title: 'Job Roles',
+          route: '/profiles/roles',
         },
       ],
     },
     {
       title: 'Settings',
       icon: <SettingsIcon />,
-      route: '/small',
+      route: '/settings',
     },
     {
-      title: 'Fruits',
+      title: 'Candidate',
       icon: <VideoCardStackIcon />,
-      route: '/sddd',
+      route: '/candidate',
       childItems: [
         {
-          title: 'Apple',
-          route: '/apple',
+          title: 'New Uploads',
+          route: '/candidate/newupload',
         },
         {
-          title: 'Watermelon',
-          route: '/water',
+          title: 'Requests',
+          route: '/candidate/requests',
         },
         {
-          title: 'Sugar',
-          route: '/sugar',
+          title: 'videos',
+          route: '/candidate/videos',
         },
       ],
     },
@@ -80,5 +80,5 @@ Variants.args = {
   bodyStyles: {
     boxShadow: '0px 0px 32px rgb(0, 0, 0, 0.1)',
   },
-  separatorAfterKeys: ['/small'],
+  separatorAfterKeys: ['/settings'],
 };
