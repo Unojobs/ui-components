@@ -63,6 +63,8 @@ import {
   CircularWrongIcon,
   CircularCorrectIcon,
   UnojobsNoAppliedJobsIcon,
+  UnojobsLeftArrowCurvedIcon,
+  UnojobsTickIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -79,6 +81,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsRightArrowCurvedIcon />
             <UnojobsDownArrowCurvedIcon />
             <LeftArrowIcon />
+            <UnojobsLeftArrowCurvedIcon />
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
@@ -106,10 +109,11 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsWindowFilledIcon />
             <UnojobsRoundedSearchIcon />
           </HStack>
-          <HStack space={3} alignItems="center">
+          <HStack space={3} alignItems="center" flexWrap="wrap">
             <Text>Landing :</Text>
             <UnojobsUpArrowRoundIcon />
             <UnojobsDownArrowRoundIcon />
+            <UnojobsTickIcon></UnojobsTickIcon>
             <UnoJobsTechDepartment></UnoJobsTechDepartment>
             <UnoJobsDataAnalysis></UnoJobsDataAnalysis>
             <UnoJobsDesign></UnoJobsDesign>
