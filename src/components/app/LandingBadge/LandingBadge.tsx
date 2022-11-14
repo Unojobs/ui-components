@@ -6,8 +6,12 @@ export const LandingBadge = (props: { children: string; isCaps?: boolean }) => {
   return (
     <Center>
       <Badge bgColor="landingBackground.500" borderRadius="full" px="6" py="2">
-        <Text fontSize="xs" fontWeight="bold">
-          {props.isCaps ? props.children.toUpperCase() : props.children}
+        <Text
+          fontSize="xs"
+          fontWeight="bold"
+          textTransform={props.isCaps ? 'uppercase' : undefined}
+        >
+          {props.children}
         </Text>
       </Badge>
     </Center>
