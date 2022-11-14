@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form } from 'antd';
 import { IconButton, Modal } from '../../../composites';
-import { HStack, Text, VStack } from '../../../primitives';
+import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import OtpInput from 'react-otp-input';
 import { style } from '../style.authentication';
@@ -63,7 +63,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
               )}
               {props.showBackArrow && (
                 <IconButton
-                  onPressIn={handleModalClose}
+                  onPressIn={props.loading ? undefined : handleModalClose}
                   {...style.backIconButton}
                   marginTop={props.backArrowMarginTop}
                   marginBottom={props.backArrowMarginBottom}
@@ -101,16 +101,6 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
               >
-                {props.isResend && (
-                  <Text
-                    {...style.forgetText}
-                    {...style.commonText}
-                    marginTop={0}
-                    onPress={props.onResendOTP}
-                  >
-                    Resend OTP
-                  </Text>
-                )}
                 <Form.Item
                   label={props.label}
                   name="otp"
@@ -131,13 +121,31 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                     isInputSecure={props.isInputSecure}
                     errorStyle={style.otpErrorInput}
                     hasErrored={props.hasErrored}
+                    isDisabled={props.loading ? true : false}
                   />
                 </Form.Item>
 
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  {props.buttonText}
+                  {props.loading ? (
+                    <Spinner
+                      color={props.loaderColor}
+                      size={props.loaderSize}
+                    />
+                  ) : (
+                    props.buttonText
+                  )}
                 </CustomButton>
               </Form>
+              {props.isResend && (
+                <Text
+                  {...style.resendText}
+                  {...style.commonText}
+                  marginTop={0}
+                  onPress={props.loading ? undefined : props.onResendOTP}
+                >
+                  Resend OTP
+                </Text>
+              )}
             </VStack>
           </Modal.Body>
         </Modal.Content>
@@ -173,4 +181,7 @@ UnoOTPModal.defaultProps = {
     otp: 'required field',
   },
   isResetOnSubmit: true,
+  loading: false,
+  loaderColor: 'secondary.300',
+  loaderSize: 'sm',
 };

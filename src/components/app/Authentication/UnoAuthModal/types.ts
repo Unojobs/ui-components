@@ -13,6 +13,9 @@ export interface ICommonModalProps {
   verticalSpace?: string | number;
   buttonText?: string;
   onClose?: () => void | undefined;
+  loading?: boolean;
+  loaderColor?: string;
+  loaderSize?: 'sm' | 'lg';
 }
 
 export interface IBackArrowProps {

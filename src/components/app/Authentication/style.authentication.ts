@@ -102,4 +102,10 @@ export const style = {
   otpSeperatorStyle: {
     width: 8,
   },
+  resendText: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'primary.500',
+  },
 };

@@ -15,6 +15,9 @@ export interface IUnoLoginProps {
   placeholder?: ILoginUtil;
   verticalSpace?: string | number;
   errors?: ILoginErrorProps;
+  loading?: boolean;
+  loaderColor?: string;
+  loaderSize?: 'sm' | 'lg';
 }
 
 export interface ILoginFormValue {

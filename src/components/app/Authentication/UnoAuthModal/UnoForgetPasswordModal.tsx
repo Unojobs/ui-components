@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 import { Center, IconButton, Modal } from '../../../composites';
-import { HStack, Text, VStack } from '../../../primitives';
+import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
 import type { IUnoForgetPasswordModalProps } from './types';
@@ -63,7 +63,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
               )}
               {props.showBackArrow && (
                 <IconButton
-                  onPressIn={handleModalClose}
+                  onPressIn={props.loading ? undefined : handleModalClose}
                   {...style.backIconButton}
                   marginTop={props.backArrowMarginTop}
                   marginBottom={props.backArrowMarginBottom}
@@ -93,6 +93,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                 requiredMark={false}
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
+                disabled={props.loading ? true : false}
               >
                 <Form.Item
                   label="Email"
@@ -118,7 +119,14 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  {props.buttonText}
+                  {props.loading ? (
+                    <Spinner
+                      color={props.loaderColor}
+                      size={props.loaderSize}
+                    />
+                  ) : (
+                    props.buttonText
+                  )}
                 </CustomButton>
               </Form>
             </VStack>
@@ -159,4 +167,7 @@ UnoForgetPasswordModal.defaultProps = {
     },
   },
   isResetOnSubmit: false,
+  loading: false,
+  loaderColor: 'secondary.300',
+  loaderSize: 'sm',
 };

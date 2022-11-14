@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Checkbox, Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
-import { HStack, Text, VStack } from '../../../primitives';
+import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
@@ -96,7 +96,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               </Text>
               {props.showBackArrow && (
                 <IconButton
-                  onPressIn={handleModalClose}
+                  onPressIn={props.loading ? undefined : handleModalClose}
                   {...style.backIconButton}
                   marginTop={props.backArrowMarginTop}
                   marginBottom={props.backArrowMarginBottom}
@@ -112,19 +112,19 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               <HStack {...style.smButtonsContainer}>
                 <IconButton
                   icon={<GoogleSMLogo />}
-                  onPressIn={handleOnGoogleSM}
+                  onPressIn={props.loading ? undefined : handleOnGoogleSM}
                   {...style.iconButton}
                 />
                 <IconButton
                   icon={<LinkedInSMLogo />}
-                  onPressIn={handleOnLinkedInSM}
+                  onPressIn={props.loading ? undefined : handleOnLinkedInSM}
                   {...style.iconButton}
                 />
 
                 {props.isCandidate && (
                   <IconButton
                     icon={<FacebookSMLogo />}
-                    onPressIn={handleOnFacebookSM}
+                    onPressIn={props.loading ? undefined : handleOnFacebookSM}
                     {...style.iconButton}
                   />
                 )}
@@ -138,6 +138,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 requiredMark={false}
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
+                disabled={props.loading ? true : false}
               >
                 <Form.Item
                   label="Full Name"
@@ -276,7 +277,14 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   </Form.Item>
                 )}
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  {props.buttonText}
+                  {props.loading ? (
+                    <Spinner
+                      color={props.loaderColor}
+                      size={props.loaderSize}
+                    />
+                  ) : (
+                    props.buttonText
+                  )}
                 </CustomButton>
               </Form>
             </VStack>
@@ -347,4 +355,7 @@ UnoRegisterModal.defaultProps = {
     checkbox: 'accept trems and conditions',
   },
   isResetOnSubmit: false,
+  loading: false,
+  loaderColor: 'secondary.300',
+  loaderSize: 'sm',
 };

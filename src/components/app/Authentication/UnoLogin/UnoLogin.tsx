@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
-import { HStack, Text, VStack } from '../../../primitives';
+import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { style } from '../style.authentication';
 import { SelectableRadioButton } from '../../SelectableRadioButton';
 import { CustomButton } from '../../CustomButton';
@@ -75,6 +75,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         requiredMark={false}
         autoComplete={'off'}
         className="ant-form-wrapper-ui"
+        disabled={props.loading ? true : false}
       >
         {!props.isAdmin && (
           <Form.Item
@@ -156,10 +157,20 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         </Form.Item>
 
         <Text {...style.forgetText} {...style.commonText}>
-          <Text onPress={handleOnForgotPassword}>Forgot Password?</Text>
+          <Text onPress={props.loading ? undefined : handleOnForgotPassword}>
+            Forgot Password?
+          </Text>
         </Text>
-        <CustomButton {...style.submitButton} htmlType="submit">
-          {props.buttonText}
+        <CustomButton
+          {...style.submitButton}
+          htmlType="submit"
+          disable={props.loading ? true : false}
+        >
+          {props.loading ? (
+            <Spinner color={props.loaderColor} size={props.loaderSize} />
+          ) : (
+            props.buttonText
+          )}
         </CustomButton>
       </Form>
       {!props.isAdmin && (
@@ -168,26 +179,29 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           <HStack {...style.smButtonsContainer}>
             <IconButton
               icon={<GoogleSMLogo />}
-              onPressIn={handleOnGoogleSM}
+              onPressIn={props.loading ? undefined : handleOnGoogleSM}
               {...style.iconButton}
             />
             <IconButton
               icon={<LinkedInSMLogo />}
-              onPressIn={handleOnLinkedInSM}
+              onPressIn={props.loading ? undefined : handleOnLinkedInSM}
               {...style.iconButton}
             />
 
             {props.isCandidate && (
               <IconButton
                 icon={<FacebookSMLogo />}
-                onPressIn={handleOnFacebookSM}
+                onPressIn={props.loading ? undefined : handleOnFacebookSM}
                 {...style.iconButton}
               />
             )}
           </HStack>
           <Text {...style.commonText}>
             Don't have any account?
-            <Text {...style.registerText} onPress={handleOnRegister}>
+            <Text
+              {...style.registerText}
+              onPress={props.loading ? undefined : handleOnRegister}
+            >
               {' '}
               Register
             </Text>
@@ -229,4 +243,7 @@ UnoLogin.defaultProps = {
       required: 'required field',
     },
   },
+  loading: false,
+  loaderColor: 'secondary.300',
+  loaderSize: 'sm',
 };

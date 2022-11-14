@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
-import { HStack, Text, VStack } from '../../../primitives';
+import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
@@ -63,7 +63,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
               )}
               {props.showBackArrow && (
                 <IconButton
-                  onPressIn={handleModalClose}
+                  onPressIn={props.loading ? undefined : handleModalClose}
                   {...style.backIconButton}
                   marginTop={props.backArrowMarginTop}
                   marginBottom={props.backArrowMarginBottom}
@@ -93,6 +93,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                 requiredMark={false}
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
+                disabled={props.loading ? true : false}
               >
                 <Form.Item
                   label="Password"
@@ -149,7 +150,14 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  {props.buttonText}
+                  {props.loading ? (
+                    <Spinner
+                      color={props.loaderColor}
+                      size={props.loaderSize}
+                    />
+                  ) : (
+                    props.buttonText
+                  )}
                 </CustomButton>
               </Form>
             </VStack>
@@ -196,4 +204,7 @@ UnoNewPasswordModal.defaultProps = {
     },
   },
   isResetOnSubmit: false,
+  loading: false,
+  loaderColor: 'secondary.300',
+  loaderSize: 'sm',
 };
