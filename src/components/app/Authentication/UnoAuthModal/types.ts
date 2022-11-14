@@ -38,9 +38,7 @@ export interface IUnoOTPModalProps extends ICommonModalProps, IBackArrowProps {
   label?: string;
   onVerify?: (values: IOTPFormValuesProps) => void | undefined;
   smsSentOn: string;
-  onResendOTP?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined | any
-  ) => void | undefined;
+  onResendOTP?: () => void | undefined;
   isResend: boolean;
   errors?: IOTPErrorProps;
 }
