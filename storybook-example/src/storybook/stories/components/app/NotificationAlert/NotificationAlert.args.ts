@@ -1,4 +1,4 @@
 export const StorybookArgs = {
   title: 'Successfully Created',
-  message: 'Success Message',
+  description: 'Success Message',
 };

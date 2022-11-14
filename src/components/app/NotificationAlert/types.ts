@@ -1,6 +1,6 @@
 export interface INotificationAlertProps {
   status?: 'error' | 'success' | 'info' | 'warning';
-  message?: string;
+  description?: string;
   variant?:
     | 'solid'
     | 'left-accent'
@@ -8,10 +8,16 @@ export interface INotificationAlertProps {
     | 'outline'
     | 'subtle'
     | 'outline-light';
-  show?: boolean;
   title?: string;
-  setShow?: React.Dispatch<React.SetStateAction<boolean>>;
-  color: string;
-  removeTimerInSeconds: number;
-  setTimer: boolean;
+  color?: string;
+  notification: boolean;
+  duration?: number | null;
+  placement?:
+    | 'bottom-right'
+    | 'bottom'
+    | 'top'
+    | 'top-right'
+    | 'top-left'
+    | 'bottom-left';
+  maxWidth?: number | string;
 }
