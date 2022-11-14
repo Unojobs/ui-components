@@ -18,3 +18,4 @@ export * from './SuperAdmin';
 export * from './EmployerDashboard';
 export * from './TopMatches';
 export * from './VideoCallPlatform';
+export * from './NotificationAlert';
