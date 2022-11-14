@@ -1,20 +1,18 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Wrapper } from '../../../Wrapper';
-import { StorybookArgs } from './ChatTopMenu.args';
-import { ChatTopMenu, ChatTopMenuProps } from 'components';
+import { StorybookArgs } from './TopMenu.args';
+import { TopMenu, TopMenuProps } from 'components';
 
 export default {
   title: 'ChatTopMenu',
-  component: ChatTopMenu,
-} as ComponentMeta<typeof ChatTopMenu>;
+  component: TopMenu,
+} as ComponentMeta<typeof TopMenu>;
 
-const Template: ComponentStory<typeof ChatTopMenu> = (
-  args: ChatTopMenuProps
-) => {
+const Template: ComponentStory<typeof TopMenu> = (args: TopMenuProps) => {
   return (
     <Wrapper>
-      <ChatTopMenu {...args} />
+      <TopMenu {...args} />
     </Wrapper>
   );
 };
