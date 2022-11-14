@@ -32,6 +32,7 @@ export const custom = {
       '600': '#00BAFB',
       '700': '#0C1A6B', // footer color
       '800': '#192252', // arrowIcon background color
+      '900': '#6E91EC',
     }, // blue colors
     secondary: {
       '300': '#FFFFFF',

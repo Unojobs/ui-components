@@ -3,8 +3,8 @@ export const StorybookArgs = {
     username: 'John Smith',
     avatarUri: 'https://joeschmoe.io/api/v1/random',
     activeApplications: [
-      { jid: 123, jobTitle: 'Software Engineer' },
-      { jid: 111, jobTitle: 'Sr. Software Engineer' },
+      { jobId: 123, jobTitle: 'Software Engineer' },
+      { jobId: 111, jobTitle: 'Sr. Software Engineer' },
     ],
     latestMessage: {
       messageBody: 'Hi there, any updates?',

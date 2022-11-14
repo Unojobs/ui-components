@@ -3,5 +3,5 @@ export const StorybookArgs = {
     username: 'John Doe',
     avatarUri: 'https://joeschmoe.io/api/v1/random',
   },
-  size: 32,
+  size: '8',
 };

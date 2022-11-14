@@ -8,7 +8,7 @@ export interface CandidateCardProps {
   candidate: {
     username: string;
     avatarUri?: string;
-    activeApplications?: { jid: number; jobTitle: string }[];
+    activeApplications?: { jobId: number; jobTitle: string }[];
     latestMessage?: {
       messageBody: string;
       date: string;
@@ -25,7 +25,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
       onPress={onPressHandler}
       padding={'4'}
       borderRadius={'lg'}
-      backgroundColor={isActive ? '#4169E0' : 'white'}
+      backgroundColor={isActive ? 'primary.500' : 'white'}
     >
       <HStack width={'full'} height={'full'} space={'2'}>
         <CustomAvatar candidate={candidate} size={48} />
@@ -42,7 +42,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
           </Text>
           <Badge
             borderRadius={'xs'}
-            backgroundColor={isActive ? '#6E91EC' : 'dark.700'}
+            backgroundColor={isActive ? 'primary.900' : 'dark.700'}
           >
             {candidate?.activeApplications?.length &&
             candidate.activeApplications.length > 1 ? (

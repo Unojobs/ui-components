@@ -1,19 +1,23 @@
 import React from 'react';
-import { Avatar } from 'antd';
+import { Avatar } from '../../../composites';
 import { makeRandomColor } from '../../../../components/utils';
 // CustomAvatar
 export interface CustomAvatarProps {
   candidate: { [key: string]: any };
-  size: number;
+  size: number | string;
 }
 export const CustomAvatar = (props: CustomAvatarProps) => {
   const { candidate, size } = props;
 
   return candidate?.avatarUri ? (
-    <Avatar size={size} src={candidate.avatarUri} />
+    <Avatar size={size} source={{ uri: candidate.avatarUri }} />
   ) : (
-    <Avatar size={size} style={{ backgroundColor: makeRandomColor() }}>
-      {candidate?.username.slice(0, 1).toUpperCase()}
+    <Avatar
+      _text={{ textTransform: 'uppercase' }}
+      size={size}
+      style={{ backgroundColor: makeRandomColor() }}
+    >
+      {candidate?.username.slice(0, 1)}
     </Avatar>
   );
 };

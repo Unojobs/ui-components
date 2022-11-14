@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Pressable, VStack, Heading, Text, HStack } from '../../../primitives';
 import { CustomAvatarGroup } from './CustomAvatarGroup';
@@ -33,14 +34,14 @@ export const ProjectCard = (props: ProjectCardProps) => {
               maxVisibleAvatarCount={2}
             />
             {totalConversations?.length ? (
-              <Text fontSize={'md'} color={'#707070'}>
+              <Text fontSize={'md'} color={'textColors.subtitle'}>
                 {totalConversations.length}{' '}
                 {totalConversations.length > 1
                   ? 'Conversations'
                   : 'Conversation'}
               </Text>
             ) : (
-              <Text fontSize={'md'} color={'#707070'} disabled>
+              <Text fontSize={'md'} color={'textColors.subtitle'} disabled>
                 No conversations
               </Text>
             )}
@@ -52,7 +53,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
         )}
         {!!unreadMessages && !!candidates?.length && (
           <HStack alignItems={'center'} justifyContent={'space-between'}>
-            <Text fontSize={'xs'} color={'#707070'}>
+            <Text fontSize={'xs'} color={'textColors.subtitle'}>
               {unreadMessages > 1 ? 'Unseen Messages' : 'Unseen Message'}
             </Text>
             <Badge
