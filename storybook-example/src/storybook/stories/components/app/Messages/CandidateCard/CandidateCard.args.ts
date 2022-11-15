@@ -1,5 +1,6 @@
 export const StorybookArgs = {
   candidate: {
+    id: 11,
     username: 'John Smith',
     avatarUri: 'https://joeschmoe.io/api/v1/random',
     activeApplications: [
