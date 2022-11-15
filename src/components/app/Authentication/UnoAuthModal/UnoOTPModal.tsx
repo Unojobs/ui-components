@@ -36,7 +36,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   useEffect(() => {
     form.resetFields();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.isOpened]);
 
   return (
     <>

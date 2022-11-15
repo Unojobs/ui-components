@@ -13,7 +13,7 @@ export const NotificationAlert = (props: INotificationAlertProps) => {
         duration: props.duration,
         render: ({ id }) => <ToastAlert id={id} />,
       });
-      if (props.duration) {
+      if (props.duration && props.setAlert) {
         setTimeout(() => {
           props.setAlert(false);
         }, props.duration);
@@ -27,6 +27,7 @@ export const NotificationAlert = (props: INotificationAlertProps) => {
       space={3}
       w="100%"
       maxW={props.maxWidth}
+      minWidth={props.minWidth}
       shadow={9}
       marginLeft={
         props.placement === 'top-left' || props.placement === 'bottom-left'
@@ -36,6 +37,7 @@ export const NotificationAlert = (props: INotificationAlertProps) => {
           : -30
       }
       borderRadius={'10'}
+      zIndex={100}
     >
       <Alert
         w="100%"
@@ -103,12 +105,12 @@ NotificationAlert.defaultProps = {
   status: 'info',
   title: '',
   description: '',
-  variant: 'left-accent',
+  variant: 'solid',
   color: 'textColors.secondary',
-  notification: false,
   duration: 2000,
   placement: 'top-right',
   maxWidth: 400,
+  minWidth: 300,
   alert: true,
   setAlert: undefined,
 };

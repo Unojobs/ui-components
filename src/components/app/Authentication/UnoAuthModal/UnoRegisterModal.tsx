@@ -45,7 +45,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   useEffect(() => {
     form.resetFields();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.isOpened]);
 
   const handleOnGoogleSM = () => {
     form.resetFields();

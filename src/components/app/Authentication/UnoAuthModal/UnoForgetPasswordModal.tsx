@@ -39,7 +39,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
   useEffect(() => {
     form.resetFields();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.isOpened]);
 
   const handleForgotPasswordFormSubmit = (
     values: IForgotPasswordFormValuesProps

@@ -36,7 +36,7 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   useEffect(() => {
     form.resetFields();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.isOpened]);
 
   return (
     <>

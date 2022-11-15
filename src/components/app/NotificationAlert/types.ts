@@ -10,7 +10,6 @@ export interface INotificationAlertProps {
     | 'outline-light';
   title?: string;
   color?: string;
-  notification: boolean;
   duration?: number | null;
   placement?:
     | 'bottom-right'
@@ -22,4 +21,5 @@ export interface INotificationAlertProps {
   maxWidth?: number | string;
   alert: boolean;
   setAlert: React.Dispatch<React.SetStateAction<boolean>>;
+  minWidth?: string | number;
 }
