@@ -12,7 +12,7 @@ import { Box, HStack, Text, VStack } from '../../../primitives';
 import { Badge } from '../../../composites';
 import { makeRandomColor } from '../../../utils';
 import { CustomNBButton } from '../../CustomNBButton';
-type TApplication = { jid: number; jobTitle: string; status: string };
+type TApplication = { jobId: number; jobTitle: string; status: string };
 type TCandidate = {
   username: string;
   avatarUri?: string;
@@ -114,7 +114,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           items={candidate.activeApplications.map((appl, idx) => ({
             label: appl.jobTitle,
             key: String(idx),
-            children: appl.jid,
+            children: appl.jobId,
           }))}
         />
       )}

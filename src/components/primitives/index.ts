@@ -15,7 +15,7 @@ export { Input } from './Input';
 export { StorybookInputArgs } from './Input/InputArgs';
 export { TextArea } from './TextArea';
 export { StorybookTextAreaArgs } from './TextArea/TextAreaArgs';
-export { Checkbox } from './Checkbox';
+export * from './Checkbox';
 export { StorybookCheckboxArgs } from './Checkbox/CheckboxArgs';
 export { Radio };
 export { StorybookRadioArgs } from './Radio/RadioArgs';

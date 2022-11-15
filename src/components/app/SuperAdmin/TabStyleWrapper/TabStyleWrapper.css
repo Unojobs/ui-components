@@ -1,0 +1,10 @@
+.tabs-antd-custom-styles .ant-tabs-top > .ant-tabs-nav::before {
+  border: none;
+}
+.tabs-antd-custom-styles .ant-tabs-nav {
+  margin-bottom: 30px;
+}
+
+.tabs-antd-custom-styles .ant-tabs-ink-bar {
+  background-color: #4169e0;
+}

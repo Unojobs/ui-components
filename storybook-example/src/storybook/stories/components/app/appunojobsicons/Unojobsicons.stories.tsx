@@ -44,6 +44,7 @@ import {
   UnoJobsHospitalityDepartment,
   UnoJobsWellnessDepartment,
   UnoJobsAviationDepartment,
+  UnojobsRoundedSearchIcon,
   UnojobsWelcomeIcon,
   UnojobsMessageIcon,
   UnojobsCallIcon,
@@ -63,6 +64,17 @@ import {
   CircularCorrectIcon,
   UnoEmailIcon,
   UnojobsNoAppliedJobsIcon,
+  UnojobsLeftArrowCurvedIcon,
+  UnojobsTickIcon,
+  UnojobsTwitterIcon,
+  UnojobsLinkedinIcon,
+  UnojobsFacebookIcon,
+  UnojobsInstagramIcon,
+  UnojobsDownloadIcon,
+  UnojobsHiringIcon,
+  UnojobsApplyIcon,
+  UnojobsCandidateIcon,
+  UnojobsSearchFavIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -79,6 +91,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsRightArrowCurvedIcon />
             <UnojobsDownArrowCurvedIcon />
             <LeftArrowIcon />
+            <UnojobsLeftArrowCurvedIcon />
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
@@ -104,11 +117,13 @@ const UnojobsiconsTest = ({ ...args }) => {
             </UnojobsNumberIcon>
             <UnojobsSettingsIcon />
             <UnojobsWindowFilledIcon />
+            <UnojobsRoundedSearchIcon />
           </HStack>
-          <HStack space={3} alignItems="center">
+          <HStack space={3} alignItems="center" flexWrap="wrap">
             <Text>Landing :</Text>
             <UnojobsUpArrowRoundIcon />
             <UnojobsDownArrowRoundIcon />
+            <UnojobsTickIcon></UnojobsTickIcon>
             <UnoJobsTechDepartment></UnoJobsTechDepartment>
             <UnoJobsDataAnalysis></UnoJobsDataAnalysis>
             <UnoJobsDesign></UnoJobsDesign>
@@ -132,24 +147,33 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnoJobsHospitalityDepartment></UnoJobsHospitalityDepartment>
             <UnoJobsWellnessDepartment></UnoJobsWellnessDepartment>
             <UnoJobsAviationDepartment></UnoJobsAviationDepartment>
+            <UnojobsTwitterIcon></UnojobsTwitterIcon>
+            <UnojobsLinkedinIcon></UnojobsLinkedinIcon>
+            <UnojobsFacebookIcon></UnojobsFacebookIcon>
+            <UnojobsInstagramIcon></UnojobsInstagramIcon>
+            <UnojobsDownloadIcon></UnojobsDownloadIcon>
+            <UnojobsHiringIcon></UnojobsHiringIcon>
+            <UnojobsCandidateIcon></UnojobsCandidateIcon>
+            <UnojobsSearchFavIcon></UnojobsSearchFavIcon>
+            <UnojobsApplyIcon></UnojobsApplyIcon>
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>AppLogo :</Text>
             <UnojobsAppLogo />
             <UnojobsAppLogo fill="#111" />
           </HStack>
-      
-            <HStack space={3} alignItems="center" flexWrap="wrap">
-              <Text>Candidate Icons :</Text>
-              <UnojobsWelcomeIcon size={40}></UnojobsWelcomeIcon>
-              <UnojobsMessageIcon size={20} />
-              <UnojobsCallIcon size={20} />
-              <UnojobsEmailBoxIcon size={20} />
-              <UnojobsVideoIcon size={20} />
-              <UnojobsResumeIcon size={20} />
-              <UnojobsInfoIcon size={20} />
-              <UnojobsNoAppliedJobsIcon/>
-            </HStack>
+
+          <HStack space={3} alignItems="center" flexWrap="wrap">
+            <Text>Candidate Icons :</Text>
+            <UnojobsWelcomeIcon size={40}></UnojobsWelcomeIcon>
+            <UnojobsMessageIcon size={20} />
+            <UnojobsCallIcon size={20} />
+            <UnojobsEmailBoxIcon size={20} />
+            <UnojobsVideoIcon size={20} />
+            <UnojobsResumeIcon size={20} />
+            <UnojobsInfoIcon size={20} />
+            <UnojobsNoAppliedJobsIcon />
+          </HStack>
           <HStack space={3} alignItems="center">
             <Text>Social Media Logo :</Text>
             <FacebookSMLogo />
