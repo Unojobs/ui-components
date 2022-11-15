@@ -20,4 +20,6 @@ export interface INotificationAlertProps {
     | 'top-left'
     | 'bottom-left';
   maxWidth?: number | string;
+  alert: boolean;
+  setAlert: React.Dispatch<React.SetStateAction<boolean>>;
 }

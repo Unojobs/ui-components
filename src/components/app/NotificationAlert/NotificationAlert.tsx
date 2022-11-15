@@ -7,20 +7,52 @@ export const NotificationAlert = (props: INotificationAlertProps) => {
   const toast = useToast();
 
   useEffect(() => {
-    if (props.notification) {
+    if (props.alert) {
       toast.show({
         placement: props.placement,
         duration: props.duration,
         render: ({ id }) => <ToastAlert id={id} />,
       });
+      if (props.duration) {
+        setTimeout(() => {
+          props.setAlert(false);
+        }, props.duration);
+      }
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.notification]);
+  }, [props.alert]);
 
   const ToastAlert = ({ id }: any) => (
-    <Stack space={3} w="100%" maxW={props.maxWidth} shadow={9}>
-      <Alert w="100%" status={props.status} variant={props.variant}>
+    <Stack
+      space={3}
+      w="100%"
+      maxW={props.maxWidth}
+      shadow={9}
+      marginLeft={
+        props.placement === 'top-left' || props.placement === 'bottom-left'
+          ? 30
+          : props.placement === 'top' || props.placement === 'bottom'
+          ? 0
+          : -30
+      }
+      borderRadius={'10'}
+    >
+      <Alert
+        w="100%"
+        status={props.status}
+        variant={props.variant}
+        backgroundColor={
+          props.status === 'success'
+            ? 'notificationColors.success'
+            : props.status === 'error'
+            ? 'notificationColors.error'
+            : props.status === 'warning'
+            ? 'notificationColors.warning'
+            : 'notificationColors.info'
+        }
+        borderRadius={'10'}
+        paddding={'10'}
+      >
         <VStack space={2} flexShrink={1} w="100%">
           <HStack
             flexShrink={1}
@@ -28,9 +60,14 @@ export const NotificationAlert = (props: INotificationAlertProps) => {
             alignItems="center"
             justifyContent="space-between"
           >
-            <HStack space={2} flexShrink={1} alignItems="center">
-              <Alert.Icon />
-              <Text fontSize="md" fontWeight="medium" color={props.color}>
+            <HStack
+              space={2}
+              flexShrink={1}
+              alignItems="center"
+              marginTop={props.description ? '' : 2}
+            >
+              <Alert.Icon color={props.color} />
+              <Text fontSize="md" fontWeight="semibold" color={props.color}>
                 {props.title}
               </Text>
             </HStack>
@@ -43,12 +80,17 @@ export const NotificationAlert = (props: INotificationAlertProps) => {
               _icon={{
                 color: props.color,
               }}
-              onPress={() => toast.close(id)}
+              onPress={() => {
+                toast.close(id);
+                props.setAlert(false);
+              }}
             />
           </HStack>
-          <Box pl="6">
-            <Text color={props.color}>{props.description}</Text>
-          </Box>
+          {props.description && (
+            <Box pl="6">
+              <Text color={props.color}>{props.description}</Text>
+            </Box>
+          )}
         </VStack>
       </Alert>
     </Stack>
@@ -62,9 +104,11 @@ NotificationAlert.defaultProps = {
   title: '',
   description: '',
   variant: 'left-accent',
-  color: 'coolGray.600',
+  color: 'textColors.secondary',
   notification: false,
   duration: 2000,
   placement: 'top-right',
   maxWidth: 400,
+  alert: true,
+  setAlert: undefined,
 };

@@ -64,6 +64,12 @@ export const custom = {
       overline: '#203AA1',
       subtitle2: '#EEEEEE',
     },
+    notificationColors: {
+      success: '#73C04B',
+      error: '#EB5757',
+      warning: '#fb923c',
+      info: '#0ea5e9',
+    },
   },
   fontSizes: {
     appmedium: '22px',
