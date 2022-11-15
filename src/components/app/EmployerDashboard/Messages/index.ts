@@ -8,4 +8,4 @@ export * from './ChatTopMenu';
 export * from './CustomAvatarGroup';
 export * from './CustomAvatar';
 export * from './CustomStarRatings';
-export * from './TopMenu';
+export * from './CandidateChatTopMenu';
