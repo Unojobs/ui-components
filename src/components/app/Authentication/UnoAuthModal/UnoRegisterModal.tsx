@@ -70,7 +70,11 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
 
   /**handle register form submit */
   const handleRegisterFormSubmit = (values: IRegisterFormValuesProps) => {
-    props.onRegister?.({ ...values, termsAndCondition: checked });
+    props.onRegister?.({
+      ...values,
+      termsAndCondition: checked,
+      role: props.isCandidate ? 'candidate' : 'org_admin',
+    });
   };
 
   return (

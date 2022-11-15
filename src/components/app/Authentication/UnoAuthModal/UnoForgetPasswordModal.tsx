@@ -4,7 +4,10 @@ import { Center, IconButton, Modal } from '../../../composites';
 import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
-import type { IUnoForgetPasswordModalProps } from './types';
+import type {
+  IForgotPasswordFormValuesProps,
+  IUnoForgetPasswordModalProps,
+} from './types';
 import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
@@ -37,6 +40,19 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
     form.resetFields();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleForgotPasswordFormSubmit = (
+    values: IForgotPasswordFormValuesProps
+  ) => {
+    props.onSubmit?.({
+      ...values,
+      role: props.isAdmin
+        ? 'super_admin'
+        : props.isCandidate
+        ? 'candidate'
+        : 'org_admin',
+    });
+  };
 
   return (
     <Center>
@@ -88,7 +104,7 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
               <Form
                 form={form}
                 layout="vertical"
-                onFinish={props.onSubmit}
+                onFinish={handleForgotPasswordFormSubmit}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
@@ -170,4 +186,6 @@ UnoForgetPasswordModal.defaultProps = {
   loading: false,
   loaderColor: 'secondary.300',
   loaderSize: 'sm',
+  isCandidate: false,
+  isAdmin: false,
 };

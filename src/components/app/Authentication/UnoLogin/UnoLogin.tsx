@@ -56,7 +56,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         ? 'super_admin'
         : props.isCandidate
         ? 'candidate'
-        : 'employer',
+        : 'org_admin',
     });
   };
   return (

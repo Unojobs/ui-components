@@ -60,10 +60,13 @@ export interface IUnoForgetPasswordModalProps
   tooltip?: IForgotPUtil;
   placeholder?: IForgotPUtil;
   errors?: IEmailErrorProps;
+  isCandidate: boolean;
+  isAdmin: boolean;
 }
 
 export interface IForgotPasswordFormValuesProps {
   email: string;
+  role: string;
 }
 
 export interface IForgotPUtil {
@@ -98,6 +101,7 @@ export interface IRegisterFormValuesProps {
   fullName: string;
   password: string;
   termsAndCondition: boolean;
+  role: string;
 }
 
 export interface ITermsAndConditions {
