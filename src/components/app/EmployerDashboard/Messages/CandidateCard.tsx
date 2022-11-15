@@ -6,6 +6,7 @@ import { CustomAvatar } from './CustomAvatar';
 export interface CandidateCardProps {
   onPressHandler: () => void;
   candidate: {
+    id: number;
     username: string;
     avatarUri?: string;
     activeApplications?: { jobId: number; jobTitle: string }[];
