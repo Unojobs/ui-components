@@ -11,9 +11,7 @@ import { CustomNBButton } from '../../CustomNBButton';
 import { CustomAvatar } from './CustomAvatar';
 const { TextArea } = Input;
 export interface InputMessageFieldProps {
-  avatarUri: string;
-  username: string;
-  id: number;
+  user: { avatarUri?: string; username: string; id: number };
   handleTextInput: (event?: any) => void;
   handleEmojiInput: (event?: any) => void;
   handleFileUpload: (event?: any) => void;
@@ -21,8 +19,7 @@ export interface InputMessageFieldProps {
 }
 export const InputMessageField = (props: InputMessageFieldProps) => {
   const {
-    avatarUri,
-    username,
+    user,
     handleTextInput,
     handleEmojiInput,
     handleFileUpload,
@@ -35,7 +32,7 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
       alignItems={'center'}
       justifyContent={'space-evenly'}
     >
-      <CustomAvatar size={'45px'} candidate={{ avatarUri, username }} />
+      <CustomAvatar size={'45px'} user={user} />
       <HStack
         width={650}
         height={45}

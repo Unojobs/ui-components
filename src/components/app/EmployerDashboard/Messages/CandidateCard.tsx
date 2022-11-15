@@ -29,7 +29,7 @@ export const CandidateCard = (props: CandidateCardProps) => {
       backgroundColor={isActive ? 'primary.500' : 'white'}
     >
       <HStack width={'full'} height={'full'} space={'2'}>
-        <CustomAvatar candidate={candidate} size={'12'} />
+        <CustomAvatar user={candidate} size={'12'} />
         <VStack flexGrow={1} space={'1'}>
           <Text fontSize={'md'} color={isActive ? 'white' : 'black'}>
             {candidate?.username}

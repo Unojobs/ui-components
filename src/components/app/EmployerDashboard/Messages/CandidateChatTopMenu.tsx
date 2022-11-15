@@ -37,7 +37,7 @@ export const CandidateChatTopMenu = (props: CandidateChatTopMenuProps) => {
   const openNotes = () => {};
   return (
     <HStack space={'2'}>
-      <CustomAvatar candidate={candidate} size={'12'} />
+      <CustomAvatar user={candidate} size={'12'} />
       <HStack alignItems={'center'} flexGrow={1}>
         <VStack space={'2'} flexGrow={0.4}>
           <Text>{candidate.username}</Text>

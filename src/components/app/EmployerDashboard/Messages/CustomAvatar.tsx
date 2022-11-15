@@ -3,21 +3,21 @@ import { Avatar } from '../../../composites';
 import { makeRandomColor } from '../../../../components/utils';
 // CustomAvatar
 export interface CustomAvatarProps {
-  candidate: { [key: string]: any };
+  user: { [key: string]: any };
   size: number | string;
 }
 export const CustomAvatar = (props: CustomAvatarProps) => {
-  const { candidate, size } = props;
+  const { user, size } = props;
 
-  return candidate?.avatarUri ? (
-    <Avatar size={size} source={{ uri: candidate.avatarUri }} />
+  return user?.avatarUri ? (
+    <Avatar size={size} source={{ uri: user?.avatarUri }} />
   ) : (
     <Avatar
       _text={{ textTransform: 'uppercase' }}
       size={size}
       style={{ backgroundColor: makeRandomColor() }}
     >
-      {candidate?.username.slice(0, 1)}
+      {user?.username.slice(0, 1)}
     </Avatar>
   );
 };
