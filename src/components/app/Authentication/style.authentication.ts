@@ -36,13 +36,11 @@ export const style = {
     marginTop: 2.5,
   },
   forgetText: {
-    maxWidth: 400,
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginTop: 8,
-    marginBottom: 8,
-    cursor: 'pointer',
+    marginTop: 30,
+    marginBottom: 30,
     color: 'primary.500',
   },
   registerText: {
@@ -72,37 +70,25 @@ export const style = {
     alignItems: 'center',
   },
   mainContainer: {
-    width: 400,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    space: 30,
   },
   backIconButton: {
     height: 0,
     fontSize: '5xl',
     cursor: 'pointer',
-    marginRight: 'auto',
-    paddingLeft: '0px',
   },
   backArrowIcon: {
     marginTop: 8,
   },
-  backArrowModalIcon: {
-    marginTop: '15px',
-    marginLeft: '15px',
-  },
+
   modalPosition: {
-    maxWidth: 430,
     backgroundColor: 'secondary.300',
-    maxHeight: 'auto',
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
     marginTop: 'auto',
-    marginLeft: -215,
-    marginRight: 0,
-    marginBottom: 0,
+    marginBottom: 'auto',
   },
   otpInputStyle: {
     width: 60,
@@ -115,5 +101,11 @@ export const style = {
   },
   otpSeperatorStyle: {
     width: 8,
+  },
+  resendText: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'primary.500',
   },
 };

@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
-import { Form } from 'antd';
+import { Form, Input } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
-import OtpInput from 'react-otp-input';
+import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
-import type { IUnoOTPModalProps } from './types';
 import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
+import type { IUnoNewPasswordProps } from './types';
 
-export const UnoOTPModal = (props: IUnoOTPModalProps) => {
+export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();
-
   /** Handle back screen scroll when modal is open */
   useEffect(() => {
     if (props.isOpened === true && window !== undefined) {
@@ -27,6 +26,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   }, [props.isOpened]);
 
   /**Handle modal close function */
+
   const handleModalClose = () => {
     form.resetFields();
     props.onClose?.();
@@ -52,7 +52,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
           maxHeight={props.maxHeight}
         >
           <Modal.Body>
-            <VStack {...style.mainContainer} space={props.verticalSpace}>
+            <VStack {...style.mainContainer}>
               {(props.title || props.unoLogo) && (
                 <Text {...style.heading} textAlign="center">
                   <HStack space={30}>
@@ -81,50 +81,74 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                     <Text {...style.heading}>{props.heading}</Text>
                   )}
                   {props.subHeading && (
-                    <Text {...style.subHeading}>
-                      {props.subHeading}
-                      <Text fontWeight={'extraBlack'} fontSize={'lg'}>
-                        {' '}
-                        {props.smsSentOn}
-                      </Text>
-                    </Text>
+                    <Text {...style.subHeading}>{props.subHeading} </Text>
                   )}
                 </VStack>
               )}
-
               <Form
                 form={form}
                 layout="vertical"
-                onFinish={props.onVerify}
+                onFinish={props.onCreate}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
+                disabled={props.loading ? true : false}
               >
                 <Form.Item
-                  label={props.label}
-                  name="otp"
+                  label="Password"
+                  name="password"
+                  tooltip={props.tooltip?.password}
                   rules={[
                     {
                       required: true,
-                      min: 6,
-                      max: 6,
-                      message: props.errors?.otp,
+                      whitespace: true,
+                      message: props.errors?.password?.required,
+                    },
+                    {
+                      pattern:
+                        /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/,
+                      message: props.errors?.password?.validation,
                     },
                   ]}
                 >
-                  <OtpInput
-                    inputStyle={style.otpInputStyle}
-                    separator={<span style={style.otpSeperatorStyle} />}
-                    numInputs={6}
-                    isInputNum={true}
-                    isInputSecure={props.isInputSecure}
-                    errorStyle={style.otpErrorInput}
-                    hasErrored={props.hasErrored}
-                    isDisabled={props.loading ? true : false}
+                  <Input.Password
+                    placeholder={props.placeholder?.password}
+                    style={style.input}
+                    onPaste={preventCopyPaste}
+                    onCopy={preventCopyPaste}
                   />
                 </Form.Item>
-
+                <Form.Item
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  dependencies={['password']}
+                  tooltip={props.tooltip?.confirmPassword}
+                  hasFeedback
+                  rules={[
+                    {
+                      required: true,
+                      message: props.errors?.confirmPassword?.required,
+                    },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue('password') === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(
+                          props.errors?.confirmPassword?.validation
+                        );
+                      },
+                    }),
+                  ]}
+                >
+                  <Input.Password
+                    placeholder={props.placeholder?.confirmPassword}
+                    style={style.input}
+                    onPaste={preventCopyPaste}
+                    onCopy={preventCopyPaste}
+                  />
+                </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
                   {props.loading ? (
                     <Spinner
@@ -136,16 +160,6 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   )}
                 </CustomButton>
               </Form>
-              {props.isResend && (
-                <Text
-                  {...style.resendText}
-                  {...style.commonText}
-                  marginTop={0}
-                  onPress={props.loading ? undefined : props.onResendOTP}
-                >
-                  Resend OTP
-                </Text>
-              )}
             </VStack>
           </Modal.Body>
         </Modal.Content>
@@ -153,34 +167,43 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
     </>
   );
 };
-UnoOTPModal.defaultProps = {
+UnoNewPasswordModal.defaultProps = {
+  title: '',
   heading: '',
   subHeading: '',
-  hasErrored: false,
-  isInputSecure: false,
-  title: '',
-  label: '',
-  onVerify: undefined,
-  unoLogo: <UnojobsAppLogo />,
-  buttonText: 'Verify',
-  isOpened: false,
-  setIsOpened: undefined,
+  onCreate: undefined,
+  tooltip: {
+    password: 'Required',
+    confirmPassword: 'Required',
+  },
+  buttonText: 'Create New Password',
+  placeholder: {
+    password: '',
+    confirmPassword: '',
+  },
   verticalSpace: 30,
   maxWidth: 500,
   maxHeight: 620,
   onClose: undefined,
-  smsSentOn: '',
-  onResendOTP: undefined,
-  isResend: false,
+  unoLogo: <UnojobsAppLogo />,
+  isOpened: false,
+  setIsOpened: undefined,
   showBackArrow: true,
   backArrowMarginTop: 35,
   backArrowMarginBottom: 26,
   backArrowMarginLeft: 5,
   backArrowMarginRight: 'auto',
   errors: {
-    otp: 'required field',
+    password: {
+      required: 'required field',
+      validation: 'must be a valid password',
+    },
+    confirmPassword: {
+      required: 'required field',
+      validation: 'must match with password',
+    },
   },
-  isResetOnSubmit: true,
+  isResetOnSubmit: false,
   loading: false,
   loaderColor: 'secondary.300',
   loaderSize: 'sm',

@@ -1,3 +1,5 @@
+import type { IErrorProps } from './UnoAuthModal/types';
+
 //function to prevent copy paste events
 export const preventCopyPaste = (e: any) => {
   e.preventDefault();
@@ -6,11 +8,17 @@ export const preventCopyPaste = (e: any) => {
 
 //validate password field
 
-export const passwordValidator = (value: string) => {
-  if (/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,})/.test(value)) {
-    return Promise.resolve();
+export const passwordValidator = (
+  value: string,
+  error: IErrorProps | undefined
+) => {
+  if (/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/.test(value)) {
+    return '';
   } else {
-    return Promise.reject();
+    if (value.length === 0 || value.match(/^ *$/) !== null) {
+      return error?.required;
+    }
+    return error?.validation;
   }
 };
 
@@ -21,5 +29,15 @@ export const emailValidator = (value: string) => {
     return Promise.resolve();
   } else {
     return Promise.reject();
+  }
+};
+
+// validate email / phone number input fields
+
+export const validateEmailPhoneNumber = (value: any) => {
+  if (isNaN(value)) {
+    return 'email';
+  } else {
+    return 'password';
   }
 };
