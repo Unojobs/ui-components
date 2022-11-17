@@ -80,31 +80,31 @@ export const UnojobsSavedIcon = ({ fill, size }: IconProps) => {
         <path
           d="M7.49935 19.206H12.4993C16.666 19.206 18.3327 17.5393 18.3327 13.3726V8.37264C18.3327 4.20597 16.666 2.53931 12.4993 2.53931H7.49935C3.33268 2.53931 1.66602 4.20597 1.66602 8.37264V13.3726C1.66602 17.5393 3.33268 19.206 7.49935 19.206Z"
           stroke="#B7B7B7"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M14.1673 2.90601V11.2227C14.1673 12.8643 12.9923 13.506 11.5507 12.6393L10.4507 11.981C10.2007 11.831 9.80065 11.831 9.55065 11.981L8.45065 12.6393C7.00898 13.4977 5.83398 12.8643 5.83398 11.2227V2.90601"
           stroke="#B7B7B7"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M7.49935 19.206H12.4993C16.666 19.206 18.3327 17.5393 18.3327 13.3726V8.37264C18.3327 4.20597 16.666 2.53931 12.4993 2.53931H7.49935C3.33268 2.53931 1.66602 4.20597 1.66602 8.37264V13.3726C1.66602 17.5393 3.33268 19.206 7.49935 19.206Z"
           stroke="#B7B7B7"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           fill={fill ? fill : 'white'}
         />
         <path
           d="M14.1673 2.90601V11.2227C14.1673 12.8643 12.9923 13.506 11.5507 12.6393L10.4507 11.981C10.2007 11.831 9.80065 11.831 9.55065 11.981L8.45065 12.6393C7.00898 13.4977 5.83398 12.8643 5.83398 11.2227V2.90601"
           stroke="#B7B7B7"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           fill={fill ? fill : 'white'}
         />
       </>
