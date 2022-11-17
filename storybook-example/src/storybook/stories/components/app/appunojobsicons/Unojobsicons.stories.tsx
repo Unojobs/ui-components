@@ -64,6 +64,7 @@ import {
   CircularCorrectIcon,
   UnoEmailIcon,
   UnojobsNoAppliedJobsIcon,
+  UnojobsDescriptionIcon,
   UnojobsLeftArrowCurvedIcon,
   UnojobsTickIcon,
   UnojobsTwitterIcon,
@@ -117,6 +118,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             </UnojobsNumberIcon>
             <UnojobsSettingsIcon />
             <UnojobsWindowFilledIcon />
+            <UnojobsDescriptionIcon />
             <UnojobsRoundedSearchIcon />
           </HStack>
           <HStack space={3} alignItems="center" flexWrap="wrap">
