@@ -64,9 +64,7 @@ import {
   CircularCorrectIcon,
   UnoEmailIcon,
   UnojobsNoAppliedJobsIcon,
-<<<<<<< HEAD
   UnojobsDescriptionIcon,
-=======
   UnojobsLeftArrowCurvedIcon,
   UnojobsTickIcon,
   UnojobsTwitterIcon,
@@ -78,7 +76,6 @@ import {
   UnojobsApplyIcon,
   UnojobsCandidateIcon,
   UnojobsSearchFavIcon,
->>>>>>> development
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
