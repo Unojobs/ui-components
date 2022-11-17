@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import { Avatar, Input } from 'antd';
+import { Input } from 'antd';
 import React from 'react';
 import { HStack } from '../../../primitives';
 import {
@@ -7,12 +7,11 @@ import {
   SmileOutlined,
   SendOutlined,
 } from '@ant-design/icons';
-import { makeRandomColor } from '../../../utils';
 import { CustomNBButton } from '../../CustomNBButton';
+import { CustomAvatar } from './CustomAvatar';
 const { TextArea } = Input;
 export interface InputMessageFieldProps {
-  avatarUri: string;
-  username: string;
+  user: { avatarUri?: string; username: string; id: number };
   handleTextInput: (event?: any) => void;
   handleEmojiInput: (event?: any) => void;
   handleFileUpload: (event?: any) => void;
@@ -20,8 +19,7 @@ export interface InputMessageFieldProps {
 }
 export const InputMessageField = (props: InputMessageFieldProps) => {
   const {
-    avatarUri,
-    username,
+    user,
     handleTextInput,
     handleEmojiInput,
     handleFileUpload,
@@ -34,13 +32,7 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
       alignItems={'center'}
       justifyContent={'space-evenly'}
     >
-      {avatarUri ? (
-        <Avatar size={45} src={avatarUri} />
-      ) : (
-        <Avatar size={45} style={{ backgroundColor: makeRandomColor() }}>
-          {username.slice(0, 1).toUpperCase()}
-        </Avatar>
-      )}
+      <CustomAvatar size={'45px'} user={user} />
       <HStack
         width={650}
         height={45}

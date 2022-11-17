@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { MenuItem } from './MenuItem';
-import { SubMenu } from './SubMenu';
+import { MenuItem } from './MenuItem.web';
+import { SubMenu } from './SubMenu.web';
 import './SideMenu.css';
 
 /**
@@ -104,9 +104,11 @@ export const SideMenu = (props: ISideMenuProps) => {
           return (
             <SubMenu
               key={data.route}
+              route={data.route}
               menuData={data}
               selectedMenuItem={selectedMenuItem}
               onMenuItemClick={onMenuItemClickHandler}
+              isSelected={data.route === selectedMenuItem}
               isParentSelected={parentSelection === data.route}
               separatorAfterKeys={separatorAfterKeys}
             />

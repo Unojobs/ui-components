@@ -1,2 +1,2 @@
-export * from './SuperAdminTableWrapper';
-export * from './DashboardTableWrapper';
+export * from './SuperAdminTableWrapper.web';
+export * from './DashboardTableWrapper.web';

@@ -7,7 +7,7 @@ import {
 import { CheckboxGroup } from './CheckboxGroup';
 import type { MutableRefObject } from 'react';
 export const CheckboxMain = ({ ...props }: ICheckboxProps) => {
-  return <NBCheckbox {...props}></NBCheckbox>;
+  return <NBCheckbox {...props} />;
 };
 
 export type ICheckboxComponentType = ((

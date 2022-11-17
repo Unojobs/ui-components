@@ -1,46 +1,95 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input } from 'antd';
-import { IconButton, Modal } from '../../../composites';
-import { HStack, Text, VStack } from '../../../primitives';
+import { Center, IconButton, Modal } from '../../../composites';
+import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
-import type { IUnoForgetPasswordModalProps } from './types';
-import { emailValidator } from '../helper.authentication';
+import type {
+  IForgotPasswordFormValuesProps,
+  IUnoForgetPasswordModalProps,
+} from './types';
 import '../styles.authentication.css';
-import { LeftArrowIcon } from '../../UnojobsIcons';
+import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
+  const [form] = Form.useForm();
+
+  /** Handle back screen scroll when modal is open */
+  useEffect(() => {
+    if (props.isOpened === true && window !== undefined) {
+      // When the modal is shown, we want a fixed body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+    }
+    if (props.isOpened === false && window !== undefined) {
+      // When the modal is hidden, we want to remain at the top of the scroll position
+      document.body.style.position = '';
+      document.body.style.top = '';
+    }
+  }, [props.isOpened]);
+
+  /**Handle modal close function */
+
+  const handleModalClose = () => {
+    form.resetFields();
+    props.onClose?.();
+  };
+
+  /** handle reset form values */
+  useEffect(() => {
+    form.resetFields();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.isOpened]);
+
+  const handleForgotPasswordFormSubmit = (
+    values: IForgotPasswordFormValuesProps
+  ) => {
+    props.onSubmit?.({
+      ...values,
+      role: props.isAdmin
+        ? 'super_admin'
+        : props.isCandidate
+        ? 'candidate'
+        : 'org_admin',
+    });
+  };
+
   return (
-    <>
+    <Center>
       <Modal
         isOpen={props.isOpened}
-        onClose={() => props.setIsOpened(false)}
+        onClose={handleModalClose}
         safeAreaTop={true}
         closeOnOverlayClick={false}
       >
-        <Modal.Content {...style.modalPosition}>
-          <IconButton
-            icon={
-              <>
-                <LeftArrowIcon size={8} />
-              </>
-            }
-            onPress={() => props.setIsOpened(false)}
-            {...style.backIconButton}
-            {...style.backArrowModalIcon}
-            _hover={{
-              backgroundColor: 'secondary.300',
-            }}
-          />
+        <Modal.Content
+          {...style.modalPosition}
+          maxWidth={props.maxWidth}
+          maxHeight={props.maxHeight}
+        >
           <Modal.Body>
-            <VStack {...style.mainContainer}>
+            <VStack {...style.mainContainer} space={props.verticalSpace}>
               {(props.title || props.unoLogo) && (
                 <Text {...style.heading} textAlign="center">
-                  <HStack space={8}>
+                  <HStack space={30}>
                     {props.unoLogo}
                     {props.title}
                   </HStack>
                 </Text>
+              )}
+              {props.showBackArrow && (
+                <IconButton
+                  onPressIn={props.loading ? undefined : handleModalClose}
+                  {...style.backIconButton}
+                  marginTop={props.backArrowMarginTop}
+                  marginBottom={props.backArrowMarginBottom}
+                  marginLeft={props.backArrowMarginLeft}
+                  marginRight={props.backArrowMarginRight}
+                  _hover={{
+                    backgroundColor: 'secondary.300',
+                  }}
+                  icon={<LeftArrowIcon size={6} />}
+                />
               )}
               {(props.heading || props.subHeading) && (
                 <VStack>
@@ -53,12 +102,14 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                 </VStack>
               )}
               <Form
+                form={form}
                 layout="vertical"
-                onFinish={props.onSubmit}
+                onFinish={handleForgotPasswordFormSubmit}
                 scrollToFirstError={true}
                 requiredMark={false}
                 autoComplete={'off'}
                 className="ant-form-wrapper-ui"
+                disabled={props.loading ? true : false}
               >
                 <Form.Item
                   label="Email"
@@ -68,10 +119,11 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                     {
                       required: true,
                       whitespace: true,
-                      message: '',
+                      message: props.errors?.email?.required,
                     },
                     {
-                      validator: (_, value) => emailValidator(value),
+                      type: 'email',
+                      message: props.errors?.email?.validation,
                     },
                   ]}
                 >
@@ -83,14 +135,21 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                   />
                 </Form.Item>
                 <CustomButton {...style.submitButton} htmlType="submit">
-                  {props.buttonText}
+                  {props.loading ? (
+                    <Spinner
+                      color={props.loaderColor}
+                      size={props.loaderSize}
+                    />
+                  ) : (
+                    props.buttonText
+                  )}
                 </CustomButton>
               </Form>
             </VStack>
           </Modal.Body>
         </Modal.Content>
       </Modal>
-    </>
+    </Center>
   );
 };
 UnoForgetPasswordModal.defaultProps = {
@@ -100,7 +159,7 @@ UnoForgetPasswordModal.defaultProps = {
   onSubmit: undefined,
   isOpened: false,
   setIsOpened: undefined,
-  unoLogo: undefined,
+  unoLogo: <UnojobsAppLogo />,
   buttonText: 'Send an email',
   tooltip: {
     email: 'Required',
@@ -108,4 +167,25 @@ UnoForgetPasswordModal.defaultProps = {
   placeholder: {
     email: '',
   },
+  verticalSpace: 30,
+  maxWidth: 500,
+  maxHeight: 620,
+  onClose: undefined,
+  showBackArrow: true,
+  backArrowMarginTop: 35,
+  backArrowMarginBottom: 26,
+  backArrowMarginLeft: 5,
+  backArrowMarginRight: 'auto',
+  errors: {
+    email: {
+      required: 'required field',
+      validation: 'must be a valid email',
+    },
+  },
+  isResetOnSubmit: false,
+  loading: false,
+  loaderColor: 'secondary.300',
+  loaderSize: 'sm',
+  isCandidate: false,
+  isAdmin: false,
 };

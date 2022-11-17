@@ -1,101 +1,69 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  Box,
-  HStack,
-  VStack,
-  Text,
-  Heading,
-  Pressable,
-} from '../../../primitives';
-import { Avatar, Badge } from 'antd';
-import { makeRandomColor } from '../../../utils';
-type TCandidates = { username: string; avatarUri: string };
-type TConversations = { cid: number };
+import { Pressable, VStack, Heading, Text, HStack } from '../../../primitives';
+import { CustomAvatarGroup } from './CustomAvatarGroup';
+import { Badge } from 'antd';
+
+// MessagesSidebar > ScrollableList > ProjectCard
 export interface ProjectCardProps {
   jobTitle: string;
-  candidates?: TCandidates[];
-  conversations?: TConversations[];
-  unreadConversations: number;
-  handleClick: (event?: any) => void;
+  candidates: { avatarUri?: string; uid?: number; username: string }[];
+  totalConversations: { cid: number }[];
+  unreadMessages: number;
+  onPressHandler: () => void;
 }
 export const ProjectCard = (props: ProjectCardProps) => {
   const {
     jobTitle,
     candidates,
-    conversations,
-    unreadConversations,
-    handleClick,
+    totalConversations,
+    unreadMessages,
+    onPressHandler,
   } = props;
-
   return (
-    <Box
-      width={295}
-      height={129}
-      padding={4}
-      borderRadius={12}
-      backgroundColor="white"
-    >
-      <Pressable onPress={handleClick}>
-        <VStack space={3}>
-          <Heading size={'md'} padding={0} margin={0}>
-            {jobTitle}
-          </Heading>
-          {candidates?.length ? (
-            <HStack alignItems={'center'} space={2}>
-              <Avatar.Group
-                maxCount={2}
-                size={'small'}
-                maxStyle={{
-                  color: '#fff',
-                  backgroundColor: '#4169E0',
-                  fontSize: 10,
-                }}
-              >
-                {candidates.length &&
-                  candidates.map((candidate, idx) =>
-                    candidate.avatarUri ? (
-                      <Avatar key={idx} src={candidate.avatarUri} />
-                    ) : (
-                      <Avatar
-                        key={idx}
-                        style={{ backgroundColor: makeRandomColor() }}
-                      >
-                        {candidate.username.slice(0, 1).toUpperCase()}
-                      </Avatar>
-                    )
-                  )}
-              </Avatar.Group>
-              {conversations?.length ? (
-                <Text fontSize={'md'} color={'#707070'}>
-                  {conversations.length}{' '}
-                  {conversations.length > 1 ? 'Conversations' : 'Conversation'}
-                </Text>
-              ) : (
-                <Text fontSize={'md'} color={'#707070'} disabled>
-                  No conversations
-                </Text>
-              )}
-            </HStack>
-          ) : (
-            <Text fontSize={'md'} disabled>
-              No candidates
-            </Text>
-          )}
-          {!!unreadConversations && !!candidates?.length && (
-            <HStack alignItems={'center'} justifyContent={'space-between'}>
-              <Text fontSize={'xs'} color={'#707070'}>
-                {unreadConversations > 1 ? 'Unseen Messages' : 'Unseen Message'}
+    <Pressable onPress={onPressHandler} marginY={'4'} padding={'4'}>
+      <VStack space={'3'}>
+        <Heading fontSize={'xl'} fontWeight={'medium'}>
+          {jobTitle}
+        </Heading>
+        {candidates.length ? (
+          <HStack space={'2'}>
+            <CustomAvatarGroup
+              data={candidates}
+              size={'small'}
+              maxVisibleAvatarCount={2}
+            />
+            {totalConversations?.length ? (
+              <Text fontSize={'md'} color={'textColors.subtitle'}>
+                {totalConversations.length}{' '}
+                {totalConversations.length > 1
+                  ? 'Conversations'
+                  : 'Conversation'}
               </Text>
-              <Badge
-                count={unreadConversations}
-                size={unreadConversations > 9 ? 'small' : 'default'}
-                style={{ fontSize: 14 }}
-              />
-            </HStack>
-          )}
-        </VStack>
-      </Pressable>
-    </Box>
+            ) : (
+              <Text fontSize={'md'} color={'textColors.subtitle'} disabled>
+                No conversations
+              </Text>
+            )}
+          </HStack>
+        ) : (
+          <Text fontSize={'lg'} disabled>
+            No Candidates
+          </Text>
+        )}
+        {!!unreadMessages && !!candidates?.length && (
+          <HStack alignItems={'center'} justifyContent={'space-between'}>
+            <Text fontSize={'xs'} color={'textColors.subtitle'}>
+              {unreadMessages > 1 ? 'Unseen Messages' : 'Unseen Message'}
+            </Text>
+            <Badge
+              count={unreadMessages}
+              size={unreadMessages > 9 ? 'small' : 'default'}
+              style={{ fontSize: 14, backgroundColor: '#EB5757' }}
+            />
+          </HStack>
+        )}
+      </VStack>
+    </Pressable>
   );
 };

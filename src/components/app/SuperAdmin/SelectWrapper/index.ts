@@ -1,1 +1,1 @@
-export * from './SelectWrapper';
+export * from './SelectWrapper.web';

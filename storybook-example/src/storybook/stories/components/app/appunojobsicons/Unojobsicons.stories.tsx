@@ -44,6 +44,7 @@ import {
   UnoJobsHospitalityDepartment,
   UnoJobsWellnessDepartment,
   UnoJobsAviationDepartment,
+  UnojobsRoundedSearchIcon,
   UnojobsWelcomeIcon,
   UnojobsMessageIcon,
   UnojobsCallIcon,
@@ -61,8 +62,23 @@ import {
   CircularRightArrowIcon,
   CircularWrongIcon,
   CircularCorrectIcon,
+  UnoEmailIcon,
   UnojobsNoAppliedJobsIcon,
+<<<<<<< HEAD
   UnojobsDescriptionIcon,
+=======
+  UnojobsLeftArrowCurvedIcon,
+  UnojobsTickIcon,
+  UnojobsTwitterIcon,
+  UnojobsLinkedinIcon,
+  UnojobsFacebookIcon,
+  UnojobsInstagramIcon,
+  UnojobsDownloadIcon,
+  UnojobsHiringIcon,
+  UnojobsApplyIcon,
+  UnojobsCandidateIcon,
+  UnojobsSearchFavIcon,
+>>>>>>> development
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -79,6 +95,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsRightArrowCurvedIcon />
             <UnojobsDownArrowCurvedIcon />
             <LeftArrowIcon />
+            <UnojobsLeftArrowCurvedIcon />
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
@@ -104,12 +121,17 @@ const UnojobsiconsTest = ({ ...args }) => {
             </UnojobsNumberIcon>
             <UnojobsSettingsIcon />
             <UnojobsWindowFilledIcon />
+<<<<<<< HEAD
             <UnojobsDescriptionIcon />
+=======
+            <UnojobsRoundedSearchIcon />
+>>>>>>> development
           </HStack>
-          <HStack space={3} alignItems="center">
+          <HStack space={3} alignItems="center" flexWrap="wrap">
             <Text>Landing :</Text>
             <UnojobsUpArrowRoundIcon />
             <UnojobsDownArrowRoundIcon />
+            <UnojobsTickIcon></UnojobsTickIcon>
             <UnoJobsTechDepartment></UnoJobsTechDepartment>
             <UnoJobsDataAnalysis></UnoJobsDataAnalysis>
             <UnoJobsDesign></UnoJobsDesign>
@@ -133,6 +155,15 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnoJobsHospitalityDepartment></UnoJobsHospitalityDepartment>
             <UnoJobsWellnessDepartment></UnoJobsWellnessDepartment>
             <UnoJobsAviationDepartment></UnoJobsAviationDepartment>
+            <UnojobsTwitterIcon></UnojobsTwitterIcon>
+            <UnojobsLinkedinIcon></UnojobsLinkedinIcon>
+            <UnojobsFacebookIcon></UnojobsFacebookIcon>
+            <UnojobsInstagramIcon></UnojobsInstagramIcon>
+            <UnojobsDownloadIcon></UnojobsDownloadIcon>
+            <UnojobsHiringIcon></UnojobsHiringIcon>
+            <UnojobsCandidateIcon></UnojobsCandidateIcon>
+            <UnojobsSearchFavIcon></UnojobsSearchFavIcon>
+            <UnojobsApplyIcon></UnojobsApplyIcon>
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>AppLogo :</Text>
@@ -165,6 +196,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <CircularRightArrowIcon />
             <CircularWrongIcon />
             <CircularCorrectIcon />
+            <UnoEmailIcon />
           </HStack>
         </VStack>
       </Box>

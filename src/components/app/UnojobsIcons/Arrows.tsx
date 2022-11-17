@@ -167,3 +167,22 @@ export const CircularCorrectIcon = ({ fill, size }: IconProps) => {
   });
   return <CustomIcon size={size ? size : 8} />;
 };
+export const UnojobsLeftArrowCurvedIcon = ({
+  fill = 'currentColor',
+  size = 4,
+}: IconProps) => {
+  const CustomIcon = createIcon({
+    viewBox: '0 0 24 24',
+    path: (
+      <path
+        d="M14.5 6L8.5 12L14.5 18"
+        stroke={fill}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    ),
+  });
+  return <CustomIcon size={size} />;
+};

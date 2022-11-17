@@ -32,6 +32,7 @@ export const custom = {
       '600': '#00BAFB',
       '700': '#0C1A6B', // footer color
       '800': '#192252', // arrowIcon background color
+      '900': '#6E91EC',
     }, // blue colors
     secondary: {
       '300': '#FFFFFF',
@@ -41,6 +42,7 @@ export const custom = {
       '700': '#FCFCFC',
       '800': '#E7E7E7',
       '900': '#EFF3FA',
+      '950': '#0A0A0A',
     }, // white-gray colors
     success: {
       '200': '#F2FDDF',
@@ -63,6 +65,12 @@ export const custom = {
       overline: '#203AA1',
       subtitle2: '#EEEEEE',
     },
+    notificationColors: {
+      success: '#73C04B',
+      error: '#EB5757',
+      warning: '#fb923c',
+      info: '#0ea5e9',
+    },
   },
   fontSizes: {
     appmedium: '22px',
@@ -76,7 +84,6 @@ export const custom = {
   space: {
     '12.5': '50px',
     '15': '60px',
-    '30': '120px',
   },
 
   components: {
