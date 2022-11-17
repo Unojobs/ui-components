@@ -118,11 +118,8 @@ const UnojobsiconsTest = ({ ...args }) => {
             </UnojobsNumberIcon>
             <UnojobsSettingsIcon />
             <UnojobsWindowFilledIcon />
-<<<<<<< HEAD
             <UnojobsDescriptionIcon />
-=======
             <UnojobsRoundedSearchIcon />
->>>>>>> development
           </HStack>
           <HStack space={3} alignItems="center" flexWrap="wrap">
             <Text>Landing :</Text>
