@@ -72,7 +72,7 @@ export const TopMatches = (props: ITopmatches) => {
     >
       <Stack>
         <VStack space={25}>
-          <HStack justifyContent="space-between">
+          <HStack justifyContent="space-between" key="jobpost-hstack">
             <Text color="textColors.primary" fontSize="md" fontWeight={600}>
               {jobPost}
             </Text>
@@ -82,8 +82,8 @@ export const TopMatches = (props: ITopmatches) => {
             </Pressable>
           </HStack>
           <MatchLevel type={type} matchLevel={matchLevel} />
-          <HStack space={2} flexWrap="wrap">
-            {jobDescription?.map((desc) => {
+          <HStack space={2} flexWrap="wrap" key="jobdesc-hstack">
+            {jobDescription?.map((desc, index) => {
               return (
                 <Box
                   background="secondary.400"
@@ -93,6 +93,7 @@ export const TopMatches = (props: ITopmatches) => {
                   width="fit-content"
                   marginTop={2}
                   borderRadius={4}
+                  key={`${desc}-${index}`}
                 >
                   <Text
                     fontWeight="500"

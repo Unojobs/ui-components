@@ -435,7 +435,7 @@ export const UnojobsResumeIcon = ({ fill, size }: IconProps) => {
 
 export const UnojobsInfoIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 18 19"',
+    viewBox: '0 0 18 19',
     path: (
       <>
         <g opacity="0.8">
