@@ -16,6 +16,13 @@ export interface ICommonModalProps {
   loading?: boolean;
   loaderColor?: string;
   loaderSize?: 'sm' | 'lg';
+  popover?: IPopoverProps;
+}
+export interface IPopoverProps {
+  text?: string;
+  cancelText?: string;
+  confirmText?: string;
+  placement?: 'top' | 'bottom' | 'left' | 'right';
 }
 
 export interface IBackArrowProps {
@@ -149,15 +156,4 @@ export interface INewPasswordUtil {
 export interface IPasswordErrorProps {
   password?: IErrorProps;
   confirmPassword?: IErrorProps;
-}
-
-/** Pop up modal props */
-export interface IUnoPopUpModalProps {
-  text?: string;
-  textWidth?: string | number;
-  icon?: any;
-  maxWidth?: string | number;
-  maxHeight?: string | number;
-  isOpened: boolean;
-  setIsOpened?: React.Dispatch<React.SetStateAction<boolean>>;
 }

@@ -12,8 +12,18 @@ export interface ILeftSideScreenProps {
   interval?: number;
   showThumbs?: boolean;
   carouselTopMargin: string | number;
-  boxWidth: any;
+  boxWidth: IWidthProps | string | number;
   imageBorderRadius: string | number;
   imageHeight: string | number;
   boxPadding: string | number;
+  showIndicators: boolean;
+}
+
+interface IWidthProps {
+  'base': string | number;
+  'sm': string | number;
+  'md': string | number;
+  'lg': string | number;
+  'xl': string | number;
+  '2xl': string | number;
 }

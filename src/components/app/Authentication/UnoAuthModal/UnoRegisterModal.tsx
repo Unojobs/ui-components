@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Checkbox, Form, Input } from 'antd';
+import { Checkbox, Form, Input, Popconfirm } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
@@ -19,6 +19,7 @@ import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
   const [form] = Form.useForm();
+  const [show, setShow] = useState<boolean>(false);
 
   /** Handle back screen scroll when modal is open */
   useEffect(() => {
@@ -38,7 +39,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
 
   const handleModalClose = () => {
     form.resetFields();
-    props.onClose?.();
+    props.setIsOpened?.(false);
   };
 
   /** handle reset form values */
@@ -99,18 +100,32 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 </HStack>
               </Text>
               {props.showBackArrow && (
-                <IconButton
-                  onPressIn={props.loading ? undefined : handleModalClose}
-                  {...style.backIconButton}
-                  marginTop={props.backArrowMarginTop}
-                  marginBottom={props.backArrowMarginBottom}
-                  marginLeft={props.backArrowMarginLeft}
-                  marginRight={props.backArrowMarginRight}
-                  _hover={{
-                    backgroundColor: 'secondary.300',
+                <Popconfirm
+                  placement={props.popover?.placement}
+                  title={props.popover?.text}
+                  okText={props.popover?.confirmText}
+                  cancelText={props.popover?.cancelText}
+                  open={show}
+                  onConfirm={handleModalClose}
+                  onOpenChange={(newOpen: boolean) => setShow(newOpen)}
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  overlayInnerStyle={{
+                    maxWidth: '300px',
                   }}
-                  icon={<LeftArrowIcon size={6} />}
-                />
+                >
+                  <IconButton
+                    onPressIn={props.loading ? undefined : () => setShow(true)}
+                    {...style.backIconButton}
+                    marginTop={props.backArrowMarginTop}
+                    marginBottom={props.backArrowMarginBottom}
+                    marginLeft={props.backArrowMarginLeft}
+                    marginRight={props.backArrowMarginRight}
+                    _hover={{
+                      backgroundColor: 'secondary.300',
+                    }}
+                    icon={<LeftArrowIcon size={6} />}
+                  />
+                </Popconfirm>
               )}
               <Text {...style.commonText}>Join using</Text>
               <HStack {...style.smButtonsContainer}>
@@ -362,4 +377,10 @@ UnoRegisterModal.defaultProps = {
   loading: false,
   loaderColor: 'secondary.300',
   loaderSize: 'sm',
+  popover: {
+    text: 'Changes that you made may not be saved.',
+    cancelText: 'Cancel',
+    confirmText: 'Leave',
+    placement: 'right',
+  },
 };

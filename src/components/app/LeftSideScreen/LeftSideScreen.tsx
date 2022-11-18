@@ -13,7 +13,7 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
       width={props.boxWidth}
       minHeight={'100vh'}
       position="relative"
-      display={{ sm: 'none', md: 'block' }}
+      display={{ base: 'none', sm: 'none', md: 'block' }}
     >
       <Box
         position={'fixed'}
@@ -28,6 +28,7 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
           showStatus={false}
           infiniteLoop={props.infiniteLoop}
           interval={props.interval}
+          showIndicators={props.showIndicators}
         >
           {props.list?.map((object: IListItem) => {
             return (
@@ -70,8 +71,16 @@ LeftSideScreen.defaultProps = {
   interval: 3000,
   showThumbs: false,
   carouselTopMargin: 220,
-  boxWidth: { 'sm': 'none', 'md': 512, 'lg': 640, 'xl': 787, '2xl': 900 },
+  boxWidth: {
+    'base': 'none',
+    'sm': 'none',
+    'md': 512,
+    'lg': 570,
+    'xl': 767,
+    '2xl': 900,
+  },
   imageBorderRadius: 10,
   imageHeight: 400,
   boxPadding: 10,
+  showIndicators: false,
 };

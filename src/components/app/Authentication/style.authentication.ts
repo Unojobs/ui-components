@@ -11,6 +11,7 @@ export const style = {
   submitButton: {
     width: '400px',
     backgroundColor: '#4169E0',
+    marginBottom: '20px',
   },
   heading: {
     width: 400,

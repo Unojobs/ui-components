@@ -29,4 +29,9 @@ export interface CustomButtonProps {
   justifyContent?: string;
   alignItems?: string;
   fontWeight?: string;
+  marginTop?: string | number;
+  marginBottom?: string | number;
+  marginLeft?: string | number;
+  marginRight?: string | number;
+  margin: string | number;
 }

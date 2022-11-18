@@ -163,6 +163,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         </Text>
         <CustomButton
           {...style.submitButton}
+          marginBottom={'0px'}
           htmlType="submit"
           disable={props.loading ? true : false}
         >

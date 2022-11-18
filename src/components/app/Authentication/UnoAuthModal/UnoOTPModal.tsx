@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Form } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Form, Popconfirm } from 'antd';
 import { IconButton, Modal } from '../../../composites';
 import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
@@ -11,6 +11,7 @@ import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
 export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   const [form] = Form.useForm();
+  const [show, setShow] = useState<boolean>(false);
 
   /** Handle back screen scroll when modal is open */
   useEffect(() => {
@@ -29,7 +30,7 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
   /**Handle modal close function */
   const handleModalClose = () => {
     form.resetFields();
-    props.onClose?.();
+    props.setIsOpened?.(false);
   };
 
   /** handle reset form values */
@@ -62,18 +63,32 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                 </Text>
               )}
               {props.showBackArrow && (
-                <IconButton
-                  onPressIn={props.loading ? undefined : handleModalClose}
-                  {...style.backIconButton}
-                  marginTop={props.backArrowMarginTop}
-                  marginBottom={props.backArrowMarginBottom}
-                  marginLeft={props.backArrowMarginLeft}
-                  marginRight={props.backArrowMarginRight}
-                  _hover={{
-                    backgroundColor: 'secondary.300',
+                <Popconfirm
+                  placement={props.popover?.placement}
+                  title={props.popover?.text}
+                  okText={props.popover?.confirmText}
+                  cancelText={props.popover?.cancelText}
+                  open={show}
+                  onConfirm={props.loading ? undefined : handleModalClose}
+                  onOpenChange={(newOpen: boolean) => setShow(newOpen)}
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  overlayInnerStyle={{
+                    maxWidth: '300px',
                   }}
-                  icon={<LeftArrowIcon size={6} />}
-                />
+                >
+                  <IconButton
+                    onPressIn={props.loading ? undefined : () => setShow(true)}
+                    {...style.backIconButton}
+                    marginTop={props.backArrowMarginTop}
+                    marginBottom={props.backArrowMarginBottom}
+                    marginLeft={props.backArrowMarginLeft}
+                    marginRight={props.backArrowMarginRight}
+                    _hover={{
+                      backgroundColor: 'secondary.300',
+                    }}
+                    icon={<LeftArrowIcon size={6} />}
+                  />
+                </Popconfirm>
               )}
               {(props.heading || props.subHeading) && (
                 <VStack>
@@ -114,7 +129,11 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   ]}
                 >
                   <OtpInput
-                    inputStyle={style.otpInputStyle}
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    inputStyle={{
+                      ...style.otpInputStyle,
+                      fontSize: props.isInputSecure ? '36px' : '18px',
+                    }}
                     separator={<span style={style.otpSeperatorStyle} />}
                     numInputs={6}
                     isInputNum={true}
@@ -125,7 +144,11 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   />
                 </Form.Item>
 
-                <CustomButton {...style.submitButton} htmlType="submit">
+                <CustomButton
+                  {...style.submitButton}
+                  marginBottom={props.isResend ? '0px' : '20px'}
+                  htmlType="submit"
+                >
                   {props.loading ? (
                     <Spinner
                       color={props.loaderColor}
@@ -184,4 +207,10 @@ UnoOTPModal.defaultProps = {
   loading: false,
   loaderColor: 'secondary.300',
   loaderSize: 'sm',
+  popover: {
+    text: 'Changes that you made may not be saved.',
+    cancelText: 'Cancel',
+    confirmText: 'Leave',
+    placement: 'right',
+  },
 };
