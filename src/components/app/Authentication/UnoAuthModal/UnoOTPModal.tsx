@@ -5,7 +5,11 @@ import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import OtpInput from 'react-otp-input';
 import { style } from '../style.authentication';
-import type { IUnoOTPModalProps } from './types';
+import type {
+  IBackArrowPopoverPlacementType,
+  ILoaderSizeType,
+  IUnoOTPModalProps,
+} from './types';
 import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
 
@@ -206,11 +210,11 @@ UnoOTPModal.defaultProps = {
   isResetOnSubmit: true,
   loading: false,
   loaderColor: 'secondary.300',
-  loaderSize: 'sm',
+  loaderSize: 'sm' as ILoaderSizeType,
   popover: {
     text: 'Changes that you made may not be saved.',
     cancelText: 'Cancel',
     confirmText: 'Leave',
-    placement: 'right',
+    placement: 'top' as IBackArrowPopoverPlacementType,
   },
 };

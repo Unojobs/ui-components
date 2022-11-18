@@ -12,9 +12,15 @@ import type React from 'react';
 export type SelectableRadioButtonProps = {
   onChange?: (value: string) => void;
   list: string[];
-  size: 'extraLarge' | 'large' | 'medium' | 'small';
+  size: ISelectableRadioSizeType;
   label?: string;
   space?: number;
   initialValue: string | undefined;
   userStyle?: React.CSSProperties;
 };
+
+export declare type ISelectableRadioSizeType =
+  | 'extraLarge'
+  | 'large'
+  | 'medium'
+  | 'small';

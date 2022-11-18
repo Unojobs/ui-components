@@ -15,15 +15,23 @@ export interface ICommonModalProps {
   onClose?: () => void | undefined;
   loading?: boolean;
   loaderColor?: string;
-  loaderSize?: 'sm' | 'lg';
+  loaderSize?: ILoaderSizeType;
   popover?: IPopoverProps;
 }
 export interface IPopoverProps {
   text?: string;
   cancelText?: string;
   confirmText?: string;
-  placement?: 'top' | 'bottom' | 'left' | 'right';
+  placement?: IBackArrowPopoverPlacementType;
 }
+
+export declare type ILoaderSizeType = 'sm' | 'lg';
+
+export declare type IBackArrowPopoverPlacementType =
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'top';
 
 export interface IBackArrowProps {
   showBackArrow: boolean;

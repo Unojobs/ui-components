@@ -5,7 +5,12 @@ import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
-import type { IRegisterFormValuesProps, IUnoUserRegisterProps } from './types';
+import type {
+  IBackArrowPopoverPlacementType,
+  ILoaderSizeType,
+  IRegisterFormValuesProps,
+  IUnoUserRegisterProps,
+} from './types';
 import '../styles.authentication.css';
 import {
   FacebookSMLogo,
@@ -376,11 +381,11 @@ UnoRegisterModal.defaultProps = {
   isResetOnSubmit: false,
   loading: false,
   loaderColor: 'secondary.300',
-  loaderSize: 'sm',
+  loaderSize: 'sm' as ILoaderSizeType,
   popover: {
     text: 'Changes that you made may not be saved.',
     cancelText: 'Cancel',
     confirmText: 'Leave',
-    placement: 'right',
+    placement: 'top' as IBackArrowPopoverPlacementType,
   },
 };
