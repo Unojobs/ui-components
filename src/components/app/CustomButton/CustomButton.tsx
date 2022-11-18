@@ -22,6 +22,11 @@ export const CustomButton = (props: CustomButtonProps) => {
     justifyContent,
     alignItems,
     fontWeight,
+    margin,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
   } = props;
   const defaultStyle = {
     padding: p,
@@ -38,6 +43,11 @@ export const CustomButton = (props: CustomButtonProps) => {
     justifyContent,
     alignItems,
     fontWeight,
+    margin,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
   };
   return (
     <Button
@@ -63,8 +73,8 @@ CustomButton.defaultProps = {
   border: 'none',
   p: '13px 24px',
   pt: '13px',
-
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  margin: '',
 };
