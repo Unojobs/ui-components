@@ -5,7 +5,9 @@ import { HStack, Spinner, Text, VStack } from '../../../primitives';
 import { CustomButton } from '../../CustomButton';
 import { style } from '../style.authentication';
 import type {
+  IBackArrowPopoverPlacementType,
   IForgotPasswordFormValuesProps,
+  ILoaderSizeType,
   IUnoForgetPasswordModalProps,
 } from './types';
 import '../styles.authentication.css';
@@ -199,13 +201,13 @@ UnoForgetPasswordModal.defaultProps = {
   isResetOnSubmit: false,
   loading: false,
   loaderColor: 'secondary.300',
-  loaderSize: 'sm',
+  loaderSize: 'sm' as ILoaderSizeType,
   isCandidate: false,
   isAdmin: false,
   popover: {
     text: 'Changes that you made may not be saved.',
     cancelText: 'Cancel',
     confirmText: 'Leave',
-    placement: 'right',
+    placement: 'top' as IBackArrowPopoverPlacementType,
   },
 };

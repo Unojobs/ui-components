@@ -3,7 +3,10 @@ import 'antd/dist/antd.css';
 import './style.css';
 import { Radio, Space } from 'antd';
 import type { RadioChangeEvent } from 'antd';
-import type { SelectableRadioButtonProps } from './types';
+import type {
+  ISelectableRadioSizeType,
+  SelectableRadioButtonProps,
+} from './types';
 
 export const SelectableRadioButton = (
   props: SelectableRadioButtonProps
@@ -63,7 +66,7 @@ export const SelectableRadioButton = (
 SelectableRadioButton.defaultProps = {
   list: [],
   onChange: undefined,
-  size: 'medium',
+  size: 'medium' as ISelectableRadioSizeType,
   initialValue: undefined,
   space: 20.5,
   label: 'RadioButtonGroup',

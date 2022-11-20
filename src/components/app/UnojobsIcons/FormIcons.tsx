@@ -120,10 +120,10 @@ export const UnoEmailIcon = ({ fill, size }: IconProps) => {
         <path
           d="M14.1666 17.5827H5.83329C3.33329 17.5827 1.66663 16.3327 1.66663 13.416V7.58268C1.66663 4.66602 3.33329 3.41602 5.83329 3.41602H14.1666C16.6666 3.41602 18.3333 4.66602 18.3333 7.58268V13.416C18.3333 16.3327 16.6666 17.5827 14.1666 17.5827Z"
           stroke={fill ? fill : '#111111'}
-          stroke-width="1.5"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           width="20"
           height="21"
           fill="none"
@@ -131,10 +131,10 @@ export const UnoEmailIcon = ({ fill, size }: IconProps) => {
         <path
           d="M14.1667 8L11.5584 10.0833C10.7 10.7667 9.2917 10.7667 8.43337 10.0833L5.83337 8"
           stroke={fill ? fill : '#111111'}
-          stroke-width="1.5"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           width="20"
           height="21"
           fill="none"

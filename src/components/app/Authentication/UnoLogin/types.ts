@@ -17,8 +17,10 @@ export interface IUnoLoginProps {
   errors?: ILoginErrorProps;
   loading?: boolean;
   loaderColor?: string;
-  loaderSize?: 'sm' | 'lg';
+  loaderSize?: ILoaderSizeType;
 }
+
+export declare type ILoaderSizeType = 'sm' | 'lg';
 
 export interface ILoginFormValue {
   email: string;

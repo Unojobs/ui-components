@@ -11,7 +11,7 @@ import {
   UnojobsAppLogo,
 } from '../../UnojobsIcons';
 import { IconButton } from '../../../composites';
-import type { ILoginFormValue, IUnoLoginProps } from './types';
+import type { ILoaderSizeType, ILoginFormValue, IUnoLoginProps } from './types';
 import '../styles.authentication.css';
 import { preventCopyPaste } from '../helper.authentication';
 
@@ -101,7 +101,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
               }}
-              initialValue={'Employer'}
+              initialValue={props.isCandidate ? 'Candidate' : 'Employer'}
               onChange={(value: string) => {
                 if (value.toLowerCase() === 'candidate') {
                   props.setIsCandidate(true);
@@ -246,5 +246,5 @@ UnoLogin.defaultProps = {
   },
   loading: false,
   loaderColor: 'secondary.300',
-  loaderSize: 'sm',
+  loaderSize: 'sm' as ILoaderSizeType,
 };

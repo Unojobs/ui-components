@@ -7,7 +7,11 @@ import { preventCopyPaste } from '../helper.authentication';
 import { style } from '../style.authentication';
 import '../styles.authentication.css';
 import { LeftArrowIcon, UnojobsAppLogo } from '../../UnojobsIcons';
-import type { IUnoNewPasswordProps } from './types';
+import type {
+  IBackArrowPopoverPlacementType,
+  ILoaderSizeType,
+  IUnoNewPasswordProps,
+} from './types';
 
 export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();
@@ -221,11 +225,11 @@ UnoNewPasswordModal.defaultProps = {
   isResetOnSubmit: false,
   loading: false,
   loaderColor: 'secondary.300',
-  loaderSize: 'sm',
+  loaderSize: 'sm' as ILoaderSizeType,
   popover: {
     text: 'Changes that you made may not be saved.',
     cancelText: 'Cancel',
     confirmText: 'Leave',
-    placement: 'right',
+    placement: 'top' as IBackArrowPopoverPlacementType,
   },
 };

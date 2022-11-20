@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 import { Box, createIcon } from '../../primitives';
+import type {
+  IProgressIconProps,
+  IProgressPageType,
+  IProgressStatusType,
+} from './types';
 
 type IconProps = {
   fill?: string;
@@ -218,19 +223,7 @@ export const ProgressIcon: React.FC<IProgressIconProps> = (props) => {
 /** default props for ProgressIcon */
 ProgressIcon.defaultProps = {
   onClick: undefined,
-  status: 'off',
+  status: 'off' as IProgressStatusType,
   borderColor: '#F3F3F3',
-  page: 'profile',
+  page: 'profile' as IProgressPageType,
 };
-
-export interface IProgressIconProps {
-  onClick?: () => void;
-  style?: React.CSSProperties;
-  status: 'on' | 'complete' | 'off';
-  page?: 'profile' | 'review' | 'complete' | 'job';
-  fill?: string;
-  size?: number | string;
-  marginTop: number | string;
-  marginLeft: number | string;
-  borderColor?: string;
-}
