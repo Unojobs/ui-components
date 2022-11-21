@@ -35,7 +35,7 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
         justifyContent={'center'}
         alignItems={'center'}
       >
-        <TextArea autoSize style={{ flexGrow: 1 }} onChange={handleTextInput} />
+        <TextArea autoSize onChange={handleTextInput} />
         <HStack alignItems={'center'} justifyContent={'center'}>
           <CustomNBButton
             backgroundColor={'white'}
