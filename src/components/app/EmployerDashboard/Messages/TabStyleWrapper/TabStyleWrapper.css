@@ -1,0 +1,13 @@
+.tabs-antd-custom-styles-employer-portal .ant-tabs-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.tabs-antd-custom-styles-employer-portal .ant-tabs-tab {
+  width: 50%;
+  justify-content: center;
+}
+.tabs-antd-custom-styles-employer-portal .ant-tabs-nav-more {
+  display: none;
+}
