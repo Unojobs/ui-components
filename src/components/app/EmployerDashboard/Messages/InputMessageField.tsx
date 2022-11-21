@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Input } from 'antd';
 import React from 'react';
-import { HStack } from '../../../primitives';
+import { HStack, Text } from '../../../primitives';
 import {
   FileAddOutlined,
   SmileOutlined,
@@ -12,56 +12,59 @@ import { CustomAvatar } from './CustomAvatar';
 const { TextArea } = Input;
 export interface InputMessageFieldProps {
   user: { avatarUri?: string; username: string; id: number };
-  handleTextInput: (event?: any) => void;
-  handleEmojiInput: (event?: any) => void;
   handleFileUpload: (event?: any) => void;
+  handleEmojiInput: (event?: any) => void;
+  handleTextInput: (event?: any) => void;
   handleSubmit: (event?: any) => void;
 }
 export const InputMessageField = (props: InputMessageFieldProps) => {
   const {
     user,
-    handleTextInput,
     handleEmojiInput,
     handleFileUpload,
     handleSubmit,
+    handleTextInput,
   } = props;
   return (
-    <HStack
-      width={817}
-      height={83}
-      alignItems={'center'}
-      justifyContent={'space-evenly'}
-    >
-      <CustomAvatar size={'45px'} user={user} />
+    <HStack paddingRight={'4'} height={'83px'} alignItems={'center'}>
+      <CustomAvatar user={user} size={45} />
       <HStack
-        width={650}
-        height={45}
-        paddingX={4}
-        paddingY={5}
+        paddingX={'8'}
+        space={'4'}
+        flexGrow={1}
+        justifyContent={'center'}
         alignItems={'center'}
-        justifyContent={'space-between'}
       >
-        <TextArea
-          placeholder="Send a message..."
-          style={{ fontSize: 14 }}
-          bordered={false}
-          autoSize
-          onChange={handleTextInput}
-        />
-        <HStack space={2}>
-          <SmileOutlined onClick={handleEmojiInput} size={12} />
-          <FileAddOutlined onClick={handleFileUpload} size={12} />
+        <TextArea autoSize style={{ flexGrow: 1 }} onChange={handleTextInput} />
+        <HStack alignItems={'center'} justifyContent={'center'}>
+          <CustomNBButton
+            backgroundColor={'white'}
+            height={'8px'}
+            width={'8px'}
+            onClick={handleEmojiInput}
+          >
+            <SmileOutlined />
+          </CustomNBButton>
+          <CustomNBButton
+            backgroundColor={'white'}
+            height={'8px'}
+            width={'8px'}
+            onClick={handleFileUpload}
+          >
+            <FileAddOutlined />
+          </CustomNBButton>
         </HStack>
       </HStack>
-      <CustomNBButton
-        htmlType="submit"
-        width={'48px'}
-        height={'46px'}
-        backgroundColor="primary.500"
-        onClick={handleSubmit}
-      >
-        <SendOutlined size={12} style={{ color: '#fff' }} />
-      </CustomNBButton>
+      <Text>
+        <CustomNBButton
+          htmlType="submit"
+          width={'48px'}
+          height={'46px'}
+          onClick={handleSubmit}
+        >
+          <SendOutlined size={12} style={{ color: 'white' }} />
+        </CustomNBButton>
+      </Text>
     </HStack>
   );
 };
