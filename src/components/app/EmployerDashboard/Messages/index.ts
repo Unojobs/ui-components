@@ -9,4 +9,4 @@ export * from './CustomAvatarGroup';
 export * from './CustomAvatar';
 export * from './CustomStarRatings';
 export * from './CandidateChatTopMenu';
-export * from './TabStyleWrapper';
+export * from './EmployerTabStyleWrapper';
