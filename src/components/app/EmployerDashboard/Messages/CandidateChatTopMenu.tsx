@@ -1,4 +1,3 @@
-import './CustomAntdTabs.styles.css';
 import React from 'react';
 import { VStack, HStack, Text } from '../../../primitives';
 import { Badge } from '../../../composites';
