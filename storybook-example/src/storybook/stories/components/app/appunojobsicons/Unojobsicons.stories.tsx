@@ -76,6 +76,8 @@ import {
   UnojobsApplyIcon,
   UnojobsCandidateIcon,
   UnojobsSearchFavIcon,
+  UnojobsWaitlistIcon,
+  UnojobsMenuIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -158,6 +160,8 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsCandidateIcon></UnojobsCandidateIcon>
             <UnojobsSearchFavIcon></UnojobsSearchFavIcon>
             <UnojobsApplyIcon></UnojobsApplyIcon>
+            <UnojobsWaitlistIcon></UnojobsWaitlistIcon>
+            <UnojobsMenuIcon></UnojobsMenuIcon>
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>AppLogo :</Text>
