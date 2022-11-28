@@ -890,6 +890,39 @@ UnojobsMenuIcon.defaultProps = {
   size: 6,
 };
 
+export const UnojobsCancelIcon = ({
+  fill = '#111111',
+  size = 6,
+}: IconProps) => {
+  const CustomIcon = createIcon({
+    viewBox: '0 0 24 25',
+    path: (
+      <>
+        <path
+          d="M5.00098 5.54541L19 19.5445"
+          stroke={fill}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M4.99996 19.5445L18.999 5.54541"
+          stroke={fill}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  });
+  return <CustomIcon size={size} />;
+};
+
+UnojobsCancelIcon.defaultProps = {
+  fill: '#111111',
+  size: 6,
+};
+
 export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
   const CustomIcon = createIcon({
     viewBox: '0 0 335 223',
