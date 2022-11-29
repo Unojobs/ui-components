@@ -64,6 +64,7 @@ export const custom = {
       highlight: '#0066FF',
       overline: '#203AA1',
       subtitle2: '#EEEEEE',
+      heading1: '#080304',
     },
     notificationColors: {
       success: '#73C04B',
@@ -74,6 +75,7 @@ export const custom = {
   },
   fontSizes: {
     appmedium: '22px',
+    biggersm: '14px',
   },
   lineHeights: {
     sm: '1.2em', // fontSize : 48px, lineHeight : 57.6px
