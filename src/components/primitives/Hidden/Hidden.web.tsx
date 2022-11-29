@@ -1,16 +1,21 @@
+import { useTheme } from 'native-base';
 import React from 'react';
-const breakPoints = ['base', 'sm', 'md', 'lg', 'xl'];
 const Hidden = React.memo(({ children, ...props }: any) => {
+  const theme = useTheme();
+  const breakPoints = Object.keys(theme.breakpoints);
+
   const { from, till, only } = props;
 
-  let display: any = {};
+  const display: any = {};
 
   if (till) {
+    let flag = false;
     for (const i in breakPoints) {
-      if (breakPoints[i] === till) {
-        display[breakPoints[i]] = 'none';
+      if (breakPoints[i] !== till) {
+        display[breakPoints[i]] = flag ? 'flex' : 'none';
       } else {
-        display[breakPoints[i]] = 'flex';
+        display[breakPoints[i]] = 'none';
+        flag = true;
       }
     }
   }
@@ -26,10 +31,13 @@ const Hidden = React.memo(({ children, ...props }: any) => {
     }
   }
   if (only) {
-    display.base = 'flex';
     if (Array.isArray(only)) {
-      for (const i in only) {
-        display[only[i]] = 'none';
+      for (const i in breakPoints) {
+        if (only.includes(breakPoints[i])) {
+          display[breakPoints[i]] = 'none';
+        } else {
+          display[breakPoints[i]] = 'flex';
+        }
       }
     } else {
       display[only] = 'none';
