@@ -1,5 +1,6 @@
 export { AppProvider } from './AppProvider';
 export { extendTheme } from 'native-base';
+export { getStyleElement } from 'native-base';
 export {
   useColorMode,
   useColorModeValue,
