@@ -1,6 +1,6 @@
 import React from 'react';
-import { Center } from 'src/components/composites';
-import { Text, Box } from 'src/components/primitives';
+import { Center } from '../../../components/composites';
+import { Text, Box } from '../../../components/primitives';
 
 import { NoDataIcon } from '../UnojobsIcons/CommonScreenIcon';
 
