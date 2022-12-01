@@ -1,6 +1,6 @@
 import React from 'react';
 import { Center } from 'src/components/composites';
-import { Text } from 'src/components/primitives';
+import { Text, Box } from 'src/components/primitives';
 
 import { AccessDeniedIcon } from '../UnojobsIcons/CommonScreenIcon';
 
@@ -12,7 +12,10 @@ export const AccessDenied = (props: PropsTypes) => {
   const { title, subTitle } = props;
   return (
     <Center height="100%" justifyContent="center" alignItems="center">
-      <AccessDeniedIcon />
+      <Box width={355} height={283}>
+        <AccessDeniedIcon size="full" />
+      </Box>
+
       <Text
         fontWeight="semibold"
         fontSize="2xl"

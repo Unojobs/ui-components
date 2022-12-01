@@ -76,6 +76,10 @@ import {
   UnojobsApplyIcon,
   UnojobsCandidateIcon,
   UnojobsSearchFavIcon,
+  UploadIcon,
+  EditOutlinedIcon,
+  DeleteOutlinedIcon,
+  AddOutlinedIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -191,6 +195,10 @@ const UnojobsiconsTest = ({ ...args }) => {
             <CircularWrongIcon />
             <CircularCorrectIcon />
             <UnoEmailIcon />
+            <UploadIcon size={4} />
+            <EditOutlinedIcon size={6} />
+            <DeleteOutlinedIcon size={6} />
+            <AddOutlinedIcon sixe={4} />
           </HStack>
         </VStack>
       </Box>

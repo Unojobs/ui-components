@@ -1,6 +1,6 @@
 import React from 'react';
 import { Center } from 'src/components/composites';
-import { Text } from 'src/components/primitives';
+import { Text, Box } from 'src/components/primitives';
 
 import { NoDataIcon } from '../UnojobsIcons/CommonScreenIcon';
 
@@ -12,7 +12,10 @@ export const NoDataScreen = (props: PropsTypes) => {
   const { title, subTitle } = props;
   return (
     <Center height="100%" justifyContent="center">
-      <NoDataIcon />
+      <Box width={255} height={181}>
+        <NoDataIcon size="full" />
+      </Box>
+
       <Text
         fontWeight="semibold"
         fontSize="2xl"

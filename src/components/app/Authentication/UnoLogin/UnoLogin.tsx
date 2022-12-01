@@ -180,11 +180,15 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           <HStack {...style.smButtonsContainer}>
             <IconButton
               icon={<GoogleSMLogo />}
+              _hover={style.socialHoverFocus}
+              _focus={style.socialHoverFocus}
               onPressIn={props.loading ? undefined : handleOnGoogleSM}
               {...style.iconButton}
             />
             <IconButton
               icon={<LinkedInSMLogo />}
+              _hover={style.socialHoverFocus}
+              _focus={style.socialHoverFocus}
               onPressIn={props.loading ? undefined : handleOnLinkedInSM}
               {...style.iconButton}
             />
@@ -192,6 +196,8 @@ export const UnoLogin = (props: IUnoLoginProps) => {
             {props.isCandidate && (
               <IconButton
                 icon={<FacebookSMLogo />}
+                _hover={style.socialHoverFocus}
+                _focus={style.socialHoverFocus}
                 onPressIn={props.loading ? undefined : handleOnFacebookSM}
                 {...style.iconButton}
               />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Center } from 'src/components/composites';
-import { Text } from 'src/components/primitives';
+import { Text, Box } from 'src/components/primitives';
 
 import { PageNotFoundIcon } from '../UnojobsIcons/CommonScreenIcon';
 
@@ -12,7 +12,10 @@ export const PageNotFound = (props: PropsTypes) => {
   const { title, subTitle } = props;
   return (
     <Center height="100%" justifyContent="center" alignItems="center">
-      <PageNotFoundIcon />
+      <Box width={355} height={237}>
+        <PageNotFoundIcon size="full" />
+      </Box>
+
       <Text
         fontWeight="semibold"
         fontSize="2xl"

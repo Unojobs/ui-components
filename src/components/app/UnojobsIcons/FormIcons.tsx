@@ -1,6 +1,7 @@
 import React from 'react';
 import { createIcon } from '../../primitives';
-
+import { Path } from 'react-native-svg';
+import { Icon } from 'native-base';
 type IconProps = {
   fill?: string;
   size?: string | number;
@@ -143,4 +144,139 @@ export const UnoEmailIcon = ({ fill, size }: IconProps) => {
     ),
   });
   return <CustomIcon size={size ? size : 5} cursor="pointer" />;
+};
+
+export const UploadIcon = (props: any) => {
+  return (
+    <Icon color="transparent" fill="none" {...props} viewBox="0 0 17 16">
+      <Path
+        d="M6.5013 11.3335V7.3335L5.16797 8.66683"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M6.5 7.3335L7.83333 8.66683"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M15.1654 6.66683V10.0002C15.1654 13.3335 13.832 14.6668 10.4987 14.6668H6.4987C3.16536 14.6668 1.83203 13.3335 1.83203 10.0002V6.00016C1.83203 2.66683 3.16536 1.3335 6.4987 1.3335H9.83203"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M15.1654 6.66683H12.4987C10.4987 6.66683 9.83203 6.00016 9.83203 4.00016V1.3335L15.1654 6.66683Z"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Icon>
+  );
+};
+
+export const EditOutlinedIcon = (props: any) => {
+  return (
+    <Icon color="transparent" fill="none" {...props} viewBox="0 0 24 24">
+      <Path
+        d="M11 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15V13"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M16.0399 3.02025L8.15988 10.9003C7.85988 11.2003 7.55988 11.7903 7.49988 12.2203L7.06988 15.2303C6.90988 16.3203 7.67988 17.0803 8.76988 16.9303L11.7799 16.5003C12.1999 16.4403 12.7899 16.1403 13.0999 15.8403L20.9799 7.96025C22.3399 6.60025 22.9799 5.02025 20.9799 3.02025C18.9799 1.02025 17.3999 1.66025 16.0399 3.02025Z"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M14.9102 4.15039C15.5802 6.54039 17.4502 8.41039 19.8502 9.09039"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Icon>
+  );
+};
+
+export const DeleteOutlinedIcon = (props: any) => {
+  return (
+    <Icon color="transparent" fill="none" {...props} viewBox="0 0 24 24">
+      <Path
+        d="M21 5.98047C17.67 5.65047 14.32 5.48047 10.98 5.48047C9 5.48047 7.02 5.58047 5.04 5.78047L3 5.98047"
+        stroke="#EB5757"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97"
+        stroke="#EB5757"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M18.8504 9.13965L18.2004 19.2096C18.0904 20.7796 18.0004 21.9996 15.2104 21.9996H8.79039C6.00039 21.9996 5.91039 20.7796 5.80039 19.2096L5.15039 9.13965"
+        stroke="#EB5757"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M10.3301 16.5H13.6601"
+        stroke="#EB5757"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M9.5 12.5H14.5"
+        stroke="#EB5757"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Icon>
+  );
+};
+
+export const AddOutlinedIcon = (props: any) => {
+  return (
+    <Icon color="transparent" fill="none" {...props} viewBox="0 0 16 17">
+      <Path
+        d="M8.50065 14.6663C12.1673 14.6663 15.1673 11.6663 15.1673 7.99967C15.1673 4.33301 12.1673 1.33301 8.50065 1.33301C4.83398 1.33301 1.83398 4.33301 1.83398 7.99967C1.83398 11.6663 4.83398 14.6663 8.50065 14.6663Z"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M5.83398 8H11.1673"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <Path
+        d="M8.5 10.6663V5.33301"
+        stroke="#4169E0"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </Icon>
+  );
 };
