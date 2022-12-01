@@ -5,6 +5,7 @@ import { Icon } from 'native-base';
 export const PageNotFoundIcon = (props: any) => {
   return (
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 355 237">
+      {/**@ts-ignore */}
       <G clip-path="url(#clip0_1112_143812)">
         <Path
           d="M291.6 54.8706H81.6616C75.562 54.8706 70.6172 59.8223 70.6172 65.9306V189.837C70.6172 195.945 75.562 200.897 81.6616 200.897H291.6C297.699 200.897 302.644 195.945 302.644 189.837V65.9306C302.644 59.8223 297.699 54.8706 291.6 54.8706Z"
