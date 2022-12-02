@@ -23,6 +23,6 @@ interface IStaggerProps {
   visible?: boolean;
 }
 
-export const Stagger = ({ ...props }: IStaggerProps) => {
+export const Stagger = React.memo(({ ...props }: IStaggerProps) => {
   return <NBStagger {...props} />;
-};
+});

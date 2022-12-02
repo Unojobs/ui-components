@@ -1,6 +1,6 @@
 import React from 'react';
 import { Backdrop as NBBackdrop, IPressableProps } from 'native-base';
 
-export const Backdrop = ({ ...props }: IPressableProps) => {
+export const Backdrop = React.memo(({ ...props }: IPressableProps) => {
   return <NBBackdrop {...props} />;
-};
+});
