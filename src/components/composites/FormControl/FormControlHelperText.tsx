@@ -3,8 +3,8 @@ import {
   FormControl as NBFormControl,
   IFormControlHelperTextProps,
 } from 'native-base';
-export const FormControlHelperText = ({
-  ...props
-}: IFormControlHelperTextProps) => {
-  return <NBFormControl.HelperText {...props} />;
-};
+export const FormControlHelperText = React.memo(
+  ({ ...props }: IFormControlHelperTextProps) => {
+    return <NBFormControl.HelperText {...props} />;
+  }
+);
