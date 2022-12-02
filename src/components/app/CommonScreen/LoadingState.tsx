@@ -1,7 +1,7 @@
 import { Spinner } from 'native-base';
 import React from 'react';
-import { Center } from 'src/components/composites';
-import { Heading, HStack } from 'src/components/primitives';
+import { Center } from '../../composites';
+import { Heading, HStack } from '../../primitives';
 
 export const LoadingState = () => {
   return (
