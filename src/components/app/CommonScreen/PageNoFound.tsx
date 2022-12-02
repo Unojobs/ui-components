@@ -1,6 +1,6 @@
 import React from 'react';
-import { Center } from 'src/components/composites';
-import { Text, Box } from 'src/components/primitives';
+import { Center } from '../../composites';
+import { Text, Box } from '../..//primitives';
 
 import { PageNotFoundIcon } from '../UnojobsIcons/CommonScreenIcon';
 

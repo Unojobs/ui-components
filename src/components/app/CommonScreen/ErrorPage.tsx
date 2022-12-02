@@ -1,6 +1,6 @@
 import React from 'react';
-import { Center } from 'src/components/composites';
-import { Heading } from 'src/components/primitives';
+import { Center } from '../../composites';
+import { Heading } from '../../primitives';
 import { CustomNBButton } from '../CustomNBButton';
 
 interface ErrorProps {
