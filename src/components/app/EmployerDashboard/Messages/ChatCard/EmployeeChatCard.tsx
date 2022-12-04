@@ -8,8 +8,8 @@ import type { ChatCardComponent } from './types';
 export function EmployeeChatCard({ candidate, isActive }: ChatCardComponent) {
   return (
     <HStack width="full" height="full" space={3}>
-      <CustomAvatar user={candidate} size={'12'} />
-      <VStack flexGrow={1} space={'2'}>
+      <CustomAvatar user={candidate} size={12} />
+      <VStack flexGrow={1} space={2}>
         <Text
           color={isActive ? STATIC_PROPS.WHITE : STATIC_PROPS.ALL_BLACK}
           {...STATIC_PROPS.FONT_MEDIUM_SEMIBOLD}

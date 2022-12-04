@@ -33,7 +33,7 @@ export const CategorySelector = (props: CategorySelectorProps) => {
       {...STATIC_PROPS}
     >
       {list.map((obj) => (
-        <Select.Item label={obj.label} value={obj.value} />
+        <Select.Item key={obj.value} label={obj.label} value={obj.value} />
       ))}
     </Select>
   );

@@ -5,7 +5,6 @@ import { Heading, HStack, Text } from '../../../../primitives';
 import { CustomNBButton } from '../../../CustomNBButton';
 import { STATIC_PROPS } from './constants';
 import type { TitleWithButtonProps } from './types';
-// MessagesSidebar > TitleWithButton
 
 export const TitleWithButton = (props: TitleWithButtonProps) => {
   const { titleText, buttonText, onClick } = props;

@@ -1,6 +1,5 @@
 export const STATIC_PROPS = {
   CONTAINER: {
-    px: '22px',
     pt: 4,
     pb: 2.5,
     width: 'full',
@@ -9,15 +8,17 @@ export const STATIC_PROPS = {
     borderColor: 'secondary.400',
     borderWidth: 1,
     overflow: 'scroll',
+    borderBottomWidth: 0,
   },
   PROFILE: {
     alignItems: 'center',
     justifyContent: 'space-between',
     width: 'full',
     minWidth: '700px',
+    px: '22px',
   },
   FONT_14_SEMIBOLD: {
-    fontSize: '14px',
+    fontSize: 'fontSizes.biggersm',
     fontWeight: 500,
   },
   FONT_16_SEMIBOLD: {
@@ -38,4 +39,18 @@ export const STATIC_PROPS = {
     padding: '0',
     backgroundColor: 'transparent',
   },
-};
+  BUTTON_CONTAINER: {
+    px: 5,
+    py: 2.5,
+    borderColor: 'secondary.400',
+    borderWidth: '1.5px',
+    space: 5,
+  },
+  DIVIDER: {
+    width: '1px',
+    height: '70px',
+    marginRight: 4,
+    orientation: 'vertical',
+  },
+  TAB_BAR_STYLE: { margin: '0', padding: '0 22px' },
+} as const;
