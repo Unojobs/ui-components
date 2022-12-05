@@ -2,16 +2,16 @@ export const custom = {
   fontConfig: {
     Urbanist: {
       400: {
-        normal: 'Urbanist_Regular',
+        normal: 'Urbanist',
       },
       500: {
-        normal: 'Urbanist_Medium',
+        normal: 'Urbanist',
       },
       600: {
-        normal: 'Urbanist_SemiBold',
+        normal: 'Urbanist',
       },
       700: {
-        normal: 'Urbanist_Bold',
+        normal: 'Urbanist',
       },
     },
   },
