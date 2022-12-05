@@ -16,13 +16,6 @@ export type GetLinkPreviewResponse = {
   favicons: string[];
 };
 
-// {
-//     url: string;
-//     mediaType: string;
-//     contentType: string;
-//     favicons: string[];
-//   }
-
 export interface TLinkPreviewProps {
   message: string;
 }
