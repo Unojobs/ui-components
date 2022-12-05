@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export type TApplication = { jobId: number; jobTitle: string; status: string };
 export type TCandidate = {
   id: number;
@@ -16,7 +18,8 @@ export type TCandidate = {
 export interface ChatTopMenuProps {
   candidate: TCandidate;
   activeJobApplication: TApplication;
-  handleAddNotes: (event?: any) => void;
-  onJobTabSwitch: (obj: TApplication) => void;
-  isCandidate?: boolean;
+  handleAddNotes?: (event?: any) => void;
+  onJobTabSwitch?: (obj: TApplication) => void;
+  isCandidate: boolean;
+  children?: ReactNode;
 }
