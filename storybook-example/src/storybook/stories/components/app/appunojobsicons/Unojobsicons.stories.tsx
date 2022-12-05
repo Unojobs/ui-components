@@ -76,16 +76,13 @@ import {
   UnojobsApplyIcon,
   UnojobsCandidateIcon,
   UnojobsSearchFavIcon,
-<<<<<<< HEAD
   UploadIcon,
   EditOutlinedIcon,
   DeleteOutlinedIcon,
   AddOutlinedIcon,
-=======
   UnojobsWaitlistIcon,
   UnojobsMenuIcon,
   UnojobsCancelIcon,
->>>>>>> development
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
