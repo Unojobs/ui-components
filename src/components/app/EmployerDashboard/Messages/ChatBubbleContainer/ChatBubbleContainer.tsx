@@ -12,7 +12,6 @@ import {
 import { urlify } from '../../../../utils';
 import { CustomAvatar } from '../CustomAvatar';
 import { LinkDownloader } from '../LinkDownloader';
-import { LinkPreview } from '../LinkPreview';
 import { STATIC_PROPS } from './constant';
 import type { TChatBubbleContainerProps, TChatBubbleProps } from './types';
 
@@ -56,7 +55,7 @@ function ChatBubble(props: TChatBubbleProps) {
       >
         {!isFile ? (
           <>
-            {hasMessageUrl?.length && <LinkPreview message={message} />}
+            {/* {hasMessageUrl?.length && <LinkPreview message={message} />} */}
             <Text {...STATIC_PROPS.MESSAGE_TEXT}>
               <UrlConvertor hasMessageUrl={hasMessageUrl} message={message} />
             </Text>

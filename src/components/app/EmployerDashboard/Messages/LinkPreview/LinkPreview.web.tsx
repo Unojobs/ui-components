@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { getLinkPreview } from 'link-preview-js';
 import React, { useEffect, useState } from 'react';
 import { Image, Link, Text, VStack } from '../../../../primitives';
@@ -19,7 +17,7 @@ export const LinkPreview = (props: TLinkPreviewProps) => {
           setUrlData(previewData);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     })();
   }, [message]);
