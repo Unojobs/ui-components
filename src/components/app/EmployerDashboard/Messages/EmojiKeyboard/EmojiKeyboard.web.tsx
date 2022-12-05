@@ -18,7 +18,7 @@ export const EmojiKeyboard = (props: IEmojiKeyboardProps) => {
     <div style={{ ...STATIC_PROPS.CONTAINER }}>
       <CustomNBButton
         {...STATIC_PROPS.EMOJI_BUTTON}
-        onClick={() => SetShowEmoji((prev) => !prev)}
+        onClick={(_event) => SetShowEmoji((prev) => !prev)}
       >
         {showEmoji && (
           <div style={{ ...STATIC_PROPS.EMOJI_PICKER }}>
