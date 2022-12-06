@@ -21,6 +21,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
     isCandidate,
     handleAddNotes,
     children,
+    inputField,
   } = props;
   return (
     <VStack {...STATIC_PROPS.CONTAINER}>
@@ -77,8 +78,9 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           </>
         )}
       </HStack>
-      <HStack space={10} minWidth="600px" width="100%">
+      <HStack space={10} minWidth="600px" flex={1} width="100%">
         {children}
+        {inputField}
       </HStack>
     </VStack>
   );

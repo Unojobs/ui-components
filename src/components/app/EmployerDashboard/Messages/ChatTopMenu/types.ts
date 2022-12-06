@@ -22,4 +22,5 @@ export interface ChatTopMenuProps {
   onJobTabSwitch?: (obj: TApplication) => void;
   isCandidate: boolean;
   children?: ReactNode;
+  inputField?: any;
 }
