@@ -1,7 +1,7 @@
 export const STATIC_PROPS = {
   CONTAINER: {
     w: '100%',
-    minH: '715px',
+    height: '100%',
     px: 6,
     py: 9,
     backgroundColor: 'secondary.500',

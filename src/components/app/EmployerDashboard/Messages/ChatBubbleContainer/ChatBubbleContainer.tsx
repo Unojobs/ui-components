@@ -18,7 +18,7 @@ import type { TChatBubbleContainerProps, TChatBubbleProps } from './types';
 export const ChatBubbleContainer = (props: TChatBubbleContainerProps) => {
   const { candidate, chat } = props;
   return (
-    <ScrollView w="100%" h="715px">
+    <ScrollView w="100%" h="100%">
       <VStack {...STATIC_PROPS.CONTAINER}>
         {chat.map((obj, idx) => (
           <ChatBubble key={idx} candidate={candidate} messageObj={obj} />

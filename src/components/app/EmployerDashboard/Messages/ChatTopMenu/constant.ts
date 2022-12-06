@@ -1,7 +1,6 @@
 export const STATIC_PROPS = {
   CONTAINER: {
     pt: 4,
-    pb: 2.5,
     width: 'full',
     height: 'full',
     space: 12,
