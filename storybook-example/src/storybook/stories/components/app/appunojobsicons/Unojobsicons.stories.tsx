@@ -83,6 +83,10 @@ import {
   UnojobsWaitlistIcon,
   UnojobsMenuIcon,
   UnojobsCancelIcon,
+  UnoJobCreditIcon,
+  UnoJobUserIcon,
+  UnoJobBreifcaseIcon,
+  UnoJobViewOutlinedIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -204,7 +208,14 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UploadIcon size={4} />
             <EditOutlinedIcon size={6} />
             <DeleteOutlinedIcon size={6} />
-            <AddOutlinedIcon sixe={4} />
+            <AddOutlinedIcon size={4} />
+          </HStack>
+          <HStack>
+            <Text>Payment Icon</Text>
+            <UnoJobCreditIcon size={10} />
+            <UnoJobUserIcon size={10} />
+            <UnoJobBreifcaseIcon size={10} />
+            <UnoJobViewOutlinedIcon size={10} />
           </HStack>
         </VStack>
       </Box>
