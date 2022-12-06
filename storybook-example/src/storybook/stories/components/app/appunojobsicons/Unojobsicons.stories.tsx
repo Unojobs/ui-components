@@ -87,6 +87,8 @@ import {
   UnoJobUserIcon,
   UnoJobBreifcaseIcon,
   UnoJobViewOutlinedIcon,
+  JobPostIcon,
+  RedViewIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -214,8 +216,10 @@ const UnojobsiconsTest = ({ ...args }) => {
             <Text>Payment Icon</Text>
             <UnoJobCreditIcon size={10} />
             <UnoJobUserIcon size={10} />
-            <UnoJobBreifcaseIcon size={10} />
+            <UnoJobBreifcaseIcon size={10} fill={'#FEE9DE'} />
             <UnoJobViewOutlinedIcon size={10} />
+            <JobPostIcon size={8} />
+            <RedViewIcon size={10} />
           </HStack>
         </VStack>
       </Box>
