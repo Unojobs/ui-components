@@ -1,6 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
 import { SendOutlined } from '@ant-design/icons';
-import { Form } from 'antd';
 import React from 'react';
 import { HStack, Input } from '../../../../primitives';
 import { CustomNBButton } from '../../../CustomNBButton';
@@ -11,13 +10,22 @@ import { STATIC_PROPS } from './constant';
 import type { InputMessageFieldProps } from './types';
 
 export const InputMessageField = (props: InputMessageFieldProps) => {
-  const { user, handleFileUpload, handleSubmit, handleTextInput, value } =
-    props;
+  const {
+    user,
+    handleFileUpload,
+    handleSubmit,
+    handleTextInput,
+    value,
+    FormWrapper,
+  } = props;
   return (
     <HStack {...STATIC_PROPS.CONTAINER}>
       <CustomAvatar user={user} size="45px" />
       <HStack flex={1} height="45px">
-        <Form style={{ ...STATIC_PROPS.FORM_STYLE }} onFinish={handleSubmit}>
+        <FormWrapper
+          style={{ ...STATIC_PROPS.FORM_STYLE }}
+          onFinish={handleSubmit}
+        >
           <Input
             value={value}
             {...STATIC_PROPS.INPUT}
@@ -27,7 +35,7 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
             <EmojiKeyboard value={value} setValue={handleTextInput} />
             <CustomFileButton handleFileUpload={handleFileUpload} />
           </HStack>
-        </Form>
+        </FormWrapper>
       </HStack>
       <CustomNBButton {...STATIC_PROPS.SUBMIT_BUTTON} onClick={handleSubmit}>
         <SendOutlined size={12} style={{ color: 'white' }} />

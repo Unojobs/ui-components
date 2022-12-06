@@ -8,4 +8,5 @@ export interface InputMessageFieldProps {
       | React.MouseEvent<HTMLElement, MouseEvent>
   ) => void;
   value: string;
+  FormWrapper: any;
 }
