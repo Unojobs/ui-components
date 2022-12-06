@@ -6,10 +6,12 @@ import {
   MailTwoTone,
   PhoneTwoTone,
 } from '@ant-design/icons';
+import { Tabs } from 'antd';
 import React from 'react';
 import { Badge, Divider } from '../../../../composites';
 import { HStack, Text, VStack } from '../../../../primitives';
 import { CustomNBButton } from '../../../CustomNBButton';
+import { ChatBubbleContainer } from '../ChatBubbleContainer';
 import { CustomAvatar } from '../CustomAvatar';
 import { STATIC_PROPS } from './constant';
 import type { ChatTopMenuProps, TApplication, TCandidate } from './types';
@@ -20,7 +22,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
     activeJobApplication,
     isCandidate,
     handleAddNotes,
-    children,
+    // children,
   } = props;
   return (
     <VStack {...STATIC_PROPS.CONTAINER}>
@@ -78,7 +80,15 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
         )}
       </HStack>
       <HStack space={10} minWidth="600px" width="100%">
-        {children}
+        <Tabs
+          tabBarStyle={{ ...STATIC_PROPS.TAB_BAR_STYLE }}
+          style={{ width: '100%' }}
+          items={candidate.activeApplications.map((appl, idx) => ({
+            label: appl.jobTitle,
+            key: String(idx),
+            children: <ChatBubbleContainer candidate={candidate} />,
+          }))}
+        />
       </HStack>
     </VStack>
   );
