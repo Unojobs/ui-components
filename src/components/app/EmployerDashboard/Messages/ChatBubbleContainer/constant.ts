@@ -5,7 +5,6 @@ export const STATIC_PROPS = {
     px: 6,
     py: 9,
     backgroundColor: 'secondary.500',
-    space: 4,
     flex: 1,
   },
   MESSAGE: {

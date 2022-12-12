@@ -19,7 +19,7 @@ export const ChatBubbleContainer = (props: TChatBubbleContainerProps) => {
   const { candidate, chat } = props;
   return (
     <VStack {...STATIC_PROPS.CONTAINER}>
-      <ScrollView w="100%" h="100%" flex={1}>
+      <ScrollView w="100%" h="100%" flex={1} flexDirection="column-reverse">
         {chat.map((obj, idx) => (
           <ChatBubble key={idx} candidate={candidate} messageObj={obj} />
         ))}
@@ -41,6 +41,7 @@ function ChatBubble(props: TChatBubbleProps) {
 
   return (
     <HStack
+      marginY={3}
       space={3}
       alignSelf={messageByMe ? 'flex-end' : 'flex-start'}
       alignItems="center"
