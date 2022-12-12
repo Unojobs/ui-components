@@ -1,6 +1,6 @@
 {
-  "name": "@Unojobs/ui-components",
-  "version": "0.1.8",
+  "name": "@unojobs/ui-components",
+  "version": "0.1.9",
   "main": "lib/commonjs/index",
   "repository": {
     "type": "git",
