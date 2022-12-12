@@ -2,6 +2,10 @@
   "name": "@uno-jobs/components",
   "version": "0.1.8",
   "main": "lib/commonjs/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Unojobs/ui-components"
+  },
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
