@@ -1,15 +1,15 @@
 import type { TCandidate } from '../ChatTopMenu/types';
 
 export interface TFileObj {
-  url: string;
-  name: string;
-  size: string;
+  message_url: string;
+  name?: string;
+  size?: string;
 }
 export interface TChatProps {
   message: string;
   messageByMe: boolean;
-  timestamp: string;
-  isFile: boolean;
+  created_at: string;
+  is_file: boolean;
   fileObj?: TFileObj;
 }
 

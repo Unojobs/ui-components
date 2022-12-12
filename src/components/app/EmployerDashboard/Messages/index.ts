@@ -4,7 +4,7 @@ export * from './SearchBar';
 export * from './InputMessageField';
 export * from './ProjectCard';
 export * from './ChatCard';
-// export * from './ChatTopMenu1';
+export * from './NewMessage';
 export * from './CustomAvatarGroup';
 export * from './CustomAvatar';
 export * from './CustomStarRatings';

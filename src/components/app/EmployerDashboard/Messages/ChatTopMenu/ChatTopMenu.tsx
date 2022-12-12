@@ -78,7 +78,7 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
           </>
         )}
       </HStack>
-      <VStack space={10} minWidth="600px" flex={1} width="100%">
+      <VStack flex={1} width="100%">
         {children}
         {inputField}
       </VStack>

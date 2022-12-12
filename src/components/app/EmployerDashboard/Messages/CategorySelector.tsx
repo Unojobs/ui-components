@@ -12,6 +12,8 @@ export interface CategorySelectorProps {
   placeholder: string;
   onValueChange: (value: string) => void;
   list: Array<ListType>;
+  height?: number | string;
+  padding?: number | string;
 }
 
 const STATIC_PROPS = {
@@ -24,12 +26,13 @@ const STATIC_PROPS = {
 } as const;
 
 export const CategorySelector = (props: CategorySelectorProps) => {
-  const { defaultValue, placeholder, onValueChange, list } = props;
+  const { defaultValue, placeholder, onValueChange, list, height } = props;
   return (
     <Select
       defaultValue={defaultValue}
       placeholder={placeholder}
       onValueChange={onValueChange}
+      height={height ?? ''}
       {...STATIC_PROPS}
     >
       {list.map((obj) => (

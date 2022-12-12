@@ -18,13 +18,13 @@ import type { TChatBubbleContainerProps, TChatBubbleProps } from './types';
 export const ChatBubbleContainer = (props: TChatBubbleContainerProps) => {
   const { candidate, chat } = props;
   return (
-    <ScrollView w="100%" h="100%" flex={1}>
-      <VStack {...STATIC_PROPS.CONTAINER}>
+    <VStack {...STATIC_PROPS.CONTAINER}>
+      <ScrollView w="100%" h="100%" flex={1}>
         {chat.map((obj, idx) => (
           <ChatBubble key={idx} candidate={candidate} messageObj={obj} />
         ))}
-      </VStack>
-    </ScrollView>
+      </ScrollView>
+    </VStack>
   );
 };
 
@@ -35,7 +35,7 @@ ChatBubbleContainer.defaultProps = {
 function ChatBubble(props: TChatBubbleProps) {
   const {
     candidate,
-    messageObj: { message, timestamp, messageByMe, isFile, fileObj },
+    messageObj: { message, created_at, messageByMe, is_file, fileObj },
   } = props;
   const hasMessageUrl = urlify(message) as RegExpExecArray | null;
 
@@ -53,7 +53,7 @@ function ChatBubble(props: TChatBubbleProps) {
         {...STATIC_PROPS.MESSAGE}
         backgroundColor={messageByMe ? 'secondary.800' : 'secondary.300'}
       >
-        {!isFile ? (
+        {!is_file ? (
           <>
             {/* {hasMessageUrl?.length && <LinkPreview message={message} />} */}
             <Text {...STATIC_PROPS.MESSAGE_TEXT}>
@@ -62,8 +62,8 @@ function ChatBubble(props: TChatBubbleProps) {
           </>
         ) : (
           <LinkDownloader
-            href={fileObj?.url}
-            download={fileObj?.name}
+            href={fileObj?.message_url}
+            download={fileObj?.name ?? 'adeel'}
             target="_blank"
           >
             <VStack py={0.5} space={2}>
@@ -71,10 +71,10 @@ function ChatBubble(props: TChatBubbleProps) {
               <Divider mt={1} />
               <VStack space={1}>
                 <Text {...STATIC_PROPS.NORMAL_14_FONT} fontWeight={400}>
-                  {fileObj?.name}
+                  {fileObj?.name ?? 'adeel'}
                 </Text>
                 <Text {...STATIC_PROPS.NORMAL_14_FONT} fontWeight={400}>
-                  {fileObj?.size}
+                  {fileObj?.size ?? '256kb'}
                 </Text>
               </VStack>
             </VStack>
@@ -82,7 +82,7 @@ function ChatBubble(props: TChatBubbleProps) {
         )}
       </Box>
       <Text {...STATIC_PROPS.NORMAL_14_FONT} fontWeight={500}>
-        {timestamp}
+        {created_at}
       </Text>
     </HStack>
   );

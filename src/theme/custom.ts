@@ -76,6 +76,7 @@ export const custom = {
   fontSizes: {
     appmedium: '22px',
     biggersm: '14px',
+    title: '24px',
   },
   lineHeights: {
     sm: '1.2em', // fontSize : 48px, lineHeight : 57.6px
