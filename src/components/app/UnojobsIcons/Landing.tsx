@@ -1062,8 +1062,8 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
             y2="58.9854"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="#EEEEEE" />
+            <stop stopColor="white" />
+            <stop offset="1" stopColor="#EEEEEE" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_1065_116497"
@@ -1073,8 +1073,8 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
             y2="190.186"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="#EEEEEE" />
+            <stop stopColor="white" />
+            <stop offset="1" stopColor="#EEEEEE" />
           </linearGradient>
           <clipPath id="clip0_1065_116497">
             <rect
@@ -1092,5 +1092,5 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
 };
 
 UnojobsWaitlistIcon.defaultProps = {
-  size: 16,
+  size: 96,
 };

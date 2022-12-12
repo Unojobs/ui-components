@@ -23,4 +23,5 @@ export declare type ISelectableRadioSizeType =
   | 'extraLarge'
   | 'large'
   | 'medium'
-  | 'small';
+  | 'small'
+  | 'extraSmall';
