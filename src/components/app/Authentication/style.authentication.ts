@@ -109,4 +109,9 @@ export const style = {
     alignItems: 'center',
     color: 'primary.500',
   },
+  socialHoverFocus: {
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'primary.500',
+  },
 };

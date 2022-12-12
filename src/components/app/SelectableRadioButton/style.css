@@ -48,6 +48,11 @@
   width: 153px;
 }
 
+.button-extraSmall {
+  height: 45px;
+  width: 100px;
+}
+
 .radio-common {
   content: '';
   width: 20px;

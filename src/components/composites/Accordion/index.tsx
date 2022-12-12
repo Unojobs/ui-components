@@ -6,7 +6,7 @@ import { AccordionDetails } from './AccordionDetails';
 import { AccordionIcon } from './AccordionIcon';
 import type { IAccordionComponentType } from './types';
 
-const AccordionTemp: any = AccordionMain as IAccordionComponentType;
+const AccordionTemp: any = AccordionMain;
 AccordionTemp.Item = AccordionItem;
 AccordionTemp.Summary = AccordionSummary;
 AccordionTemp.Details = AccordionDetails;

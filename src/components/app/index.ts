@@ -21,3 +21,4 @@ export * from './VideoCallPlatform';
 export * from './NotificationAlert';
 export * from './LandingBadge';
 export * from './CurvedUnderlineText';
+export * from './CommonScreen';

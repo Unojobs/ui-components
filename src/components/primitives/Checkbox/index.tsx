@@ -6,9 +6,9 @@ import {
 } from 'native-base';
 import { CheckboxGroup } from './CheckboxGroup';
 import type { MutableRefObject } from 'react';
-export const CheckboxMain = ({ ...props }: ICheckboxProps) => {
+export const CheckboxMain = React.memo(({ ...props }: ICheckboxProps) => {
   return <NBCheckbox {...props} />;
-};
+});
 
 export type ICheckboxComponentType = ((
   props: ICheckboxProps

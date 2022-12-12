@@ -6,13 +6,15 @@ import type {
   ISliderTrackProps,
 } from 'native-base/lib/typescript/components/primitives/Slider/types';
 
-const SliderTemp: any = ({ children, ...props }: ISlideProps) => {
+const SliderTemp: any = React.memo(({ children, ...props }: ISlideProps) => {
   return <NBSlider {...props}>{children}</NBSlider>;
-};
+});
 
-const SliderTempTrack = ({ children, ...props }: ISliderTrackProps) => {
-  return <NBSlider.Track {...props}>{children}</NBSlider.Track>;
-};
+const SliderTempTrack = React.memo(
+  ({ children, ...props }: ISliderTrackProps) => {
+    return <NBSlider.Track {...props}>{children}</NBSlider.Track>;
+  }
+);
 
 const SliderTempFilledTrack = ({
   children,
