@@ -11,13 +11,10 @@ export const UnoAlertNotification = (props: IUnoAlertNotificationProps) => {
       maxW={props.maxWidth}
       minWidth={props.minWidth}
       shadow={9}
-      marginLeft={
-        props.placement === 'top-left' || props.placement === 'bottom-left'
-          ? 30
-          : props.placement === 'top' || props.placement === 'bottom'
-          ? 0
-          : -30
-      }
+      marginLeft={props.marginLeft}
+      marginRight={props.marginRight}
+      marginBottom={props.marginBottom}
+      marginTop={props.marginTop}
       borderRadius={'10'}
     >
       <Alert
@@ -78,13 +75,16 @@ export const UnoAlertNotification = (props: IUnoAlertNotificationProps) => {
 };
 
 UnoAlertNotification.defaultProps = {
-  status: 'info',
-  title: 'info title',
+  status: '',
+  title: '',
   description: '',
   variant: 'solid',
-  placement: 'top-right',
   color: 'textColors.secondary',
   closeToast: undefined,
   maxWidth: 400,
   minWidth: 300,
+  marginLeft: 20,
+  marginRight: undefined,
+  marginBottom: undefined,
+  marginTop: undefined,
 };

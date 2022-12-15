@@ -1,1 +1,1 @@
-export * from '../UnoAlertNotification/UnoAlertNotification';
+export * from './UnoAlertNotification';

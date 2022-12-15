@@ -1,25 +1,32 @@
 export interface IUnoAlertNotificationProps {
-  status?: 'error' | 'success' | 'info' | 'warning';
+  status?: IAlertStatusType;
   description?: string;
-  variant?:
-    | 'solid'
-    | 'left-accent'
-    | 'top-accent'
-    | 'outline'
-    | 'subtle'
-    | 'outline-light';
+  variant?: IAlertVariantType;
   title?: string;
   color?: string;
-  placement?:
-    | 'bottom-right'
-    | 'bottom'
-    | 'top'
-    | 'top-right'
-    | 'top-left'
-    | 'bottom-left';
   maxWidth?: number | string;
-  alert?: boolean;
-  setAlert?: React.Dispatch<React.SetStateAction<boolean>>;
   minWidth?: string | number;
-  closeToast: () => void;
+  closeToast?: () => void | undefined;
+  marginLeft?: string | number | undefined;
+  marginRight?: string | number | undefined;
+  marginBottom?: string | number | undefined;
+  marginTop?: string | number | undefined;
 }
+
+export declare type IAlertPlacementType =
+  | 'bottom-right'
+  | 'bottom'
+  | 'top'
+  | 'top-right'
+  | 'top-left'
+  | 'bottom-left';
+
+export declare type IAlertVariantType =
+  | 'solid'
+  | 'left-accent'
+  | 'top-accent'
+  | 'outline'
+  | 'subtle'
+  | 'outline-light';
+
+export declare type IAlertStatusType = 'error' | 'success' | 'info' | 'warning';
