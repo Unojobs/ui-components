@@ -83,6 +83,8 @@ import {
   UnojobsWaitlistIcon,
   UnojobsMenuIcon,
   UnojobsCancelIcon,
+  UnoStepCompleteIcon,
+  UnoEyeViewIcon,
   EditIconDefault,
   UnojobsGlobal,
   UnojobsLinkedinOutlined,
@@ -212,6 +214,9 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UploadIcon size={4} />
             <EditOutlinedIcon size={6} />
             <DeleteOutlinedIcon size={6} />
+            <AddOutlinedIcon size={4} />
+            <UnoStepCompleteIcon size={'40px'} />
+            <UnoEyeViewIcon size={'13px'} />
             <AddOutlinedIcon sixe={4} />
             <EditIconDefault />
             <UnojobsGlobal />

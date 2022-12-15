@@ -19,6 +19,7 @@ export * from './EmployerDashboard';
 export * from './TopMatches';
 export * from './VideoCallPlatform';
 export * from './NotificationAlert';
+export * from './UnoAlertNotification';
 export * from './LandingBadge';
 export * from './CurvedUnderlineText';
 export * from './CommonScreen';
