@@ -83,6 +83,8 @@ import {
   UnojobsWaitlistIcon,
   UnojobsMenuIcon,
   UnojobsCancelIcon,
+  UnoStepCompleteIcon,
+  UnoEyeViewIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -204,7 +206,9 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UploadIcon size={4} />
             <EditOutlinedIcon size={6} />
             <DeleteOutlinedIcon size={6} />
-            <AddOutlinedIcon sixe={4} />
+            <AddOutlinedIcon size={4} />
+            <UnoStepCompleteIcon size={'40px'} />
+            <UnoEyeViewIcon size={'13px'} />
           </HStack>
         </VStack>
       </Box>
