@@ -83,6 +83,14 @@ import {
   UnojobsWaitlistIcon,
   UnojobsMenuIcon,
   UnojobsCancelIcon,
+  EditIconDefault,
+  UnojobsGlobal,
+  UnojobsLinkedinOutlined,
+  UnojobsInstagramOutlined,
+  UnojobsGoogleOutlined,
+  UnojobsEditWhiteOutline,
+  UnojobsCarouselArrow,
+  UnojobsEditWithCircle,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -205,6 +213,18 @@ const UnojobsiconsTest = ({ ...args }) => {
             <EditOutlinedIcon size={6} />
             <DeleteOutlinedIcon size={6} />
             <AddOutlinedIcon sixe={4} />
+            <EditIconDefault />
+            <UnojobsGlobal />
+            <UnojobsLinkedinOutlined />
+            <UnojobsInstagramOutlined />
+            <UnojobsGoogleOutlined />
+            <Box backgroundColor="#111">
+              <UnojobsEditWhiteOutline size={5} />
+            </Box>
+            <UnojobsCarouselArrow />
+            <Box backgroundColor="#111">
+              <UnojobsEditWithCircle size={10} />
+            </Box>
           </HStack>
         </VStack>
       </Box>
