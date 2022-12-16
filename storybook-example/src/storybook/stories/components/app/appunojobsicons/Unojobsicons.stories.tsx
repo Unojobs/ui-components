@@ -216,9 +216,9 @@ const UnojobsiconsTest = ({ ...args }) => {
             <Text>Payment Icon</Text>
             <UnoJobCreditIcon size={10} />
             <UnoJobUserIcon size={10} />
-            <UnoJobBreifcaseIcon size={10} fill={'#FEE9DE'} />
+            <UnoJobBreifcaseIcon size={10} />
             <UnoJobViewOutlinedIcon size={10} />
-            <JobPostIcon size={8} />
+            <JobPostIcon size={10} />
             <RedViewIcon size={10} />
           </HStack>
         </VStack>
