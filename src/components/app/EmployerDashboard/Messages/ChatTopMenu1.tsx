@@ -27,7 +27,7 @@ export interface ChatTopMenuProps {
   handleAddNotes: (event?: any) => void;
 }
 
-export const ChatTopMenu = (props: ChatTopMenuProps) => {
+export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
   const { candidate, handleAddNotes } = props;
 
   return (

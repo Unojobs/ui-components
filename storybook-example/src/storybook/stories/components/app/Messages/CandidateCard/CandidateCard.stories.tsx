@@ -1,20 +1,18 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ChatCard } from 'components';
+import React from 'react';
 import { Wrapper } from '../../../Wrapper';
-import { CandidateCard, CandidateCardProps } from 'components';
 import { StorybookArgs } from './CandidateCard.args';
 
 export default {
   title: 'CandidateCard',
-  component: CandidateCard,
-} as ComponentMeta<typeof CandidateCard>;
+  component: ChatCard,
+} as ComponentMeta<typeof ChatCard>;
 
-const Template: ComponentStory<typeof CandidateCard> = (
-  args: CandidateCardProps
-) => {
+const Template: ComponentStory<typeof ChatCard> = (args) => {
   return (
     <Wrapper>
-      <CandidateCard {...args} />
+      <ChatCard {...args} />
     </Wrapper>
   );
 };
