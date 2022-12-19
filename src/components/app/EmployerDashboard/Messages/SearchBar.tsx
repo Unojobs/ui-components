@@ -4,28 +4,35 @@ import { Box, Input, SearchIcon } from '../../../primitives';
 export interface SearchBarProps {
   value: string;
   onChangeText: (text: string) => void;
+  height?: string;
 }
+const STATIC_PROPS = {
+  CONTAINER_BOX: {
+    justifyContent: 'center',
+    borderStyle: 'solid',
+    borderColor: 'light.300',
+    borderWidth: 1,
+    borderRadius: 'sm',
+    paddingX: 5,
+    paddingY: '12.5px',
+  },
+  INPUT: {
+    InputRightElement: <SearchIcon size={5} />,
+    variant: 'unstyled',
+    fontSize: 14,
+    placeholder: 'Search Messages',
+  },
+} as const;
+
 export const SearchBar = (props: SearchBarProps) => {
-  const { value, onChangeText } = props;
+  const { value, onChangeText, height } = props;
   return (
-    <Box
-      justifyContent={'center'}
-      height={'43px'}
-      borderStyle={'solid'}
-      borderColor={'light.300'}
-      borderWidth={'1'}
-      borderRadius={'sm'}
-    >
-      <Box marginRight={'2'}>
-        <Input
-          placeholder="Search Messages"
-          InputRightElement={<SearchIcon size={'lg'} />}
-          variant={'unstyled'}
-          fontSize={'md'}
-          onChangeText={onChangeText}
-          value={value}
-        />
-      </Box>
+    <Box {...STATIC_PROPS.CONTAINER_BOX} height={height ?? '43px'}>
+      <Input
+        onChangeText={onChangeText}
+        value={value}
+        {...STATIC_PROPS.INPUT}
+      />
     </Box>
   );
 };

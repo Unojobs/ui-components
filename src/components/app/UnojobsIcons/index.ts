@@ -7,3 +7,4 @@ export * from './Candidate';
 export * from './SocialMediaIcons';
 export * from './ProgressIcons';
 export * from './FormIcons';
+export * from './payment';

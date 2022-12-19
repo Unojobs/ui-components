@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Wrapper } from '../../../Wrapper';
-import { InputMessageField, InputMessageFieldProps } from 'components';
+import { InputMessageField } from 'components';
 import { StorybookArgs } from './InputMessageField.args';
 
 export default {
@@ -9,9 +9,7 @@ export default {
   component: InputMessageField,
 } as ComponentMeta<typeof InputMessageField>;
 
-const Template: ComponentStory<typeof InputMessageField> = (
-  args: InputMessageFieldProps
-) => {
+const Template: ComponentStory<typeof InputMessageField> = (args) => {
   return (
     <Wrapper>
       <InputMessageField {...args} />

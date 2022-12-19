@@ -19,6 +19,7 @@ export const CustomNBButton = (props: CustomButtonProps) => {
     borderStyle,
     display,
     flexDirection,
+    padding,
   } = props;
 
   return (
@@ -29,10 +30,10 @@ export const CustomNBButton = (props: CustomButtonProps) => {
       backgroundColor={backgroundColor}
       borderRadius={borderRadius}
       isDisabled={disabled}
-      paddingLeft={'24px'}
-      paddingRight={'24px'}
-      paddingTop={13}
-      paddingBottom={13}
+      paddingLeft={padding ?? '24px'}
+      paddingRight={padding ?? '24px'}
+      paddingTop={padding ?? 13}
+      paddingBottom={padding ?? 13}
       borderWidth={borderWidth}
       borderColor={borderColor}
       borderStyle={borderStyle}
