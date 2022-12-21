@@ -22,7 +22,7 @@
     "lodash.isempty": "^4.4.0",
     "lodash.merge": "^4.6.2",
     "nanoid": "3.1.16",
-    "native-base": "^3.4.25",
+    "native-base": "^3.4.26-rc.1",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
