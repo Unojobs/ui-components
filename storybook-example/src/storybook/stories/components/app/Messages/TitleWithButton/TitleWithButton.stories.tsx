@@ -1,7 +1,7 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { TitleWithButton } from 'components';
+import React from 'react';
 import { Wrapper } from '../../../Wrapper';
-import { TitleWithButton, TitleWithButtonProps } from 'components';
 import { StorybookArgs } from './TitleWithButton.args';
 
 export default {
@@ -9,9 +9,7 @@ export default {
   component: TitleWithButton,
 } as ComponentMeta<typeof TitleWithButton>;
 
-const Template: ComponentStory<typeof TitleWithButton> = (
-  args: TitleWithButtonProps
-) => {
+const Template: ComponentStory<typeof TitleWithButton> = (args) => {
   return (
     <Wrapper>
       <TitleWithButton {...args} />

@@ -40,6 +40,7 @@ export { Spinner } from './Spinner';
 // export type { IHeadingProps } from './Heading';
 
 export { Pressable } from './Pressable';
+export { ScrollView } from './ScrollView';
 
 export { Flex } from './Flex';
 

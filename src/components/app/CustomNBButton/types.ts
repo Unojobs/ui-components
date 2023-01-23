@@ -30,4 +30,5 @@ export type CustomButtonProps = {
   htmlType?: 'button' | 'submit' | 'reset';
   display?: string;
   flexDirection?: string;
+  padding?: string | undefined;
 };
