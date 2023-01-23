@@ -46,7 +46,12 @@ const columns = [
 const Template: ComponentStory<typeof SuperAdminTableWrapper> = (args) => (
   <Wrapper>
     <SuperAdminTableWrapper {...args}>
-      <Table columns={columns} dataSource={dataSource} />
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        scroll={{ x: 1200 }}
+        style={{ height: '100vh' }}
+      />
     </SuperAdminTableWrapper>
   </Wrapper>
 );
