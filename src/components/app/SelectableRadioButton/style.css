@@ -38,6 +38,11 @@
   overflow-wrap: anywhere;
 }
 
+.button-mid-large {
+  height: 45px !important;
+  width: 240px;
+}
+
 .button-medium {
   height: 45px;
   width: 190px;

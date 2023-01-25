@@ -17,9 +17,11 @@ export type SelectableRadioButtonProps = {
   space?: number;
   initialValue: string | undefined;
   userStyle?: React.CSSProperties;
+  disableList?: boolean[];
 };
 
 export declare type ISelectableRadioSizeType =
+  | 'mid-large'
   | 'extraLarge'
   | 'large'
   | 'medium'
