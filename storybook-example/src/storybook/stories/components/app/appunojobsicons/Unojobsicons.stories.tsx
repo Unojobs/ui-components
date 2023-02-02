@@ -66,6 +66,7 @@ import {
   UnojobsNoAppliedJobsIcon,
   UnojobsDescriptionIcon,
   UnojobsLeftArrowCurvedIcon,
+  UnojobsUpArrowCurvedIcon,
   UnojobsTickIcon,
   UnojobsTwitterIcon,
   UnojobsLinkedinIcon,
@@ -97,6 +98,18 @@ import {
   UnojobsEditWhiteOutline,
   UnojobsCarouselArrow,
   UnojobsEditWithCircle,
+  MessagesRoundIcon,
+  ViewProfileRoundIcon,
+  TickCircleIcon,
+  CloseCircleIcon,
+  AppliedIcon,
+  InterviewPeopleIcon,
+  DiscussionMessageIcon,
+  CallIcon,
+  SMSIcon,
+  EmailIcon,
+  PrintIcon,
+  DownLoadIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -111,9 +124,10 @@ const UnojobsiconsTest = ({ ...args }) => {
             <Text>Arrows :</Text>
             <UnojobsDownArrowSharpIcon />
             <UnojobsRightArrowCurvedIcon />
-            <UnojobsDownArrowCurvedIcon />
+            <UnojobsUpArrowCurvedIcon />
             <LeftArrowIcon />
             <UnojobsLeftArrowCurvedIcon />
+            <UnojobsDownArrowCurvedIcon />
           </HStack>
           <HStack space={3} alignItems="center">
             <Text>Cards :</Text>
@@ -242,6 +256,24 @@ const UnojobsiconsTest = ({ ...args }) => {
             <Box backgroundColor="#111">
               <UnojobsEditWithCircle size={10} />
             </Box>
+          </HStack>
+          <HStack space={4}>
+            <Text>Hiring pieline Icon: </Text>
+            <MessagesRoundIcon />
+            <ViewProfileRoundIcon />
+            <TickCircleIcon />
+            <CloseCircleIcon />
+            <AppliedIcon />
+            <InterviewPeopleIcon />
+            <DiscussionMessageIcon />
+          </HStack>
+          <HStack>
+            <Text>Candidate Detail Icons</Text>
+            <CallIcon />
+            <SMSIcon />
+            <EmailIcon />
+            <PrintIcon />
+            <DownLoadIcon />
           </HStack>
         </VStack>
       </Box>

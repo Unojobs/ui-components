@@ -36,7 +36,7 @@ export const UnojobsRightArrowCurvedIcon = ({ fill, size }: IconProps) => {
   return <CustomIcon size={size ? size : 2.5} />;
 };
 
-export const UnojobsDownArrowCurvedIcon = ({ fill, size }: IconProps) => {
+export const UnojobsUpArrowCurvedIcon = ({ fill, size }: IconProps) => {
   const CustomIcon = createIcon({
     viewBox: '0 0 11 7',
     path: (
@@ -178,6 +178,27 @@ export const UnojobsLeftArrowCurvedIcon = ({
         d="M14.5 6L8.5 12L14.5 18"
         stroke={fill}
         strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    ),
+  });
+  return <CustomIcon size={size} />;
+};
+
+export const UnojobsDownArrowCurvedIcon = ({
+  fill = 'currentColor',
+  size = 4,
+}: IconProps) => {
+  const CustomIcon = createIcon({
+    viewBox: '0 0 10 6',
+    path: (
+      <path
+        d="M8.29922 1.73047L5.58255 4.44714C5.26172 4.76797 4.73672 4.76797 4.41589 4.44714L1.69922 1.73047"
+        stroke={fill}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"

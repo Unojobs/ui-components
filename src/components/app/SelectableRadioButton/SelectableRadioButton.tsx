@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import './style.css';
 import { Radio, Space } from 'antd';
@@ -11,10 +11,12 @@ import type {
 export const SelectableRadioButton = (
   props: SelectableRadioButtonProps
 ): JSX.Element => {
-  const { list, onChange, size, initialValue, space } = props;
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(
-    initialValue
-  );
+  const { list, onChange, size, initialValue, space, disableList } = props;
+  const [selectedValue, setSelectedValue] = useState<string | undefined>('');
+
+  useEffect(() => {
+    setSelectedValue(initialValue);
+  }, [initialValue]);
 
   const handleButtonSelection = (event: RadioChangeEvent) => {
     setSelectedValue(event.target.value);
@@ -35,6 +37,7 @@ export const SelectableRadioButton = (
                   : 'button-un-selected'
               } button-${size}`}
               value={value}
+              disabled={disableList?.[index]}
             >
               {value}
             </Radio.Button>

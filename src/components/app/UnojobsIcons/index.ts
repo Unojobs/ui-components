@@ -8,3 +8,5 @@ export * from './SocialMediaIcons';
 export * from './ProgressIcons';
 export * from './FormIcons';
 export * from './payment';
+export * from './pipeline';
+export * from './candidateDetailsIcon';
