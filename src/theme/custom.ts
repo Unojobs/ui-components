@@ -28,13 +28,13 @@ export const custom = {
       '200': '#EBF4FF', // border color
       '300': '#0066FF', // span text color
       '400': '#0091D8', // linear-gradient color
-      '500': '#4169E0', // main-blue color
+      '500': '#1974FC', // main-blue color
       '600': '#00BAFB',
       '700': '#0C1A6B', // footer color
       '800': '#192252', // arrowIcon background color
       '900': '#6E91EC',
-      '950': '#1974FC', //updated main blue color,
-      '1000': '#001D35', //dark blue color
+
+      '950': '#001D35', //dark blue color
     }, // blue colors
     secondary: {
       '100': '#2800FF',
