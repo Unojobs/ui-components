@@ -11,7 +11,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@expo-google-fonts/inter": "^0.2.2",
-    "@expo-google-fonts/urbanist": "^0.2.2",
+    "@expo-google-fonts/lato": "^0.2.2",
+    "@expo-google-fonts/roboto-slab": "^0.2.2",
     "antd": "^4.23.5",
     "emoji-picker-react": "^4.4.6",
     "expo-asset": "^8.6.1",

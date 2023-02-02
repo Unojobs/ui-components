@@ -1,24 +1,23 @@
 export const custom = {
   fontConfig: {
-    Urbanist: {
+    Lato: {
       400: {
-        normal: 'Urbanist',
-      },
-      500: {
-        normal: 'Urbanist',
-      },
-      600: {
-        normal: 'Urbanist',
+        normal: 'Lato',
       },
       700: {
-        normal: 'Urbanist',
+        normal: 'Lato',
+      },
+    },
+    RobotoSlab: {
+      400: {
+        normal: 'RobotoSlab',
       },
     },
   },
   fonts: {
-    heading: 'Urbanist',
-    body: 'Urbanist',
-    mono: 'Urbanist',
+    heading: 'Lato',
+    body: 'RobotoSlab',
+    mono: 'RobotoSlab',
   },
   colors: {
     primary: {
