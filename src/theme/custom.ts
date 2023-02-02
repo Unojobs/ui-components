@@ -10,7 +10,7 @@ export const custom = {
     },
     RobotoSlab: {
       400: {
-        normal: 'RobotoSlab',
+        normal: 'Roboto Slab',
       },
     },
   },
@@ -90,5 +90,10 @@ export const custom = {
   components: {
     //Here we can add default theme for components
     Text: {},
+    Heading: {
+      defaultProps: {
+        fontFamily: 'heading',
+      },
+    },
   },
 };
