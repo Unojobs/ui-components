@@ -1,6 +1,7 @@
 import React from 'react';
+import { AppColors } from 'src/components/utils/colors';
 import { Button, Icon } from '../../..';
-import { AppColors } from '../utils';
+
 import type { CustomButtonProps } from './types';
 
 export const CustomNBButton = (props: CustomButtonProps) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppColors } from '../utils';
+import { AppColors } from 'src/components/utils/colors';
 
 export const UnojobsLogo = () => {
   return (

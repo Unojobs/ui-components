@@ -1,6 +1,6 @@
 import { FileAddOutlined } from '@ant-design/icons';
 import React from 'react';
-import { AppColors } from 'src/components/app/utils';
+import { AppColors } from 'src/components/utils/colors';
 import { Divider } from '../../../../composites';
 import {
   Box,

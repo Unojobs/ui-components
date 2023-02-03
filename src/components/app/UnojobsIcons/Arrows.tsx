@@ -1,6 +1,6 @@
 import React from 'react';
+import { AppColors } from 'src/components/utils/colors';
 import { createIcon } from '../../primitives';
-import { AppColors } from '../utils';
 
 type IconProps = {
   fill?: string;
