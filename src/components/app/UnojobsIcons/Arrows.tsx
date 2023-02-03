@@ -198,10 +198,10 @@ export const UnojobsDownArrowCurvedIcon = ({
       <path
         d="M8.29922 1.73047L5.58255 4.44714C5.26172 4.76797 4.73672 4.76797 4.41589 4.44714L1.69922 1.73047"
         stroke={fill}
-        stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
       />
     ),

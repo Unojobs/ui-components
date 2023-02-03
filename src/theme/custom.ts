@@ -1,25 +1,23 @@
 export const custom = {
   fontConfig: {
-    Urbanist: {
+    Lato: {
       400: {
-        normal: 'Urbanist_400Regular',
-      },
-      500: {
-        normal: 'Urbanist_500Medium',
-      },
-      600: {
-        normal: 'Urbanist_600SemiBold',
+        normal: 'Lato',
       },
       700: {
-        normal: 'Urbanist_700Bold',
-        size: '48px',
+        normal: 'Lato',
+      },
+    },
+    RobotoSlab: {
+      400: {
+        normal: 'Roboto Slab',
       },
     },
   },
   fonts: {
-    heading: 'Urbanist',
-    body: 'Urbanist',
-    mono: 'Urbanist',
+    heading: 'Lato',
+    body: 'RobotoSlab',
+    mono: 'RobotoSlab',
   },
   colors: {
     primary: {
@@ -96,5 +94,10 @@ export const custom = {
   components: {
     //Here we can add default theme for components
     Text: {},
+    Heading: {
+      defaultProps: {
+        fontFamily: 'heading',
+      },
+    },
   },
 };

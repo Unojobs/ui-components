@@ -105,6 +105,11 @@ import {
   AppliedIcon,
   InterviewPeopleIcon,
   DiscussionMessageIcon,
+  CallIcon,
+  SMSIcon,
+  EmailIcon,
+  PrintIcon,
+  DownLoadIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -261,6 +266,14 @@ const UnojobsiconsTest = ({ ...args }) => {
             <AppliedIcon />
             <InterviewPeopleIcon />
             <DiscussionMessageIcon />
+          </HStack>
+          <HStack>
+            <Text>Candidate Detail Icons</Text>
+            <CallIcon />
+            <SMSIcon />
+            <EmailIcon />
+            <PrintIcon />
+            <DownLoadIcon />
           </HStack>
         </VStack>
       </Box>
