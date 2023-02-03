@@ -151,28 +151,28 @@ export const UploadIcon = (props: any) => {
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 17 16">
       <Path
         d="M6.5013 11.3335V7.3335L5.16797 8.66683"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M6.5 7.3335L7.83333 8.66683"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M15.1654 6.66683V10.0002C15.1654 13.3335 13.832 14.6668 10.4987 14.6668H6.4987C3.16536 14.6668 1.83203 13.3335 1.83203 10.0002V6.00016C1.83203 2.66683 3.16536 1.3335 6.4987 1.3335H9.83203"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M15.1654 6.66683H12.4987C10.4987 6.66683 9.83203 6.00016 9.83203 4.00016V1.3335L15.1654 6.66683Z"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -186,14 +186,14 @@ export const EditOutlinedIcon = (props: any) => {
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 24 24">
       <Path
         d="M11 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15V13"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M16.0399 3.02025L8.15988 10.9003C7.85988 11.2003 7.55988 11.7903 7.49988 12.2203L7.06988 15.2303C6.90988 16.3203 7.67988 17.0803 8.76988 16.9303L11.7799 16.5003C12.1999 16.4403 12.7899 16.1403 13.0999 15.8403L20.9799 7.96025C22.3399 6.60025 22.9799 5.02025 20.9799 3.02025C18.9799 1.02025 17.3999 1.66025 16.0399 3.02025Z"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"
@@ -201,7 +201,7 @@ export const EditOutlinedIcon = (props: any) => {
       />
       <Path
         d="M14.9102 4.15039C15.5802 6.54039 17.4502 8.41039 19.8502 9.09039"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeMiterlimit="10"
         strokeLinecap="round"
@@ -258,21 +258,21 @@ export const AddOutlinedIcon = (props: any) => {
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 16 17">
       <Path
         d="M8.50065 14.6663C12.1673 14.6663 15.1673 11.6663 15.1673 7.99967C15.1673 4.33301 12.1673 1.33301 8.50065 1.33301C4.83398 1.33301 1.83398 4.33301 1.83398 7.99967C1.83398 11.6663 4.83398 14.6663 8.50065 14.6663Z"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M5.83398 8H11.1673"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M8.5 10.6663V5.33301"
-        stroke="#4169E0"
+        stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

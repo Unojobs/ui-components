@@ -1,7 +1,7 @@
 export const StorybookArgs = {
   width: '160px',
   height: '48px',
-  backgroundColor: '#4169E0',
+  backgroundColor: '#1974FC',
   borderRadius: '5px',
   color: '#ffffff',
 };

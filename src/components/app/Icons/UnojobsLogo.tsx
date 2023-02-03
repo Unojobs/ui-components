@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppColors } from '../utils';
 
 export const UnojobsLogo = () => {
   return (
@@ -9,7 +10,7 @@ export const UnojobsLogo = () => {
       fill="none"
       viewBox="0 0 50 50"
     >
-      <rect width="50" height="50" fill="#4169E0" rx="5" />
+      <rect width="50" height="50" fill={AppColors.primaryColor} rx="5" />
       <path
         fill="#fff"
         fillRule="evenodd"

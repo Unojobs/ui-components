@@ -143,7 +143,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsViewIcon />
             <UnojobsConfirmIcon />
             <UnojobsRejectIcon />
-            <UnojobsNumberIcon bgColor="#4169E0" color="#fff" fade={false}>
+            <UnojobsNumberIcon bgColor="#1974FC" color="#fff" fade={false}>
               10
             </UnojobsNumberIcon>
             <UnojobsSettingsIcon />
@@ -163,7 +163,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnoJobsSalesDepartment></UnoJobsSalesDepartment>
             <UnoJobsMarketingDepartment></UnoJobsMarketingDepartment>
             <UnojobsUserGroupIcon
-              fill="#4169E0"
+              fill="#1974FC"
               size={8}
             ></UnojobsUserGroupIcon>
             <UnoJobsSupplyChainDepartment></UnoJobsSupplyChainDepartment>

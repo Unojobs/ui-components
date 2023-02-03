@@ -2,6 +2,7 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import { makeRandomColor } from '../../../../components/utils';
+import { AppColors } from '../../utils';
 // CustomAvatarGroup
 export interface CustomAvatarGroupProps {
   data: {
@@ -21,7 +22,7 @@ export const CustomAvatarGroup = (props: CustomAvatarGroupProps) => {
       size={size}
       maxStyle={{
         color: '#fff',
-        backgroundColor: maxAvatarBgColor || '#4169E0',
+        backgroundColor: maxAvatarBgColor || AppColors.primaryColor,
         fontSize: 10,
       }}
     >

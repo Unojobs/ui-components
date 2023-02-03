@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Icon } from '../../..';
+import { AppColors } from '../utils';
 import type { CustomButtonProps } from './types';
 
 export const CustomNBButton = (props: CustomButtonProps) => {
@@ -52,7 +53,7 @@ export const CustomNBButton = (props: CustomButtonProps) => {
 CustomNBButton.defaultProps = {
   width: '160px',
   height: '48px',
-  backgroundColor: '#4169E0',
+  backgroundColor: AppColors.primaryColor,
   borderRadius: '5px',
   color: '#ffffff',
   disabled: false,

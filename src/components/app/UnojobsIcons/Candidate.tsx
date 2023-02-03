@@ -251,7 +251,7 @@ export const UnojobsWelcomeIcon = ({ size }: IconProps) => {
             gradientUnits="userSpaceOnUse"
           >
             <stop stopColor="#84A3FF" />
-            <stop offset="1" stopColor="#4169E0" />
+            <stop offset="1" stopColor="#1974FC" />
           </linearGradient>
           <linearGradient
             id="paint4_linear_4855_125964"
@@ -290,7 +290,7 @@ export const UnojobsMessageIcon = ({ fill, size }: IconProps) => {
         <path
           fill={fill ? fill : '#FFFF'}
           d="M7.08268 18.8333H6.66602C3.33268 18.8333 1.66602 18 1.66602 13.8333V9.66663C1.66602 6.33329 3.33268 4.66663 6.66602 4.66663H13.3327C16.666 4.66663 18.3327 6.33329 18.3327 9.66663V13.8333C18.3327 17.1666 16.666 18.8333 13.3327 18.8333H12.916C12.6577 18.8333 12.4077 18.9583 12.2493 19.1666L10.9993 20.8333C10.4493 21.5666 9.54935 21.5666 8.99935 20.8333L7.74935 19.1666C7.61602 18.9833 7.30768 18.8333 7.08268 18.8333Z"
-          stroke="#4169E0"
+          stroke="#1974FC"
           strokeWidth="1.5"
           strokeMiterlimit="10"
           strokeLinecap="round"
@@ -298,21 +298,21 @@ export const UnojobsMessageIcon = ({ fill, size }: IconProps) => {
         />
         <path
           d="M13.3301 12.1667H13.3375"
-          stroke="#4169E0"
+          stroke="#1974FC"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M9.99607 12.1667H10.0036"
-          stroke="#4169E0"
+          stroke="#1974FC"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M6.66209 12.1667H6.66957"
-          stroke="#4169E0"
+          stroke="#1974FC"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -375,9 +375,9 @@ export const UnojobsVideoIcon = ({ fill, size }: IconProps) => {
     viewBox: '0 0 45 45',
     path: (
       <>
-        <rect width="45" height="45" rx="22.5" fill="#4169E0" />
+        <rect width="45" height="45" rx="22.5" fill="#1974FC" />
         <path
-          fill={fill ? fill : '#4169E0'}
+          fill={fill ? fill : '#1974FC'}
           d="M23.441 30.0167H18.1743C15.541 30.0167 14.666 28.2667 14.666 26.5084V19.4917C14.666 16.8584 15.541 15.9834 18.1743 15.9834H23.441C26.0743 15.9834 26.9493 16.8584 26.9493 19.4917V26.5084C26.9493 29.1417 26.066 30.0167 23.441 30.0167Z"
           stroke="white"
           strokeWidth="1.5"
@@ -385,7 +385,7 @@ export const UnojobsVideoIcon = ({ fill, size }: IconProps) => {
           strokeLinejoin="round"
         />
         <path
-          fill={fill ? fill : '#4169E0'}
+          fill={fill ? fill : '#1974FC'}
           d="M29.2659 27.2501L26.9492 25.6251V20.3668L29.2659 18.7418C30.3992 17.9501 31.3326 18.4334 31.3326 19.8251V26.1751C31.3326 27.5668 30.3992 28.0501 29.2659 27.2501Z"
           stroke="white"
           strokeWidth="1.5"
@@ -410,9 +410,9 @@ export const UnojobsResumeIcon = ({ fill, size }: IconProps) => {
     viewBox: '0 0 45 45',
     path: (
       <>
-        <rect width="45" height="45" rx="22.5" fill="#4169E0" />
+        <rect width="45" height="45" rx="22.5" fill="#1974FC" />
         <path
-          fill={fill ? fill : '#4169E0'}
+          fill={fill ? fill : '#1974FC'}
           d="M31.3327 21.3334V25.5001C31.3327 29.6667 29.666 31.3334 25.4993 31.3334H20.4993C16.3327 31.3334 14.666 29.6667 14.666 25.5001V20.5001C14.666 16.3334 16.3327 14.6667 20.4993 14.6667H24.666"
           stroke="white"
           strokeWidth="1.5"
@@ -420,7 +420,7 @@ export const UnojobsResumeIcon = ({ fill, size }: IconProps) => {
           strokeLinejoin="round"
         />
         <path
-          fill={fill ? fill : '#4169E0'}
+          fill={fill ? fill : '#1974FC'}
           d="M31.3327 21.3334H27.9993C25.4993 21.3334 24.666 20.5001 24.666 18.0001V14.6667L31.3327 21.3334Z"
           stroke="white"
           strokeWidth="1.5"

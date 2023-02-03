@@ -93,7 +93,7 @@ export const UnojobsViewIcon = ({ fill, size }: IconProps) => {
 };
 
 UnojobsViewIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 
@@ -172,7 +172,7 @@ export const UnojobsNumberIcon: React.FC<NumberIconProps> = (props) => {
 };
 
 UnojobsNumberIcon.defaultProps = {
-  bgColor: '#4169E0',
+  bgColor: '#1974FC',
   color: '#fff',
   fade: false,
   children: 5,
