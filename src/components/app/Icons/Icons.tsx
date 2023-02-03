@@ -1,6 +1,6 @@
 import Icon from '@ant-design/icons';
 import React from 'react';
-import { AppColors } from 'src/components/utils/colors';
+import { AppColors } from '../../utils';
 
 export interface AntIconProps {
   /** invoke onClick event function */

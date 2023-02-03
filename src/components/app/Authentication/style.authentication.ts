@@ -1,4 +1,4 @@
-import { AppColors } from 'src/components/utils/colors';
+import { AppColors } from '../../utils';
 
 export const style = {
   input: {

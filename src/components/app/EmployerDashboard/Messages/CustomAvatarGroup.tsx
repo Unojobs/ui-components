@@ -2,7 +2,7 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import { makeRandomColor } from '../../../../components/utils';
-import { AppColors } from 'src/components/utils/colors';
+import { AppColors } from '../../../../components/utils';
 
 // CustomAvatarGroup
 export interface CustomAvatarGroupProps {
