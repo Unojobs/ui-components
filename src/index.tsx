@@ -8,3 +8,4 @@ export * from './config';
 export * from './components/app';
 export * from './components/apptokens';
 export { themeTools } from 'native-base';
+export * from './components/utils';

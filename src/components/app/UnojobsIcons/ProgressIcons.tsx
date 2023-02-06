@@ -153,7 +153,7 @@ export const ProgressIcon: React.FC<IProgressIconProps> = (props) => {
 
   useEffect(() => {
     if (props.status.toLocaleLowerCase() === 'on') {
-      setBackgroundColor('#4169E0');
+      setBackgroundColor('#1974FC');
     } else if (props.status.toLocaleLowerCase() === 'complete') {
       setBackgroundColor('#66B949');
     } else {

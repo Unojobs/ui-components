@@ -14,7 +14,7 @@
 }
 
 .select-antd-mod .ant-select-focused .ant-select-selector {
-  border-color: #4169e0 !important;
+  border-color: #1974fc !important;
 }
 
 .ant-select-item-option {
@@ -31,7 +31,7 @@
 }
 
 .select-antd-mod .ant-select-selector:hover {
-  border: 1px solid #4169e0 !important;
+  border: 1px solid #1974fc !important;
 }
 
 .select-antd-mod .ant-select-arrow {

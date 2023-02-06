@@ -105,6 +105,11 @@ import {
   AppliedIcon,
   InterviewPeopleIcon,
   DiscussionMessageIcon,
+  CallIcon,
+  SMSIcon,
+  EmailIcon,
+  PrintIcon,
+  DownLoadIcon,
 } from 'components';
 
 const UnojobsiconsTest = ({ ...args }) => {
@@ -143,7 +148,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnojobsViewIcon />
             <UnojobsConfirmIcon />
             <UnojobsRejectIcon />
-            <UnojobsNumberIcon bgColor="#4169E0" color="#fff" fade={false}>
+            <UnojobsNumberIcon bgColor="#1974FC" color="#fff" fade={false}>
               10
             </UnojobsNumberIcon>
             <UnojobsSettingsIcon />
@@ -163,7 +168,7 @@ const UnojobsiconsTest = ({ ...args }) => {
             <UnoJobsSalesDepartment></UnoJobsSalesDepartment>
             <UnoJobsMarketingDepartment></UnoJobsMarketingDepartment>
             <UnojobsUserGroupIcon
-              fill="#4169E0"
+              fill="#1974FC"
               size={8}
             ></UnojobsUserGroupIcon>
             <UnoJobsSupplyChainDepartment></UnoJobsSupplyChainDepartment>
@@ -261,6 +266,14 @@ const UnojobsiconsTest = ({ ...args }) => {
             <AppliedIcon />
             <InterviewPeopleIcon />
             <DiscussionMessageIcon />
+          </HStack>
+          <HStack>
+            <Text>Candidate Detail Icons</Text>
+            <CallIcon />
+            <SMSIcon />
+            <EmailIcon />
+            <PrintIcon />
+            <DownLoadIcon />
           </HStack>
         </VStack>
       </Box>
