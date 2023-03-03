@@ -1,4 +1,5 @@
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 export * from './components/primitives';
 export * from './components/composites';
 export * from './components/core';

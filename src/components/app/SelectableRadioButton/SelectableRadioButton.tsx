@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import './style.css';
 import { Radio, Space } from 'antd';
 import type { RadioChangeEvent } from 'antd';
