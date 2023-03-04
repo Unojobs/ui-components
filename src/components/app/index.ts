@@ -1,5 +1,5 @@
 export * from './JobDetailCard/index';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 export * from './radioButtonGroup';
 export * from './SideMenu';
 export * from './CustomNBButton';
