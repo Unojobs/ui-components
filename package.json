@@ -11,7 +11,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@expo-google-fonts/inter": "^0.2.2",
-    "@expo-google-fonts/urbanist": "^0.2.2",
+    "@expo-google-fonts/lato": "^0.2.2",
+    "@expo-google-fonts/roboto-slab": "^0.2.2",
     "antd": "5.2.3",
     "emoji-picker-react": "^4.4.6",
     "expo-asset": "^8.6.1",
@@ -22,7 +23,7 @@
     "lodash.isempty": "^4.4.0",
     "lodash.merge": "^4.6.2",
     "nanoid": "3.1.16",
-    "native-base": "^3.4.25",
+    "native-base": "^3.4.26-rc.1",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",

@@ -1,5 +1,6 @@
 export * from './JobDetailCard/index';
 // import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 export * from './radioButtonGroup';
 export * from './SideMenu';
 export * from './CustomNBButton';

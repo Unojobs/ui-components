@@ -30,7 +30,7 @@ export const UnojobsUpArrowRoundIcon = ({
 };
 
 UnojobsUpArrowRoundIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -51,7 +51,7 @@ export const UnojobsDownArrowRoundIcon = ({
 };
 
 UnojobsDownArrowRoundIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -78,7 +78,7 @@ export const UnoJobsTechDepartment = ({
 };
 
 UnoJobsTechDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsDataAnalysis = ({
@@ -100,7 +100,7 @@ export const UnoJobsDataAnalysis = ({
 };
 
 UnoJobsDataAnalysis.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsDesign = ({
@@ -130,7 +130,7 @@ export const UnoJobsDesign = ({
 };
 
 UnoJobsDesign.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsOperationsDepartment = ({
@@ -152,7 +152,7 @@ export const UnoJobsOperationsDepartment = ({
 };
 
 UnoJobsOperationsDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsSalesDepartment = ({
@@ -174,7 +174,7 @@ export const UnoJobsSalesDepartment = ({
 };
 
 UnoJobsSalesDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsMarketingDepartment = ({
@@ -203,7 +203,7 @@ export const UnoJobsMarketingDepartment = ({
 };
 
 UnoJobsMarketingDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsSupplyChainDepartment = ({
@@ -225,7 +225,7 @@ export const UnoJobsSupplyChainDepartment = ({
 };
 
 UnoJobsSupplyChainDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsFinanceDepartment = ({
@@ -247,7 +247,7 @@ export const UnoJobsFinanceDepartment = ({
 };
 
 UnoJobsFinanceDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsSecurityDepartment = ({
@@ -269,7 +269,7 @@ export const UnoJobsSecurityDepartment = ({
 };
 
 UnoJobsSecurityDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsAdministrationDepartment = ({
@@ -291,7 +291,7 @@ export const UnoJobsAdministrationDepartment = ({
 };
 
 UnoJobsAdministrationDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsConsultationDepartment = ({
@@ -317,7 +317,7 @@ export const UnoJobsConsultationDepartment = ({
 };
 
 UnoJobsConsultationDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsEducationDepartment = ({
@@ -343,7 +343,7 @@ export const UnoJobsEducationDepartment = ({
 };
 
 UnoJobsEducationDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsHealthDepartment = ({
@@ -373,7 +373,7 @@ export const UnoJobsHealthDepartment = ({
 };
 
 UnoJobsHealthDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsLawDepartment = ({
@@ -407,7 +407,7 @@ export const UnoJobsLawDepartment = ({
 };
 
 UnoJobsLawDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsRetailDepartment = ({
@@ -429,7 +429,7 @@ export const UnoJobsRetailDepartment = ({
 };
 
 UnoJobsRetailDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 
@@ -460,7 +460,7 @@ export const UnoJobsProductDepartment = ({
 };
 
 UnoJobsProductDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsHospitalityDepartment = ({
@@ -473,7 +473,7 @@ export const UnoJobsHospitalityDepartment = ({
       <>
         <path
           d="M2.31152 15H31.4035"
-          stroke="#4169E0"
+          stroke="#1974FC"
           strokeWidth="4.01"
           strokeMiterlimit="10"
           strokeLinecap="round"
@@ -493,7 +493,7 @@ export const UnoJobsHospitalityDepartment = ({
 };
 
 UnoJobsHospitalityDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsWellnessDepartment = ({
@@ -522,7 +522,7 @@ export const UnoJobsWellnessDepartment = ({
 };
 
 UnoJobsWellnessDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 export const UnoJobsAviationDepartment = ({
@@ -544,7 +544,7 @@ export const UnoJobsAviationDepartment = ({
 };
 
 UnoJobsAviationDepartment.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 8,
 };
 
@@ -572,7 +572,7 @@ export const UnojobsAppLogo = ({
 };
 
 UnojobsAppLogo.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 50,
 };
 
@@ -740,7 +740,7 @@ export const UnojobsDownloadIcon = ({
 };
 
 UnojobsDownloadIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -767,7 +767,7 @@ export const UnojobsSearchFavIcon = ({
 };
 
 UnojobsSearchFavIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -794,7 +794,7 @@ export const UnojobsApplyIcon = ({
 };
 
 UnojobsApplyIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -825,7 +825,7 @@ export const UnojobsHiringIcon = ({
 };
 
 UnojobsHiringIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -852,7 +852,7 @@ export const UnojobsCandidateIcon = ({
 };
 
 UnojobsCandidateIcon.defaultProps = {
-  fill: '#4169E0',
+  fill: '#1974FC',
   size: 6,
 };
 
@@ -943,15 +943,15 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
           />
           <path
             d="M99.5013 82.4638C96.952 82.4638 94.8854 80.3941 94.8854 77.8411C94.8854 75.288 96.952 73.2183 99.5013 73.2183C102.051 73.2183 104.117 75.288 104.117 77.8411C104.117 80.3941 102.051 82.4638 99.5013 82.4638Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M204.304 66.2796C201.933 66.2796 200.01 64.3543 200.01 61.9794C200.01 59.6045 201.933 57.6792 204.304 57.6792C206.675 57.6792 208.598 59.6045 208.598 61.9794C208.598 64.3543 206.675 66.2796 204.304 66.2796Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M213.891 158.702C212.866 158.702 212.035 157.87 212.035 156.843C212.035 155.817 212.866 154.985 213.891 154.985C214.915 154.985 215.746 155.817 215.746 156.843C215.746 157.87 214.915 158.702 213.891 158.702Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M86.8171 129.962C84.5738 129.962 82.7553 128.141 82.7553 125.894C82.7553 123.647 84.5738 121.826 86.8171 121.826C89.0604 121.826 90.8789 123.647 90.8789 125.894C90.8789 128.141 89.0604 129.962 86.8171 129.962Z"
@@ -999,7 +999,7 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M75.4375 135.239V136.849C75.4375 137.737 76.1478 138.458 77.0233 138.458H96.0568C96.9323 138.458 97.6429 137.737 97.6429 136.849V135.213C97.6429 130.343 92.1579 127.178 86.54 127.178C80.9221 127.178 75.4375 130.344 75.4375 135.213M82.558 113.037C80.3584 115.24 80.3584 118.811 82.558 121.014C84.7572 123.217 88.3232 123.217 90.5224 121.014C92.722 118.811 92.722 115.24 90.5224 113.037C88.3232 110.835 84.7572 110.835 82.558 113.037Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M167.376 183.427C184.99 183.427 199.268 169.127 199.268 151.487C199.268 133.848 184.99 119.548 167.376 119.548C149.763 119.548 135.484 133.848 135.484 151.487C135.484 169.127 149.763 183.427 167.376 183.427Z"
@@ -1011,7 +1011,7 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M156.613 161.481V163.091C156.613 163.979 157.324 164.7 158.199 164.7H177.233C178.108 164.7 178.819 163.979 178.819 163.091V161.455C178.819 156.585 173.334 153.42 167.716 153.42C162.098 153.42 156.613 156.586 156.613 161.455M163.734 139.28C161.535 141.482 161.535 145.053 163.734 147.256C165.933 149.459 169.499 149.459 171.699 147.256C173.898 145.053 173.898 141.482 171.699 139.28C169.499 137.077 165.933 137.077 163.734 139.28Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M248.552 157.185C266.165 157.185 280.444 142.885 280.444 125.245C280.444 107.605 266.165 93.3057 248.552 93.3057C230.939 93.3057 216.66 107.605 216.66 125.245C216.66 142.885 230.939 157.185 248.552 157.185Z"
@@ -1023,7 +1023,7 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M237.789 135.239V136.849C237.789 137.737 238.5 138.458 239.375 138.458H258.409C259.284 138.458 259.994 137.737 259.994 136.849V135.213C259.994 130.343 254.51 127.178 248.892 127.178C243.274 127.178 237.789 130.344 237.789 135.213M244.91 113.037C242.71 115.24 242.71 118.811 244.91 121.014C247.109 123.217 250.675 123.217 252.874 121.014C255.074 118.811 255.074 115.24 252.874 113.037C250.675 110.835 247.109 110.835 244.91 113.037Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M109.488 93.9805L144.464 78.0152"
@@ -1043,7 +1043,7 @@ export const UnojobsWaitlistIcon = ({ size = 6 }: IconProps) => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M167.324 97.021C156.559 97.021 147.832 88.2805 147.832 77.5003C147.832 66.7201 156.559 57.98 167.324 57.98C178.088 57.98 186.815 66.7201 186.815 77.5003C186.815 88.2805 178.088 97.021 167.324 97.021Z"
-            fill="#4169E0"
+            fill="#1974FC"
           />
           <path
             d="M173.818 74.543L165.699 82.8241L160.824 77.856"

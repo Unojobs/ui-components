@@ -6,6 +6,6 @@ export const StorybookArgs = {
     { username: 'Ram', avatarUri: 'https://joeschmoe.io/api/v1/random' },
   ],
   size: 'small',
-  maxAvatarBgColor: '#4169E0',
+  maxAvatarBgColor: '#1974FC',
   maxVisibleAvatarCount: 2,
 };

@@ -1,3 +1,5 @@
+import { AppColors } from '../../utils';
+
 export const style = {
   input: {
     width: 400,
@@ -10,7 +12,7 @@ export const style = {
   },
   submitButton: {
     width: '400px',
-    backgroundColor: '#4169E0',
+    backgroundColor: AppColors.primaryColor,
     marginBottom: '20px',
   },
   heading: {

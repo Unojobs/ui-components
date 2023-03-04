@@ -1,5 +1,6 @@
 import { FileAddOutlined } from '@ant-design/icons';
 import React from 'react';
+import { AppColors } from '../../../../../components/utils';
 import { Divider } from '../../../../composites';
 import {
   Box,
@@ -102,7 +103,7 @@ function UrlConvertor(props: {
 
   //convert url string to link
   const middlePart = isRegexPresent ? (
-    <Link href={hasMessageUrl[0]} color="#4169E0">
+    <Link href={hasMessageUrl[0]} color={AppColors.primaryColor}>
       {hasMessageUrl[0]}
     </Link>
   ) : (
