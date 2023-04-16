@@ -20,6 +20,7 @@ import {
   UnojobsAppLogo,
 } from '../../UnojobsIcons';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
+import { validatePassword } from './validatePassword';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
@@ -223,13 +224,16 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   rules={[
                     {
                       required: true,
-                      whitespace: true,
                       message: props.errors?.password?.required,
                     },
                     {
-                      pattern:
-                        /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/,
-                      message: props.errors?.password?.validation,
+                      validator: (_: any, value: any) =>
+                        validatePassword(
+                          value,
+                          props?.errors?.password,
+                          props.minCharPassword,
+                          props.maxCharPassword
+                        ),
                     },
                   ]}
                 >
@@ -367,22 +371,21 @@ UnoRegisterModal.defaultProps = {
   backArrowMarginRight: 'auto',
   errors: {
     password: {
-      required: 'required field',
-      validation: 'must be a valid password',
+      required: 'Please enter a password',
     },
     confirmPassword: {
-      required: 'required field',
-      validation: 'must match with password',
+      required: 'Please confirm your password',
+      validation: "Oops, your passwords don't match",
     },
     email: {
-      required: 'required field',
-      validation: 'must be a valid email',
+      required: 'Please enter an email',
+      validation: 'Please enter a valid email',
     },
     fullName: {
-      required: 'required field',
-      validation: 'must be a valid fullName',
+      required: 'Please enter a full name',
+      validation: 'Please enter a valid full name',
     },
-    checkbox: 'accept trems and conditions',
+    checkbox: 'Please accept terms and condition & privacy policy to register',
   },
   isResetOnSubmit: false,
   loading: false,

@@ -108,6 +108,8 @@ export interface IUnoUserRegisterProps
   onPrivacyPolicy?: () => void | undefined;
   termAndConditionValues?: ITermsAndConditions;
   errors?: IRegisterErrorProps;
+  minCharPassword?: number | undefined;
+  maxCharPassword?: number | undefined;
 }
 
 export interface IRegisterFormValuesProps {
@@ -150,6 +152,8 @@ export interface IUnoNewPasswordProps
   tooltip?: INewPasswordUtil;
   placeholder?: INewPasswordUtil;
   errors?: IPasswordErrorProps;
+  minCharPassword?: number | undefined;
+  maxCharPassword?: number | undefined;
 }
 export interface INewPasswordFormValuesProps {
   confirmPassword: string;
@@ -162,6 +166,16 @@ export interface INewPasswordUtil {
 }
 
 export interface IPasswordErrorProps {
-  password?: IErrorProps;
+  password?: IPasswordErrors;
   confirmPassword?: IErrorProps;
+}
+
+export interface IPasswordErrors {
+  required?: string;
+  minCharError?: string;
+  upperCaseError?: string;
+  lowerCaseError?: string;
+  specialCharError?: string;
+  numberError?: string;
+  spaceError?: string;
 }
