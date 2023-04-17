@@ -178,4 +178,5 @@ export interface IPasswordErrors {
   specialCharError?: string;
   numberError?: string;
   spaceError?: string;
+  validation?: string;
 }
