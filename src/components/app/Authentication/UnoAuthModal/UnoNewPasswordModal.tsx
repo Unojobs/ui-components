@@ -13,6 +13,7 @@ import type {
   IUnoNewPasswordProps,
 } from './types';
 import { validatePassword } from './validatePassword';
+import PasswordTooltip from './PasswordTooltip';
 
 export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();
@@ -118,7 +119,11 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                 <Form.Item
                   label="Password"
                   name="password"
-                  tooltip={props.tooltip?.password}
+                  tooltip={
+                    props?.tooltip?.password?.length && (
+                      <PasswordTooltip tooltip={props?.tooltip?.password} />
+                    )
+                  }
                   rules={[
                     {
                       required: true,
@@ -196,7 +201,13 @@ UnoNewPasswordModal.defaultProps = {
   subHeading: '',
   onCreate: undefined,
   tooltip: {
-    password: 'Required',
+    password: [
+      '10 characters',
+      'one uppercase letter',
+      'one lowercase letter',
+      'one number',
+      'one special character',
+    ],
     confirmPassword: 'Required',
   },
   buttonText: 'Create New Password',

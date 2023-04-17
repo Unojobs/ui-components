@@ -103,7 +103,7 @@ export interface IUnoUserRegisterProps
   onLinkedInLogin?: () => void | undefined;
   onFacebookLogin?: () => void | undefined;
   tooltip?: IRegisterUtil;
-  placeholder?: IRegisterUtil;
+  placeholder?: IRegisterPlaceholder;
   onTermsAndCondition?: () => void | undefined;
   onPrivacyPolicy?: () => void | undefined;
   termAndConditionValues?: ITermsAndConditions;
@@ -132,6 +132,13 @@ export interface ITermsAndConditions {
 export interface IRegisterUtil {
   fullName?: string;
   email?: string;
+  password?: string[];
+  confirmPassword?: string;
+}
+
+export interface IRegisterPlaceholder {
+  fullName?: string;
+  email?: string;
   password?: string;
   confirmPassword?: string;
 }
@@ -150,7 +157,7 @@ export interface IUnoNewPasswordProps
     IBackArrowProps {
   onCreate?: (values: INewPasswordFormValuesProps) => void | undefined;
   tooltip?: INewPasswordUtil;
-  placeholder?: INewPasswordUtil;
+  placeholder?: INewPasswordPlaceholder;
   errors?: IPasswordErrorProps;
   minCharPassword?: number | undefined;
   maxCharPassword?: number | undefined;
@@ -161,6 +168,11 @@ export interface INewPasswordFormValuesProps {
 }
 
 export interface INewPasswordUtil {
+  password?: string[];
+  confirmPassword?: string;
+}
+
+export interface INewPasswordPlaceholder {
   password?: string;
   confirmPassword?: string;
 }

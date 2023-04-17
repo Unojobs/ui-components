@@ -21,6 +21,7 @@ import {
 } from '../../UnojobsIcons';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { validatePassword } from './validatePassword';
+import PasswordTooltip from './PasswordTooltip';
 
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
@@ -220,7 +221,11 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 <Form.Item
                   label="Password"
                   name="password"
-                  tooltip={props.tooltip?.password}
+                  tooltip={
+                    props?.tooltip?.password?.length && (
+                      <PasswordTooltip tooltip={props?.tooltip?.password} />
+                    )
+                  }
                   rules={[
                     {
                       required: true,
@@ -341,7 +346,13 @@ UnoRegisterModal.defaultProps = {
   tooltip: {
     fullName: 'Required',
     email: 'Required',
-    password: 'Required',
+    password: [
+      '10 characters',
+      'one uppercase letter',
+      'one lowercase letter',
+      'one number',
+      'one special character',
+    ],
     confirmPassword: 'Required',
   },
   buttonText: 'Join Us',
