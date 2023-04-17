@@ -12,6 +12,8 @@ import type {
   ILoaderSizeType,
   IUnoNewPasswordProps,
 } from './types';
+import { validatePassword } from './validatePassword';
+import PasswordTooltip from './PasswordTooltip';
 
 export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();
@@ -117,17 +119,24 @@ export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
                 <Form.Item
                   label="Password"
                   name="password"
-                  tooltip={props.tooltip?.password}
+                  tooltip={
+                    props?.tooltip?.password?.length && (
+                      <PasswordTooltip tooltip={props?.tooltip?.password} />
+                    )
+                  }
                   rules={[
                     {
                       required: true,
-                      whitespace: true,
                       message: props.errors?.password?.required,
                     },
                     {
-                      pattern:
-                        /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{10,250})/,
-                      message: props.errors?.password?.validation,
+                      validator: (_: any, value: any) =>
+                        validatePassword(
+                          value,
+                          props?.errors?.password,
+                          props.minCharPassword,
+                          props.maxCharPassword
+                        ),
                     },
                   ]}
                 >
@@ -192,7 +201,13 @@ UnoNewPasswordModal.defaultProps = {
   subHeading: '',
   onCreate: undefined,
   tooltip: {
-    password: 'Required',
+    password: [
+      '10 characters',
+      'one uppercase letter',
+      'one lowercase letter',
+      'one number',
+      'one special character',
+    ],
     confirmPassword: 'Required',
   },
   buttonText: 'Create New Password',
@@ -214,12 +229,11 @@ UnoNewPasswordModal.defaultProps = {
   backArrowMarginRight: 'auto',
   errors: {
     password: {
-      required: 'required field',
-      validation: 'must be a valid password',
+      required: 'Please enter a password',
     },
     confirmPassword: {
-      required: 'required field',
-      validation: 'must match with password',
+      required: 'Please confirm your password',
+      validation: "Oops, your passwords don't match",
     },
   },
   isResetOnSubmit: false,

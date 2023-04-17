@@ -18,9 +18,9 @@ export const SelectableRadioButton = (
     setSelectedValue(initialValue);
   }, [initialValue]);
 
-  const handleButtonSelection = (event: RadioChangeEvent) => {
-    setSelectedValue(event.target.value);
-    if (onChange) onChange(event.target.value);
+  const handleButtonSelection = (value: string) => {
+    setSelectedValue(value);
+    if (onChange) onChange(value);
   };
 
   const createButtons = () => {
@@ -28,7 +28,15 @@ export const SelectableRadioButton = (
       list?.length &&
       list?.map((value: string, index: number) => {
         return (
-          <div className="radio-button-conatiner" key={index}>
+          <div
+            className="radio-button-conatiner"
+            key={index}
+            onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+              event.stopPropagation();
+              event.preventDefault();
+              handleButtonSelection(value);
+            }}
+          >
             <Radio.Button
               autoFocus={false}
               className={`button-common ${
@@ -54,7 +62,13 @@ export const SelectableRadioButton = (
   };
 
   return (
-    <Radio.Group onChange={handleButtonSelection} value={selectedValue}>
+    <Radio.Group
+      onChange={(event: RadioChangeEvent) => {
+        event.preventDefault();
+        handleButtonSelection(event.target.value);
+      }}
+      value={selectedValue}
+    >
       <Space
         size={space}
         direction={size === 'extraLarge' ? 'vertical' : 'horizontal'}

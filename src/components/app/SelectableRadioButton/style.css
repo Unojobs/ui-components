@@ -1,5 +1,5 @@
-:root{
-  --primaryColor:"#1974FC"
+:root {
+  --primaryColor: #1974fc;
 }
 .radio-button-conatiner {
   display: flex;
@@ -69,6 +69,7 @@
   position: absolute;
   right: 15px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .radio-un-checked {
