@@ -110,6 +110,8 @@ export interface IUnoUserRegisterProps
   errors?: IRegisterErrorProps;
   minCharPassword?: number | undefined;
   maxCharPassword?: number | undefined;
+  joinText?: string;
+  joinTextStyle?: any;
 }
 
 export interface IRegisterFormValuesProps {

@@ -134,7 +134,11 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                   />
                 </Popconfirm>
               )}
-              <Text {...style.commonText}>Join using</Text>
+              <Text {...style.commonText} {...props.joinTextStyle}>
+                {props.isCandidate
+                  ? props.joinText ?? 'Join as Employer'
+                  : props.joinText ?? 'Join as Candidate'}
+              </Text>
               <HStack {...style.smButtonsContainer}>
                 <IconButton
                   icon={<GoogleSMLogo />}

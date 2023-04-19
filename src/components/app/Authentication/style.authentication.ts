@@ -38,14 +38,7 @@ export const style = {
     marginBottom: 78,
     marginTop: 2.5,
   },
-  forgetText: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginTop: 30,
-    marginBottom: 30,
-    color: 'primary.500',
-  },
+
   registerText: {
     color: 'primary.500',
     cursor: 'pointer',
@@ -71,6 +64,7 @@ export const style = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    mb: 5,
   },
   mainContainer: {
     display: 'flex',
