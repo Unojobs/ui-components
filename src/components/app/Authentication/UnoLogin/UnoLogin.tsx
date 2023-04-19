@@ -79,7 +79,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
       >
         {!props.isAdmin && (
           <Form.Item
-            label="Please first select you as what here?"
+            label="Select your account type"
             name="role"
             rules={[
               {
@@ -155,12 +155,31 @@ export const UnoLogin = (props: IUnoLoginProps) => {
             onCopy={preventCopyPaste}
           />
         </Form.Item>
-
-        <Text {...style.forgetText} {...style.commonText}>
-          <Text onPress={props.loading ? undefined : handleOnForgotPassword}>
+        <HStack
+          justifyContent={'space-between'}
+          alignItems={'flex-start'}
+          mb={30}
+          mt={-3}
+        >
+          <Text
+            {...style.commonText}
+            {...style.registerText}
+            onPress={props.loading ? undefined : handleOnForgotPassword}
+          >
             Forgot Password?
           </Text>
-        </Text>
+          <Text {...style.commonText}>
+            Don't have an account?
+            <Text
+              {...style.registerText}
+              onPress={props.loading ? undefined : handleOnRegister}
+            >
+              {' '}
+              Register
+            </Text>
+          </Text>
+        </HStack>
+
         <CustomButton
           {...style.submitButton}
           marginBottom={'0px'}
@@ -203,16 +222,6 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               />
             )}
           </HStack>
-          <Text {...style.commonText}>
-            Don't have any account?
-            <Text
-              {...style.registerText}
-              onPress={props.loading ? undefined : handleOnRegister}
-            >
-              {' '}
-              Register
-            </Text>
-          </Text>
         </>
       )}
     </VStack>
