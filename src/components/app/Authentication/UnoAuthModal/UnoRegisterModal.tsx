@@ -136,8 +136,8 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
               )}
               <Text {...style.commonText} {...props.joinTextStyle}>
                 {props.isCandidate
-                  ? props.joinText ?? 'Join as Employer'
-                  : props.joinText ?? 'Join as Candidate'}
+                  ? props.joinText ?? 'Join as Candidate'
+                  : props.joinText ?? 'Join as Employer'}
               </Text>
               <HStack {...style.smButtonsContainer}>
                 <IconButton
