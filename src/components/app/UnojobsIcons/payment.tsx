@@ -16,8 +16,8 @@ export const UnoJobCreditIcon = (props: any) => {
         d="M16.6667 21.417V22.6503"
         stroke="#1974FC"
         strokeWidth="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <Path
         d="M16.6667 10.6836V11.9836"

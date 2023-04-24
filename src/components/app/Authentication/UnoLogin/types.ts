@@ -18,6 +18,8 @@ export interface IUnoLoginProps {
   loading?: boolean;
   loaderColor?: string;
   loaderSize?: ILoaderSizeType;
+  supportEmail?: string;
+  supportText?: string;
 }
 
 export declare type ILoaderSizeType = 'sm' | 'lg';

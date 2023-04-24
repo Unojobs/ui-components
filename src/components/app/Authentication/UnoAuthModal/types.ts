@@ -77,6 +77,8 @@ export interface IUnoForgetPasswordModalProps
   errors?: IEmailErrorProps;
   isCandidate: boolean;
   isAdmin: boolean;
+  supportEmail?: string;
+  supportText?: string;
 }
 
 export interface IForgotPasswordFormValuesProps {
