@@ -77,6 +77,8 @@ export interface IUnoForgetPasswordModalProps
   errors?: IEmailErrorProps;
   isCandidate: boolean;
   isAdmin: boolean;
+  supportEmail?: string;
+  supportText?: string;
 }
 
 export interface IForgotPasswordFormValuesProps {
@@ -110,7 +112,7 @@ export interface IUnoUserRegisterProps
   errors?: IRegisterErrorProps;
   minCharPassword?: number | undefined;
   maxCharPassword?: number | undefined;
-  joinText?: string;
+  joinText?: any;
   joinTextStyle?: any;
 }
 

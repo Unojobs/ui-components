@@ -84,7 +84,7 @@ export const style = {
     backgroundColor: 'secondary.300',
     marginRight: 'auto',
     marginLeft: 'auto',
-    marginTop: 'auto',
+    marginTop: '400',
     marginBottom: 'auto',
   },
   otpInputStyle: {

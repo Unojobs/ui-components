@@ -79,7 +79,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
       >
         {!props.isAdmin && (
           <Form.Item
-            label="Select your account type"
+            label="Choose your account type"
             name="role"
             rules={[
               {
@@ -194,9 +194,15 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         </CustomButton>
       </Form>
       {!props.isAdmin && (
-        <>
+        <HStack
+          width={400}
+          justifyContent={'center'}
+          alignItems={'center'}
+          mb={5}
+          space={5}
+        >
           <Text {...style.commonText}>Or {props.buttonText} With</Text>
-          <HStack {...style.smButtonsContainer}>
+          <HStack space={5}>
             <IconButton
               icon={<GoogleSMLogo />}
               _hover={style.socialHoverFocus}
@@ -222,7 +228,15 @@ export const UnoLogin = (props: IUnoLoginProps) => {
               />
             )}
           </HStack>
-        </>
+        </HStack>
+      )}
+      {props.supportEmail && (
+        <VStack mt={-8} alignItems={'center'} mb={5}>
+          <Text>{props.supportText}</Text>
+          <a href={`mailto:${props.supportEmail}`}>
+            <Text color={'primary.500'}>{props.supportEmail}</Text>
+          </a>
+        </VStack>
       )}
     </VStack>
   );
@@ -262,4 +276,6 @@ UnoLogin.defaultProps = {
   loading: false,
   loaderColor: 'secondary.300',
   loaderSize: 'sm' as ILoaderSizeType,
+  supportEmail: '',
+  supportText: 'In case you are facing any issue, please contact',
 };

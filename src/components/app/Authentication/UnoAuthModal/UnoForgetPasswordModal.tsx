@@ -161,6 +161,14 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
                   )}
                 </CustomButton>
               </Form>
+              {props.supportEmail && (
+                <VStack mt={-8} alignItems={'center'} mb={5}>
+                  <Text>{props.supportText}</Text>
+                  <a href={`mailto:${props.supportEmail}`}>
+                    <Text color={'primary.500'}>{props.supportEmail}</Text>
+                  </a>
+                </VStack>
+              )}
             </VStack>
           </Modal.Body>
         </Modal.Content>
@@ -169,14 +177,14 @@ export const UnoForgetPasswordModal = (props: IUnoForgetPasswordModalProps) => {
   );
 };
 UnoForgetPasswordModal.defaultProps = {
-  heading: '',
-  subHeading: '',
+  heading: 'Forgot Password',
+  subHeading: 'Password resent link will be sent to your email',
   title: '',
   onSubmit: undefined,
   isOpened: false,
   setIsOpened: undefined,
   unoLogo: <UnojobsAppLogo />,
-  buttonText: 'Send an email',
+  buttonText: 'Send',
   tooltip: {
     email: 'Required',
   },
@@ -210,4 +218,6 @@ UnoForgetPasswordModal.defaultProps = {
     confirmText: 'Leave',
     placement: 'top' as IBackArrowPopoverPlacementType,
   },
+  supportEmail: '',
+  supportText: 'In case you are facing any issue, please contact',
 };
