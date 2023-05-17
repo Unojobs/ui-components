@@ -95,12 +95,12 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                 </Popconfirm>
               )}
               {(props.heading || props.subHeading) && (
-                <VStack>
+                <VStack mb={3} mt={2.5}>
                   {props.heading && (
                     <Text {...style.heading}>{props.heading}</Text>
                   )}
                   {props.subHeading && (
-                    <Text {...style.subHeading}>
+                    <Text {...style.subHeading} {...style.formatSentence}>
                       {props.subHeading}
                       {props.smsSentOn && (
                         <Text fontWeight={'bold'} fontSize={'md'}>
@@ -108,7 +108,11 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                           {props.smsSentOn}
                         </Text>
                       )}
-                      {props.supportText && <Text>. {props.supportText}</Text>}
+                    </Text>
+                  )}
+                  {props.supportText && (
+                    <Text {...style.subHeading}>
+                      {props.supportText}{' '}
                       {props.supportEmail && (
                         <Text fontWeight={'bold'} fontSize={'md'}>
                           {' '}
