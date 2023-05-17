@@ -30,10 +30,11 @@ export const style = {
     color: 'textColors.primary',
     fontWeight: 'normal',
     display: 'block',
-    marginTop: 2.5,
-    marginBottom: 12,
-    lineHeight: 'lg',
-    wordBreak: 'break-all',
+  },
+  formatSentence: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   },
   userType: {
     marginBottom: 78,
