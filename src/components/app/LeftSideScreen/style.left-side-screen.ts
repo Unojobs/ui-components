@@ -13,4 +13,4 @@ export const style = {
     fontSize: 'lg',
     display: 'block',
   },
-};
+} as const;

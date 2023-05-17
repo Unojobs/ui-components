@@ -80,7 +80,14 @@ LeftSideScreen.defaultProps = {
     '2xl': 900,
   },
   imageBorderRadius: 10,
-  imageHeight: 400,
+  imageHeight: {
+    'base': 'none',
+    'sm': 'none',
+    'md': 400,
+    'lg': 400,
+    'xl': 400,
+    '2xl': 400,
+  },
   boxPadding: 10,
   showIndicators: false,
 };

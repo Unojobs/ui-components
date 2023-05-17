@@ -56,6 +56,8 @@ export interface IUnoOTPModalProps extends ICommonModalProps, IBackArrowProps {
   onResendOTP?: () => void | undefined;
   isResend: boolean;
   errors?: IOTPErrorProps;
+  supportText?: string | undefined;
+  supportEmail?: string | undefined;
 }
 
 export interface IOTPFormValuesProps {

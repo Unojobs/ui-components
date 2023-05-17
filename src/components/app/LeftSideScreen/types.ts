@@ -11,10 +11,10 @@ export interface ILeftSideScreenProps {
   showArrows?: boolean;
   interval?: number;
   showThumbs?: boolean;
-  carouselTopMargin: string | number;
+  carouselTopMargin: IWidthProps | string | number;
   boxWidth: IWidthProps | string | number;
   imageBorderRadius: string | number;
-  imageHeight: string | number;
+  imageHeight: IWidthProps | string | number;
   boxPadding: string | number;
   showIndicators: boolean;
 }
