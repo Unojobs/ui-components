@@ -41,7 +41,7 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
                     alt={object.imageUrl}
                     borderRadius={props.imageBorderRadius}
                     height={props.imageHeight}
-                    width={props.imageWidth}
+                    width={props.imageWidth || props.boxWidth}
                   />
                 </Text>
                 <Text {...style.title} maxWidth={props.boxWidth}>
@@ -81,6 +81,7 @@ LeftSideScreen.defaultProps = {
   },
   imageBorderRadius: 10,
   imageHeight: 400,
+  imageWidth: undefined,
   boxPadding: 10,
   showIndicators: false,
 };
