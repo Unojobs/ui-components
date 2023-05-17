@@ -102,10 +102,19 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   {props.subHeading && (
                     <Text {...style.subHeading}>
                       {props.subHeading}
-                      <Text fontWeight={'extraBlack'} fontSize={'lg'}>
-                        {' '}
-                        {props.smsSentOn}
-                      </Text>
+                      {props.smsSentOn && (
+                        <Text fontWeight={'bold'} fontSize={'md'}>
+                          {' '}
+                          {props.smsSentOn}
+                        </Text>
+                      )}
+                      {props.supportText && <Text>. {props.supportText}</Text>}
+                      {props.supportEmail && (
+                        <Text fontWeight={'bold'} fontSize={'md'}>
+                          {' '}
+                          {props.supportEmail}
+                        </Text>
+                      )}
                     </Text>
                   )}
                 </VStack>
@@ -217,4 +226,6 @@ UnoOTPModal.defaultProps = {
     confirmText: 'Leave',
     placement: 'top' as IBackArrowPopoverPlacementType,
   },
+  supportText: undefined,
+  supportEmail: undefined,
 };

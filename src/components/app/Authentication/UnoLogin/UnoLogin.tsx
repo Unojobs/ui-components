@@ -151,7 +151,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           <Input.Password
             placeholder={props.placeholder?.password}
             style={style.input}
-            onPaste={preventCopyPaste}
+            // onPaste={preventCopyPaste}
             onCopy={preventCopyPaste}
           />
         </Form.Item>

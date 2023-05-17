@@ -33,6 +33,7 @@ export const style = {
     marginTop: 2.5,
     marginBottom: 12,
     lineHeight: 'lg',
+    wordBreak: 'break-all',
   },
   userType: {
     marginBottom: 78,
@@ -110,4 +111,4 @@ export const style = {
     borderStyle: 'solid',
     borderColor: 'primary.500',
   },
-};
+} as const;
