@@ -17,6 +17,7 @@ export interface ILeftSideScreenProps {
   imageHeight: string | number;
   boxPadding: string | number;
   showIndicators: boolean;
+  imageWidth: string | number;
 }
 
 interface IWidthProps {
