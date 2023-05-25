@@ -1,5 +1,6 @@
 :root {
-  --primaryColor: #1974FC;
+  --primaryColor: #1974fc;
+  --textPrimaryColor: #111111;
 }
 .ant-form-wrapper-ui label {
   font-size: 14px !important;
@@ -70,4 +71,26 @@
   background-color: #2b5bea;
   border-color: #2b5bea;
   color: #fff;
+}
+
+.sub-head-text {
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: justify;
+}
+
+.sub-head-text p {
+  width: 100%;
+  font-size: 16px;
+  color: var(--textPrimaryColor);
+  font-weight: normal;
+  display: block;
+  word-break: keep-all;
+}
+
+.email-text {
+  font-weight: bold;
+  font-size: 16px;
+  word-break: break-all;
 }
