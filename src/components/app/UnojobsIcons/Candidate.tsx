@@ -470,7 +470,7 @@ export const UnojobsInfoIcon = ({ fill, size }: IconProps) => {
 
 export const UnojobsNoAppliedJobsIcon = ({ size }: IconProps) => {
   const CustomIcon = createIcon({
-    viewBox: '0 0 146 158"',
+    viewBox: '0 0 146 158',
     path: (
       <>
         <path
@@ -578,7 +578,7 @@ export const UnojobsNoAppliedJobsIcon = ({ size }: IconProps) => {
             filterUnits="userSpaceOnUse"
             colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -612,7 +612,7 @@ export const UnojobsNoAppliedJobsIcon = ({ size }: IconProps) => {
             filterUnits="userSpaceOnUse"
             colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"

@@ -31,11 +31,6 @@ export const style = {
     fontWeight: 'normal',
     display: 'block',
   },
-  formatSentence: {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-  },
   userType: {
     marginBottom: 78,
     marginTop: 2.5,

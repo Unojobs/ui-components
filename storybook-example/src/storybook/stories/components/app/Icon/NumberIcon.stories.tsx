@@ -16,8 +16,6 @@ const Template: ComponentStory<typeof NumberIcon> = (args) => (
 export const Variants = Template.bind({});
 
 Variants.args = {
-  onClick: (event) => {
-    console.log('Manually clicked', event);
-  },
+  onClick: (event) => {},
   children: 10,
 };

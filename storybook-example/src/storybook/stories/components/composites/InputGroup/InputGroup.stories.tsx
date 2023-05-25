@@ -5,10 +5,7 @@ import { Wrapper } from '../../Wrapper';
 const InputGroupTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <InputGroup
-        {...args}
-        onPress={() => console.log('hello world')}
-      ></InputGroup>
+      <InputGroup {...args} onPress={() => {}}></InputGroup>
     </Wrapper>
   );
 };

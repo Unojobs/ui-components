@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, VStack, Text, Image } from '../../primitives';
+import { Box, VStack, Text } from '../../primitives';
 import type { ILeftSideScreenProps, IListItem } from './types';
 import { style } from './style.left-side-screen';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { nanoid } from 'nanoid';
+import { Image as AntdImage } from 'antd';
 
 export const LeftSideScreen = (props: ILeftSideScreenProps) => {
   return (
@@ -18,7 +19,8 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
       <Box
         position={'fixed'}
         top={props.carouselTopMargin}
-        padding={props.boxPadding}
+        pl={props.boxPaddingLeft}
+        pr={props.boxPaddingRight}
         width={props.boxWidth}
       >
         <Carousel
@@ -33,27 +35,35 @@ export const LeftSideScreen = (props: ILeftSideScreenProps) => {
           {props.list?.map((object: IListItem) => {
             return (
               <VStack textAlign="left" key={nanoid()}>
-                <Text>
-                  <Image
-                    source={{
-                      uri: object.imageUrl,
-                    }}
-                    alt={object.imageUrl}
-                    borderRadius={props.imageBorderRadius}
-                    height={props.imageHeight}
-                    width={props.boxWidth}
-                  />
-                </Text>
-                <Text {...style.title} maxWidth={props.boxWidth}>
-                  {object.title}
-                </Text>
-                <Text
-                  {...style.subTitle}
-                  textAlign="justify"
-                  maxWidth={props.boxWidth}
+                <Box
+                  borderRadius={props.imageBorderRadius}
+                  height={props.imageHeight}
+                  width={props.boxWidth}
                 >
-                  {object.subTitle}
-                </Text>
+                  <AntdImage
+                    preview={false}
+                    src={object.imageUrl}
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{
+                      objectFit: 'fill',
+                      borderRadius: props.imageBorderRadius,
+                    }}
+                    height={'100%'}
+                    width={'100%'}
+                  />
+                </Box>
+                <Box pl={props.textPaddingLeft} pr={props.textPaddingRight}>
+                  <Text {...style.title} maxWidth={props.boxWidth}>
+                    {object.title}
+                  </Text>
+                  <Text
+                    {...style.subTitle}
+                    textAlign="justify"
+                    maxWidth={props.boxWidth}
+                  >
+                    {object.subTitle}
+                  </Text>
+                </Box>
               </VStack>
             );
           })}
@@ -88,6 +98,9 @@ LeftSideScreen.defaultProps = {
     'xl': 400,
     '2xl': 400,
   },
-  boxPadding: 10,
+  textPaddingLeft: 4,
+  textPaddingRight: 4,
+  boxPaddingLeft: 0,
+  boxPaddingRight: 0,
   showIndicators: false,
 };

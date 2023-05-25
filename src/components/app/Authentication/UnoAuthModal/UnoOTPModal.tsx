@@ -99,27 +99,21 @@ export const UnoOTPModal = (props: IUnoOTPModalProps) => {
                   {props.heading && (
                     <Text {...style.heading}>{props.heading}</Text>
                   )}
-                  {props.subHeading && (
-                    <Text {...style.subHeading} {...style.formatSentence}>
-                      {props.subHeading}
-                      {props.smsSentOn && (
-                        <Text fontWeight={'bold'} fontSize={'md'}>
-                          {' '}
-                          {props.smsSentOn}
-                        </Text>
-                      )}
-                    </Text>
-                  )}
-                  {props.supportText && (
-                    <Text {...style.subHeading}>
-                      {props.supportText}{' '}
-                      {props.supportEmail && (
-                        <Text fontWeight={'bold'} fontSize={'md'}>
-                          {' '}
-                          {props.supportEmail}
-                        </Text>
-                      )}
-                    </Text>
+                  {(props.subHeading || props.supportText) && (
+                    <div className="sub-head-text">
+                      <p>
+                        {props.subHeading && props.subHeading}{' '}
+                        {props.smsSentOn && (
+                          <span className="email-text">{props.smsSentOn}.</span>
+                        )}{' '}
+                        {props.supportText && props.supportText}{' '}
+                        {props.supportEmail && (
+                          <span className="email-text">
+                            {props.supportEmail}
+                          </span>
+                        )}
+                      </p>
+                    </div>
                   )}
                 </VStack>
               )}

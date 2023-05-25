@@ -26,7 +26,5 @@ const Template: ComponentStory<typeof EditIcon> = (args) => (
 export const Variants = Template.bind({});
 
 Variants.args = {
-  onClick: (event) => {
-    console.log('Manually clicked', event);
-  },
+  onClick: (event) => {},
 };

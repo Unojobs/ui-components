@@ -5,14 +5,14 @@ export const StorybookArgs = {
       subTitle:
         'Source faster, iterate an your outreach with that data, and see your efforts pay off.',
       imageUrl:
-        'https://media.istockphoto.com/photos/business-people-having-casual-discussion-during-meeting-picture-id1347197740?b=1&k=20&m=1347197740&s=170667a&w=0&h=wgx6rJaa-q2k8twujrAe-KV5-0uEnGKrt_W88BwM12U=',
+        'https://unojobs-landing-media.s3.ap-south-1.amazonaws.com/Uno_Jobs_0d451abcf3.webp',
     },
     {
       title: 'Reach even more talent, faster',
       subTitle:
         'Source faster, iterate an your outreach with that data, and see your efforts pay off.',
       imageUrl:
-        'https://media.istockphoto.com/photos/group-of-business-people-standing-in-hall-smiling-and-talking-picture-id530685719?b=1&k=20&m=530685719&s=170667a&w=0&h=aN1pBK7O0fhpj_1PTXxG7UeRdWcBqxj24meH1nsN8Xo=',
+        'https://unojobs-landing-media.s3.ap-south-1.amazonaws.com/f5d74b33_c3ec_41bf_93ea_3f1baf33facd_bfde2f4d42.webp',
     },
   ],
   infiniteLoop: true,
