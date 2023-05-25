@@ -7,7 +7,7 @@ import { Button } from 'components';
 const ButtonTest = ({ ...args }) => {
   return (
     <Wrapper>
-      <Button {...args} onPress={() => console.log('hello world')}>
+      <Button {...args} onPress={() => {}}>
         Click Me
       </Button>
     </Wrapper>

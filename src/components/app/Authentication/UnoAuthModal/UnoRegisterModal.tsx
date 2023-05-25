@@ -295,28 +295,30 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                       },
                     ]}
                   >
-                    <Checkbox checked={checked} onChange={onCheckboxChange} />
-                    <Text {...style.commonText} marginLeft={1} fontSize={13}>
-                      {props.termAndConditionValues?.text}
-                      <Text
-                        {...style.registerText}
-                        onPress={props.onTermsAndCondition}
-                      >
-                        {' '}
-                        {`${props?.termAndConditionValues?.linkTextOne} `}
-                      </Text>
-                      {props.termAndConditionValues?.linkTextTwo && (
-                        <Text>
-                          {'& '}
-                          <Text
-                            {...style.registerText}
-                            onPress={props.onPrivacyPolicy}
-                          >
-                            {props.termAndConditionValues.linkTextTwo}
-                          </Text>
+                    <div>
+                      <Checkbox checked={checked} onChange={onCheckboxChange} />
+                      <Text {...style.commonText} marginLeft={1} fontSize={13}>
+                        {props.termAndConditionValues?.text}
+                        <Text
+                          {...style.registerText}
+                          onPress={props.onTermsAndCondition}
+                        >
+                          {' '}
+                          {`${props?.termAndConditionValues?.linkTextOne} `}
                         </Text>
-                      )}
-                    </Text>
+                        {props.termAndConditionValues?.linkTextTwo && (
+                          <Text>
+                            {'& '}
+                            <Text
+                              {...style.registerText}
+                              onPress={props.onPrivacyPolicy}
+                            >
+                              {props.termAndConditionValues.linkTextTwo}
+                            </Text>
+                          </Text>
+                        )}
+                      </Text>
+                    </div>
                   </Form.Item>
                 )}
                 <CustomButton {...style.submitButton} htmlType="submit">

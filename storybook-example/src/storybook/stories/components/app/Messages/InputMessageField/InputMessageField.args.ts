@@ -4,5 +4,5 @@ export const StorybookArgs = {
     username: 'Stan Goodly',
     avatarUri: 'https://joeschmoe.io/api/v1/random',
   },
-  handleTextInput: (text: string) => console.log(text),
+  handleTextInput: (text: string) => {},
 };

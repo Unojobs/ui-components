@@ -29,11 +29,11 @@ export const CreateNewMessage = (_props: any) => {
           placeholder="All Job Project"
           height="48px"
           list={[{ label: 'Adeel', value: 'adeel' }]}
-          onValueChange={(value) => console.log(value)}
+          onValueChange={(_value) => {}}
         />
         <SearchBar
           value={''}
-          onChangeText={(text: string) => console.log(text)}
+          onChangeText={(_text: string) => {}}
           height="48px"
         />
         <VStack space={5}>

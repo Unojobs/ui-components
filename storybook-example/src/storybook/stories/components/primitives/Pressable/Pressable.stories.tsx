@@ -8,7 +8,7 @@ const PressableTest = ({ ...args }) => {
   return (
     <Wrapper>
       <Pressable
-        onPress={() => console.log("I'm Pressed")}
+        onPress={() => {}}
         rounded="8"
         overflow="hidden"
         borderWidth="1"
