@@ -15,7 +15,10 @@ export interface ILeftSideScreenProps {
   boxWidth: IWidthProps | string | number;
   imageBorderRadius: string | number;
   imageHeight: IWidthProps | string | number;
-  boxPadding: string | number;
+  boxPaddingLeft: string | number;
+  boxPaddingRight: string | number;
+  textPaddingLeft: string | number;
+  textPaddingRight: string | number;
   showIndicators: boolean;
 }
 
