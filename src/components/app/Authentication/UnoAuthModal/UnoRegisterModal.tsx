@@ -286,17 +286,11 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 {props.termAndConditionValues?.showCheckBox && (
                   <Form.Item
                     name="termsAndCondition"
-                    rules={[
-                      {
-                        validator: (_, _value) => {
-                          if (checked) return Promise.resolve();
-                          return Promise.reject(props.errors?.checkbox);
-                        },
-                      },
-                    ]}
+                    validateStatus={checked ? 'success' : 'error'}
+                    help={!checked && props.errors?.checkbox}
                   >
-                    <div>
-                      <Checkbox checked={checked} onChange={onCheckboxChange} />
+                    <Checkbox checked={checked} onChange={onCheckboxChange} />
+                    <span>
                       <Text {...style.commonText} marginLeft={1} fontSize={13}>
                         {props.termAndConditionValues?.text}
                         <Text
@@ -318,7 +312,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                           </Text>
                         )}
                       </Text>
-                    </div>
+                    </span>
                   </Form.Item>
                 )}
                 <CustomButton {...style.submitButton} htmlType="submit">
