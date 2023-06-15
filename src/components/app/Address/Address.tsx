@@ -37,7 +37,7 @@ const width_ele = 400;
 
 export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
   const { ref: antRef } = usePlacesWidget({
-    apiKey: process.env.LOCATION_API_KEY,
+    apiKey: props.locationApiKey,
     onPlaceSelected: (place: any) => {
       props.performPlaceDetailsSearch(place);
     },
