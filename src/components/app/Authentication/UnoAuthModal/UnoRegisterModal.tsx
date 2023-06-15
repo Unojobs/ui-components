@@ -22,8 +22,8 @@ import {
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { validatePassword } from './validatePassword';
 import PasswordTooltip from './PasswordTooltip';
-import { AddressSearchInputAntd, CustomSelect } from 'src';
-
+import { AddressSearchInputAntd } from '../../Address';
+import { CustomSelect } from '../../Select';
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
   const [form] = Form.useForm();

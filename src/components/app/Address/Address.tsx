@@ -3,7 +3,7 @@ import { Form } from 'antd';
 import { FormLabel } from './FormLabel';
 import { usePlacesWidget } from 'react-google-autocomplete';
 import { LocationIcon } from '../UnojobsIcons/FormIcons';
-import { HStack } from 'src';
+import { HStack } from './../../primitives';
 
 interface IAddressSearchInputAntdProps {
   name?: string;

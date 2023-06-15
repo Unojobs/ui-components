@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import { CheckCircleIcon } from 'src';
+import { CheckCircleIcon } from '../../primitives';
 import React from 'react';
 import './selectStyle.css';
 const { Option } = Select;
