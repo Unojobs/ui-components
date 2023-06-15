@@ -2,7 +2,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 
 import { Tooltip } from 'antd';
 import React from 'react';
-import { VStack, Text } from 'src';
+import { VStack, Text } from '../../primitives';
 
 interface ILabelProps {
   label?: string;
