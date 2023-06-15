@@ -18,6 +18,33 @@ export interface ICommonModalProps {
   loaderSize?: ILoaderSizeType;
   popover?: IPopoverProps;
 }
+
+export interface IAddressSearchInputAntdProps {
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  requiredMark?: boolean;
+  rules?: any[];
+  subLabel?: string;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  noDivider?: boolean;
+  noLabel?: boolean;
+  setLocationDetails?: React.Dispatch<React.SetStateAction<any | null>>;
+  initialAddress?: string;
+  validateStatus?: '' | 'success' | 'warning' | 'error' | 'validating';
+  help?: string;
+  onChange?: any;
+  isOrgForm?: boolean;
+  form?: any;
+  isUserAddress?: boolean;
+  updateFormField?: string;
+  performPlaceDetailsSearch?: any;
+  locationApiKey?: any;
+  setTextareaRow?: any;
+  textareaRow?: any;
+}
+
 export interface IPopoverProps {
   text?: string;
   cancelText?: string;
@@ -95,19 +122,25 @@ export interface IForgotPUtil {
 export interface IEmailErrorProps {
   email?: IErrorProps;
 }
-
+export interface ICustomSelectProps {
+  selected: string;
+  options: any[];
+  onChangeSelect: any;
+}
 /** Register new user Modal Props */
 
 export interface IUnoUserRegisterProps
   extends ICommonModalProps,
-    IBackArrowProps {
+    IBackArrowProps,
+    IAddressSearchInputAntdProps,
+    ICustomSelectProps {
   onRegister?: (values: IRegisterFormValuesProps) => void | undefined;
   isCandidate: boolean;
   onGoogleLogin?: () => void | undefined;
   onLinkedInLogin?: () => void | undefined;
   onFacebookLogin?: () => void | undefined;
   tooltip?: IRegisterUtil;
-  placeholder?: IRegisterPlaceholder;
+  placeholder?: any;
   onTermsAndCondition?: () => void | undefined;
   onPrivacyPolicy?: () => void | undefined;
   termAndConditionValues?: ITermsAndConditions;
