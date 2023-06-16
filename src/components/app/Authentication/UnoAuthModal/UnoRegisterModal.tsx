@@ -287,6 +287,12 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                 <Form.Item
                   name="hearAboutUs"
                   label="How did you hear about us ?"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'this is a required field',
+                    },
+                  ]}
                 >
                   <CustomSelect
                     multiple={undefined}
@@ -297,11 +303,19 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     }}
                   />
                 </Form.Item>
-                <Form.Item name="address">
+                <Form.Item
+                  name="address"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'this is a required field',
+                    },
+                  ]}
+                >
                   <AddressSearchInputAntd
                     name={props.name}
                     label={props.label}
-                    placeholder={props.placeholder}
+                    placeholder={props.placeholder.address}
                     requiredMark={props.requiredMark}
                     rules={props.rules}
                     subLabel={props.subLabel}

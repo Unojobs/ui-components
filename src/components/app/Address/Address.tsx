@@ -40,7 +40,7 @@ export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
     apiKey: props.locationApiKey,
     onPlaceSelected: async (place: any) => {
       const data = await props.performPlaceDetailsSearch(place);
-      props.form.setFieldsValue('address', data);
+      props.form.setFieldValue('address', data);
     },
     options: {
       types: ['geocode', 'establishment'],
