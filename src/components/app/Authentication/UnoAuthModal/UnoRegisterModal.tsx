@@ -323,8 +323,6 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     style={props.style}
                     noDivider={props.noDivider}
                     noLabel={props.noLabel}
-                    setLocationDetails={props.setLocationDetails}
-                    initialAddress={props.initialAddress}
                     validateStatus={props.validateStatus}
                     help={props.help}
                     onChange={props.onChange}
@@ -334,8 +332,6 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     performPlaceDetailsSearch={props.performPlaceDetailsSearch}
                     locationApiKey={props.locationApiKey}
                     isUserAddress={props.isUserAddress}
-                    setTextareaRow={props.setTextareaRow}
-                    textareaRow={props.textareaRow}
                   />
                 </Form.Item>
                 {props.termAndConditionValues?.showCheckBox && (

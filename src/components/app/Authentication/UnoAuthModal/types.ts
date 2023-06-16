@@ -30,8 +30,6 @@ export interface IAddressSearchInputAntdProps {
   style?: React.CSSProperties;
   noDivider?: boolean;
   noLabel?: boolean;
-  setLocationDetails?: React.Dispatch<React.SetStateAction<any | null>>;
-  initialAddress?: string;
   validateStatus?: '' | 'success' | 'warning' | 'error' | 'validating';
   help?: string;
   onChange?: any;
@@ -41,8 +39,6 @@ export interface IAddressSearchInputAntdProps {
   updateFormField?: string;
   performPlaceDetailsSearch?: any;
   locationApiKey?: any;
-  setTextareaRow?: any;
-  textareaRow?: any;
 }
 
 export interface IPopoverProps {

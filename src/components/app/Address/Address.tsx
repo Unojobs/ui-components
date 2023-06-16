@@ -1,50 +1,28 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
 import { FormLabel } from './FormLabel';
-import { usePlacesWidget } from 'react-google-autocomplete';
-import { LocationIcon } from '../UnojobsIcons/FormIcons';
-import { HStack } from './../../primitives';
-import { style } from '../Authentication/style.authentication';
 
-interface IAddressSearchInputAntdProps {
-  name?: string;
-  label?: string;
-  placeholder?: string;
-  requiredMark?: boolean;
-  rules?: any[];
-  subLabel?: string;
-  disabled?: boolean;
-  style?: React.CSSProperties;
-  noDivider?: boolean;
-  noLabel?: boolean;
-  setLocationDetails?: React.Dispatch<React.SetStateAction<any | null>>;
-  initialAddress?: string;
-  validateStatus?: '' | 'success' | 'warning' | 'error' | 'validating';
-  help?: string;
-  onChange?: any;
-  isOrgForm?: boolean;
-  form?: any;
-  isUserAddress?: boolean;
-  updateFormField?: string;
-  performPlaceDetailsSearch?: any;
-  locationApiKey?: any;
-  setTextareaRow?: any;
-  textareaRow?: any;
-}
+import { HStack } from './../../primitives';
+
+import Autocomplete from 'react-google-autocomplete';
+import './autoComplete.css';
+import type { IAddressSearchInputAntdProps } from '../Authentication/UnoAuthModal/types';
 
 export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
-  const { ref: antRef } = usePlacesWidget({
-    apiKey: props.locationApiKey,
-    onPlaceSelected: async (place: any) => {
-      const data = await props.performPlaceDetailsSearch(place);
-      props.form.setFieldValue('address', data);
-    },
-    options: {
-      types: ['(cities)'],
-      componentRestrictions: { country: 'in' },
-    },
-  });
-
+  // takes name of the city from the location obj coming from google api
+  const plainSearch = (data: any) => {
+    const _city = data.address_components[0]?.long_name;
+    props.form.setFieldValue('address', _city);
+  };
+  const styleAutoComplete = {
+    width: '400px',
+    height: '45px',
+    border: '1px solid #f3f3f3',
+    outline: 'none',
+    fontSize: '14px',
+    borderRadius: '5px',
+    padding: '12px 20px',
+  };
   return (
     <Form.Item
       name={props.name}
@@ -59,18 +37,20 @@ export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
         )
       }
       rules={props.rules}
-      initialValue={props.initialAddress}
       validateStatus={props.validateStatus}
       help={props.help}
     >
       <HStack alignItems={'center'}>
-        <Input
-          //@ts-ignore
-          ref={antRef}
-          type="text"
-          style={style.input}
+        <Autocomplete
+          className="autoComplete"
+          apiKey={props.locationApiKey}
+          onPlaceSelected={plainSearch}
+          style={{ ...styleAutoComplete }}
+          options={{
+            types: ['(cities)'],
+            components: ['locality'],
+          }}
           placeholder={props.placeholder}
-          suffix={<LocationIcon size={5} />}
         />
       </HStack>
     </Form.Item>

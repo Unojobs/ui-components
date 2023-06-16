@@ -5,7 +5,7 @@ import './selectStyle.css';
 const { Option } = Select;
 export const CustomSelect: React.FC<{
   selected?: any;
-  onChange: (e: any) => void;
+  onChange?: any;
   options: any;
   multiple?: 'tags' | 'multiple';
   disable?: boolean;
