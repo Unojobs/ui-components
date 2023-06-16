@@ -1,9 +1,10 @@
 import React from 'react';
-import { Form } from 'antd';
+import { Form, Input } from 'antd';
 import { FormLabel } from './FormLabel';
 import { usePlacesWidget } from 'react-google-autocomplete';
 import { LocationIcon } from '../UnojobsIcons/FormIcons';
 import { HStack } from './../../primitives';
+import { style } from '../Authentication/style.authentication';
 
 interface IAddressSearchInputAntdProps {
   name?: string;
@@ -31,10 +32,6 @@ interface IAddressSearchInputAntdProps {
   textareaRow?: any;
 }
 
-const fontSize_ele = 14;
-const paddingRight_ele = 35;
-const width_ele = 400;
-
 export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
   const { ref: antRef } = usePlacesWidget({
     apiKey: props.locationApiKey,
@@ -43,7 +40,7 @@ export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
       props.form.setFieldValue('address', data);
     },
     options: {
-      types: ['geocode', 'establishment'],
+      types: ['(cities)'],
       componentRestrictions: { country: 'in' },
     },
   });
@@ -66,38 +63,16 @@ export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
       validateStatus={props.validateStatus}
       help={props.help}
     >
-      <span className={`ant-text_area_input set-placeholder`}>
-        <HStack alignItems={'center'}>
-          <textarea
-            className="ant-input"
-            //@ts-ignore
-            ref={antRef}
-            style={{
-              width: width_ele,
-              borderRadius: '5px',
-              fontSize: fontSize_ele,
-              letterSpacing: '0.03em',
-              paddingRight: paddingRight_ele,
-              paddingTop: 10,
-              paddingBottom: 6,
-              minHeight: '45px',
-              resize: 'none',
-              ...props.style,
-            }}
-            placeholder={props.placeholder}
-            disabled={props.disabled}
-            onChange={(e) => {
-              if (!e.target.value) props.setTextareaRow(1);
-              if (props.onChange) props.onChange();
-            }}
-            defaultValue={props.initialAddress}
-            rows={props.textareaRow}
-          />
-          <span className="location-icon">
-            <LocationIcon size={5} />
-          </span>
-        </HStack>
-      </span>
+      <HStack alignItems={'center'}>
+        <Input
+          //@ts-ignore
+          ref={antRef}
+          type="text"
+          style={style.input}
+          placeholder={props.placeholder}
+          suffix={<LocationIcon size={5} />}
+        />
+      </HStack>
     </Form.Item>
   );
 };
