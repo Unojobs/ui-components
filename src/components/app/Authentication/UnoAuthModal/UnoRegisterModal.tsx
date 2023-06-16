@@ -292,10 +292,12 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     multiple={undefined}
                     selected={props.selected}
                     options={props.options}
-                    onChange={props.onChangeSelect}
+                    onChange={(value: any) => {
+                      form.setFieldValue('hearAboutUs', value.id);
+                    }}
                   />
                 </Form.Item>
-                <Form.Item name="address" label="Enter your address ?">
+                <Form.Item name="address">
                   <AddressSearchInputAntd
                     name={props.name}
                     label={props.label}
@@ -313,7 +315,7 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     help={props.help}
                     onChange={props.onChange}
                     isOrgForm={props.isOrgForm}
-                    form={props.form}
+                    form={form}
                     updateFormField={props.updateFormField}
                     performPlaceDetailsSearch={props.performPlaceDetailsSearch}
                     locationApiKey={props.locationApiKey}

@@ -158,6 +158,8 @@ export interface IRegisterFormValuesProps {
   password: string;
   termsAndCondition: boolean;
   role: string;
+  hereAboutUs?: any;
+  currentCity?: string;
 }
 
 export interface ITermsAndConditions {

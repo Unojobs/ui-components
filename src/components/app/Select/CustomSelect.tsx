@@ -50,8 +50,8 @@ export const CustomSelect: React.FC<{
       >
         {options?.map((option: any) => {
           return (
-            <Option key={option.id} value={option.name} style={styles.option}>
-              {option.name}
+            <Option key={option.id} value={option.label} style={styles.option}>
+              {option.label}
             </Option>
           );
         })}

@@ -38,8 +38,9 @@ const width_ele = 400;
 export const AddressSearchInputAntd = (props: IAddressSearchInputAntdProps) => {
   const { ref: antRef } = usePlacesWidget({
     apiKey: props.locationApiKey,
-    onPlaceSelected: (place: any) => {
-      props.performPlaceDetailsSearch(place);
+    onPlaceSelected: async (place: any) => {
+      const data = await props.performPlaceDetailsSearch(place);
+      props.form.setFieldsValue('address', data);
     },
     options: {
       types: ['geocode', 'establishment'],
