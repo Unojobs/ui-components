@@ -11,12 +11,12 @@ export const style = {
     letterSpacing: '0.03em',
   },
   submitButton: {
-    width: '400px',
+    width: '450px',
     backgroundColor: AppColors.primaryColor,
     marginBottom: '20px',
   },
   heading: {
-    width: 400,
+    width: 450,
     fontSize: '4xl',
     color: 'textColors.primary',
     fontWeight: 'semibold',
@@ -25,7 +25,7 @@ export const style = {
     lineHeight: 'sm',
   },
   subHeading: {
-    width: 400,
+    width: 450,
     fontSize: 'md',
     color: 'textColors.primary',
     fontWeight: 'normal',
@@ -94,7 +94,7 @@ export const style = {
     border: '1px solid #EB5757',
   },
   otpSeperatorStyle: {
-    width: 8,
+    width: 18,
   },
   resendText: {
     display: 'flex',
