@@ -87,7 +87,7 @@ export const style = {
   otpInputStyle: {
     width: 60,
     height: 40,
-    border: '1px solid #F3F3F3',
+    border: '1px solid #d0d0d0',
     borderRadius: 5,
   },
   otpErrorInput: {
