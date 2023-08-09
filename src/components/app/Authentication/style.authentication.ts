@@ -11,12 +11,12 @@ export const style = {
     letterSpacing: '0.03em',
   },
   submitButton: {
-    width: '450px',
+    width: '400px',
     backgroundColor: AppColors.primaryColor,
     marginBottom: '20px',
   },
   heading: {
-    width: 450,
+    width: 400,
     fontSize: '4xl',
     color: 'textColors.primary',
     fontWeight: 'semibold',
@@ -25,7 +25,7 @@ export const style = {
     lineHeight: 'sm',
   },
   subHeading: {
-    width: 450,
+    width: 400,
     fontSize: 'md',
     color: 'textColors.primary',
     fontWeight: 'normal',

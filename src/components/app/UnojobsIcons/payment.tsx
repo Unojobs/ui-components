@@ -1,6 +1,7 @@
 import React from 'react';
 import { Path, Rect } from 'react-native-svg';
 import { Icon } from 'native-base';
+//@ts-nocheck https://github.com/expo/expo/issues/19013
 
 export const UnoJobCreditIcon = (props: any) => {
   return (

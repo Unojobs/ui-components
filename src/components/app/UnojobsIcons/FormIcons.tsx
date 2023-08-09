@@ -2,6 +2,7 @@ import React from 'react';
 import { createIcon } from '../../primitives';
 import { Path } from 'react-native-svg';
 import { Icon } from 'native-base';
+//@ts-nocheck https://github.com/expo/expo/issues/19013
 type IconProps = {
   fill?: string;
   size?: string | number;

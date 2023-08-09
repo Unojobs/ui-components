@@ -1,3 +1,4 @@
+//@ts-nocheck https://github.com/expo/expo/issues/19013
 import React from 'react';
 import { Path, G } from 'react-native-svg';
 import { Icon } from 'native-base';
