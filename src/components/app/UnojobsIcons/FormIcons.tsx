@@ -1,6 +1,5 @@
 import React from 'react';
 import { createIcon } from '../../primitives';
-import { Path } from 'react-native-svg';
 import { Icon } from 'native-base';
 //@ts-nocheck https://github.com/expo/expo/issues/19013
 type IconProps = {
@@ -150,28 +149,28 @@ export const UnoEmailIcon = ({ fill, size }: IconProps) => {
 export const UploadIcon = (props: any) => {
   return (
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 17 16">
-      <Path
+      <path
         d="M6.5013 11.3335V7.3335L5.16797 8.66683"
         stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M6.5 7.3335L7.83333 8.66683"
         stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M15.1654 6.66683V10.0002C15.1654 13.3335 13.832 14.6668 10.4987 14.6668H6.4987C3.16536 14.6668 1.83203 13.3335 1.83203 10.0002V6.00016C1.83203 2.66683 3.16536 1.3335 6.4987 1.3335H9.83203"
         stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M15.1654 6.66683H12.4987C10.4987 6.66683 9.83203 6.00016 9.83203 4.00016V1.3335L15.1654 6.66683Z"
         stroke="#1974FC"
         strokeWidth="1.5"
@@ -185,14 +184,14 @@ export const UploadIcon = (props: any) => {
 export const EditOutlinedIcon = (props: any) => {
   return (
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 24 24">
-      <Path
+      <path
         d="M11 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15V13"
         stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M16.0399 3.02025L8.15988 10.9003C7.85988 11.2003 7.55988 11.7903 7.49988 12.2203L7.06988 15.2303C6.90988 16.3203 7.67988 17.0803 8.76988 16.9303L11.7799 16.5003C12.1999 16.4403 12.7899 16.1403 13.0999 15.8403L20.9799 7.96025C22.3399 6.60025 22.9799 5.02025 20.9799 3.02025C18.9799 1.02025 17.3999 1.66025 16.0399 3.02025Z"
         stroke="#1974FC"
         strokeWidth="1.5"
@@ -200,7 +199,7 @@ export const EditOutlinedIcon = (props: any) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M14.9102 4.15039C15.5802 6.54039 17.4502 8.41039 19.8502 9.09039"
         stroke="#1974FC"
         strokeWidth="1.5"
@@ -215,35 +214,35 @@ export const EditOutlinedIcon = (props: any) => {
 export const DeleteOutlinedIcon = (props: any) => {
   return (
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 24 24">
-      <Path
+      <path
         d="M21 5.98047C17.67 5.65047 14.32 5.48047 10.98 5.48047C9 5.48047 7.02 5.58047 5.04 5.78047L3 5.98047"
         stroke="#EB5757"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97"
         stroke="#EB5757"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M18.8504 9.13965L18.2004 19.2096C18.0904 20.7796 18.0004 21.9996 15.2104 21.9996H8.79039C6.00039 21.9996 5.91039 20.7796 5.80039 19.2096L5.15039 9.13965"
         stroke="#EB5757"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M10.3301 16.5H13.6601"
         stroke="#EB5757"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M9.5 12.5H14.5"
         stroke="#EB5757"
         strokeWidth="1.5"
@@ -257,21 +256,21 @@ export const DeleteOutlinedIcon = (props: any) => {
 export const AddOutlinedIcon = (props: any) => {
   return (
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 16 17">
-      <Path
+      <path
         d="M8.50065 14.6663C12.1673 14.6663 15.1673 11.6663 15.1673 7.99967C15.1673 4.33301 12.1673 1.33301 8.50065 1.33301C4.83398 1.33301 1.83398 4.33301 1.83398 7.99967C1.83398 11.6663 4.83398 14.6663 8.50065 14.6663Z"
         stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M5.83398 8H11.1673"
         stroke="#1974FC"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <Path
+      <path
         d="M8.5 10.6663V5.33301"
         stroke="#1974FC"
         strokeWidth="1.5"
@@ -298,13 +297,13 @@ export const UnoEyeViewIcon = (props: any) => {
   return (
     <Icon color="transparent" fill="none" {...props} viewBox="0 0 13 13">
       <svg>
-        <Path
+        <path
           d="M8.29094 6.24996C8.29094 7.23996 7.49094 8.03996 6.50094 8.03996C5.51094 8.03996 4.71094 7.23996 4.71094 6.24996C4.71094 5.25996 5.51094 4.45996 6.50094 4.45996C7.49094 4.45996 8.29094 5.25996 8.29094 6.24996Z"
           stroke="#B7B7B7"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <Path
+        <path
           d="M6.50187 10.3849C8.26687 10.3849 9.91188 9.34486 11.0569 7.54486C11.5069 6.83986 11.5069 5.65486 11.0569 4.94986C9.91188 3.14986 8.26687 2.10986 6.50187 2.10986C4.73687 2.10986 3.09187 3.14986 1.94687 4.94986C1.49687 5.65486 1.49687 6.83986 1.94687 7.54486C3.09187 9.34486 4.73687 10.3849 6.50187 10.3849Z"
           stroke="#B7B7B7"
           strokeLinecap="round"
