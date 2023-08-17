@@ -32,7 +32,7 @@ export interface ILoginFormValue {
 
 export interface ILoginUtil {
   email: string;
-  password: string;
+  password_placeholder: string;
 }
 export interface ILoginErrorProps {
   email?: IErrorProps;

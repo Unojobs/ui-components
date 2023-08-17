@@ -94,7 +94,7 @@ export const style = {
     border: '1px solid #EB5757',
   },
   otpSeperatorStyle: {
-    width: 18,
+    width: 8,
   },
   resendText: {
     display: 'flex',

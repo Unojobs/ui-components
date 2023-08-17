@@ -139,7 +139,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         <Form.Item
           label="Password"
           name="password"
-          tooltip={props.tooltip?.password}
+          tooltip={props.tooltip?.password_placeholder}
           rules={[
             {
               required: true,
@@ -149,7 +149,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           ]}
         >
           <Input.Password
-            placeholder={props.placeholder?.password}
+            placeholder={props.placeholder?.password_placeholder}
             style={style.input}
             // onPaste={preventCopyPaste}
             onCopy={preventCopyPaste}
