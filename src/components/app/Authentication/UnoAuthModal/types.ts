@@ -16,7 +16,7 @@ export interface ICommonModalProps {
   loading?: boolean;
   loaderColor?: string;
   loaderSize?: ILoaderSizeType;
-  popover?: IPopoverProps;
+  popover?: IPopoverModalProps;
 }
 
 export interface IAddressSearchInputAntdProps {
@@ -41,7 +41,7 @@ export interface IAddressSearchInputAntdProps {
   locationApiKey?: any;
 }
 
-export interface IPopoverProps {
+export interface IPopoverModalProps {
   text?: string;
   cancelText?: string;
   confirmText?: string;
