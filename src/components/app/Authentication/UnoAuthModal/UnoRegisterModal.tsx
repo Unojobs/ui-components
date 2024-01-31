@@ -21,7 +21,7 @@ import {
 } from '../../UnojobsIcons';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { validatePassword } from './validatePassword';
-import PasswordTooltip from './PasswordTooltip';
+import { PasswordTooltip } from './PasswordTooltip';
 import { AddressSearchInputAntd } from '../../Address';
 import { CustomSelect } from '../../Select';
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
