@@ -82,7 +82,6 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
     props.onRegister?.({
       ...values,
       termsAndCondition: checked,
-      role: props.isCandidate ? 'candidate' : 'org_admin',
     });
   };
 
