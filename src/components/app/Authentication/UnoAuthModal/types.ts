@@ -153,7 +153,8 @@ export interface IRegisterFormValuesProps {
   fullName: string;
   password: string;
   termsAndCondition: boolean;
-  role: string;
+  role_designation?: string;
+  phone_no: string;
   hearAboutUs: number;
   address: string;
 }
