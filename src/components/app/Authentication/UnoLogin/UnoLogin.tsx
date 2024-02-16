@@ -231,7 +231,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         </HStack>
       )}
       {props.supportEmail && (
-        <VStack mt={-8} alignItems={'center'} mb={5}>
+        <VStack mt={props?.isCandidate ? -8 : 1} alignItems={'center'} mb={5}>
           <Text>{props.supportText}</Text>
           <a href={`mailto:${props.supportEmail}`}>
             <Text color={'primary.500'}>{props.supportEmail}</Text>
