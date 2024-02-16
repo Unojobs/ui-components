@@ -193,7 +193,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           )}
         </CustomButton>
       </Form>
-      {!props.isAdmin && (
+      {props.isCandidate && (
         <HStack
           width={400}
           justifyContent={'center'}
