@@ -38,7 +38,13 @@ const DeleteSvg: React.FC = () => {
 };
 /** Delete component where we are passing the DeleteSvg component as prop to ant design's Icon component  */
 export const UnoJobsDeleteIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={DeleteSvg} {...props} rev="" />
+  <Icon
+    component={DeleteSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for DeleteIcon */
@@ -71,7 +77,13 @@ const EditSvg: React.FC = () => {
 
 /** Edit component where we are passing the EditSvg component as prop to ant design's Icon component  */
 export const EditIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={EditSvg} {...props} rev="" />
+  <Icon
+    component={EditSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for EditIcon */
@@ -103,7 +115,13 @@ const ViewSvg: React.FC = () => {
 };
 /** View component where we are passing the ViewSvg component as prop to ant design's Icon component  */
 export const ViewIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={ViewSvg} {...props} rev="" />
+  <Icon
+    component={ViewSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for ViewIcon */
@@ -132,7 +150,13 @@ const ConfirmSvg: React.FC = () => {
 
 /** Confirm component where we are passing the ConfirmSvg component as prop to ant design's Icon component  */
 export const ConfirmIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={ConfirmSvg} {...props} rev="" />
+  <Icon
+    component={ConfirmSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for ConfirmIcon */
@@ -161,7 +185,13 @@ const RejectSvg: React.FC = () => {
 
 /** Reject component where we are passing the RejectSvg component as prop to ant design's Icon component */
 export const RejectIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={RejectSvg} {...props} rev="" />
+  <Icon
+    component={RejectSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for RejectIcon */
@@ -225,7 +255,13 @@ const UpArrowRoundSvg: React.FC = () => {
 
 /** UpArrowRound component where we are passing the UpArrowRoundSvg component as prop to ant design's Icon component */
 export const UpArrowRoundIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={UpArrowRoundSvg} {...props} rev="" />
+  <Icon
+    component={UpArrowRoundSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for UpArrowRoundIcon */
@@ -253,7 +289,13 @@ const DownArrowRoundSvg: React.FC = () => {
 
 /** DownArrowRound component where we are passing the DownArrowRoundSvg component as prop to ant design's Icon component */
 export const DownArrowRoundIcon: React.FC<AntIconProps> = (props) => (
-  <Icon component={DownArrowRoundSvg} {...props} rev="" />
+  <Icon
+    component={DownArrowRoundSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 /** default props for DownArrowRoundIcon */

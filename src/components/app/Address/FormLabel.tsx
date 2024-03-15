@@ -36,7 +36,10 @@ export const FormLabel: React.FC<ILabelProps> = (props) => {
           <Tooltip placement="top" title={props.tooltip}>
             <InfoCircleOutlined
               rev=""
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{ marginLeft: '8px', cursor: 'pointer' }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
             />
           </Tooltip>
         )}

@@ -17,7 +17,12 @@ export const CreateNewMessage = (_props: any) => {
           height="fit-content"
           backgroundColor="transparent"
         >
-          <CloseOutlined size={24} rev="" />
+          <CloseOutlined
+            size={24}
+            rev=""
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          />
         </CustomNBButton>
       </Box>
       <VStack space={'30px'} padding="30px">
@@ -70,7 +75,12 @@ function NewChatCard(_props: any) {
         <Box px="10px" py="5px" backgroundColor="#F2FDDF" borderRadius="10px">
           <Text>Interview</Text>
         </Box>
-        <MessageOutlined size={24} rev="" />
+        <MessageOutlined
+          size={24}
+          rev=""
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        />
       </HStack>
     </HStack>
   );

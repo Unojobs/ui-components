@@ -13,7 +13,12 @@ export const TitleWithButton = (props: TitleWithButtonProps) => {
       <Heading {...STATIC_PROPS.HEADING}>{titleText}</Heading>
       <CustomNBButton onClick={onClick} {...STATIC_PROPS.BUTTON}>
         <HStack {...STATIC_PROPS.BUTTON_HSTACK}>
-          <PlusOutlined style={{ ...STATIC_PROPS.ICON }} rev="" />
+          <PlusOutlined
+            style={{ ...STATIC_PROPS.ICON }}
+            rev=""
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          />
           <Text {...STATIC_PROPS.BUTTON_TEXT}>{buttonText}</Text>
         </HStack>
       </CustomNBButton>

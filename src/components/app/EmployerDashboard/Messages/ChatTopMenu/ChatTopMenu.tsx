@@ -42,10 +42,22 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
         {isCandidate ? (
           <HStack {...STATIC_PROPS.BUTTON_CONTAINER}>
             <CustomNBButton {...STATIC_PROPS.FIT_CONTENT_TRANSPARENT}>
-              <MailTwoTone size={20} twoToneColor={'primary.500'} rev="" />
+              <MailTwoTone
+                size={20}
+                twoToneColor={'primary.500'}
+                rev=""
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
             </CustomNBButton>
             <CustomNBButton {...STATIC_PROPS.FIT_CONTENT_TRANSPARENT}>
-              <DeleteOutlined size={20} style={{ color: '#EB5757' }} rev="" />
+              <DeleteOutlined
+                size={20}
+                style={{ color: '#EB5757' }}
+                rev=""
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
             </CustomNBButton>
           </HStack>
         ) : (
@@ -56,20 +68,36 @@ export const ChatTopMenu = (props: ChatTopMenuProps) => {
               {...STATIC_PROPS.FIT_CONTENT_TRANSPARENT}
             >
               <HStack {...STATIC_PROPS.CENTER_SPACE_12}>
-                <FileTextFilled rev="" />
+                <FileTextFilled
+                  rev=""
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                />
                 <Text {...STATIC_PROPS.FONT_16_SEMIBOLD}>Notes</Text>
               </HStack>
             </CustomNBButton>
             <Divider {...STATIC_PROPS.DIVIDER} />
             <VStack space={18}>
               <HStack {...STATIC_PROPS.CENTER_SPACE_12}>
-                <MailTwoTone size={16} twoToneColor={'#EB5757'} rev="" />
+                <MailTwoTone
+                  size={16}
+                  twoToneColor={'#EB5757'}
+                  rev=""
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                />
                 <Text {...STATIC_PROPS.FONT_14_SEMIBOLD}>
                   {candidate.email}
                 </Text>
               </HStack>
               <HStack {...STATIC_PROPS.CENTER_SPACE_12}>
-                <PhoneTwoTone size={16} twoToneColor={'#66B949'} rev="" />
+                <PhoneTwoTone
+                  size={16}
+                  twoToneColor={'#66B949'}
+                  rev=""
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                />
                 <Text {...STATIC_PROPS.FONT_14_SEMIBOLD}>
                   {candidate.phoneNumber}
                 </Text>
@@ -96,7 +124,12 @@ function UserDetails(props: { candidate: TCandidate }) {
           {candidate.username}
         </Text>
         <HStack space={2} alignItems={'center'}>
-          <EnvironmentFilled size={9} rev="" />
+          <EnvironmentFilled
+            size={9}
+            rev=""
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          />
           <Text {...STATIC_PROPS.FONT_12_SEMIBOLD}>
             {candidate.address.city}
           </Text>

@@ -73,6 +73,8 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
                     size={12}
                     style={{ color: 'gold' }}
                     rev=""
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
                   />
                 ))}
               </span>
@@ -80,7 +82,12 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
               <Text>No rating</Text>
             )}
             <Text>
-              <EnvironmentFilled rev="" /> {candidate.address}
+              <EnvironmentFilled
+                rev=""
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />{' '}
+              {candidate.address}
             </Text>
           </VStack>
         </Box>
@@ -98,7 +105,12 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
             height={'40px'}
             onClick={handleAddNotes}
           >
-            <FileTextFilled size={4} rev="" />
+            <FileTextFilled
+              size={4}
+              rev=""
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            />
             <Text>Notes</Text>
           </CustomNBButton>
           <Badge backgroundColor={'muted.100'} paddingX={2.5} paddingY={4}>
@@ -106,10 +118,21 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
           </Badge>
           <VStack space={0.5}>
             <Text>
-              <MailTwoTone twoToneColor="#EB5757" rev="" /> {candidate.email}
+              <MailTwoTone
+                twoToneColor="#EB5757"
+                rev=""
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />{' '}
+              {candidate.email}
             </Text>
             <Text>
-              <PhoneTwoTone twoToneColor="#66B949" rev="" />{' '}
+              <PhoneTwoTone
+                twoToneColor="#66B949"
+                rev=""
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />{' '}
               {candidate.phoneNumber}
             </Text>
           </VStack>

@@ -69,7 +69,12 @@ function ChatBubble(props: TChatBubbleProps) {
             target="_blank"
           >
             <VStack py={0.5} space={2}>
-              <FileAddOutlined rev="" size={16} />
+              <FileAddOutlined
+                rev=""
+                size={16}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
               <Divider mt={1} />
               <VStack space={1}>
                 <Text {...STATIC_PROPS.NORMAL_14_FONT} fontWeight={400}>

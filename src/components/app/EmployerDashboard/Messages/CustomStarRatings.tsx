@@ -10,7 +10,13 @@ export const CustomStarRating = (props: CustomStarRatingProps) => {
   return rating && rating > 0 ? (
     <Text>
       {new Array(rating).fill(0).map((_, idx) => (
-        <StarFilled key={idx} style={{ color: 'gold' }} rev="" />
+        <StarFilled
+          key={idx}
+          style={{ color: 'gold' }}
+          rev=""
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        />
       ))}
     </Text>
   ) : (

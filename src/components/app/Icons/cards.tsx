@@ -18,7 +18,13 @@ const CardStackSvg = () => (
 );
 
 export const CardStackIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={CardStackSvg} {...props} rev="" />
+  <Icon
+    component={CardStackSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 const CreditCardFilledSvg = () => (
@@ -38,7 +44,15 @@ const CreditCardFilledSvg = () => (
 
 export const CreditCardFilledIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={CreditCardFilledSvg} {...props} rev="" />;
+) => (
+  <Icon
+    component={CreditCardFilledSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
+);
 
 const VideoCardStackSvg = () => (
   <svg
@@ -72,4 +86,12 @@ const VideoCardStackSvg = () => (
 
 export const VideoCardStackIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={VideoCardStackSvg} {...props} rev="" />;
+) => (
+  <Icon
+    component={VideoCardStackSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
+);

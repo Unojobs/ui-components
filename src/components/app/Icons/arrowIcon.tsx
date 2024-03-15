@@ -19,7 +19,15 @@ const DownSharpSvg = () => (
 
 export const DownArrowSharpIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={DownSharpSvg} {...props} rev="" />;
+) => (
+  <Icon
+    component={DownSharpSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
+);
 
 const RightCurvedSvg = () => (
   <svg
@@ -42,7 +50,15 @@ const RightCurvedSvg = () => (
 
 export const RightArrowCurvedIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={RightCurvedSvg} {...props} rev="" />;
+) => (
+  <Icon
+    component={RightCurvedSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
+);
 
 /** DownArrow for sidemenu to expand items */
 const DownCurvedSvg = () => (
@@ -66,7 +82,15 @@ const DownCurvedSvg = () => (
 
 export const DownArrowCurvedIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={DownCurvedSvg} {...props} rev="" />;
+) => (
+  <Icon
+    component={DownCurvedSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
+);
 
 /** BackArrowSVG for sidemenu to expand items */
 const BackArrowSVG = () => (
@@ -97,5 +121,11 @@ const BackArrowSVG = () => (
 );
 
 export const BackArrowIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={BackArrowSVG} {...props} rev="" />
+  <Icon
+    component={BackArrowSVG}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );

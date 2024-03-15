@@ -18,7 +18,13 @@ const UserSvg = () => (
 );
 
 export const UserIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={UserSvg} {...props} rev="" />
+  <Icon
+    component={UserSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 const UserBoxSvg = () => (
@@ -41,7 +47,13 @@ const UserBoxSvg = () => (
 );
 
 export const UserBoxIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={UserBoxSvg} {...props} rev="" />
+  <Icon
+    component={UserBoxSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
 
 const UserGroupSvg = () => (
@@ -80,5 +92,11 @@ const UserGroupSvg = () => (
 );
 
 export const UserGroupIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={UserGroupSvg} {...props} rev="" />
+  <Icon
+    component={UserGroupSvg}
+    {...props}
+    rev=""
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  />
 );
