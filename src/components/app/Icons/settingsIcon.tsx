@@ -30,7 +30,7 @@ const SettingsSvg = () => (
 );
 
 export const SettingsIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={SettingsSvg} {...props} />
+  <Icon component={SettingsSvg} {...props} rev="" />
 );
 
 const MoreIconSvg = () => (
@@ -57,4 +57,4 @@ interface IconProps {
 }
 export const MoreIcon = (
   props: Partial<CustomIconComponentProps & IconProps>
-) => <Icon component={MoreIconSvg} {...props} />;
+) => <Icon component={MoreIconSvg} {...props} rev="" />;

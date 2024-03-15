@@ -13,7 +13,7 @@ export const TitleWithButton = (props: TitleWithButtonProps) => {
       <Heading {...STATIC_PROPS.HEADING}>{titleText}</Heading>
       <CustomNBButton onClick={onClick} {...STATIC_PROPS.BUTTON}>
         <HStack {...STATIC_PROPS.BUTTON_HSTACK}>
-          <PlusOutlined style={{ ...STATIC_PROPS.ICON }} />
+          <PlusOutlined style={{ ...STATIC_PROPS.ICON }} rev="" />
           <Text {...STATIC_PROPS.BUTTON_TEXT}>{buttonText}</Text>
         </HStack>
       </CustomNBButton>

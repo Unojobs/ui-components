@@ -68,14 +68,19 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
             {candidate.rating ? (
               <span>
                 {new Array(candidate.rating).fill(0).map((_, idx) => (
-                  <StarFilled key={idx} size={12} style={{ color: 'gold' }} />
+                  <StarFilled
+                    key={idx}
+                    size={12}
+                    style={{ color: 'gold' }}
+                    rev=""
+                  />
                 ))}
               </span>
             ) : (
               <Text>No rating</Text>
             )}
             <Text>
-              <EnvironmentFilled /> {candidate.address}
+              <EnvironmentFilled rev="" /> {candidate.address}
             </Text>
           </VStack>
         </Box>
@@ -93,7 +98,7 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
             height={'40px'}
             onClick={handleAddNotes}
           >
-            <FileTextFilled size={4} />
+            <FileTextFilled size={4} rev="" />
             <Text>Notes</Text>
           </CustomNBButton>
           <Badge backgroundColor={'muted.100'} paddingX={2.5} paddingY={4}>
@@ -101,10 +106,11 @@ export const ChatTopMenu1 = (props: ChatTopMenuProps) => {
           </Badge>
           <VStack space={0.5}>
             <Text>
-              <MailTwoTone twoToneColor="#EB5757" /> {candidate.email}
+              <MailTwoTone twoToneColor="#EB5757" rev="" /> {candidate.email}
             </Text>
             <Text>
-              <PhoneTwoTone twoToneColor="#66B949" /> {candidate.phoneNumber}
+              <PhoneTwoTone twoToneColor="#66B949" rev="" />{' '}
+              {candidate.phoneNumber}
             </Text>
           </VStack>
         </Box>

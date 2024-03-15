@@ -20,7 +20,7 @@ export const CustomFileButton = (props: CustomFileButtonProps) => {
         style={{ ...STATIC_PROPS.UPLOAD }}
         customRequest={() => {}}
       >
-        <FileAddOutlined size={16} />
+        <FileAddOutlined size={16} rev="" />
       </Upload>
     </CustomNBButton>
   );

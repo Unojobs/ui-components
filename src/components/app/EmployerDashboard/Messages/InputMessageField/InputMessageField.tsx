@@ -38,7 +38,7 @@ export const InputMessageField = (props: InputMessageFieldProps) => {
         </FormWrapper>
       </HStack>
       <CustomNBButton {...STATIC_PROPS.SUBMIT_BUTTON} onClick={handleSubmit}>
-        <SendOutlined size={12} style={{ color: 'white' }} />
+        <SendOutlined size={12} style={{ color: 'white' }} rev="" />
       </CustomNBButton>
     </HStack>
   );

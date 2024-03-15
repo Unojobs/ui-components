@@ -30,7 +30,7 @@ export const EmojiKeyboard = (props: IEmojiKeyboardProps) => {
             />
           </div>
         )}
-        <SmileOutlined />
+        <SmileOutlined rev="" />
       </CustomNBButton>
     </div>
   );

@@ -18,7 +18,7 @@ const CardStackSvg = () => (
 );
 
 export const CardStackIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={CardStackSvg} {...props} />
+  <Icon component={CardStackSvg} {...props} rev="" />
 );
 
 const CreditCardFilledSvg = () => (
@@ -38,7 +38,7 @@ const CreditCardFilledSvg = () => (
 
 export const CreditCardFilledIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={CreditCardFilledSvg} {...props} />;
+) => <Icon component={CreditCardFilledSvg} {...props} rev="" />;
 
 const VideoCardStackSvg = () => (
   <svg
@@ -72,4 +72,4 @@ const VideoCardStackSvg = () => (
 
 export const VideoCardStackIcon = (
   props: Partial<CustomIconComponentProps>
-) => <Icon component={VideoCardStackSvg} {...props} />;
+) => <Icon component={VideoCardStackSvg} {...props} rev="" />;

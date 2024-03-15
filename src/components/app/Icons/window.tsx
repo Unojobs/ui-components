@@ -18,5 +18,5 @@ const WindowFilledSvg = () => (
 );
 
 export const WindowFilledIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={WindowFilledSvg} {...props} />
+  <Icon component={WindowFilledSvg} {...props} rev="" />
 );

@@ -35,6 +35,7 @@ export const FormLabel: React.FC<ILabelProps> = (props) => {
         {props.tooltip && (
           <Tooltip placement="top" title={props.tooltip}>
             <InfoCircleOutlined
+              rev=""
               style={{ marginLeft: '8px', cursor: 'pointer' }}
             />
           </Tooltip>
