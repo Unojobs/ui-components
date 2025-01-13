@@ -41,11 +41,6 @@ export const UnoJobsDeleteIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={DeleteSvg} {...props} />
 );
 
-/** default props for DeleteIcon */
-UnoJobsDeleteIcon.defaultProps = {
-  onClick: undefined,
-};
-
 /** edit icon svg file component */
 const EditSvg: React.FC = () => {
   return (
@@ -74,11 +69,6 @@ export const EditIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={EditSvg} {...props} />
 );
 
-/** default props for EditIcon */
-EditIcon.defaultProps = {
-  onClick: undefined,
-};
-
 /** view icon svg file component */
 const ViewSvg: React.FC = () => {
   return (
@@ -106,11 +96,6 @@ export const ViewIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={ViewSvg} {...props} />
 );
 
-/** default props for ViewIcon */
-ViewIcon.defaultProps = {
-  onClick: undefined,
-};
-
 /** confirm icon svg file component */
 const ConfirmSvg: React.FC = () => {
   return (
@@ -135,11 +120,6 @@ export const ConfirmIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={ConfirmSvg} {...props} />
 );
 
-/** default props for ConfirmIcon */
-ConfirmIcon.defaultProps = {
-  onClick: undefined,
-};
-
 /** reject icon svg file component */
 const RejectSvg: React.FC = () => {
   return (
@@ -163,11 +143,6 @@ const RejectSvg: React.FC = () => {
 export const RejectIcon: React.FC<AntIconProps> = (props) => (
   <Icon component={RejectSvg} {...props} />
 );
-
-/** default props for RejectIcon */
-RejectIcon.defaultProps = {
-  onClick: undefined,
-};
 
 export const NumberIcon: React.FC<NumberIconProps> = (props) => {
   return (
