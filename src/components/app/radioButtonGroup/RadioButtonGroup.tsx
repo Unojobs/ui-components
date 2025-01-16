@@ -3,7 +3,7 @@ import { Radio, HStack, VStack } from '../../primitives';
 import type { RadioButtonGroupProps } from './types';
 import './style.css';
 
-export const RadioButtonGroup = (props: RadioButtonGroupProps): JSX.Element => {
+export const RadioButtonGroup = (props: RadioButtonGroupProps) => {
   const { list, onChange, size, space, initialValue } = props;
   const [selectedValue, setSelectedValue] = useState<string | undefined>(
     initialValue

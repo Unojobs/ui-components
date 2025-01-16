@@ -169,11 +169,11 @@ export const NumberIcon: React.FC<NumberIconProps> = (props) => {
   );
 };
 
-NumberIcon.defaultProps = {
-  onClick: undefined,
-  fade: false,
-  children: 5,
-};
+// NumberIcon.defaultProps = {
+//   onClick: undefined,
+//   fade: false,
+//   children: 5,
+// };
 
 /** upArrowRound icon svg file component */
 const UpArrowRoundSvg: React.FC = () => {
@@ -204,9 +204,9 @@ export const UpArrowRoundIcon: React.FC<AntIconProps> = (props) => (
 );
 
 /** default props for UpArrowRoundIcon */
-UpArrowRoundIcon.defaultProps = {
-  onClick: undefined,
-};
+// UpArrowRoundIcon.defaultProps = {
+//   onClick: undefined,
+// };
 
 /** downArrowRound icon svg file component */
 const DownArrowRoundSvg: React.FC = () => {
@@ -232,6 +232,6 @@ export const DownArrowRoundIcon: React.FC<AntIconProps> = (props) => (
 );
 
 /** default props for DownArrowRoundIcon */
-DownArrowRoundIcon.defaultProps = {
-  onClick: undefined,
-};
+// DownArrowRoundIcon.defaultProps = {
+//   onClick: undefined,
+// };

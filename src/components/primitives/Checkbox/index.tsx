@@ -10,11 +10,9 @@ export const CheckboxMain = React.memo(({ ...props }: ICheckboxProps) => {
   return <NBCheckbox {...props} />;
 });
 
-export type ICheckboxComponentType = ((
-  props: ICheckboxProps
-) => JSX.Element) & {
+export type ICheckboxComponentType = ((props: ICheckboxProps) => any) & {
   Group: React.MemoExoticComponent<
-    (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => JSX.Element
+    (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => any
   >;
 };
 const CheckTemp: any = CheckboxMain;

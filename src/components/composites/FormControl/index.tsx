@@ -9,15 +9,13 @@ import type {
   IFormControlHelperTextProps,
 } from 'native-base';
 
-type FormControlComponentType = ((props: IFormControlProps) => JSX.Element) & {
-  Label: React.MemoExoticComponent<
-    (props: IFormControlLabelProps) => JSX.Element
-  >;
+type FormControlComponentType = ((props: IFormControlProps) => any) & {
+  Label: React.MemoExoticComponent<(props: IFormControlLabelProps) => any>;
   ErrorMessage: React.MemoExoticComponent<
-    (props: IFormControlErrorMessageProps) => JSX.Element
+    (props: IFormControlErrorMessageProps) => any
   >;
   HelperText: React.MemoExoticComponent<
-    (props: IFormControlHelperTextProps) => JSX.Element
+    (props: IFormControlHelperTextProps) => any
   >;
 };
 

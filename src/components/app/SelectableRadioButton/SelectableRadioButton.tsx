@@ -8,9 +8,7 @@ import type {
   SelectableRadioButtonProps,
 } from './types';
 
-export const SelectableRadioButton = (
-  props: SelectableRadioButtonProps
-): JSX.Element => {
+export const SelectableRadioButton = (props: SelectableRadioButtonProps) => {
   const { list, onChange, size, initialValue, space, disableList } = props;
   const [selectedValue, setSelectedValue] = useState<string | undefined>('');
 

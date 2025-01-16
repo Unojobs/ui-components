@@ -5,7 +5,7 @@ import { UpArrowRoundIcon, DownArrowRoundIcon } from '../Icons';
 import type { FaqCardProps } from './types';
 import './style.css';
 
-export const FaqCard = (props: FaqCardProps): JSX.Element => {
+export const FaqCard = (props: FaqCardProps) => {
   const { title, description } = props;
   const [show, setShow] = React.useState(false);
 

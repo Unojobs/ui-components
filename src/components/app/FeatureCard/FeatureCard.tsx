@@ -3,7 +3,7 @@ import type { FeatureCardProps } from './types';
 import { Box, Heading, Image, Text, VStack } from '../../primitives';
 import { Badge } from '../../composites';
 
-export const FeatureCard = (props: FeatureCardProps): JSX.Element => {
+export const FeatureCard = (props: FeatureCardProps) => {
   const { badgeText, title, description, imgSrc, imgAltText, direction } =
     props;
   return (

@@ -7,23 +7,17 @@ import type { MutableRefObject } from 'react';
 
 export type IAccordionComponentType = ((
   props: IAccordionProps & { ref?: MutableRefObject<any> }
-) => JSX.Element) & {
+) => any) & {
   Item: React.MemoExoticComponent<
-    (
-      props: IAccordionItemProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IAccordionItemProps & { ref?: MutableRefObject<any> }) => any
   >;
   Summary: React.MemoExoticComponent<
-    (
-      props: IAccordionSummaryProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IAccordionSummaryProps & { ref?: MutableRefObject<any> }) => any
   >;
   Details: React.MemoExoticComponent<
-    (props: { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: { ref?: MutableRefObject<any> }) => any
   >;
   Icon: React.MemoExoticComponent<
-    (
-      props: IAccordionIconProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IAccordionIconProps & { ref?: MutableRefObject<any> }) => any
   >;
 };
