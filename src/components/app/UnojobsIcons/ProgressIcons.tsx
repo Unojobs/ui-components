@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, createIcon } from '../../primitives';
 import type {
   IProgressIconProps,
-  IProgressPageType,
-  IProgressStatusType,
+  // IProgressPageType,
+  // IProgressStatusType,
 } from './types';
 
 type IconProps = {
@@ -220,10 +220,10 @@ export const ProgressIcon: React.FC<IProgressIconProps> = (props) => {
   );
 };
 
-/** default props for ProgressIcon */
-ProgressIcon.defaultProps = {
-  onClick: undefined,
-  status: 'off' as IProgressStatusType,
-  borderColor: '#F3F3F3',
-  page: 'profile' as IProgressPageType,
-};
+// /** default props for ProgressIcon */
+// ProgressIcon.defaultProps = {
+//   onClick: undefined,
+//   status: 'off' as IProgressStatusType,
+//   borderColor: '#F3F3F3',
+//   page: 'profile' as IProgressPageType,
+// };

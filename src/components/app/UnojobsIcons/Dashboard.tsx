@@ -156,26 +156,24 @@ type NumberIconProps = {
   children: any;
 };
 
-export const UnojobsNumberIcon: React.FC<NumberIconProps> = (props) => {
+export const UnojobsNumberIcon: React.FC<NumberIconProps> = ({
+  bgColor = '#1974FC',
+  color = '#fff',
+  fade = false,
+  children = 5,
+}) => {
   return (
     <Center
       width="24px"
       height="24px"
-      bgColor={props.fade === false ? props.bgColor : 'landingPrimary.20'}
+      bgColor={fade === false ? bgColor : 'landingPrimary.20'}
       rounded="sm"
     >
-      <Text color={props.color} fontSize="xs" fontWeight="semibold">
-        {props.children}
+      <Text color={color} fontSize="xs" fontWeight="semibold">
+        {children}
       </Text>
     </Center>
   );
-};
-
-UnojobsNumberIcon.defaultProps = {
-  bgColor: '#1974FC',
-  color: '#fff',
-  fade: false,
-  children: 5,
 };
 
 export const UnojobsSettingsIcon = ({ fill, size }: IconProps) => {
