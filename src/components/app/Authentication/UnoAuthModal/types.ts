@@ -16,9 +16,32 @@ export interface ICommonModalProps {
   loading?: boolean;
   loaderColor?: string;
   loaderSize?: ILoaderSizeType;
-  popover?: IPopoverProps;
+  popover?: IPopoverModalProps;
 }
-export interface IPopoverProps {
+
+export interface IAddressSearchInputAntdProps {
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  requiredMark?: boolean;
+  rules?: any[];
+  subLabel?: string;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  noDivider?: boolean;
+  noLabel?: boolean;
+  validateStatus?: '' | 'success' | 'warning' | 'error' | 'validating';
+  help?: string;
+  onChange?: any;
+  isOrgForm?: boolean;
+  form?: any;
+  isUserAddress?: boolean;
+  updateFormField?: string;
+  performPlaceDetailsSearch?: any;
+  locationApiKey?: any;
+}
+
+export interface IPopoverModalProps {
   text?: string;
   cancelText?: string;
   confirmText?: string;
@@ -95,19 +118,25 @@ export interface IForgotPUtil {
 export interface IEmailErrorProps {
   email?: IErrorProps;
 }
-
+export interface ICustomSelectProps {
+  selected: string;
+  options: any[];
+  onChangeSelect: any;
+}
 /** Register new user Modal Props */
 
 export interface IUnoUserRegisterProps
   extends ICommonModalProps,
-    IBackArrowProps {
+    IBackArrowProps,
+    IAddressSearchInputAntdProps,
+    ICustomSelectProps {
   onRegister?: (values: IRegisterFormValuesProps) => void | undefined;
   isCandidate: boolean;
   onGoogleLogin?: () => void | undefined;
   onLinkedInLogin?: () => void | undefined;
   onFacebookLogin?: () => void | undefined;
   tooltip?: IRegisterUtil;
-  placeholder?: IRegisterPlaceholder;
+  placeholder?: any;
   onTermsAndCondition?: () => void | undefined;
   onPrivacyPolicy?: () => void | undefined;
   termAndConditionValues?: ITermsAndConditions;
@@ -124,7 +153,10 @@ export interface IRegisterFormValuesProps {
   fullName: string;
   password: string;
   termsAndCondition: boolean;
-  role: string;
+  role_designation?: string;
+  phone_no: string;
+  hearAboutUs: number;
+  address: string;
 }
 
 export interface ITermsAndConditions {

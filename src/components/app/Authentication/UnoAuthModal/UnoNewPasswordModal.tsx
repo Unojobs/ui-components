@@ -13,7 +13,7 @@ import type {
   IUnoNewPasswordProps,
 } from './types';
 import { validatePassword } from './validatePassword';
-import PasswordTooltip from './PasswordTooltip';
+import { PasswordTooltip } from './PasswordTooltip';
 
 export const UnoNewPasswordModal = (props: IUnoNewPasswordProps) => {
   const [form] = Form.useForm();

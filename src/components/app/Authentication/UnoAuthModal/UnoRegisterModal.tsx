@@ -21,8 +21,9 @@ import {
 } from '../../UnojobsIcons';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { validatePassword } from './validatePassword';
-import PasswordTooltip from './PasswordTooltip';
-
+import { PasswordTooltip } from './PasswordTooltip';
+import { AddressSearchInputAntd } from '../../Address';
+import { CustomSelect } from '../../Select';
 export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
   const [checked, setChecked] = useState<boolean>(false);
   const [form] = Form.useForm();
@@ -81,7 +82,6 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
     props.onRegister?.({
       ...values,
       termsAndCondition: checked,
-      role: props.isCandidate ? 'candidate' : 'org_admin',
     });
   };
 
@@ -281,6 +281,56 @@ export const UnoRegisterModal = (props: IUnoUserRegisterProps) => {
                     style={style.input}
                     onPaste={preventCopyPaste}
                     onCopy={preventCopyPaste}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="hearAboutUs"
+                  label="How did you hear about us ?"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'this is a required field',
+                    },
+                  ]}
+                >
+                  <CustomSelect
+                    multiple={undefined}
+                    selected={props.selected}
+                    options={props.options}
+                    onChange={(value: any) => {
+                      form.setFieldValue('hearAboutUs', value.id);
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="address"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'this is a required field',
+                    },
+                  ]}
+                >
+                  <AddressSearchInputAntd
+                    name={props.name}
+                    label={props.label}
+                    placeholder={props.placeholder.address}
+                    requiredMark={props.requiredMark}
+                    rules={props.rules}
+                    subLabel={props.subLabel}
+                    disabled={props.disabled}
+                    style={props.style}
+                    noDivider={props.noDivider}
+                    noLabel={props.noLabel}
+                    validateStatus={props.validateStatus}
+                    help={props.help}
+                    onChange={props.onChange}
+                    isOrgForm={props.isOrgForm}
+                    form={form}
+                    updateFormField={props.updateFormField}
+                    performPlaceDetailsSearch={props.performPlaceDetailsSearch}
+                    locationApiKey={props.locationApiKey}
+                    isUserAddress={props.isUserAddress}
                   />
                 </Form.Item>
                 {props.termAndConditionValues?.showCheckBox && (

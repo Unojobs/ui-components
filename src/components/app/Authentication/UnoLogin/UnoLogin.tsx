@@ -139,7 +139,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         <Form.Item
           label="Password"
           name="password"
-          tooltip={props.tooltip?.password}
+          tooltip={props.tooltip?.password_placeholder}
           rules={[
             {
               required: true,
@@ -149,7 +149,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           ]}
         >
           <Input.Password
-            placeholder={props.placeholder?.password}
+            placeholder={props.placeholder?.password_placeholder}
             style={style.input}
             // onPaste={preventCopyPaste}
             onCopy={preventCopyPaste}
@@ -193,7 +193,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
           )}
         </CustomButton>
       </Form>
-      {!props.isAdmin && (
+      {props.isCandidate && (
         <HStack
           width={400}
           justifyContent={'center'}
@@ -231,7 +231,7 @@ export const UnoLogin = (props: IUnoLoginProps) => {
         </HStack>
       )}
       {props.supportEmail && (
-        <VStack mt={-8} alignItems={'center'} mb={5}>
+        <VStack mt={props?.isCandidate ? -8 : 1} alignItems={'center'} mb={5}>
           <Text>{props.supportText}</Text>
           <a href={`mailto:${props.supportEmail}`}>
             <Text color={'primary.500'}>{props.supportEmail}</Text>

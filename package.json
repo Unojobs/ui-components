@@ -28,6 +28,7 @@
     "lodash.merge": "^4.6.2",
     "nanoid": "3.1.16",
     "native-base": "3.4.26-rc.1",
+    "react-google-autocomplete": "^2.7.3",
     "react-native": "^0.70.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
@@ -198,7 +199,7 @@
     "release-it": "^13.5.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
-    "typescript": "^5.7.3",
+    "typescript": "^4.5.2",
     "webpack": "^5.74.0"
   }
 }
