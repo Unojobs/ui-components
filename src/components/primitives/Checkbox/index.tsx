@@ -5,16 +5,16 @@ import {
   ICheckboxProps,
 } from 'native-base';
 import { CheckboxGroup } from './CheckboxGroup';
-import type { MutableRefObject } from 'react';
+import type { MemoExoticComponent, MutableRefObject, ReactElement } from 'react';
 export const CheckboxMain = React.memo(({ ...props }: ICheckboxProps) => {
   return <NBCheckbox {...props} />;
 });
 
 export type ICheckboxComponentType = ((
   props: ICheckboxProps
-) => JSX.Element) & {
-  Group: React.MemoExoticComponent<
-    (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => JSX.Element
+) => ReactElement) & {
+  Group: MemoExoticComponent<
+    (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => ReactElement
   >;
 };
 const CheckTemp: any = CheckboxMain;

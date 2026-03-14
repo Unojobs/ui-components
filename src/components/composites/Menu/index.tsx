@@ -5,7 +5,7 @@ import type {
   IMenuOptionGroupProps,
   IMenuProps,
 } from 'native-base';
-import type { MutableRefObject } from 'react';
+import type { MemoExoticComponent, MutableRefObject, ReactElement } from 'react';
 import { Menu as MenuMain } from './Menu';
 import { MenuGroup } from './MenuGroup';
 import { MenuItem } from './MenuItem';
@@ -29,22 +29,22 @@ MenuOptionGroup.displayName = 'Menu.OptionGroup';
 
 export type IMenuComponent = ((
   props: IMenuProps & { ref?: MutableRefObject<any> }
-) => JSX.Element) & {
-  Item: React.MemoExoticComponent<
-    (props: IMenuItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
+) => ReactElement) & {
+  Item: MemoExoticComponent<
+    (props: IMenuItemProps & { ref?: MutableRefObject<any> }) => ReactElement
   >;
-  Group: React.MemoExoticComponent<
-    (props: IMenuGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
+  Group: MemoExoticComponent<
+    (props: IMenuGroupProps & { ref?: MutableRefObject<any> }) => ReactElement
   >;
-  ItemOption: React.MemoExoticComponent<
+  ItemOption: MemoExoticComponent<
     (
       props: IMenuItemOptionProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    ) => ReactElement
   >;
-  OptionGroup: React.MemoExoticComponent<
+  OptionGroup: MemoExoticComponent<
     (
       props: IMenuOptionGroupProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    ) => ReactElement
   >;
 };
 
