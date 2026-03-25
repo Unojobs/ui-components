@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit: auto-review on all PR base branches + ESLint (UnoJobs).
+# See https://docs.coderabbit.ai/configuration/auto-review
+
+language: "en-US"
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+
+  tools:
+    eslint:
+      enabled: true
+
+  auto_review:
+    enabled: true
+    base_branches:
+      - ".*"
+    drafts: true
+    auto_incremental_review: true
+    auto_pause_after_reviewed_commits: 0
+
+chat:
+  auto_reply: true
