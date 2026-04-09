@@ -186,7 +186,7 @@
     "lint-staged": "^11.1.1",
     "metro-react-native-babel-preset": "^0.72.1",
     "native-base": "^3.4.25",
-    "prettier": "^2.0.5",
+    "prettier": "^3.8.1",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
