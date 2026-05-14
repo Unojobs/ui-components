@@ -26,4 +26,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
+# npmrc with auth tokens
+.npmrc
