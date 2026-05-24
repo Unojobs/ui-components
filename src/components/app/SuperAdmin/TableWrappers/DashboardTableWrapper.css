@@ -22,33 +22,6 @@
   background-color: white;
 }
 
-.dashboard-table-wrapper .ant-table-cell-fix-left:first-child {
-  border-right: 6px solid #e8e8e8;
-}
-.dashboard-table-wrapper .ant-table-cell-fix-left-last::after {
-  border-right: 1px solid #e8e8e8;
-  width: 0px;
-}
-
-.dashboard-table-wrapper thead .ant-table-cell-fix-left,
-.dashboard-table-wrapper thead .ant-table-cell-fix-left-last::after {
-  border-right: 0px !important;
-}
-
-.dashboard-table-wrapper
-  .ant-table-ping-left
-  .ant-table-cell-fix-left-last::after {
-  border: none;
-  width: 30px;
-  box-shadow: inset 10px 0 8px -8px rgb(0 0 0 / 15%);
-}
-
-.dashboard-table-wrapper
-  .ant-table-ping-right
-  .ant-table-cell-fix-right-last::before {
-  box-shadow: none;
-}
-
 .dashboard-table-wrapper .ant-table-cell::before {
   width: 0px !important;
 }
