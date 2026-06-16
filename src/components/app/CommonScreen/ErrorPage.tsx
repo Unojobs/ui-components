@@ -18,5 +18,5 @@ export const ErrorPage = (props: ErrorProps) => {
 };
 
 ErrorPage.defaultProps = {
-  error: 'Something Went wrong Plase try again !',
+  error: 'Something went wrong. Please try again.',
 };
