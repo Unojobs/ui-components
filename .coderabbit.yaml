@@ -1,14 +1,21 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
-# CodeRabbit: auto-review on all PR base branches + ESLint (UnoJobs).
-# See https://docs.coderabbit.ai/configuration/auto-review
 
 language: "en-US"
 
 reviews:
-  profile: "chill"
+  profile: "assertive"
   request_changes_workflow: false
   high_level_summary: true
   review_status: true
+
+  path_instructions:
+    - path: "**/*"
+      instructions: >
+        Shared library — breaking prop/API changes affect candidate, employer, and admin apps.
+        Flag semver impact and missing peer dependency updates.
+    - path: "src/**/*.{ts,tsx}"
+      instructions: >
+        Maintain RN web compatibility. Run lint + tsc before release tags.
 
   tools:
     eslint:

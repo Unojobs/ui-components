@@ -12,6 +12,9 @@
   "source": "src/index",
   "typings": "src/index.tsx",
   "private": false,
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@expo-google-fonts/inter": "^0.2.2",
