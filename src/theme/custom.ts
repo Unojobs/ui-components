@@ -73,6 +73,15 @@ export const custom = {
     },
   },
   fontSizes: {
+    '2xs': '11px',
+    xs: '13px',
+    sm: '14px',
+    md: '15px',
+    lg: '18px',
+    xl: '20px',
+    '2xl': '24px',
+    '3xl': '30px',
+    '4xl': '36px',
     appmedium: '22px',
   },
   lineHeights: {

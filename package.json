@@ -1,22 +1,28 @@
 {
-  "name": "@Unojobs/ui-components",
+  "name": "@uno-jobs/components",
   "version": "0.1.8",
-  "main": "lib/commonjs/index",
+  "main": "src/index.tsx",
   "repository": {
     "type": "git",
     "url": "https://github.com/Unojobs/ui-components"
   },
-  "module": "lib/module/index",
-  "types": "lib/typescript/src/index.d.ts",
+  "module": "src/index.tsx",
+  "types": "src/index.tsx",
   "react-native": "src/index",
   "source": "src/index",
-  "typings": "lib/typescript/index.d.ts",
+  "typings": "src/index.tsx",
   "private": false,
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/urbanist": "^0.2.2",
-    "antd": "^4.23.5",
+    "@swc/helpers": "^0.5.19",
+    "@types/glob": "^9.0.0",
+    "@types/minimatch": "^6.0.0",
+    "antd": "^4.24.16",
     "expo-asset": "^8.6.1",
     "expo-font": "^10.2.1",
     "expo-modules-core": "^0.11.8",
@@ -25,7 +31,7 @@
     "lodash.merge": "^4.6.2",
     "nanoid": "3.1.16",
     "native-base": "^3.4.25",
-    "react-native": "^0.70.2",
+    "react-native": "*",
     "react-native-safe-area-context": "3.3.2",
     "react-native-svg": "12.1.1",
     "react-native-vector-icons": "^9.2.0",
@@ -36,7 +42,6 @@
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-native": "*",
-    "antd": "^4.22.2",
     "native-base": "^3.4.25",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -52,7 +57,7 @@
     "build-storybook": "build-storybook -s public",
     "typescript": "tsc --noEmit",
     "release": "release-it",
-    "prepare": "bob build",
+    "prepare": "echo \"Skipping bob build for local workspace usage\"",
     "commit-test": "yarn prepare && cd example && yarn test && cd ..",
     "lint": "eslint src"
   },
@@ -67,7 +72,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint-staged"
+      "pre-commit": "sh scripts/precommit.sh"
     }
   },
   "commitlint": {
