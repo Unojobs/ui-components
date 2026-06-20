@@ -1,18 +1,4 @@
+# Temporarily disabled 2026-06-20 to conserve GitHub Actions minutes.
+# Re-enable by restoring .github/dependabot.yml from git history.
 version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "security"
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    labels:
-      - "dependencies"
-      - "ci"
+updates: []
