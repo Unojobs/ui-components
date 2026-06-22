@@ -1,34 +1,15 @@
 name: "CodeQL Security Scan"
+
+# Weekly schedule removed to save Actions minutes. Runs on push/PR only when
+# CODEQL_ENABLED=true (org/repo variable). Manual: Actions → Run workflow.
+
 on:
   push:
     branches: [main, master, development, dev]
   pull_request:
     branches: [main, master, development, dev]
-  schedule:
-    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
 jobs:
   analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [javascript-typescript]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: ${{ matrix.language }}
-          queries: security-extended
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:${{ matrix.language }}"
+    uses: Unojobs/.github/.github/workflows/codeql-javascript.yml@main
