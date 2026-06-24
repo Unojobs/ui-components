@@ -33,7 +33,7 @@
     "native-base": "^3.4.25",
     "react-native": "*",
     "react-native-safe-area-context": "3.3.2",
-    "react-native-svg": "12.1.1",
+    "react-native-svg": "15.15.4",
     "react-native-vector-icons": "^9.2.0",
     "react-otp-input": "^2.4.0",
     "react-responsive-carousel": "^3.2.23",
