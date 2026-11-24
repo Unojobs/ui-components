@@ -1,34 +1,281 @@
-name: CI
+# ci.yml - UnoJobs delivery framework (card p105)
+#
+# Copy to .github/workflows/ci.yml. Build, lint and test for every stack found in the repo.
+# The org rulesets require the check named "ci" (the last job). Keep that name.
+#
+# Runs on: every PR into develop, staging or main, and every push to develop.
+# develop does NOT deploy anywhere until a separate DEV environment exists (see
+# delivery-workflow.md, "Where DEV slots in later"). staging and production deploys live in
+# their own workflows.
+#
+# Stacks detected automatically (override with repo variables, space-separated dirs):
+#   Node / Next.js   dirs with package-lock.json, yarn.lock or pnpm-lock.yaml   CI_NODE_DIRS
+#   Flutter / Dart   dirs with pubspec.yaml                                     CI_FLUTTER_DIRS
+#   Python           dirs with requirements.txt or pyproject.toml               CI_PYTHON_DIRS
+#   Hasura           dirs with a config.yaml that has metadata_directory        CI_HASURA_DIRS
+# Set a variable to "none" to turn that stack off.
+#
+# Other optional repo variables:
+#   NODE_VERSION (default: .nvmrc / .node-version in the dir or repo root, else 22)
+#   CI_NPM_FLAGS (e.g. --legacy-peer-deps)   CI_NODE_BUILD=true (also run "npm run build")
+#   FLUTTER_VERSION (default 3.41.5)         PYTHON_VERSION (default 3.12)
+#   HASURA_VERSION (default v2.23.0, must match production)
+#   HASURA_CI_EXTENSIONS (default "pgcrypto uuid-ossp citext pg_trgm": created before migrations,
+#     because production has them but no migration creates them)
+#   CI_HASURA_MODE=report: run the Hasura check but never fail "ci" (use until the migration
+#     history replays cleanly on an empty database; see repo-inventory.md, Unojobs-backend)
+# Optional hook: .github/ci/flutter-prepare.sh runs before flutter analyze (env stubs etc.).
+
+name: ci
 
 on:
   pull_request:
-    branches: [main, master, development, azure-prod, staging]
+    branches: [develop, staging, main]
   push:
-    branches: [main, master, azure-prod, staging]
+    branches: [develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
+  group: ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  verify:
-    name: lint + typecheck
+  detect:
+    name: detect stacks
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 5
+    outputs:
+      node: ${{ steps.d.outputs.node }}
+      flutter: ${{ steps.d.outputs.flutter }}
+      python: ${{ steps.d.outputs.python }}
+      hasura: ${{ steps.d.outputs.hasura }}
     steps:
-      - uses: actions/checkout@v6
-
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version-file: .nvmrc
-          cache: yarn
+          persist-credentials: false
+      - id: d
+        env:
+          CI_NODE_DIRS: ${{ vars.CI_NODE_DIRS }}
+          CI_FLUTTER_DIRS: ${{ vars.CI_FLUTTER_DIRS }}
+          CI_PYTHON_DIRS: ${{ vars.CI_PYTHON_DIRS }}
+          CI_HASURA_DIRS: ${{ vars.CI_HASURA_DIRS }}
+        run: |
+          set -euo pipefail
+          prune=(-path '*/node_modules' -o -path '*/.git' -o -path '*/build' -o -path '*/.dart_tool' -o -path '*/venv' -o -path '*/.venv')
+          finddirs() { find . -maxdepth 4 \( "${prune[@]}" \) -prune -o \( "$@" \) -print0 | xargs -0 -r -n1 dirname | sed 's#^\./##' | sort -u; }
+          tojson() { jq -Rnc '[inputs | select(length > 0)]'; }
+          pick() { # $1 = override value, rest = autodetect command
+            local o="$1"; shift
+            if [ "$o" = "none" ]; then echo '[]'; elif [ -n "$o" ]; then tr ' ' '\n' <<<"$o" | tojson; else "$@" | tojson; fi; }
+          node=$(pick "$CI_NODE_DIRS" finddirs -name package-lock.json -o -name yarn.lock -o -name pnpm-lock.yaml)
+          flutter=$(pick "$CI_FLUTTER_DIRS" finddirs -name pubspec.yaml)
+          python=$(pick "$CI_PYTHON_DIRS" finddirs -name requirements.txt -o -name pyproject.toml)
+          # shellcheck disable=SC2016
+          hasura=$(pick "$CI_HASURA_DIRS" bash -c 'for f in $(find . -maxdepth 4 -name config.yaml -not -path "*/node_modules/*"); do grep -q "^metadata_directory:" "$f" && dirname "$f" | sed "s#^\./##"; done | sort -u')
+          { echo "node=$node"; echo "flutter=$flutter"; echo "python=$python"; echo "hasura=$hasura"; } | tee -a "$GITHUB_OUTPUT"
 
+  node:
+    name: node (${{ matrix.dir }})
+    needs: detect
+    if: needs.detect.outputs.node != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJSON(needs.detect.outputs.node) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: v
+        env:
+          NODE_VERSION: ${{ vars.NODE_VERSION }}
+        run: |
+          v="$NODE_VERSION"
+          for f in .nvmrc .node-version "$GITHUB_WORKSPACE/.nvmrc" "$GITHUB_WORKSPACE/.node-version"; do
+            [ -z "$v" ] && [ -f "$f" ] && v=$(tr -d ' \nv' < "$f")
+          done
+          echo "version=${v:-22}" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ steps.v.outputs.version }}
       - name: Install
-        run: yarn install --frozen-lockfile
-
+        env:
+          CI_NPM_FLAGS: ${{ vars.CI_NPM_FLAGS }}
+        run: |
+          set -euo pipefail
+          read -r -a npm_flags <<<"${CI_NPM_FLAGS:-}"
+          if [ -f pnpm-lock.yaml ]; then corepack enable && pnpm install --frozen-lockfile
+          elif [ -f yarn.lock ]; then corepack enable && yarn install --frozen-lockfile
+          else npm ci --no-audit --no-fund "${npm_flags[@]}"; fi
       - name: Lint
-        run: yarn lint
+        run: npm run --if-present lint
+      - name: Type-check
+        run: |
+          if jq -e '.scripts["type-check"]' package.json >/dev/null; then npm run type-check
+          elif jq -e '.scripts.typecheck' package.json >/dev/null; then npm run typecheck
+          else echo "no type-check script"; fi
+      - name: Unit tests
+        env:
+          CI: "true"
+        run: |
+          t=$(jq -r '.scripts.test // ""' package.json)
+          if [ -z "$t" ] || grep -q 'no test specified' <<<"$t"; then echo "no test script"; else npm test; fi
+      - name: Build
+        if: vars.CI_NODE_BUILD == 'true'
+        run: npm run --if-present build
 
-      - name: Typecheck
-        run: yarn typescript
+  flutter:
+    name: flutter (${{ matrix.dir }})
+    needs: detect
+    if: needs.detect.outputs.flutter != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJSON(needs.detect.outputs.flutter) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          channel: stable
+          flutter-version: ${{ vars.FLUTTER_VERSION || '3.41.5' }}
+          cache: true
+      - run: flutter pub get
+      - name: Repo-specific preparation
+        run: |
+          if [ -f "$GITHUB_WORKSPACE/.github/ci/flutter-prepare.sh" ]; then bash "$GITHUB_WORKSPACE/.github/ci/flutter-prepare.sh" "$PWD"; fi
+      - run: flutter analyze --no-fatal-infos
+      - name: Tests
+        run: if [ -d test ]; then flutter test; else echo "no test/ directory"; fi
+
+  python:
+    name: python (${{ matrix.dir }})
+    needs: detect
+    if: needs.detect.outputs.python != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJSON(needs.detect.outputs.python) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.12' }}
+      - name: Install
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -q "ruff==0.17.4" "pytest==9.2.0"
+          if [ -f requirements.txt ]; then python -m pip install -q -r requirements.txt
+          elif [ -f pyproject.toml ]; then python -m pip install -q -e .; fi
+      - name: Lint (errors only - syntax, undefined names)
+        run: ruff check --select E9,F63,F7,F82 --output-format github .
+      - name: Tests
+        run: |
+          rc=0; python -m pytest -q || rc=$?
+          if [ "$rc" -eq 5 ]; then echo "no tests collected"; exit 0; fi
+          exit "$rc"
+
+  hasura:
+    name: hasura migrations (${{ matrix.dir }})
+    needs: detect
+    if: needs.detect.outputs.hasura != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    continue-on-error: ${{ vars.CI_HASURA_MODE == 'report' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJSON(needs.detect.outputs.hasura) }}
+    env:
+      HASURA_VERSION: ${{ vars.HASURA_VERSION || 'v2.23.0' }}
+      # SHA-256 of cli-hasura-linux-amd64 for v2.23.0. Update together with HASURA_VERSION.
+      HASURA_CLI_SHA256: "40dc6d793181434fcd599ea8d2937ff681151cf7239b018aba18a3683fd490c5"
+      HASURA_GRAPHQL_ADMIN_SECRET: ci-only-not-a-secret
+      HASURA_CI_EXTENSIONS: ${{ vars.HASURA_CI_EXTENSIONS }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Hasura CLI
+        run: |
+          set -euo pipefail
+          curl -sSfL -o /tmp/hasura "https://github.com/hasura/graphql-engine/releases/download/${HASURA_VERSION}/cli-hasura-linux-amd64"
+          echo "${HASURA_CLI_SHA256}  /tmp/hasura" | sha256sum -c -
+          chmod +x /tmp/hasura
+      - name: Start throwaway Postgres + Hasura
+        run: |
+          set -euo pipefail
+          docker network create ci-hasura
+          docker run -d --name pg --network ci-hasura -e POSTGRES_PASSWORD=ci -e POSTGRES_DB=app postgres:14-alpine
+          for _ in $(seq 1 30); do docker exec pg pg_isready -U postgres >/dev/null 2>&1 && break; sleep 2; done
+          docker exec pg psql -U postgres -c 'CREATE DATABASE hasura_metadata;'
+          for ext in ${HASURA_CI_EXTENSIONS:-pgcrypto uuid-ossp citext pg_trgm}; do
+            docker exec pg psql -U postgres -d app -c "CREATE EXTENSION IF NOT EXISTS \"$ext\";"
+          done
+          # Every {{ENV_VAR}} placeholder in metadata gets a dummy value; every from_env database gets the CI DB.
+          : > /tmp/hasura.env
+          grep -rhoE '\{\{[A-Z0-9_]+\}\}' metadata | tr -d '{}' | sort -u | while read -r v; do echo "$v=http://localhost:9/$v" >> /tmp/hasura.env; done
+          grep -rhoE 'from_env: *[A-Z0-9_]+' metadata | awk '{print $2}' | sort -u | while read -r v; do echo "$v=postgres://postgres:ci@pg:5432/app" >> /tmp/hasura.env; done
+          docker run -d --name hasura --network ci-hasura -p 8080:8080 --env-file /tmp/hasura.env \
+            -e HASURA_GRAPHQL_METADATA_DATABASE_URL=postgres://postgres:ci@pg:5432/hasura_metadata \
+            -e HASURA_GRAPHQL_ADMIN_SECRET -e HASURA_GRAPHQL_ENABLE_TELEMETRY=false \
+            "hasura/graphql-engine:${HASURA_VERSION}"
+          for _ in $(seq 1 60); do curl -sf http://localhost:8080/healthz >/dev/null && break; sleep 2; done
+          curl -sf http://localhost:8080/healthz
+      - name: Apply all migrations to an empty database
+        run: /tmp/hasura migrate apply --all-databases --endpoint http://localhost:8080 --admin-secret "$HASURA_GRAPHQL_ADMIN_SECRET" --skip-update-check
+      - name: Apply metadata and check consistency
+        run: |
+          set -uo pipefail
+          /tmp/hasura metadata apply --endpoint http://localhost:8080 --admin-secret "$HASURA_GRAPHQL_ADMIN_SECRET" --skip-update-check || true
+          /tmp/hasura metadata inconsistency list -o json --endpoint http://localhost:8080 --admin-secret "$HASURA_GRAPHQL_ADMIN_SECRET" --skip-update-check > /tmp/ic.json || echo '[]' > /tmp/ic.json
+          # Remote schemas cannot be reached from CI; every other inconsistency fails the check.
+          bad=$(jq '[.[]? | select(.type != "remote_schema")] | length' /tmp/ic.json)
+          jq -r '.[]? | "\(.type)\t\(.name // .definition.name // "")\t\(.reason)"' /tmp/ic.json
+          echo "Inconsistent objects (excluding remote schemas): $bad"
+          [ "$bad" -eq 0 ]
+      - name: Down migrations (latest 5) roll back cleanly
+        run: /tmp/hasura migrate apply --down 5 --all-databases --endpoint http://localhost:8080 --admin-secret "$HASURA_GRAPHQL_ADMIN_SECRET" --skip-update-check
+      - name: Hasura logs on failure
+        if: failure()
+        run: docker logs hasura 2>&1 | tail -100
+
+  ci:
+    # The ONLY check the rulesets require from this workflow. Keep this name.
+    name: ci
+    needs: [detect, node, flutter, python, hasura]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - env:
+          RESULTS: ${{ toJSON(needs.*.result) }}
+        run: |
+          echo "Job results: $RESULTS"
+          if jq -e 'any(.[]; . == "failure" or . == "cancelled")' <<<"$RESULTS" >/dev/null; then
+            echo "::error::At least one CI job failed"; exit 1
+          fi

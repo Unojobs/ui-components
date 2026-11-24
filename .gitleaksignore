@@ -1,0 +1,3 @@
+# gitleaks baseline generated 2026-11-24. These secrets are in git history: ROTATE them (card p22).
+1a0cc0c5e9c6fb9a3b09527246704e597deb64ed:.npmrc:github-pat:1
+eb3389f9ddbceb86e1af8f281a82a3c92c0ad8a5:.npmrc:github-pat:1

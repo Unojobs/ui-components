@@ -1,0 +1,14 @@
+# CODEOWNERS - UnoJobs delivery framework (card p105)
+#
+# Both founders own everything, so either one can approve the other's PRs. GitHub never counts
+# a PR author's own approval: AI agents open PRs as @karanmirchandani, so @Pushkar952 approves
+# those, and Karan approves Pushkar's. Later lines win when patterns overlap.
+
+*                         @karanmirchandani @Pushkar952
+
+# Delivery controls themselves.
+/.github/                 @karanmirchandani @Pushkar952
+/.security/               @karanmirchandani @Pushkar952
+/.gitleaksignore          @karanmirchandani @Pushkar952
+/.gitleaks.toml           @karanmirchandani @Pushkar952
+/.npmrc                   @karanmirchandani @Pushkar952

@@ -7,12 +7,16 @@ See workspace router: `../CLAUDE.md`.
 Shared `@uno-jobs/components` package consumed by UnoJobs web apps
 (`git+https://github.com/Unojobs/ui-components.git#v0.9.37` in consumer repos).
 
-## Shipping (PR-based)
+## Shipping (PR-based, card p105)
 
-Release branch: `main` (tagged releases). Ship via PR — branch → push →
-`gh pr create` → CI/review gate → merge, then cut a tag. Never push directly to
-`main` or bypass branch protection unless the user explicitly asks in the moment.
-Confirm before merging/tagging. See workspace rule `pr-based-shipping.mdc`.
+Library: no deploy. Flow: `feature/*` or `bugfix/*` (from `develop`) -> PR into
+`develop` -> PR `develop` -> `staging` -> PR `staging` -> `main`. Every PR runs the
+`ci` and `security-gates` checks; PRs into `main` need a code-owner approval from
+someone other than the author (agent PRs are opened as Karan, so Pushkar approves).
+Hotfix: `hotfix/*` from `main` -> PR into `main`, then PR `main` back into `develop`.
+Release: after merge to `main`, a person cuts a `vX.Y.Z` tag by hand (consumers pin
+`#vX.Y.Z`); there is no release-tag ruleset for this repo. Never push directly to
+`develop`, `staging` or `main`, never merge or tag without the user's go-ahead.
 
 ## Code Intelligence
 

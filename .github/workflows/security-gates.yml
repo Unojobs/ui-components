@@ -1,0 +1,399 @@
+# security-gates.yml - UnoJobs delivery framework (card p105)
+#
+# Copy to .github/workflows/security-gates.yml in each repo. Do not rename the
+# jobs: the org rulesets require the check named "security-gates".
+#
+# Gates (all free tools, no GitHub Advanced Security needed):
+#   gate-sast       Semgrep OSS, registry ruleset p/default (+ .security/semgrep-rules/ if present)
+#   gate-sca        osv-scanner, every lockfile in the repo (npm, pub, pip, ...)
+#   gate-secrets    gitleaks; PRs scan only the PR's commits, schedule/manual runs scan full history
+#   gate-container  Trivy image scan of each Dockerfile (base image only on PRs to develop)
+#   gate-iac        Trivy config scan (Dockerfile, Terraform, Kubernetes, CloudFormation)
+#   security-gates  summary: table in the run summary and a sticky PR comment; this is the required check
+#
+# What blocks: High or Critical findings (semgrep ERROR, CVSS >= 7.0, any new secret,
+# Trivy HIGH/CRITICAL). Medium and Low are reported, never blocking.
+#
+# Day-one baselines (so existing findings do not block every PR), all optional, all committed:
+#   .semgrepignore                  paths Semgrep skips; on PRs Semgrep also only reports findings
+#                                   the PR introduces (--baseline-commit = PR base)
+#   .security/semgrep-baseline.txt  "<rule-id><TAB><path>" lines accepted for full (scheduled) scans
+#   .security/osv-scanner.toml      [[IgnoredVulns]] id + ignoreUntil + reason
+#   .gitleaksignore                 one fingerprint per line (commit:file:rule:line)
+#   .security/trivyignore.yaml      vulnerabilities / misconfigurations with expired_at + statement
+#   templates/security/make-baselines.sh generates all four from today's findings.
+#
+# Repo variables (Settings > Secrets and variables > Actions > Variables), all optional:
+#   SECURITY_GATES_MODE     enforce (default) | report   report = never fail, only summarise
+#   SECURITY_DOCKERFILES    space-separated "path/Dockerfile[:context]"; default ./Dockerfile if present
+#   SECURITY_IGNORE_UNFIXED true (default) | false        container: block only on CVEs with a fix
+#
+# Tool versions are pinned and every download is checked against its published SHA-256.
+
+name: security-gates
+
+on:
+  pull_request:
+    branches: [develop, staging, main]
+  workflow_dispatch:
+  schedule:
+    # Weekly full scan of the default branch (full git history for secrets). Monday 03:17 UTC.
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-gates-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  MODE: ${{ vars.SECURITY_GATES_MODE || 'enforce' }}
+  SEMGREP_VERSION: "1.184.0"
+  OSV_SCANNER_VERSION: "2.7.0"
+  OSV_SCANNER_SHA256: "160c6253e2922e9e0a6a9771c5c4c40a4b3c6090b34a3cdd5e80c96cc2e4218b"
+  GITLEAKS_VERSION: "8.30.1"
+  GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+  TRIVY_VERSION: "0.76.2"
+  TRIVY_SHA256: "bc0fc726e017b8927a62b2d3531d7a84ee01769daf5c99ed866dced54089fdbf"
+  IS_PR: ${{ github.event_name == 'pull_request' }}
+  BASE_SHA: ${{ github.event.pull_request.base.sha }}
+  HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+  BASE_REF: ${{ github.base_ref }}
+
+jobs:
+  sast:
+    name: gate-sast
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      blocking: ${{ steps.scan.outputs.blocking }}
+      total: ${{ steps.scan.outputs.total }}
+      note: ${{ steps.scan.outputs.note }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install Semgrep OSS
+        run: python -m pip install --disable-pip-version-check -q "semgrep==${SEMGREP_VERSION}" "setuptools<81"
+      - name: Semgrep scan
+        id: scan
+        run: |
+          set -uo pipefail
+          mkdir -p security-results
+          configs=(--config p/default)
+          [ -d .security/semgrep-rules ] && configs+=(--config .security/semgrep-rules)
+          extra=()
+          note="full scan"
+          if [ "$IS_PR" = "true" ]; then
+            extra=(--baseline-commit "$BASE_SHA")
+            note="new findings vs ${BASE_REF}"
+          fi
+          rc=0
+          semgrep scan "${configs[@]}" "${extra[@]}" --metrics=off --timeout 60 \
+            --json --output security-results/semgrep.json || rc=$?
+          if [ "$rc" -gt 1 ] || [ ! -s security-results/semgrep.json ]; then
+            echo "::error::Semgrep did not complete (exit $rc)"; exit 2
+          fi
+          if [ -f .security/semgrep-baseline.txt ]; then
+            # Baseline lines: "<rule-id><TAB><path>" (rule-id = last dotted segment of check_id).
+            jq --rawfile bl .security/semgrep-baseline.txt '
+              ($bl | split("\n") | map(select(length > 0 and (startswith("#") | not))) ) as $keys
+              | .results |= map(select(((.check_id | split(".") | last) + "\t" + .path) as $k | ($keys | index($k)) | not))' \
+              security-results/semgrep.json > security-results/semgrep.filtered.json \
+              && mv security-results/semgrep.filtered.json security-results/semgrep.json
+            note="$note, baseline applied"
+          fi
+          total=$(jq '.results | length' security-results/semgrep.json)
+          blocking=$(jq '[.results[] | select(.extra.severity as $s | ["ERROR","HIGH","CRITICAL"] | index($s))] | length' security-results/semgrep.json)
+          jq -r '.results[] | select(.extra.severity as $s | ["ERROR","HIGH","CRITICAL"] | index($s))
+                 | "::error file=\(.path),line=\(.start.line)::\(.check_id)"' security-results/semgrep.json | head -50
+          { echo "blocking=$blocking"; echo "total=$total"; echo "note=$note"; } >> "$GITHUB_OUTPUT"
+          echo "Semgrep: $blocking blocking (ERROR) of $total findings ($note)"
+          if [ "$blocking" -gt 0 ] && [ "$MODE" = "enforce" ]; then exit 1; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: security-sast
+          path: security-results/
+          retention-days: 30
+          if-no-files-found: ignore
+
+  sca:
+    name: gate-sca
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      blocking: ${{ steps.scan.outputs.blocking }}
+      total: ${{ steps.scan.outputs.total }}
+      note: ${{ steps.scan.outputs.note }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install osv-scanner
+        run: |
+          set -euo pipefail
+          curl -sSfL -o /tmp/osv-scanner "https://github.com/google/osv-scanner/releases/download/v${OSV_SCANNER_VERSION}/osv-scanner_linux_amd64"
+          echo "${OSV_SCANNER_SHA256}  /tmp/osv-scanner" | sha256sum -c -
+          chmod +x /tmp/osv-scanner
+      - name: osv-scanner (dependencies)
+        id: scan
+        run: |
+          set -uo pipefail
+          mkdir -p security-results
+          cfg=()
+          [ -f .security/osv-scanner.toml ] && cfg=(--config .security/osv-scanner.toml)
+          rc=0
+          /tmp/osv-scanner scan source -r "${cfg[@]}" --format json \
+            --output-file security-results/osv.json . || rc=$?
+          note="all lockfiles"
+          if [ "$rc" -eq 128 ]; then
+            echo '{"results":[]}' > security-results/osv.json; note="no lockfiles found"
+          elif [ "$rc" -gt 1 ]; then
+            echo "::error::osv-scanner did not complete (exit $rc)"; exit 2
+          fi
+          # One row per (package, vulnerability group). max_severity is the CVSS base score.
+          total=$(jq '[.results[]?.packages[]?.groups[]?] | length' security-results/osv.json)
+          blocking=$(jq '[.results[]?.packages[]?.groups[]? | select(((.max_severity // "0") | tonumber? // 0) >= 7)] | length' security-results/osv.json)
+          jq -r '.results[]? | .source.path as $f | .packages[]? | .package as $p | .groups[]?
+                 | select(((.max_severity // "0") | tonumber? // 0) >= 7)
+                 | "::error file=\($f)::\($p.name)@\($p.version) \(.ids | join(",")) CVSS \(.max_severity)"' \
+                 security-results/osv.json | head -50
+          { echo "blocking=$blocking"; echo "total=$total"; echo "note=$note"; } >> "$GITHUB_OUTPUT"
+          echo "osv-scanner: $blocking blocking (CVSS >= 7) of $total ($note)"
+          if [ "$blocking" -gt 0 ] && [ "$MODE" = "enforce" ]; then exit 1; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: security-sca
+          path: security-results/
+          retention-days: 30
+          if-no-files-found: ignore
+
+  secrets:
+    name: gate-secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      blocking: ${{ steps.scan.outputs.blocking }}
+      total: ${{ steps.scan.outputs.total }}
+      note: ${{ steps.scan.outputs.note }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install gitleaks
+        run: |
+          set -euo pipefail
+          curl -sSfL -o /tmp/gitleaks.tgz "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "${GITLEAKS_SHA256}  /tmp/gitleaks.tgz" | sha256sum -c -
+          tar -xzf /tmp/gitleaks.tgz -C /tmp gitleaks
+      - name: gitleaks
+        id: scan
+        run: |
+          set -uo pipefail
+          mkdir -p security-results
+          # .gitleaksignore at the repo root is read automatically.
+          opts=(--redact --no-banner --exit-code 0 --report-format json)
+          [ -f .security/gitleaks.toml ] && opts+=(--config .security/gitleaks.toml)
+          [ -f .security/gitleaks-baseline.json ] && opts+=(--baseline-path .security/gitleaks-baseline.json)
+          if [ "$IS_PR" = "true" ]; then
+            note="commits in this PR"
+            /tmp/gitleaks git "${opts[@]}" --log-opts="--no-merges ${BASE_SHA}..${HEAD_SHA}" \
+              --report-path security-results/gitleaks.json . || { echo "::error::gitleaks failed"; exit 2; }
+            if [ ! -f .gitleaksignore ] && [ ! -f .security/gitleaks-baseline.json ]; then
+              # First run: also scan full history, report only, so the team can build the baseline.
+              /tmp/gitleaks git "${opts[@]}" --report-path security-results/gitleaks-full-history.json . || true
+              note="$note; no baseline yet: full-history report attached ($(jq length security-results/gitleaks-full-history.json) findings, not blocking)"
+            fi
+          else
+            note="full git history"
+            /tmp/gitleaks git "${opts[@]}" --report-path security-results/gitleaks.json . \
+              || { echo "::error::gitleaks failed"; exit 2; }
+          fi
+          blocking=$(jq length security-results/gitleaks.json)
+          jq -r '.[] | "::error file=\(.File),line=\(.StartLine)::\(.RuleID) in commit \(.Commit[0:8]) (value redacted)"' \
+            security-results/gitleaks.json | head -50
+          { echo "blocking=$blocking"; echo "total=$blocking"; echo "note=$note"; } >> "$GITHUB_OUTPUT"
+          echo "gitleaks: $blocking secret(s) ($note)"
+          if [ "$blocking" -gt 0 ] && [ "$MODE" = "enforce" ]; then exit 1; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: security-secrets
+          path: security-results/
+          retention-days: 30
+          if-no-files-found: ignore
+
+  container:
+    name: gate-container
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      blocking: ${{ steps.scan.outputs.blocking }}
+      total: ${{ steps.scan.outputs.total }}
+      note: ${{ steps.scan.outputs.note }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Trivy
+        run: |
+          set -euo pipefail
+          curl -sSfL -o /tmp/trivy.tgz "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
+          echo "${TRIVY_SHA256}  /tmp/trivy.tgz" | sha256sum -c -
+          tar -xzf /tmp/trivy.tgz -C /tmp trivy
+      - name: Build and scan images
+        id: scan
+        env:
+          DOCKERFILES: ${{ vars.SECURITY_DOCKERFILES }}
+          IGNORE_UNFIXED: ${{ vars.SECURITY_IGNORE_UNFIXED || 'true' }}
+        run: |
+          set -uo pipefail
+          mkdir -p security-results
+          targets="$DOCKERFILES"
+          [ -z "$targets" ] && [ -f Dockerfile ] && targets="Dockerfile"
+          if [ -z "$targets" ]; then
+            { echo "blocking=0"; echo "total=0"; echo "note=no Dockerfile (skipped)"; } >> "$GITHUB_OUTPUT"
+            echo "No Dockerfile: nothing to scan."; exit 0
+          fi
+          ignore=(); [ -f .security/trivyignore.yaml ] && ignore=(--ignorefile .security/trivyignore.yaml)
+          unfixed=(); [ "$IGNORE_UNFIXED" = "true" ] && unfixed=(--ignore-unfixed)
+          # Full image build on PRs to staging/main and on scheduled runs; base image only on PRs to develop (saves minutes).
+          build=true; [ "$IS_PR" = "true" ] && [ "$BASE_REF" = "develop" ] && build=false
+          notes=(); i=0
+          for t in $targets; do
+            df="${t%%:*}"; ctx="."; [[ "$t" == *:* ]] && ctx="${t#*:}"
+            i=$((i+1)); out="security-results/trivy-image-$i.json"
+            if [ ! -f "$df" ]; then echo "::error::$df not found"; exit 2; fi
+            ref=""
+            if [ "$build" = "true" ] && timeout 1800 docker build -q -f "$df" -t "security-scan/img$i:ci" "$ctx" > "security-results/build-$i.log" 2>&1; then
+              ref="security-scan/img$i:ci"; notes+=("$df: built image")
+            else
+              # Fall back to the runtime base image (last FROM without variables).
+              ref=$(grep -iE '^FROM[[:space:]]' "$df" | tail -1 | awk '{print $2}')
+              if [[ -z "$ref" || "$ref" == *'$'* ]]; then notes+=("$df: base image unresolvable"); continue; fi
+              if [ "$build" = "true" ]; then notes+=("$df: build failed (see artifact), scanned base $ref"); else notes+=("$df: base $ref"); fi
+            fi
+            /tmp/trivy image --quiet --scanners vuln --severity HIGH,CRITICAL "${unfixed[@]}" "${ignore[@]}" \
+              --format json --output "$out" "$ref" || { echo "::error::trivy failed on $ref"; exit 2; }
+          done
+          total=0
+          for f in security-results/trivy-image-*.json; do
+            [ -f "$f" ] || continue
+            n=$(jq '[.Results[]?.Vulnerabilities[]?] | length' "$f"); total=$((total+n))
+            jq -r '.ArtifactName as $a | .Results[]?.Vulnerabilities[]? | "::error::\($a) \(.PkgName) \(.InstalledVersion) \(.VulnerabilityID) \(.Severity) fixed in \(.FixedVersion // "n/a")"' "$f" | head -30
+          done
+          note=$(IFS='; '; echo "${notes[*]}")
+          { echo "blocking=$total"; echo "total=$total"; echo "note=$note"; } >> "$GITHUB_OUTPUT"
+          echo "Trivy image: $total HIGH/CRITICAL ($note)"
+          if [ "$total" -gt 0 ] && [ "$MODE" = "enforce" ]; then exit 1; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: security-container
+          path: security-results/
+          retention-days: 30
+          if-no-files-found: ignore
+
+  iac:
+    name: gate-iac
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      blocking: ${{ steps.scan.outputs.blocking }}
+      total: ${{ steps.scan.outputs.total }}
+      note: ${{ steps.scan.outputs.note }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Trivy
+        run: |
+          set -euo pipefail
+          curl -sSfL -o /tmp/trivy.tgz "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
+          echo "${TRIVY_SHA256}  /tmp/trivy.tgz" | sha256sum -c -
+          tar -xzf /tmp/trivy.tgz -C /tmp trivy
+      - name: Trivy config (Dockerfile, Terraform, Kubernetes, CloudFormation)
+        id: scan
+        run: |
+          set -uo pipefail
+          mkdir -p security-results
+          ignore=(); [ -f .security/trivyignore.yaml ] && ignore=(--ignorefile .security/trivyignore.yaml)
+          /tmp/trivy config --quiet "${ignore[@]}" --format json \
+            --output security-results/trivy-config.json . || { echo "::error::trivy config failed"; exit 2; }
+          total=$(jq '[.Results[]?.Misconfigurations[]? | select(.Status == "FAIL")] | length' security-results/trivy-config.json)
+          blocking=$(jq '[.Results[]?.Misconfigurations[]? | select(.Status == "FAIL" and (.Severity == "HIGH" or .Severity == "CRITICAL"))] | length' security-results/trivy-config.json)
+          jq -r '.Results[]? | .Target as $t | .Misconfigurations[]? | select(.Status == "FAIL" and (.Severity == "HIGH" or .Severity == "CRITICAL"))
+                 | "::error file=\($t)::\(.ID) \(.Severity) \(.Title)"' security-results/trivy-config.json | head -50
+          { echo "blocking=$blocking"; echo "total=$total"; echo "note=trivy config"; } >> "$GITHUB_OUTPUT"
+          echo "Trivy config: $blocking HIGH/CRITICAL of $total failed checks"
+          if [ "$blocking" -gt 0 ] && [ "$MODE" = "enforce" ]; then exit 1; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: security-iac
+          path: security-results/
+          retention-days: 30
+          if-no-files-found: ignore
+
+  summary:
+    # The ONLY check the rulesets require from this workflow. Keep this name.
+    name: security-gates
+    needs: [sast, sca, secrets, container, iac]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        with:
+          script: |
+            const needs = JSON.parse(process.env.NEEDS);
+            const mode = process.env.MODE;
+            const gates = [
+              ['sast', 'SAST', 'Semgrep OSS'],
+              ['sca', 'Dependencies (SCA)', 'osv-scanner'],
+              ['secrets', 'Secrets', 'gitleaks'],
+              ['container', 'Container image', 'Trivy image'],
+              ['iac', 'IaC / config', 'Trivy config'],
+            ];
+            const icon = r => ({success: 'pass', skipped: 'skipped', failure: 'FAIL', cancelled: 'cancelled'}[r] || r);
+            let rows = gates.map(([k, label, tool]) => {
+              const n = needs[k] || {}; const o = n.outputs || {};
+              return `| ${label} | ${tool} | ${o.blocking ?? '-'} | ${o.total ?? '-'} | ${icon(n.result)} | ${o.note ?? ''} |`;
+            });
+            const failed = gates.filter(([k]) => !['success', 'skipped'].includes((needs[k] || {}).result));
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              '<!-- security-gates -->',
+              `### Security gates: ${failed.length ? 'BLOCKED' : 'passed'}${mode === 'report' ? ' (report mode, not enforced)' : ''}`,
+              '',
+              '| Gate | Tool | Blocking (High/Critical) | All findings | Result | Scope |',
+              '|---|---|---|---|---|---|',
+              ...rows,
+              '',
+              `Details and JSON reports: [run artifacts](${runUrl}). Accepting an existing finding: add it to the`,
+              'baseline file for that tool (see templates/security in the delivery framework) in a reviewed PR, with a reason and an expiry date.',
+            ].join('\n');
+            await core.summary.addRaw(body).write();
+            if (context.eventName === 'pull_request') {
+              try {
+                const {owner, repo} = context.repo; const issue_number = context.payload.pull_request.number;
+                const comments = await github.paginate(github.rest.issues.listComments, {owner, repo, issue_number, per_page: 100});
+                const mine = comments.find(c => c.body && c.body.startsWith('<!-- security-gates -->'));
+                if (mine) await github.rest.issues.updateComment({owner, repo, comment_id: mine.id, body});
+                else await github.rest.issues.createComment({owner, repo, issue_number, body});
+              } catch (e) { core.warning(`Could not post PR comment: ${e.message}`); }
+            }
+            if (failed.length) core.setFailed(`Gates not passed: ${failed.map(g => g[1]).join(', ')}`);
