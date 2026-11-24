@@ -1,0 +1,96 @@
+# osv-scanner baseline generated 2026-11-24. Each entry expires on 2027-02-22; fix or renew with a reason.
+
+[[IgnoredVulns]]
+id = "GHSA-2w6w-674q-4c4q"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 9.8)"
+
+[[IgnoredVulns]]
+id = "GHSA-3jxr-9vmj-r5cp"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: brace-expansion@1.1.12 (CVSS 7.7)"
+
+[[IgnoredVulns]]
+id = "GHSA-3mfm-83xf-c92r"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 8.1)"
+
+[[IgnoredVulns]]
+id = "GHSA-5c6j-r48x-rmvq"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: serialize-javascript@4.0.0 (CVSS 8.1)"
+
+[[IgnoredVulns]]
+id = "GHSA-6j4f-fj2g-mc7p"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: brace-expansion@1.1.12 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-8r5x-fm3f-whwj"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 9.8)"
+
+[[IgnoredVulns]]
+id = "GHSA-96hv-2xvq-fx4p"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: ws@7.5.10 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-9cx6-37pm-9jff"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-grv7-fg5c-xmjg"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: braces@2.3.2 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-hmw2-7cc7-3qxx"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: form-data@3.0.4 (CVSS 8.7)"
+
+[[IgnoredVulns]]
+id = "GHSA-mh99-v99m-4gvg"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: brace-expansion@1.1.12 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-p8wg-vrv2-v86f"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 9.2)"
+
+[[IgnoredVulns]]
+id = "GHSA-qhr7-859c-m2p7"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: brace-expansion@1.1.12 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-qpx9-hpmf-5gmw"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: underscore@1.13.6 (CVSS 8.2)"
+
+[[IgnoredVulns]]
+id = "GHSA-r5fr-rjxr-66jc"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: lodash@4.17.21, lodash@4.17.23 (CVSS 8.1)"
+
+[[IgnoredVulns]]
+id = "GHSA-rgw5-rvv9-x895"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: brace-expansion@1.1.12 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-w5hq-g745-h8pq"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: uuid@8.3.2 (CVSS 7.5)"
+
+[[IgnoredVulns]]
+id = "GHSA-xhpv-hc6g-r9c6"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 8.1)"
+
+[[IgnoredVulns]]
+id = "GHSA-xjpj-3mr7-gcpf"
+ignoreUntil = 2027-02-22T00:00:00Z
+reason = "day-one baseline: handlebars@4.7.8 (CVSS 8.2)"

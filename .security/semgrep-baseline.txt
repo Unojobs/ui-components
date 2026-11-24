@@ -1,0 +1,1 @@
+# Semgrep baseline generated 2026-11-24; review by 2027-02-22. Format: <rule-id><TAB><path>
